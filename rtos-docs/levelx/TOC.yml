@@ -1,0 +1,45 @@
+- name: Documentação Azure RTOS LevelX
+  href: index.yml
+- name: Guia de utilizadores Azure RTOS LevelX
+  expanded: true
+  items:
+    - name: Ch. 1 - Visão geral do LevelX
+      href: chapter1.md
+    - name: Ch. 2 - Instalação e utilização do LevelX
+      href: chapter2.md
+    - name: Ch. 3 - Suporte NAND LevelX
+      href: chapter3.md
+    - name: Ch. 4 - NIX NAND APIs
+      href: chapter4.md
+    - name: Ch. 5 - Suporte LevelX NOR
+      href: chapter5.md
+    - name: Ch. 6 - LevelX NOR APIs
+      href: chapter6.md
+- name: Repositório LevelX
+  href: 'https://github.com/azure-rtos/levelx'
+- name: Serviços relacionados
+  items:
+    - name: Defender para IoT - RTOS (pré-visualização)
+      href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
+- name: Componentes RTOS microsoft Azure
+  items:
+    - name: Microsoft Azure RTOS
+      href: ../index.yml
+    - name: ThreadX
+      href: ../threadx/index.yml
+    - name: Módulos ThreadX
+      href: ../threadx-modules/index.yml
+    - name: NetX Duo
+      href: ../netx-duo/index.yml
+    - name: NetX
+      href: ../netx/index.yml
+    - name: GUIX
+      href: ../guix/index.yml
+    - name: FileX
+      href: ../filex/index.yml
+    - name: NívelX
+      href: ../levelx/index.yml
+    - name: USBX
+      href: ../usbx/index.yml
+    - name: TraceX
+      href: ../tracex/index.yml
