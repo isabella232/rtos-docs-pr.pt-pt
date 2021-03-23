@@ -1,0 +1,10 @@
+- name: Guia de tradução de endereços de rede Azure RTOS NetX Duo
+  items:
+    - name: Ch. 1 - Uma introdução à tradução de endereços de rede
+      href: chapter1.md
+    - name: Ch. 2 - Instalação e utilização de NAT
+      href: chapter2.md
+    - name: Ch. 3 - Opções de configuração NAT
+      href: chapter3.md
+    - name: Ch. 4 - Descrição dos serviços NAT
+      href: chapter4.md

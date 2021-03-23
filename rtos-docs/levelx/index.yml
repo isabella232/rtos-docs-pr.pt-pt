@@ -1,0 +1,31 @@
+### YamlMime:Landing
+title: Documentação Azure RTOS LevelX
+summary: O Azure RTOS LevelX fornece instalações de nivelamento de desgaste NAND e NOR flash para aplicações incorporadas.
+metadata:
+  title: O que é Azure RTOS LevelX?
+  description: O Azure RTOS LevelX fornece instalações de nivelamento de desgaste NAND e NOR flash para aplicações incorporadas.
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 07/10/2020
+  ms.openlocfilehash: 27ce4d34d53b2a6daec651dd83c648024aad0291
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104798007"
+landingContent:
+- title: Introdução ao Azure RTOS LevelX
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é Azure RTOS LevelX?
+      url: chapter1.md
+- title: Instale e utilize o Azure RTOS LevelX
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Guia de utilizadores Azure RTOS LevelX
+      url: chapter2.md

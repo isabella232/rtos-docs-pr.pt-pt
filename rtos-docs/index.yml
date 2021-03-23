@@ -1,0 +1,121 @@
+### YamlMime:Hub
+title: Documentação RTOS do Microsoft Azure
+summary: Explore a documentação Azure RTOS.
+brand: azure
+metadata:
+  title: Microsoft Azure RTOS centro de documentação
+  description: Explore a documentação Azure RTOS.
+  ms.service: rtos
+  ms.topic: hub-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 5/19/2020
+  ms.openlocfilehash: 12f6535be21d072fd9500c43d7a10f5f7bf0b10a
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104798013"
+highlightedContent:
+  items:
+  - title: O que é Azure RTOS?
+    itemType: overview
+    url: overview-rtos.md
+  - title: Começar com o desenvolvimento de dispositivos embutidos
+    itemType: quickstart
+    url: https://docs.microsoft.com/azure/iot-develop/quickstart-device-development
+  - title: Descarregue o código fonte no GitHub
+    itemType: download
+    url: https://github.com/azure-rtos/
+  - title: Defender para IoT - RTOS (pré-visualização)
+    itemType: overview
+    url: https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos
+conceptualContent:
+  title: Azure RTOS
+  summary: Construa aplicações IoT profundamente incorporadas e dispositivos de borda.
+  items:
+  - title: Construa a sua aplicação incorporada
+    links:
+    - url: ./threadx/overview-threadx.md
+      itemType: overview
+      text: O que é Azure RTOS ThreadX?
+    - url: ./threadx/about-this-guide.md
+      itemType: how-to-guide
+      text: Explore o guia do utilizador
+    footerLink:
+      url: ./threadx/index.yml
+      text: Ver mais
+  - title: Ativar a gestão de ficheiros
+    links:
+    - url: ./filex/overview-filex.md
+      itemType: overview
+      text: O que é Azure RTOS FileX?
+    - url: ./filex/about-this-guide.md
+      itemType: how-to-guide
+      text: Explore o guia do utilizador
+    footerLink:
+      url: ./filex/index.yml
+      text: Ver mais
+  - title: Integrar elementos gráficos
+    links:
+    - url: ./guix/overview-guix.md
+      itemType: overview
+      text: O que é Azure RTOS GUIX?
+    - url: ./guix/about-guix.md
+      itemType: how-to-guide
+      text: Explore o guia do utilizador
+    footerLink:
+      url: ./guix/index.yml
+      text: Ver mais
+  - title: Depurar e resolver problemas
+    links:
+    - url: ./tracex/overview-tracex.md
+      itemType: overview
+      text: O que é Azure RTOS TraceX?
+    footerLink:
+      url: ./tracex/index.yml
+      text: Ver mais
+  - title: Ativar a conectividade da rede
+    links:
+    - url: ./netx/overview-netx.md
+      itemType: overview
+      text: O que é Azure RTOS NetX?
+    - url: ./netx/about-this-guide.md
+      itemType: how-to-guide
+      text: Explore o guia do utilizador
+    footerLink:
+      url: ./netx/index.yml
+      text: Ver mais
+  - title: Ativar a conectividade da rede e as capacidades IPv6
+    links:
+    - url: ./netx-duo/overview-netx-duo.md
+      itemType: overview
+      text: O que é Azure RTOS NetX Duo?
+    - url: ./netx-duo/about-this-guide.md
+      itemType: how-to-guide
+      text: Explore o guia do utilizador
+    footerLink:
+      url: ./netx-duo/index.yml
+      text: Ver mais
+  - title: Interface com dispositivos USB
+    links:
+    - url: ./usbx/overview-usbx.md
+      itemType: overview
+      text: O que é Azure RTOS USBX?
+    - url: ./usbx/usbx-device-stack-about.md
+      itemType: how-to-guide
+      text: Explore o guia do utilizador da pilha de dispositivos
+    - url: ./usbx/usbx-host-stack-about.md
+      itemType: how-to-guide
+      text: Explore o guia do utilizador da pilha de anfitriões
+    footerLink:
+      url: ./usbx/index.yml
+      text: Ver mais
+  - title: Fornecer nivelamento de desgaste de memória flash
+    links:
+    - url: ./levelx/chapter1.md
+      itemType: overview
+      text: O que é Azure RTOS LevelX?
+    footerLink:
+      url: ./levelx/index.yml
+      text: Ver mais

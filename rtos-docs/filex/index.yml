@@ -1,0 +1,31 @@
+### YamlMime:Landing
+title: Documentação Azure RTOS FileX
+summary: O Azure RTOS FileX é um sistema de ficheiros compatível com ficheiros de alto desempenho (FAT)que está totalmente integrado com o Azure RTOS ThreadX e está disponível para todos os processadores suportados. Tal como o Azure RTOS ThreadX, o Azure RTOS FileX foi concebido para ter uma pequena pegada e alto desempenho, tornando-o ideal para as aplicações profundamente incorporadas que requerem operações de gestão de ficheiros. O FileX suporta a maioria dos meios físicos, incluindo RAM, Azure RTOS USBX, SD CARD e NAND/NOR memórias flash via Azure RTOS LevelX.
+metadata:
+  title: O que é Azure RTOS FileX?
+  description: O Azure RTOS FileX é um sistema de ficheiros compatível com ficheiros de alto desempenho (FAT)que está totalmente integrado com o Azure RTOS ThreadX e está disponível para todos os processadores suportados. Tal como o Azure RTOS ThreadX, o Azure RTOS FileX foi concebido para ter uma pequena pegada e alto desempenho, tornando-o ideal para as aplicações profundamente incorporadas que requerem operações de gestão de ficheiros. O FileX suporta a maioria dos meios físicos, incluindo RAM, Azure RTOS USBX, SD CARD e NAND/NOR memórias flash via Azure RTOS LevelX.
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 05/19/2020
+  ms.openlocfilehash: bf7fd9f842c363b753f8acd52f54b9f8e462616c
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104798025"
+landingContent:
+- title: Introdução ao Azure RTOS FileX
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é Azure RTOS FileX?
+      url: overview-filex.md
+- title: Começa com o Azure RTOS FileX
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Guia de utilizador Azure RTOS FileX
+      url: about-this-guide.md
