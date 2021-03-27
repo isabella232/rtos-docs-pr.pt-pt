@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 3c3769c3ddf0eef73546627f1f50fa3d11b16948
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 7dd3485f112bce379ab7d6b11a808605bca191a0
+ms.sourcegitcommit: 1d90854d1da01f4b65e54d732ee9190b57a531e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827157"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105569002"
 ---
 # <a name="chapter-4-guix-studio-resources"></a>Capítulo 4: GUIX Studio Resources
 
@@ -193,6 +193,24 @@ Uma vez definidas todas as opções conforme desejado, clique no botão OK para 
 Para adicionar um novo recurso de mapa de pixels, a partir da `Pixelmaps` secção do Ponto de Vista de ***Recursos*** selecione o seguinte botão:
 
 ![Adicione o novo botão de mapa pixel.](./media/guix-studio/image50.jpg)
+
+**Edição de Pixelmap de Lote**
+
+Para modificar as propriedades de um conjunto de pixelmaps, clique no grupo ou pasta pixelmap e selecione editar o menu **Edit Pixelmap(s)** para invocar o diálogo **Edit Pixelmap(s).**
+
+![Screenshot do diálogo Edit multi pixel-maps.](./media/guix-studio/batch_pixelmap_edit.jpg)
+
+Descrição do estado da caixa de verificação:
+
+![Botão verificado.](./media/guix-studio/checkbox_checked.jpg)
+Este estado significa que todos os pixelmaps têm a propriedade verificada, você pode desmarcar o botão para mudar a propriedade para todos os pixelmaps.
+
+![Botão descontrolado.](./media/guix-studio/checkbox_unchecked.jpg)
+Este estado significa que todos os pixelmaps têm a propriedade desmarcada, você pode verificar o botão para mudar a propriedade para todos os pixelmaps.
+
+![Botão indeterminado.](./media/guix-studio/checkbox_undetermined.jpg)
+Este estado significa que os pixelmaps têm um estado diferente para a propriedade, você pode verificar ou desmarcar o botão para alterar a propriedade para todos os pixelmaps, caso contrário, a propriedade permanece inalterada.
+
 
 ## <a name="string-resources"></a>Recursos de Cordas
 
