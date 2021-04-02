@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 8104f00e192486f57fe9c22b2c83aa9a22954739
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 035492644a911eba3b1c62a79572bc7d4c55f6dd
+ms.sourcegitcommit: 1aeca2f91960856d8cc24fef65f909639e527599
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104828412"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106082222"
 ---
 # <a name="chapter-2---usbx-device-class-considerations"></a>Capítulo 2 - Considerações da classe do dispositivo USBX
 
@@ -220,7 +220,7 @@ Neste exemplo, o descritor DFU não está associado a nenhuma outra classe. Tem 
 
 A descrição das capacidades da DFU é a seguinte.
 
-| Name             | Desvio  | Tamanho | tipo      | Descrição |
+| Name             | Desvio  | Tamanho | tipo      | Description |
 |------------------|----------|------|-----------|------------|
 | bmAttributes  | 2     | 1   | Campo de bits | Bit 3: o dispositivo executará uma sequência de desprendimento de autocarros quando receber um pedido de DFU_DETACH. O anfitrião não deve emitir um Reset USB. (bitWillDetach) 0 = no 1 = sim Bit 2: o dispositivo é capaz de comunicar via USB após a fase de Manifestação. (bitManifestationTolerant) 0 = não, deve ver reset de autocarro 1 = sim Bit 1: upload capaz (bitCanUpload) 0 = no 1 = sim Bit 0: download capaz (bitCanDnload) 0 = no 1 = sim  |
 | wDetachTimeOut  | 3      | 2  | número    | Tempo, em milissegundos, que o dispositivo aguardará após a receção do pedido de DFU_DETACH. Se este tempo decorrer sem um reset USB, o dispositivo terminará a fase de reconfiguração e voltará ao funcionamento normal. Isto representa o tempo máximo que o dispositivo pode esperar (dependendo dos temporizadores, etc.). USBX define este valor para 1000 ms.  |
@@ -514,7 +514,7 @@ UINT ux_device_class_pima_object_add(
     ULONG object_handle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando a classe PIMA precisa adicionar um objeto e informar o anfitrião.
 
@@ -543,7 +543,7 @@ UINT ux_device_class_pima_object_number_get(
     ULONG *object_number);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando a classe PIMA precisa de recuperar o número de objetos no sistema local e enviá-lo de volta para o hospedeiro.
 
@@ -578,7 +578,7 @@ UINT **ux_device_class_pima_object_handles_get**(
     ULONG object_handles_max_number);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando a classe PIMA precisa de recuperar a matriz de pegas de objetos no sistema local e enviá-la de volta para o hospedeiro.
 
@@ -649,7 +649,7 @@ UINT ux_device_class_pima_object_info_get(
     UX_SLAVE_CLASS_PIMA_OBJECT **object);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando a classe PIMA precisa de recuperar a matriz de pegas de objetos no sistema local e enviá-la de volta para o hospedeiro.
 
@@ -709,7 +709,7 @@ UINT ux_device_class_pima_object_info_get(
     ULONG *object_actual_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando a classe PIMA precisa de recuperar os dados do objeto no sistema local e enviá-los de volta para o hospedeiro.
 
@@ -827,7 +827,7 @@ UINT ux_device_class_pima_object_info_send(
     ULONG *object_handle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando a classe PIMA precisa de receber a informação do objeto no sistema local para armazenamento futuro.
 
@@ -933,7 +933,7 @@ UINT ux_device_class_pima_object_data_send(
     ULONG object_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando a classe PIMA precisa de receber os dados do objeto no sistema local para armazenamento.
 
@@ -1010,7 +1010,7 @@ UINT ux_device_class_pima_object_delete(
     ULONG object_handle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando a classe PIMA precisa de apagar um objeto no armazenamento local.
 
@@ -1228,7 +1228,7 @@ A inicialização da classe Audio espera as seguintes partes.
        .ux_device_class_audio_control_process = demo_audio20_request_process;
 
    /* Initialize the device Audio class. This class owns interfaces starting with 0. */
-   status = ux_device_stack_class_register(_ux_system_slave_class_cdc_acm_name,
+   status = ux_device_stack_class_register(_ux_system_slave_class_audio_name,
        ux_device_class_audio_entry, 1, 0, &audio_parameter);
    if(status!=UX_SUCCESS)
        return;
@@ -1256,7 +1256,7 @@ Entrada de fio para ler dados para a função Áudio.
 VOID ux_device_class_audio_read_thread_entry(ULONG audio_stream);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é transmitida para o parâmetro de inicialização do fluxo de áudio se for desejado o áudio de leitura do anfitrião. Internamente, um fio é criado com esta função como função de entrada; o próprio fio lê dados áudio através do ponto final isocrono out na função Áudio.
 
@@ -1282,7 +1282,7 @@ Entrada de fio para escrever dados para a função Áudio
 VOID ux_device_class_audio_write_thread_entry(ULONG audio_stream);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é transmitida para o parâmetro de inicialização do fluxo de áudio se desejar escrever áudio para o anfitrião. Internamente, um fio é criado com esta função como função de entrada; o próprio fio escreve dados áudio através do ponto final isocrono IN na função Áudio.
 
@@ -1311,7 +1311,7 @@ UINT ux_device_class_audio_stream_get(
     UX_DEVICE_CLASS_AUDIO_STREAM **stream);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é usada para obter uma série de streaming de classe áudio.
 
@@ -1346,7 +1346,7 @@ Inicie a receção de dados áudio para o stream de áudio
 UINT ux_device_class_audio_reception_start(UX_DEVICE_CLASS_AUDIO_STREAM *stream);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada para iniciar a leitura de dados áudio em streams de áudio.
 
@@ -1383,7 +1383,7 @@ UINT ux_device_class_audio_sample_read8(
     UCHAR *buffer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função lê dados de amostra sonora de 8 bits a partir do fluxo especificado.
 
@@ -1424,7 +1424,7 @@ UINT ux_device_class_audio_sample_read16(
     USHORT *buffer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função lê dados de amostra sonora de 16 bits a partir do fluxo especificado.
 
@@ -1465,7 +1465,7 @@ UINT ux_device_class_audio_sample_read24(
     ULONG *buffer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função lê dados de amostra sonora de 24 bits a partir do fluxo especificado.
 
@@ -1506,7 +1506,7 @@ UINT ux_device_class_audio_sample_read32(
     ULONG *buffer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função lê dados de amostra de áudio de 32 bits a partir do fluxo especificado.
 
@@ -1548,7 +1548,7 @@ UINT ux_device_class_audio_read_frame_get(
     ULONG *frame_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função devolve o primeiro tampão de quadro de áudio e o seu comprimento no FIFO do stream especificado. Quando a aplicação é feita o processamento dos dados, ux_device_class_audio_read_frame_free devem ser utilizados para libertar o tampão de fotogramas no FIFO.
 
@@ -1586,7 +1586,7 @@ Livre um tampão de quadro de áudio no fluxo de áudio
 UINT ux_device_class_audio_read_frame_free(UX_DEVICE_CLASS_AUDIO_STREAM *stream);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função liberta o tampão de quadro de áudio na parte frontal do FIFO do stream especificado para que possa receber dados do anfitrião.
 
@@ -1622,7 +1622,7 @@ Inicie a transmissão de dados áudio para o fluxo áudio
 UINT ux_device_class_audio_transmission_start(UX_DEVICE_CLASS_AUDIO_STREAM *stream);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada para começar a enviar dados áudio escritos para o FIFO na classe de áudio.
 
@@ -1661,7 +1661,7 @@ UINT ux_device_class_audio_frame_write(
     ULONG frame_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função escreve uma moldura para o FIFO do stream de áudio. Os dados do quadro são copiados para o tampão disponível no FIFO para que possa ser enviado para o anfitrião.
 
@@ -1702,7 +1702,7 @@ UINT ux_device_class_audio_write_frame_get(
     ULONG *frame_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função recupera o endereço do último tampão de quadro áudio do FIFO; também recupera o comprimento do tampão de quadro de áudio. Depois de a aplicação preencher o tampão de quadro áudio com os dados pretendidos, ***ux_device_class_audio_write_frame_commit*** devem ser utilizados para adicionar/comprometer o tampão de fotogramas ao FIFO.
 
@@ -1742,7 +1742,7 @@ UINT ux_device_class_audio_write_frame_commit(
     ULONG length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função adiciona/compromete o último tampão de fotogramas de áudio ao FIFO para que o tampão esteja pronto para ser transferido para o hospedeiro; note que o último tampão de quadro de áudio deveria ter sido preenchido através de ux_device_class_write_frame_get.
 
@@ -1782,7 +1782,7 @@ UINT ux_device_class_audio10_control_process(
     UX_DEVICE_CLASS_AUDIO10_CONTROL_GROUP *group);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função gere os pedidos básicos enviados pelo anfitrião no ponto final de controlo com um tipo específico USB Audio 1.0.
 
@@ -1840,7 +1840,7 @@ UINT ux_device_class_audio20_control_process(
     UX_DEVICE_CLASS_AUDIO20_CONTROL_GROUP *group);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função gere os pedidos básicos enviados pelo anfitrião no ponto final de controlo com um tipo específico USB Audio 2.0.
 
