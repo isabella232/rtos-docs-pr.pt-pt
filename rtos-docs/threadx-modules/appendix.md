@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b54b8b094e608052fdbfc392d93a57ebb34515ed
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: c2324a2057bf2ddb2d255b2ff611d34fc664560a
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827403"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106549815"
 ---
 # <a name="appendix---port-specific-examples"></a>Apêndice - Exemplos específicos do porto
 
@@ -542,6 +542,7 @@ armlink -d -o demo_threadx_module_manager.axf --elf --ro 0x80000000 --first tx_i
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-a7-using-ac5"></a>Atributos para memória externa permitem API para córtex-A7 usando AC5
 
 Os seguintes atributos podem ser utilizados para configurar definições de memória partilhada:
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MMU_ATTRIBUTE_XN | Executar Nunca |
@@ -684,6 +685,7 @@ armlink -d -o sample_threadx_module_manager.axf --elf --ro 0x00000000 --first tx
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-m3-using-ac5"></a>Atributos para memória externa permitem API para córtex-M3 usando AC5
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -800,6 +802,7 @@ Um espaço de trabalho exemplo é fornecido. Construa a biblioteca ThreadX, a bi
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-m3-using-ac6"></a>Atributos para memória externa permitem API para córtex-M3 usando AC6
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -1137,6 +1140,7 @@ arm-none-eabi-ld -A cortex-m3 -ereset_handler -T sample_threadx.ld tx_simulator_
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-m3-using-gnu"></a>Atributos para memória externa permitem API para córtex-M3 usando GNU
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -1316,6 +1320,7 @@ Um espaço de trabalho exemplo é fornecido. Construa a biblioteca ThreadX, a bi
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-m3-using-iar"></a>Atributos para memória externa permitem a API para o Córtex-M3 usando O IAR
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -1804,6 +1809,7 @@ armlink -d -o sample_threadx_module_manager.axf --elf --ro 0x00000000 --first tx
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-m4-using-ac5"></a>Atributos para memória externa permitem API para córtex-M4 usando AC5
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -1920,6 +1926,7 @@ Um espaço de trabalho exemplo é fornecido. Construa a biblioteca ThreadX, a bi
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-m4-using-ac6"></a>Atributos para memória externa permitem API para córtex-M4 usando AC6
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -2257,6 +2264,7 @@ arm-none-eabi-gcc -g -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=vfpv4 -mthumb -T sam
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-m4-using-gnu"></a>Atributos para memória externa permitem API para córtex-M4 usando GNU
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -2436,6 +2444,7 @@ Um espaço de trabalho exemplo é fornecido. Construa a biblioteca ThreadX, a bi
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-m4-using-iar"></a>Atributos para memória externa permitem API para córtex-M4 usando IAR
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -2618,6 +2627,7 @@ Um espaço de trabalho exemplo é fornecido. Construa a biblioteca ThreadX, a bi
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-m7-using-ac6"></a>Atributos para memória externa permitem API para córtex-M7 usando AC6
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -2891,6 +2901,7 @@ arm-none-eabi-gcc -g -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-d16 -mthumb -no
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-m7-using-gnu"></a>Atributos para memória externa permitem API para córtex-M7 usando GNU
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -3064,6 +3075,7 @@ Um espaço de trabalho exemplo é fornecido. Construa a biblioteca ThreadX, a bi
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-m7-using-iar"></a>Atributos para memória externa permitem a API para córtex-M7 usando IAR
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -3191,6 +3203,7 @@ armlink -d -o demo_threadx_module_manager.axf --elf --scatter=demo_threadx.scat 
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-r4-using-ac6"></a>Atributos para memória externa permitem API para córtex-R4 usando AC6
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |
@@ -3348,6 +3361,7 @@ Um espaço de trabalho exemplo é fornecido. Construa a biblioteca ThreadX, a bi
 #### <a name="attributes-for-external-memory-enable-api-for-cortex-r4-using-iar"></a>Atributos para memória externa permitem API para córtex-R4 usando IAR
 
 O módulo sempre leu o acesso à memória partilhada.
+
 | Parâmetro de atributo | Significado |
 |---|---|
 | TXM_MODULE_MANAGER_SHARED_ATTRIBUTE_WRITE | Acesso de escrita |

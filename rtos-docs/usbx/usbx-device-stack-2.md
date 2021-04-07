@@ -1,17 +1,17 @@
 ---
 title: Capítulo 2 - Instalação de pilha de dispositivos USBX Azure RTOS
-description: Saiba como instalar a pilha de dispositivos USBX.
+description: Saiba como instalar a pilha de dispositivos USBX Azure RTOS, bem como as considerações importantes do anfitrião que precisa de pensar antes de instalar.
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 62f036af27c5da29baf9cba58b5b26631167c3a1
-ms.sourcegitcommit: d8edbb3207fe99f8afb431597dac063e73383e68
+ms.openlocfilehash: dd58f77130fa252be9163bd70c29f7deee400d30
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106377157"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106549781"
 ---
 # <a name="chapter-2---azure-rtos-usbx-device-stack-installation"></a>Capítulo 2 - Instalação de pilha de dispositivos USBX Azure RTOS
 

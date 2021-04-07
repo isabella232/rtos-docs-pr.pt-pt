@@ -1,17 +1,17 @@
 ---
 title: Capítulo 5 - USBX OTG
-description: O USBX suporta as funcionalidades OTG de USB quando um controlador USB compatível com OTG está disponível no design de hardware.
+description: Saiba como o USBX suporta as funcionalidades OTG do USB quando um controlador USB compatível com OTG estiver disponível no design de hardware.
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: da562fd843c6ef0fd17f0d979ca57bd37572748d
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 64a3c44f84b9ffca31d9e616d14d3d5d87c56bd7
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827415"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550325"
 ---
 # <a name="chapter-5---usbx-otg"></a>Capítulo 5 - USBX OTG
 

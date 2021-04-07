@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 07e51643c828afc8e6c0b968e78380316e84ccd7
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 31900c7b822c88079e4b9fe28a8a388d20f819aa
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826210"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106549849"
 ---
 # <a name="chapter-3---functional-components-of-azure-rtos-netx-duo"></a>Capítulo 3 - Componentes funcionais do Azure RTOS NetX Duo
 
@@ -204,7 +204,7 @@ Os campos do cabeçalho do pacote são definidos da seguinte forma. Note que est
 > [!CAUTION]
 > *Por razões de desempenho, a NetX Duo assume que quando o pacote é passado para os serviços NetX Duo para transmissão, o ponteiro pré-end aponta para um endereço alinhado com palavras longas.*
 
-|   |   |
+| Cabeçalho de pacote | Objetivo |
 |---|---|
 |***nx_packet_append_ptr**|Este campo aponta para o fim dos dados atualmente na área de carga útil do pacote. Deve estar entre o local da memória apontado por _nx_packet_prepend_ptr* e *nx_packet_data_end.* A diferença entre este campo e o campo *nx_packet_prepend_ptr* representa a quantidade de dados neste pacote.|
 |***nx_packet_packet_pad**|Estes campos definem o comprimento do acolchoamento em 4 bytes para alcançar o requisito de alinhamento desejado. Este campo é removido se _*_NX_PACKET_HEADER_PAD_*_ não estiver definido. _*_Alternativamente, NX_PACKET_ALIGNMENT_*_ pode ser usado em vez de definir _nx_packet_header_pad.*|

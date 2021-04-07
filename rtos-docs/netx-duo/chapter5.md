@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: ede57b7512f4a1a4c30759f428962739aaa2777c
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 305c333bf3fb3f6fe76d661426c196afe25fbd5d
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826185"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106549798"
 ---
 # <a name="chapter-5---azure-rtos-netx-duo-network-drivers"></a>Capítulo 5 - Azure RTOS NetX Duo Network Drivers
 
@@ -494,7 +494,7 @@ A função de entrada do controlador de rede é ***_nx_ram_network_driver(),** _
 
 A instância IP transmite pacotes de rede através de um destes comandos:
 
-|                                 |                                                                |
+| Comando                         |  Descrição                                                   |
 | ------------------------------- | -------------------------------------------------------------- |
 | ***NX_LINK_PACKET_SEND***    | Um pacote IPv4 ou IPv6 está a ser transmitido,                   |
 | ***NX_LINK_ARP_SEND***       | Está a ser transmitido um pedido ARP ou um pacote de resposta ARP,    |

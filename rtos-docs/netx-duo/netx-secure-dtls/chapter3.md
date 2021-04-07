@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 468f1dc8a8334dc89064594b29dc8cfabd7d8fae
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 347bd83fa8c72ced2e8678a92ec5c5f8393c136d
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826978"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550206"
 ---
 # <a name="chapter-3-functional-description-of-azure-rtos-netx-secure-dtls"></a>Capítulo 3: Descrição funcional do Azure RTOS NetX Secure DTLS
 
@@ -64,14 +64,14 @@ Qualquer registo de aperto de mão DTLS válido deve ter um cabeçalho de aperto
 
 Os campos do cabeçalho de registo do aperto de mão DTLS são definidos da seguinte forma:
 
-| Campo de cabeçalho TLS | Objetivo |
+| Campo de cabeçalho TLS | Objetivo  |
 | ---------------- | ------------------------------------------------ |
 | **Tipo de mensagem de 8 bits** | Este campo contém o tipo de registo DTLS enviado. Os tipos válidos são os seguintes:<br />- ChangeCipherSpec: 0x14<br />- Alerta: 0x15<br />- Aperto de mão: 0x16<br />- Dados da aplicação: 0x17 |
 |  **Época de 16 bits** | Este campo contém a "época" DTLS, que é um contador que é incrementado cada vez que o estado de encriptação é alterado (por exemplo, ao gerar novas teclas de sessão). |
 |  **Número de sequência de 48 bits** | Este campo contém um número de sequência que identifica este registo em particular. É utilizado pela DTLS para manter a ordem de registo e verificar a necessidade de retransmissão. |
 |  **Versão do protocolo de 16 bits** | Este campo contém a versão do protocolo DTLS. Os valores válidos são os seguintes:<br />- DTLS 1.1: 0xFEFD |
 | **Comprimento de 16 bits** | Este campo contém o comprimento dos dados encapsulados no registo DTLS. |
-| **Tipo de aperto de mão de 8 bits** | Este campo contém o tipo de mensagem de aperto de mão. Os valores válidos são os seguintes:<br />- HelloRequest: 0x00<br />- ClientHello: 0x01<br />- ServerHello: 0x02<br />- Certificado: 0x0B<br />- ServerKeyExchange: 0x0C<br />- CertificadoRequest: 0x0D<br />- ServerHelloDone: 0x0E<br />- CertificaçãoVerifical: 0x0F<br />- ClientKeyExchange: 0x10<br />- Concluída | 0x14 |
+| **Tipo de aperto de mão de 8 bits** | Este campo contém o tipo de mensagem de aperto de mão. Os valores válidos são os seguintes:<br />- HelloRequest: 0x00<br />- ClientHello: 0x01<br />- ServerHello: 0x02<br />- Certificado: 0x0B<br />- ServerKeyExchange: 0x0C<br />- CertificadoRequest: 0x0D<br />- ServerHelloDone: 0x0E<br />- CertificaçãoVerifical: 0x0F<br />- ClientKeyExchange: 0x10<br />- Acabado: 0x14 |
 | **Comprimento de 24 bits** | Este campo contém o comprimento dos dados da mensagem de aperto de mão. |
 | **Número de sequência de 16 bits** | Este campo contém um número de sequência. |
 

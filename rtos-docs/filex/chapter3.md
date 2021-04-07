@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 1e1e1a1dbd844d811c7ee3122113f28162639fb4
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: a94344a7079e3f0e3e451bc678c369fee543aef6
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825532"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550172"
 ---
 # <a name="chapter-3---functional-components-of-azure-rtos-filex"></a>Capítulo 3 - Componentes funcionais do Azure RTOS FileX
 
@@ -42,6 +42,7 @@ A compensação exata do sector das outras áreas na visão do sector lógico do
 - **Sectores por Cluster** Os *sectores por cluster* no registo de arranque dos meios de comunicação social definem o número de sectores afetados a um cluster. O cluster é o elemento fundamental de atribuição num sistema de ficheiros compatível com a FAT. Todas as informações e subdiretors de ficheiros são atribuídos a partir dos clusters disponíveis dos meios de comunicação, conforme determinado pela Tabela de Atribuição de Ficheiros (FAT).
 
     **MESA 1. Registo de boot de filex media**
+    
     |Desvio  |Campo  |Número de Bytes|
     |----------|-----------|------------|
     |0x00|Instrução de salto (e9,xx,xx ou eb,xx,90)|3|
@@ -161,6 +162,7 @@ As duas primeiras entradas na tabela FAT não são utilizadas e normalmente têm
 A entrada fat número 2 representa o primeiro cluster na área de dados dos meios de comunicação. O conteúdo de cada entrada de cluster determina se é ou não gratuito ou faz parte de uma lista ligada de clusters atribuídos para um ficheiro ou uma subdirectória. Se a entrada do cluster contiver outra entrada de cluster válida, então o cluster é atribuído e o seu valor aponta para o próximo cluster atribuído na cadeia de cluster.
 
 As possíveis entradas de cluster são definidas da seguinte forma.
+
 |Significado|GORDURA de 12 bits|GORDURA de 16 bits|GORDURA de 32 bits| exFAT|
 |----------|-----------|------------|-------|------|
 |Cluster Gratuito|0x000|0x0000|0x00000000|0x00000000|
@@ -283,26 +285,26 @@ O FileX suporta os formatos de nome 8.3 e Windows Long File Name (LFN). Além do
 
     **MESA 4. Entrada de diretório de nome de arquivo longo**
 
-    |Desvio|Campo|Número de Bytes|
+    | Desvio | Campo | Número de Bytes |
     |------------|-----------|------------|
-    0x00|Campo Ordinal|1|
-    0x01|Personagem Unicode 1|2|
-    0x03|Personagem Unicode 2|2|
-    0x05|Personagem Unicode 3|2|
-    0x07|Personagem Unicode 4|2|
-    0x09|Personagem Unicode 5|2|
-    0x0B|Atributos LFN|1|
-    0x0C|Tipo LFN (Reservado sempre 0)|1|
-    0x0D|LFN Checksum|1|
-    0x0E|Personagem Unicode 6|2|
-    0x10|Personagem Unicode 7|2|
-    0x12|Personagem Unicode 8|2|
-    0x14|Personagem Unicode 9|2|
-    0x16|Personagem Unicode 10|2|
-    0x18|Personagem Unicode 11|2|
-    0x1A|Cluster LFN (sempre não uused 0)|2|
-    0x1C|Personagem Unicode 12|2|
-    0x1E|Personagem unicódigo |13|2|
+    | 0x00 | Campo Ordinal | 1 |
+    | 0x01 | Personagem Unicode 1 | 2 |
+    | 0x03 | Personagem Unicode 2 | 2 |
+    | 0x05 | Personagem Unicode 3 | 2 |
+    | 0x07 | Personagem Unicode 4 | 2 |
+    | 0x09 | Personagem Unicode 5 | 2 |
+    | 0x0B | Atributos LFN | 1 |
+    | 0x0C | Tipo LFN (Reservado sempre 0) | 1 |
+    | 0x0D | LFN Checksum | 1 |
+    | 0x0E | Personagem Unicode 6 | 2 | 
+    | 0x10 | Personagem Unicode 7 | 2 |
+    | 0x12 | Personagem Unicode 8 | 2 |
+    | 0x14 | Personagem Unicode 9 | 2 |
+    | 0x16 | Personagem Unicode 10 | 2 |
+    | 0x18 | Personagem Unicode 11 | 2 |
+    | 0x1A | Cluster LFN (sempre não uused 0) | 2 |
+    | 0x1C | Personagem Unicode 12 | 2 |
+    | 0x1E | Personagem Unicode 13 | 2 |
 
 - **Personagem unicódigo**
 
@@ -472,6 +474,7 @@ Uma descrição do Diretório de Extensão de Fluxo e o seu conteúdo está incl
 - **Sinalizadores**
 
     Este campo contém uma série de bits que especificam várias propriedades:
+    
     |Bit de bandeira|Significado    |
     |-----------------|-----------|
     |0x01            |Este campo indica se a atribuição ou não de clusters é possível. Este campo deve ser 1.|

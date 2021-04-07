@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 8e1c23892c4360ddc8783b04ae8f23e371899f1d
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 01077e3315e87b918cdfd47423d8e0c1b6bbdbbd
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826918"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550274"
 ---
 # <a name="about-the-azure-rtos-netx-user-guide"></a>Sobre o Guia de Utilizador Azure RTOS NetX
 
@@ -47,7 +47,7 @@ Além dos tipos de dados personalizados da estrutura de controlo Azure RTOS NetX
 
 Segue-se uma lista dos tipos de dados de chamada de chamada de serviço Azure RTOS NetX e os seus significados associados:
 
-| <!-- -->    | <!-- -->    |
+| Tipos de Dados | Descrição  |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | **UINT**  | Número inteiro básico não assinado. Este tipo deve suportar dados não assinados de 32 bits; no entanto, é mapeado para o mais conveniente tipo de dados não assinado. |
 | **ULONG** | Tipo longo não assinado. Este tipo deve suportar dados não assinados de 32 bits.                                                                      |
