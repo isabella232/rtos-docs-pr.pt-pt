@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 2339da391e52b437a2111ae439cccf41e038bdcf
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: e3fe3bcc602f409cc76f3be47aca865bf8116697
+ms.sourcegitcommit: 19d50693d8f5287ba6938ae1d23eef88435ed7b1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826924"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108171340"
 ---
 # <a name="overview-of-azure-rtos-netx-duo"></a>Visão geral do Azure RTOS NetX Duo
 
@@ -23,13 +23,11 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
 
 * Transporte de Telemetria de Fila de Mensagens (MQTT)
 * Mínimo de 2,7 KB FLASH
-* APIs intuitivos de MQTT: *nx_mqtt_*\*
 
 ### <a name="auto-ip"></a>IP automático
 
 * Atribuição automática de endereços IPv4
 * Mínimo 1.2 KB, 300 bytes de RAM
-* APIs autoIP intuitivos: *nx_autoip_ \**
 
 ### <a name="http-https"></a>HTTP, HTTPS
 
@@ -38,7 +36,6 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
 * Protocolo de Transferência de Hipertexto(HTTP)
 * Mínimo de 2,8 KB a 4,8 KB FLASH / 0,4 KB a 1,0 KB RAM
 * Suporte ao cliente e ao servidor
-* APIs intuitivos: *nx_http_ \**
 
 #### <a name="httphttps-11"></a>HTTP/HTTPS 1.1
 
@@ -50,14 +47,12 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
 * Suporte de ligação persistente
 * Upload de ficheiros multipart
 * Totalmente integrado com Azure RTOS NetX Secure TLS
-* APIs intuitivos: *nx_web_http \**
 
 ### <a name="smtp"></a>SMTP
 
 * Protocolo de transferência simples do centro comercial (SMTP)
 * Pegada mínima de 4,1 KB e 0,6 KB RAM
 * Apoio ao cliente
-* APIs intuitivos: *nx_smtp_ \**
 
 ### <a name="dhcp"></a>DHCP
 
@@ -65,14 +60,12 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
 * Mínimo de 3,6 KB a 4,6 KB FLASH, pegada de RAM de 2,7 KB
 * Suporte ao cliente e ao servidor
 * Suporte IPv4 e IPv6
-* APIs intuitivos do DHCP: *nx_dhcp_ \**
 
 ### <a name="nat"></a>NAT
 
 * Tradução de Endereços de Rede (NAT)
 * Pegada mínima de 3,5K6 e 0,6 KB RAM
 * Suporte de endereço IPv4
-* APIs nat intuitivos: *nx_nat_ \**
 * NAT só está disponível com Azure RTOS NetX Duo
 
 ### <a name="snmp"></a>SNMP
@@ -80,7 +73,6 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
 * SNMP (Simple Network Management Protocol)
 * Pegada mínima de 10,9 KB e 2,6 KB RAM
 * Apoio ao agente para VI, V2 e V3
-* APIs intuitivos do SNMP: *nx_snmp_ \**
 
 ### <a name="dns-mdns-dns-sd"></a>DNS, mDNS, DNS-SD
 
@@ -89,7 +81,6 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
 * Descoberta de serviço baseada em DNS (DNS-SD)
 * DNS Mínimo 2.4 KB a 3 KB FLASH, 1 KB RAM pegada
 * Apoio ao cliente
-* APIs intuitivos: *nx_dns_ \**
 * mDNS e DNS-SD só estão disponíveis com Azure RTOS NetX Duo
 
 ### <a name="p0p3"></a>P0P3
@@ -97,7 +88,6 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
 * Protocolo dos Correios Versão 3 (POP3)
 * Pegada mínima de 8,1 KB e 1,4 KB RAM
 * Apoio ao cliente
-* APIs P0P3 intuitivo: *nx_pop3_ \**
 
 ### <a name="telnet"></a>TELNET
 
@@ -265,55 +255,12 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
 * IPsec Intuitivo APIs: *nx_ipsec_ \**
 * IPsec só está disponível com Azure RTOS NetX Duo
 
-## <a name="small-footprint"></a>Pequena pegada
-
-O Azure RTOS NetX Duo tem uma pegada notavelmente pequena de 9 KB a 15 KB para suporte básico de IP e UDP. Para a funcionalidade TCP, são necessários mais 10 KB a 13 KB de memória da área de instrução. O uso do Azure RTOS NetX Duo RAM varia tipicamente de 2,6 KB a 3,6 KB mais a memória do pacote pool, que é definido pela aplicação. Tal como o Azure RTOS ThreadX, o tamanho do Azure RTOS NetX Duo escala automaticamente com base nos serviços utilizados pela aplicação. Isto praticamente elimina a necessidade de configuração complicada e constrói parâmetros, tornando as coisas mais fáceis para o desenvolvedor.
-
-## <a name="fast-execution"></a>Execução rápida
-
-O Azure RTOS NetX Duo fornece uma implementação de envio/receção de pacotes de cópia zero, altamente integrada com a Azure RTOS ThreadX, para obter o desempenho mais rápido possível. Por exemplo, o Azure RTOS NetX Duo pode normalmente obter perto de transferências de dados de velocidade bancária num processador de 80 MHz (ou menos), utilizando apenas uma pequena percentagem dos ciclos do processador.
-
-## <a name="simple-easy-to-use"></a>Simples e fácil de usar
-
-O Azure RTOS NetX Duo API é intuitivo, simples e altamente funcional.
-
-Os nomes da API são feitos de palavras reais e não da "sopa do alfabeto" ou nomes altamente abreviados que são tão comuns em outros produtos de networking. Todas as APIs Azure RTOS NetX Duo têm uma *nx_* líder e seguem uma convenção de nomeação de substantivos. Além disso, existe uma consistência funcional em toda a API. Por exemplo, todas as funções da API que suspendem têm um tempo limite opcional que funciona de forma idêntica.
-
-Para aplicações antigas, o Azure RTOS NetX Duo oferece uma camada compatível com tomada BSD adicional. Esta camada ajuda os desenvolvedores a migrar grandes aplicações de networking com facilidade.
-
 ## <a name="safe-and-secure"></a>Seguro e seguro
 
 Azure RTOS NetX Duo está seguro. Esta segurança é fornecida através de produtos de segurança adicionais, incluindo IPsec, SSL, TLS e DTLS. Além disso, a aplicação tem controlo total sobre todo o acesso externo ao Azure RTOS NetX Duo, tornando a determinação do risco de segurança muito mais fácil.
 
 O Microsoft Azure RTOS fornece componentes para garantir a comunicação e criar o isolamento de códigos e dados utilizando mecanismos de proteção de hardware MCU/MPU subjacentes. Em última análise, é da responsabilidade do construtor de dispositivos garantir que o dispositivo satisfaz plenamente os requisitos de segurança em evolução associados ao seu caso de utilização específico.
 
-## <a name="pre-certified--by-tuv-and-ul-to-many-safety-standards"></a>Pré-certificada pela TUV e UL para muitas normas de segurança
-
-A Azure RTOS NetX Duo foi certificada pela SGS-TUV Saar para utilização em sistemas críticos de segurança, de acordo com o IEC-61508 SIL 4, IEC-62304 SW Safety Class C, ISO 26262 ASIL D e EN 50128. A certificação confirma que o Azure RTOS NetX Duo pode ser utilizado no desenvolvimento de software relacionado com a segurança para os mais altos níveis de integridade da segurança da IEC-61508, IEC-62304, ISO 26262 e EN 50128 para a "Segurança Funcional de sistemas de segurança electrónica, eletrônicos e programáveis". A SGS-TUV Saar, formada através de uma joint venture da SGS-Group alemã e tuv Saarland, tornou-se a principal empresa acreditada e independente para testes, auditorias, verificação e certificação de software incorporado para sistemas relacionados com a segurança em todo o mundo. A norma de segurança industrial IEC 61508, e todas as normas que dela derivam, incluindo a IEC-62304, a ISO 26262 e a EN 50128, são utilizadas para garantir a segurança funcional de dispositivos médicos elétricos, eletrónicos e programáveis relacionados com a segurança electrónica, sistemas de controlo de processos, máquinas industriais, automóveis e sistemas de controlo ferroviário.
-
-:::image type="content" source="media/overview-netx-duo/partener-logo-sgs-tuv-saar.png" alt-text="Certificação SGS-TUV":::
-
-A Azure RTOS NetX Duo foi reconhecida pela UL pelo cumprimento do anexo H da UL 60730-1, do CSA E60730-1 Anexo H, do IEC 60730-1 anexo H, ul 60335-1 anexo R, do IEC 60335-1 anexo R e das normas de segurança 1998 para as normas de segurança em componentes programáveis. A UL é uma empresa global, independente e de ciência da segurança, com mais de um século de experiência em soluções de segurança inovadoras, que vão desde a adoção pública de eletricidade até avanços na sustentabilidade, energias renováveis e nanotecnologia.
-
-:::image type="content" source="media/overview-netx-duo/cru-logo-certification.png" alt-text="Certificação CRU UL":::
-
-Estão à venda artefactos (Certificado, Manual de Segurança, Relatório de Teste, etc.) associados às certificações TUV e UL.
-
-Nos casos em que a aplicação necessita de certificação adicional, está disponível um serviço de certificação através da Microsoft para fornecer certificação chave-na-curva a vários padrões utilizando a plataforma de hardware real e até mesmo cobrindo o código de aplicação. Contacte-nos para mais detalhes sobre o nosso serviço de certificação.
-
-## <a name="eal4-common-criteria-security-certification"></a>Certificação de segurança de critérios comuns EAL4+
-
-A Azure RTOS obteve a certificação de segurança de critérios comuns EAL4+. O Alvo de Evalution (TOE) abrange Azure RTOS ThreadX, Azure RTOS NetX Duo, Azure RTOS NetX Secure TLS e Azure RTOS NetX MQTT. Isto representa os protocolos IoT mais típicos exigidos por sensores, dispositivos, routers de borda e gateways profundamente incorporados.
-
-:::image type="content" source="media/overview-netx-duo/eal-logo-certification.png" alt-text="Certificação EAL":::
-
-O Mecanismo de Avaliação de Segurança de TI utilizado para a certificação de segurança Microsoft Azure RTOS SC é Brightsight BV e a Autoridade de Certificação é SERTIT.
-
-## <a name="fips-140-2-validated"></a>FIPS 140-2 Validado
-
-As bibliotecas Azure RTOS NetX Crypto alcançaram a Normalização Federal de Processamento de Informação 140-2 (FIPS 140-2) certificação para software, que especifica requisitos para módulos de criptografia. O FIPS 140-2 requer que todas as agências e departamentos do governo federal que utilizem a segurança criptográfica cumpram padrões específicos relacionados com a força e capacidades de encriptação. Estas normas de segurança criptográficas são também reconhecidas no Canadá e na União Europeia.
-
-O laboratório de avaliação de Segurança da Informação utilizado para as bibliotecas Azure RTOS NetX Crypto foi atsec e a autoridade de certificação é o Instituto Nacional de Normalização e Tecnologia (NIST). Reveja o site da [NIST](https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/3394) para mais detalhes.
 
 ## <a name="interoperability-verification"></a>Verificação da interoperabilidade
 
@@ -325,7 +272,7 @@ O Azure RTOS NetX Duo é uma das únicas pilhas TCP/IP incorporadas para obter a
 
 ## <a name="comprehensive-iot-solution"></a>Solução IoT abrangente
 
-O Azure RTOS NetX Duo tem uma pegada notavelmente pequena de 9 KB a 15 KB para suporte básico de IP e UDP. A NetX Duo tem uma das redes TCP/IP mais abrangentes para aplicações IoT profundamente incorporadas. Este suporte inclui os seguintes produtos de protocolo adicional:
+A NetX Duo tem uma das redes TCP/IP mais abrangentes para aplicações IoT profundamente incorporadas. Este suporte inclui os seguintes produtos de protocolo adicional.
 
 MQTT, CoAP, LWM2M, 6LoWPAN, SSL/TLS/DTLS, IPsec, AutoIP, DHCP, DNS, mDNS, DNS-SD, FTP, HTTP, IPsec, NAT, POP3, PPP, PPPoE, SMTP, SNMP v1/2/3, Telnet, TFTP
 
@@ -344,69 +291,6 @@ Azure RTOS NetX Duo é uma tecnologia avançada que inclui:
 * IPsec
 * SSL/TLS/DTLS
 * Suporte de análise do sistema Azure RTOS TraceX
-
-## <a name="fastest-time-to-market"></a>O tempo de venda mais rápido
-
-O Azure RTOS NetX Duo é fácil de instalar, aprender, usar, depurar, verificar, certificar e manter. Como resultado, o NetX Duo é uma das pilhas TCP/IP mais populares para dispositivos IoT incorporados, incluindo muitos SoCs da Broadcom, Gainspan, etc. A nossa vantagem consistente no mercado baseia-se em:
-
-* Documentação de qualidade – por favor reveja [o nosso Guia de Utilizador Azure RTOS NetX Duo](about-this-guide.md) e veja por si mesmo!
-* Disponibilidade completa de código fonte
-* API de fácil utilização
-* Conjunto de funcionalidades abrangente e avançado
-
-## <a name="one-simple-license"></a>Uma licença simples
-
-Não há qualquer custo para usar e testar o código fonte e nenhum custo para licenças de produção quando implementados em dispositivos pré-licenciados, todos os outros dispositivos precisam de uma licença anual simples.
-
-## <a name="full-highest-quality-source-code"></a>Código fonte completo e de alta qualidade
-
-Ao longo dos anos, o código fonte Azure RTOS NetX Duo estabeleceu a fasquia em qualidade e facilidade de compreensão. Além disso, a convenção de ter uma função por ficheiro prevê uma fácil navegação de origem.
-
-## <a name="supports-most-popular-architectures"></a>Apoia as arquiteturas mais populares
-
-O Azure RTOS NetX Duo funciona com microprocessadores mais populares de 32/64 bits fora da caixa, totalmente testados e totalmente suportados, incluindo as seguintes arquiteturas avançadas:
-
-**Dispositivos Analógicos**: SHARC, Blackfin, CM4xx
-
-**Núcleo de Andes**: RISC-V
-
-**Ambiqmicro**: pollo MCUs
-
-**BRAÇO**: RM7, ARM9, ARM11, Córtex-M0/M3/M4/M7/A15/A5/A7/A8/A5x 64-bi/A7x 64-bit/R4/R5, TrustZone ARMv8-M
-
-**Cadência**: Xtensa, Diamante
-
-**CEVA**: PSoC, PSoC 4, PSoC 5, PSoC 6, FM0+, FM3, MF4, WiCED WiFi
-
-**Cipreste**: RISC-V
-
-**EnSilica**: eSi-RISC
-
-**Infineon**: XMC1000, XMC4000, TriCore
-
-**Intel & Intel FPGA**: x36/Pentium, XScale, NIOS II, Ciclone, Arria 10
-
-**Microchip**: AVR32, ARM7, ARM9, Córtex-M3/M4/M7, SAM3/4/7/9/A/C/D/E/G/L/SV, PIC24/PIC32
-
-**Microsemi**: RISC-V
-
-**NXP**: LPC, ARM7, ARM9, PowerPC, 68 K, i.MX, ColdFire, Kinetis Cortex-M3/M4
-
-**Renesas**: SH, HS, V850, RX, RZ, Sinergia
-
-**Silício** Laboratórios: EFM32
-
-**Sinopses**: ARC 600, 700, ARC EM, ARC HS
-
-**ST**: STM32, ARM7, ARM9, Córtex-M3/M4/M7
-
-**Tl**: C5xxx, C6xxx, Stellaris, Sitara, Tiva-C
-
-**Computação de ondas**: MIPS32 4K, 24 K, 34 K, 1004 K, MIPS64 5K, microAptiv, interAptiv, proAptiv, Classe M
-
-**Xilinx**: MicroBlaze, PowerPC 405, ZYNQ, ZYNQ UltraSCALE
-
-*Todos os valores de tempo e tamanho listados são estimativas e podem ser diferentes na sua plataforma de desenvolvimento.*
 
 ## <a name="related-services"></a>Serviços relacionados
 
