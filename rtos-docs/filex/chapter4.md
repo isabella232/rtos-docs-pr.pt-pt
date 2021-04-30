@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 948adff65a080649db0870e35bc75ee774775cb7
-ms.sourcegitcommit: 4cbe92b337e82124bb5a86d319b787eb05b4ea76
+ms.openlocfilehash: f70b8890be6b12f917ac1724a29559afab33b88d
+ms.sourcegitcommit: 0520b2afb6b7f8ae1ea48581e160459fc9292ca7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108067017"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108297501"
 ---
 # <a name="chapter-4--description-of-azure-rtos-filex-services"></a>Capítulo 4- Descrição dos serviços Azure RTOS FileX
 
@@ -4107,7 +4107,7 @@ Este serviço forma os meios fornecidos de forma exFAT compatível com base nos 
 > *A formatação de um meio de comunicação já formatado apaga efetivamente todos os ficheiros e diretórios nos meios de comunicação.*
 
 > [!IMPORTANT]
-> *O tamanho do volume exFAT deve corresponder ao tamanho da partição (se houver um layout MBR ou GPT), ou o tamanho de todo o dispositivo se não houver disposição de partição (sem MBR ou GPT). Existe uma limitação no Windows de que o disco exFAT não será recoginado se forformado com alguns valores de sectores totais que são menos do que sectores avialáveis*
+> *O tamanho do volume exFAT deve corresponder ao tamanho da partição (se houver um layout MBR ou GPT), ou o tamanho de todo o dispositivo se não houver disposição de partição (sem MBR ou GPT). Existe uma limitação no Windows de que o disco exFAT não será recoginado se forformado com alguns valores de setores totais que são menos do que os sectores disponíveis*
 
 ### <a name="input-parameters"></a>Parâmetros de Entrada
 
