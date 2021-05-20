@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 7a17ab0d2500d021bb9397dbf673427362c45173
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2513c1b6f349260c615abbc4056fb856005446c9
+ms.sourcegitcommit: 5c870219b8e7e3f303acc8ddc70320ef3506a3f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826450"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110027967"
 ---
 # <a name="chapter-4---description-of-guix-services"></a>Capítulo 4 - Descrição dos Serviços GUIX
 
@@ -128,6 +128,12 @@ Na secção "Valores de Retorno" nas seguintes descrições da API, os valores e
 | gx_drop_list_open                        | Lista de lançamentos abertos                                                        |
 | gx_drop_list_pixelmap_set               | Definir pixelmap para deixar cair lista                                             |
 | gx_drop_list_popup_set                  | Definir popup para deixar cair lista                                                |
+| gx_generic_scroll_wheel_children_position | Posicione as crianças na roda de pergaminho genérica |
+| gx_generic_scroll_wheel_create| Criar widget de roda de deslocação genérica |
+| gx_generic_scroll_wheel_draw | Desenhe widget de roda de deslocal genérico |
+| gx_generic_scroll_wheel_event_process| Evento de roda de pergaminho genérico do processo|
+| gx_generic_scroll_wheel_row_height_set| Definir a altura da linha para a roda de pergaminho genérico|
+| gx_generic_scroll_wheel_total_rows_set| Definir linhas totais para roda de pergaminho genérico |
 | gx_horizontal_list_children_position    | Posicione os widgets das crianças na lista horizontal                          |
 | gx_horizontal_list_create                | Criar lista horizontal                                                |
 | gx_horizontal_list_event_process        | Evento de processo na lista horizontal                                      |
@@ -519,7 +525,7 @@ UINT gx_accordion_menu_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um menu de acordeão conforme especificado e anexa o menu de acordeão ao widget dos pais fornecido. Um menu de acordeão é um widget de visualização do menu anexpanding/collapsing. Aceita todos os tipos de widget como os seus itens de menu infantil. Os menus de acordeão podem ser aninhados, o que significa que vários níveis de profundidade do menu podem ser criados.
 
@@ -618,7 +624,7 @@ Desenhe o menu de acordeão
 VOID gx_accordion_menu_draw(GX_ACCORDION_MENU *accordion);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o menu de acordeão especificado. Este serviço é normalmente chamado internamente pelo mecanismo de atualização de lona GUIX, mas está exposto à aplicação para ajudar na implementação de funções de desenho personalizado para widgets personalizados do menu de acordeão.
 
@@ -673,7 +679,7 @@ UINT gx_accordion_menu_event_process(
     GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para o menu de acordeão especificado. Este serviço deve ser chamado como o manipulador de eventos predefinido por quaisquer funções de processamento de eventos de acordeão personalizado.
 
@@ -745,7 +751,7 @@ Posicione os itens do menu
 UINT gx_accordion_menu_position(GX_ACCORDION_MENU *accordion);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço posiciona os itens de menu para o menu de acordeão. Esta função é normalmente chamada internamente quando o menu de acordeão está a tornar-se visível. Se pretender inserir/remover itens de/para um menu de acordeão ou alterar os estilos de expansão do item da criança, esta função deve ser chamada para reposicionar os itens da criança.
 
@@ -798,7 +804,7 @@ UINT gx_animation_canvas_define(
     GX_CANVAS *canvas);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço fornece uma tela de memória a um controlador de animação usado para implementar a sequência de animação. Esta tela fornecida deve ser grande o suficiente para manter o widget alvo de animação.
 
@@ -880,7 +886,7 @@ Criar um controlador de animação
 UINT gx_animation_create(GX_ANIMATION *animation);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um controlador de animação. O controlador é inicializado para o estado ocioso. Não se pode começar uma animação a menos que esteja no estado de IDLE. O ponteiro do bloco de controlo GX_ANIMATION pode ser obtido com gx_system_animation_get ou pode ser um bloco de controlo estático.
 
@@ -942,7 +948,7 @@ UINT gx_animation_drag_disable(
     GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove o procedimento do gancho de animação de arrasto do ecrã da função de processo de evento padrão do widget e para a sequência de animação. O procedimento do gancho de animação de arrasto de tela lida com eventos para uma animação de arrasto de tela.
 
@@ -999,7 +1005,7 @@ UINT gx_animation_drag_enable(
     GX_ANIMATION_INFO *info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a função de processo de evento de animação de arrasto de arrasto definida internamente como um procedimento de gancho da função de processo de evento padrão de um widget. A função de processo de evento de animação de arrasto de tela lida com eventos para uma animação de arrasto de ecrã.
 
@@ -1077,7 +1083,7 @@ UINT gx_animation_landing_speed_set(
     USHORT shift_per_step);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a velocidade de aterragem para a animação de arrasto de ecrã.
 
@@ -1127,7 +1133,7 @@ UINT gx_animation_start(
     GX_ANIMATION_INFO *params);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma sequência de animação usando uma instância de animação previamente criada e um novo conjunto de parâmetros de animação. Esta função faz uma cópia local dos parâmetros, o que significa que a estrutura do parâmetro não precisa de ser definida estáticamente.
 
@@ -1205,7 +1211,7 @@ Pare uma animação ativa orientada pelo temporizador
 UINT gx_animation_stop(GX_ANIMATION *animation);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Pare uma animação iniciada anteriormente. Se o ponteiro do bloco de controlo de animação foi atribuído utilizando gx_system_animation_get, a aplicação pode reutilizar o bloco de controlo ou devolvê-lo ao pool do sistema utilizando gx_system_animation_free).
 
@@ -1256,7 +1262,7 @@ UINT gx_binres_language_count_get(
     GX_VALUE *returned_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço analisa um cabeçalho de dados de recursos binários para devolver o número de idiomas contidos nos dados binários. Isto é útil para aplicações que devem apresentar uma lista de seleção ao utilizador, permitindo ao utilizador selecionar a partir de uma escolha de idiomas.
 
@@ -1306,7 +1312,7 @@ UINT gx_binres_language_info_load(
     GX_LANGUAGE_HEDAER *put_info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço analisa uma bolha binária de dados de recursos para povoar uma série de estruturas GX_LANGUAGE_HEADER, informando a aplicação dos nomes linguísticos e tamanho da tabela de cordas de cada idioma contida nos dados binários. A aplicação deve primeiro ligar gx_binres_language_count_get para determinar o número de línguas dentro dos dados binários, e garantir que o ponteiro put_info passou para esta função aponta para um conjunto de estruturas language_count GX_LANGUAGE_HEADER.
 
@@ -1373,7 +1379,7 @@ UINT gx_binres_language_table_load(
     GX_UBYTE **returned_language_table);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API precotado permite que as aplicações carreguem dados de tabelas de cordas a partir de ficheiros de dados binários de recursos binários mais antigos (antes de lançar 5.6).
 
@@ -1432,7 +1438,7 @@ UINT gx_binres_language_table_load_ext(
     GX_STRING **returned_language_table);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço constrói uma estrutura de mesa linguística contendo ponteiros para apresentar recursos, as estruturas de dados geradas apontam para os dados de recursos "em vigor", não copia os dados dos recursos. Os dados dos recursos devem ser colocados num local geral de memória de acesso, e o endereço base deste local de memória é passado para esta API.
 
@@ -1487,7 +1493,7 @@ UINT gx_binres_theme_load(
     INT theme_id, GX_THEME **returned_theme);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço constrói uma estrutura GX_THEME contendo ponteiros para as tabelas de recursos para o tema solicitado. As estruturas de dados geradas apontam para os dados de recursos "no lugar", não copiam os dados dos recursos. Assim, os dados de recursos devem ser colocados num local geral de memória de acesso, e o endereço base deste local de memória é passado para esta API.
 
@@ -1536,7 +1542,7 @@ Desavele a escova predefinida
 UINT gx_brush_default(GX_BRUSH *brush);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a escova para o contexto atual ao valor predefinido do sistema.
 
@@ -1580,7 +1586,7 @@ UINT gx_brush_define(
     UINT style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define um pincel com a cor de linha especificada, preencha a cor e o estilo.
 
@@ -1624,7 +1630,7 @@ status = gx_brush_define(&my_brush, GX_COLOR_BLACK, GX_COLOR_BLACK,
 VOID gx_button_background_draw(GX_BUTTON *button);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o fundo do botão. Esta função é normalmente chamada internamente pela função gx_button_draw, mas está exposta à aplicação para ajudar a escrever funções de desenho personalizado.
 
@@ -1687,7 +1693,7 @@ UINT gx_button_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um botão conforme especificado e associa o botão ao widget dos pais fornecido.
 
@@ -1755,14 +1761,14 @@ UINT gx_button_deselect(
     GX_BOOL gen_event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desmarca o botão especificado e gera um evento de sinal dependendo dos estilos dos botões.
 
 
 | Estilo de botão              | Sinal                     |
 |---------------------------|----------------------------|
-| Nenhum                      | GX_EVENT_CLICKED         |
+| Nenhuma                      | GX_EVENT_CLICKED         |
 | GX_STYLE_BUTTON_RADIO  | GX_EVENT_RADIO_DESELECT |
 | GX_STYLE_BUTTON_TOGGLE | GX_EVENT_TOGGLE_OFF     |
 
@@ -1819,7 +1825,7 @@ Desenhe botão
 VOID gx_button_draw(GX_BUTTON *button);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o botão especificado. Esta função é normalmente chamada internamente pelo mecanismo de atualização de lona GUIX, mas está exposta à aplicação para ajudar na implementação de funções de desenho personalizado para widgets de botões personalizados.
 
@@ -1878,7 +1884,7 @@ UINT gx_button_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para o botão especificado.
 
@@ -1948,7 +1954,7 @@ Selecione botão
 UINT gx_button_select(GX_BUTTON *button);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço seleciona o botão especificado e gera um evento de sinal dependendo dos estilos dos botões.
 
@@ -2012,7 +2018,7 @@ UINT gx_canvas_alpha_set(
     GX_UBYTE alpha);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o valor de mistura alfa para a tela especificada. Os valores alfa de lona podem variar de 0 (transparente) a 255 (totalmente opaco).
 
@@ -2073,7 +2079,7 @@ UINT gx_canvas_arc_draw(
     INT end_angle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um arco de círculo na tela utilizando a escova atual. O arco do círculo é cortado à região inválida de lona. Este serviço requer GX_ARC_DRAWING_SUPPORT para ser definido.
 
@@ -2130,7 +2136,7 @@ UINT gx_canvas_block_move(GX_RECTANGLE *block,
     GX_VALUE x_shift, GX_VALUE y_shift, GX_RECTANGLE *dirty);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move um bloco de dados de pixel de tela na direção especificada. Este serviço é utilizado internamente pelo GUIX para realizar deslocamento rápido, mas também pode ser utilizado pelo software da aplicação.
 
@@ -2195,7 +2201,7 @@ UINT gx_canvas_circle_draw(
     UINT r);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um círculo sobre a tela utilizando a escova atual. O círculo é cortado à região inválida de lona. Este serviço requer GX_ARC_DRAWING_SUPPORT para ser definido.
 
@@ -2260,7 +2266,7 @@ UINT gx_canvas_create(
     ULONG memory_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria a tela com as propriedades especificadas e memória associada.
 
@@ -2329,7 +2335,7 @@ Apagar tela
 UINT gx_canvas_delete(GX_CANVAS *canvas);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina a tela. A tela é removida da lista interna ligada de lona mantida pelo GUIX.
 
@@ -2378,7 +2384,7 @@ UINT gx_canvas_drawing_complete(
     GX_BOOL flush);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite ao GUIX saber que o desenho da aplicação na tela especificada está completo.
 
@@ -2432,7 +2438,7 @@ UINT gx_canvas_drawing_initiate(
     GX_RECTANGLE *dirty_area);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia a sua base na tela especificada. Este serviço é chamado internamente como parte da operação de desenho diferido realizada automaticamente pelo GUIX quando uma tela precisa de ser atualizada. No entanto, a aplicação é permitida para contornar o algoritmo de desenho diferido GUIX e executar o desenho imediato e direto sobre uma tela, chamando primeiro gx_canvas_drawing_inititate, depois chamando as funções de desenho desejadas, chamando depois gx_canvas_drawing_complete().
 
@@ -2489,7 +2495,7 @@ UINT gx_canvas_ellipse_draw(
     dINT b);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha uma elipse na tela utilizando a escova atual. A elipse é cortada à região inválida de lona. Este serviço requer GX_ARC_DRAWING_SUPPORT para ser definido.
 
@@ -2548,7 +2554,7 @@ UINT gx_canvas_hardware_layer_bind(
     INT layer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liga uma tela de desenho GUIX a uma camada gráfica de hardware. Este serviço só é necessário para dispositivos de hardware que suportem várias camadas de gráficos de hardware.
 
@@ -2599,7 +2605,7 @@ Esconda uma tela, tornando-a invisível
 UINT gx_canvas_hide(GX_CANVAS *canvas);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço esconde uma tela GUIX. Se a tela tiver sido ligada a uma camada de gráficos de hardware utilizando gx_canvas_hardware_layer_bind,, este serviço é implementado com suporte a hardware.
 
@@ -2653,7 +2659,7 @@ UINT gx_canvas_line_draw(
     GX_VALUE y_end);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço traça uma linha sobre a tela utilizando a escova atual. A linha é cortada à região inválida de lona.
 
@@ -2712,7 +2718,7 @@ UINT gx_canvas_memory_define(
     ULONG memsize);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço pode ser utilizado para atribuir o endereço de memória de tela após a criação da tela.
 
@@ -2761,7 +2767,7 @@ UINT gx_canvas_mouse_define(GX_CANVAS *canvas,
     GX_MOUSE_CURSOR_INFO *info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define as informações do rato para a tela especificada. Este serviço requer GX_MOUSE_SUPPORT para ser definido.
 
@@ -2812,7 +2818,7 @@ Desligue o cursor do rato
 UINT gx_canvas_mouse_hide(GX_CANVAS *canvas);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço torna o cursor do rato escondido da tela especificada. Este serviço requer GX_MOUSE_SUPPORT para ser definido.
 
@@ -2859,7 +2865,7 @@ Ligue o cursor do rato
 UINT gx_canvas_mouse_show(GX_CANVAS *canvas);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço torna o cursor do rato visível para a tela especificada. Este serviço requer GX_MOUSE_SUPPORT para ser definido. A API gx_canvas_mouse_define deve ser invocada para definir a imagem do cursor do rato antes de este serviço ser solicitado.
 
@@ -2907,7 +2913,7 @@ UINT gx_canvas_offset_set(
     GX_VALUE y);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui uma compensação de visualização x,y para a tela especificada. Isto controla a posição em que a tela é composta no tampão visível da moldura, e é frequentemente usada quando a tela é menor do que o visor físico.
 
@@ -2967,7 +2973,7 @@ UINT gx_canvas_pie_draw(
     INT end_angle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atrai uma tarte na tela usando a escova de contexto de desenho atual. A tarte é cortada à região inválida de lona. Este serviço requer que a opção de configuração GX_ARC_DRAWING_SUPPORT ser definida.
 
@@ -3024,7 +3030,7 @@ Desenhar pixel
 UINT gx_canvas_pixel_draw(GX_POINT position);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um pixel na tela usando a cor da linha da escova de contexto de desenho atual. Se a opção de configuração GX_BRUSH_ALPHA_SUPPORT for definida, misture o pixel com o contrário, desenhe o pixel como totalmente opaco.
 
@@ -3090,7 +3096,7 @@ UINT gx_canvas_pixelmap_blend(
     GX_UBYTE alpha);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço combina um mapa pixel com o fundo de lona. A relação de mistura é especificada pelo chamador. O valor alfa pode variar de 0 (totalmente transparente) a 255 (totalmente opaco). O mapa de pixels também pode incluir um canal alfa interno, que é combinado com o valor de mistura de entrada. Este serviço só é suportado por controladores de exibição que estão a funcionar a uma profundidade de cor de 16 bpp e superior.
 
@@ -3145,7 +3151,7 @@ UINT gx_canvas_pixelmap_draw(
     GX_PIXELMAP *pixelmap);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um mapa de pixels sobre a tela.
 
@@ -3192,7 +3198,7 @@ Obter mapa de tela pixelmap
 UINT gx_canvas_pixelmap_get(GX_PIXELMAP *pixelmap);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve uma estrutura GX_PIXELMAP que aponta para os dados de tela. O formato pixelmap está definido para o formato de cor do ecrã atual.
 
@@ -3244,7 +3250,7 @@ UINT gx_canvas_pixelmap_rotate(
     INT rot_cy);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço gira um mapa pixel no ângulo especificado e torna o mapa de pixels diretamente à medida que a rotação é realizada. Este serviço difere de gx_utility_pixelmap_rotate na medida em que a saída da rotação é diretamente entregue à memória de tela, e o mapa de pixels rotativo não é devolvido ao chamador.
 
@@ -3301,7 +3307,7 @@ UINT gx_canvas_pixelmap_tile(
     GX_PIXELMAP *pixelmap);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço preenche um retângulo dentro de uma tela com o mapa pixel solicitado.
 
@@ -3351,7 +3357,7 @@ UINT gx_canvas_polygon_draw(
     INT number_of_points);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um polígono sobre a tela utilizando a escova de contexto de desenho atual.
 
@@ -3413,7 +3419,7 @@ Desenhar retângulo
 UINT gx_canvas_rectangle_draw(GX_RECTANGLE *rectangle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um retângulo sobre a tela.
 
@@ -3470,7 +3476,7 @@ UINT gx_canvas_rotated_text_draw(
     INT angle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API foi depreciada a favor ou gx_canvas_rotated_text_draw_ext(). Apesar de ainda apoiadas, as novas aplicações não devem utilizar esta API e devem, em vez disso, utilizar gx_canvas_rotated_text_draw_ext).).
 
@@ -3550,7 +3556,7 @@ UINT gx_canvas_rotated_text_draw_ext(
     INT angle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atrai texto para a tela. O texto é desenhado rotativamente sobre o ponto central solicitado. A fonte de contexto de desenho atual e a cor da linha de contexto de desenho são usadas para tornar o texto.
 
@@ -3631,7 +3637,7 @@ UINT gx_canvas_shift(
     GX_VALUE x, GX_VALUE y);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desloca a lona especificada compensada pela quantidade especificada. Isto afeta a posição em que a tela é renderizada dentro do tampão visível da armação.
 
@@ -3681,7 +3687,7 @@ Faça uma tela visível
 UINT gx_canvas_show(GX_CANVAS *canvas);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço torna visível uma tela. Se a tela tiver sido previamente ligada a uma camada gráfica de hardware utilizando a API gx_canvas_hardware_layer_bind,,o serviço gx_canvas_show() é implementado diretamente usando suporte de hardware.
 
@@ -3733,7 +3739,7 @@ UINT gx_canvas_text_draw(
     INT length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha texto na tela. Esta API, apesar de ainda apoiada, é depreciada e as novas aplicações devem, em vez disso, utilizar gx_canvas_text_draw_ext().
 
@@ -3797,7 +3803,7 @@ UINT gx_canvas_text_draw_ext(
     GX_CONST GX_STRING *string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha texto na tela.
 
@@ -3866,7 +3872,7 @@ UINT gx_checkbox_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de caixa de verificação com as propriedades especificadas. GX_CHECKBOX é derivado de GX_TEXT_BUTTON, e todos os serviços gx_text_button podem ser usados com widgets GX_CHECKBOX.
 
@@ -3919,7 +3925,7 @@ Desenhar caixa de verificação
 VOID gx_checkbox_draw(GX_CHECKBOX *checkbox);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha a caixa de verificação especificada. Esta função é normalmente chamada internamente pelo mecanismo de atualização de lona GUIX, mas está exposta à aplicação para ajudar na implementação de funções de desenho personalizado para widgets de caixa de verificação personalizados.
 
@@ -3967,7 +3973,7 @@ UINT gx_checkbox_event_process(
     GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para a caixa de verificação especificada. Este serviço deve ser chamado como o manipulador de eventos predefinido por quaisquer funções de processamento de eventos de caixa de verificação personalizadas.
 
@@ -4035,7 +4041,7 @@ UINT gx_checkbox_pixelmap_set(
     GX_RESOURCE_ID checked_disabled_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui as pixelmaps a serem apresentadas pela caixa de verificação especificada para cada estado da caixa de verificação. Os IDs de recursos podem ser duplicados.
 
@@ -4086,7 +4092,7 @@ Selecione caixa de verificação
 UINT gx_checkbox_select(GX_CHECKBOX *checkbox);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço força uma caixa de verificação para o estado selecionado.
 
@@ -4133,7 +4139,7 @@ UINT gx_circular_gauge_angle_get(
     INT *angle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o ângulo de agulha atual do widget de bitola circular.
 
@@ -4184,7 +4190,7 @@ UINT gx_circular_gauge_angle_set(
     INT angle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o ângulo alvo de um widget de bitola circular.
 
@@ -4235,7 +4241,7 @@ UINT gx_circular_gauge_animation_set(
     INT delay);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define passos de animação e atrasa o tempo para um widget de bitola circular.
 
@@ -4287,7 +4293,7 @@ Desenhe o fundo do bitola circular
 VOID gx_circular_gauge_background_draw(GX_CIRCULAR_GAUGE *gauge);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o fundo do bitola circular especificado. Este serviço é normalmente chamado internamente pela função gx_circular_gauge_draw, mas está exposto à aplicação para ajudar a escrever funções de desenho personalizado.
 
@@ -4339,7 +4345,7 @@ UINT gx_circular_gauge_create(
     GX_VALUE ypos);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de bitola circular com as propriedades especificadas.
 
@@ -4408,7 +4414,7 @@ Desenhe o calibre circular
 VOID gx_circular_gauge_draw(GX_CIRCULAR_GAUGE *gauge);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o medidor circular especificado. Esta função é normalmente chamada internamente pelo mecanismo de atualização de lona GUIX, mas está exposta à aplicação para ajudar na implementação de funções de desenho personalizado para widgets de bitola personalizada.
 
@@ -4459,7 +4465,7 @@ UINT gx_circular_gauge_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para o bitola circular especificado.
 
@@ -4522,7 +4528,7 @@ Conjunto pincel do contexto de desenho atual
 UINT gx_context_brush_default(GX_DRAW_CONTEXT *context);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a escova do contexto de desenho especificado para predefinido.
 
@@ -4579,7 +4585,7 @@ UINT gx_context_brush_define(
     UINT style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a escova do contexto de desenho atual.
 
@@ -4639,7 +4645,7 @@ Obtenha pincel do contexto de desenho atual
 UINT gx_context_brush_get(GX_BRUSH **return_brush);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve um ponteiro à escova ativa no contexto de desenho atual. Se não houver um contexto de desenho ativo, o serviço falha e devolve um ponteiro NULO.
 
@@ -4695,7 +4701,7 @@ Definir padrão de pincel do contexto de desenho atual
 UINT gx_context_brush_pattern_set(ULONG pattern);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o padrão de escova do contexto de desenho atual.
 
@@ -4752,7 +4758,7 @@ Conjunto pincel do contexto de desenho atual
 UINT gx_context_brush_set(GX_BRUSH *brush);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a escova do contexto de desenho atual.
 
@@ -4829,7 +4835,7 @@ Definir estilo pincel do contexto de desenho atual
 UINT gx_context_brush_style_set(UINT style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o estilo de pincel do contexto de desenho atual.
 
@@ -4882,7 +4888,7 @@ Definir largura da escova do contexto de desenho atual
 UINT gx_context_brush_width_set(UINT width);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a largura da escova ativa no contexto de desenho atual.
 
@@ -4938,7 +4944,7 @@ UINT gx_context_color_get(
     GX_COLOR *return_color);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o valor de cor associado ao ID de cor indicado. O valor da cor é devolvido no formato de cor do ecrã de contexto ativo. Este serviço só deve ser chamado a partir de uma operação de desenho ativo.
 
@@ -4997,7 +5003,7 @@ Definir a cor do preenchimento do contexto de desenho atual
 UINT gx_context_fill_color_set(GX_RESOURCE_ID fill_color_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cor de preenchimento da escova ativa no contexto de desenho atual.
 
@@ -5052,7 +5058,7 @@ UINT gx_context_font_get(
     GX_FONT **return_font);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o ponteiro de fonte associado ao ID de fonte indicado. Este serviço só deve ser chamado a partir de uma operação de desenho ativo.
 
@@ -5109,7 +5115,7 @@ Fonte definida do contexto de desenho atual
 UINT gx_context_font_set(GX_RESOURCE_ID font_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a fonte na escova ativa do contexto de desenho atual.
 
@@ -5162,7 +5168,7 @@ Definir a cor da linha do contexto de desenho atual
 UINT gx_context_line_color_set(GX_RESOURCE_ID line_color_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cor de linha da escova ativa no contexto de desenho atual.
 
@@ -5217,7 +5223,7 @@ UINT gx_context_pixelmap_get(
     GX_PIXELMAP **return_map);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o ponteiro pixelmap associado ao ID do pixelmap indicado.
 
@@ -5274,7 +5280,7 @@ Definir pixelmap do contexto de sorteio atual
 UINT gx_context_pixelmap_set(GX_RESOURCE_ID pixelmap_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui o mapa pixel da escova ativa no contexto de desenho atual.
 
@@ -5330,7 +5336,7 @@ UINT gx_context_raw_brush_define(
     UINT style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a escova crua do contexto atual do ecrã. Definições brutas são usadas quando os valores de cor ARGB de 32 bits devem ser passados para a escova em vez de IDs de cor. As definições de cor bruta são úteis quando a cor desejada não está presente na tabela de cores do sistema atual ou quando o valor da cor RGB é calculado no tempo de execução.
 
@@ -5385,7 +5391,7 @@ Definir a cor de preenchimento bruto do contexto de desenho atual
 UINT gx_context_raw_fill_color_set(GX_COLOR line_color);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cor de enchimento bruto do contexto atual do ecrã. O parâmetro line_color é um valor de cor bruta de formato ARGB de 32 bits, em vez de um valor de ID de cor. As definições de cor bruta são úteis quando a cor desejada não está presente na tabela de cores do sistema atual ou quando o valor da cor RGB é calculado no tempo de execução.
 
@@ -5437,7 +5443,7 @@ Definir a cor da linha bruta do contexto de desenho atual
 UINT gx_context_raw_line_color_set(GX_COLOR line_color);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cor de linha da escova ativa no contexto de desenho atual. O parâmetro line_color é um valor de cor bruta de formato ARGB de 32 bits, em vez de um valor de ID de cor. As definições de cor bruta são úteis quando a cor desejada não está presente na tabela de cores do sistema atual ou quando o valor da cor RGB é calculado no tempo de execução.
 
@@ -5488,7 +5494,7 @@ UINT gx_context_string_get(GX_RESOURCE_ID string_id,
     GX_CONST GX_CHAR **return_string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API prevadizada devolve a cadeia associada ao ID de cadeia dado. As novas aplicações devem ser utilizadas gx_context_string_get_ext( ).
 
@@ -5534,7 +5540,7 @@ UINT gx_context_string_get_ext(
     GX_STRING *return_string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve a cadeia associada a um dado ID de cadeia. Este serviço só pode ser invocado quando existe um contexto de desenho ativo, ou seja, a partir da função de desenho de um widget. Este serviço identifica a tela e o visor ativo e recupera a corda da placa de exibição localizada.
 
@@ -5595,7 +5601,7 @@ UINT gx_display_active_language_set(
     GX_UBYTE language);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui o idioma ativo atualmente para o visor indicado. O índice linguístico corresponde às línguas definidas na tabela de linguagem de exibição, e não é um identificador de língua ANSI.
 
@@ -5644,7 +5650,7 @@ UINT gx_display_color_set(
     GX_COLOR new_color);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reatribui o valor de cor associado ao ID de cor especificado. Isto pode ser usado para modificar a tabela de cores de um ecrã sem fornecer uma mesa de cores inteiramente nova. O valor de cor fornecido deve estar no formato nativo suportado pelo visor.
 
@@ -5691,7 +5697,7 @@ UINT gx_display_color_table_set(
     INT color_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reatribui a tabela de cores a utilizar pelo visor. Este serviço é normalmente invocado pela função de configuração gerada pelo GUIX Studio, mas também pode ser chamado pelo software de aplicação.
 
@@ -5742,7 +5748,7 @@ UINT gx_display_create(
     GX_VALUE height);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um visor e chama a função de configuração do controlador de exibição. O GUIX pega neste ecrã e adiciona-o à sua lista interna de visualizações.
 
@@ -5802,7 +5808,7 @@ UINT gx_display_delete(
     VOID (*display_driver_cleanup)(GX_DISPLAY *));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço encerra um ecrã e limpa os recursos atribuídos.
 
@@ -5860,7 +5866,7 @@ UINT gx_display_font_table_set(
     INT table_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reatribui a tabela de fontes a utilizar pelo visor. Este serviço é normalmente invocado pela função de configuração gerada pelo GUIX Studio, mas também pode ser chamado pelo software de aplicação.
 
@@ -5911,7 +5917,7 @@ UINT gx_display_language_table_get(
     UINT *string_table_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a tabela linguística do visor indicado. Este serviço pode ser utilizado por uma aplicação para modificar a tabela de linguagem de exibição, em tempo de execução, utilizando cordas dinâmicas definidas.
 
@@ -5969,7 +5975,7 @@ UINT gx_display_language_table_get_ext(
     UINT *string_table_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a tabela linguística do visor indicado. Este serviço pode ser utilizado por uma aplicação para modificar a tabela de linguagem de exibição, em tempo de execução, utilizando cordas dinâmicas definidas.
 
@@ -6024,7 +6030,7 @@ UINT gx_display_language_table_set(
     UINT number_of_strings);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é precotado e as novas aplicações devem ser utilizadas gx_display_language_table_set_ext. Este serviço é suportado apenas para compatibilidade com os ficheiros de recursos gerados pelo Studio que visam versões da biblioteca antes da versão 5.6.
 
@@ -6078,7 +6084,7 @@ UINT gx_display_language_table_set_ext(
     UINT number_of_strings);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a tabela linguística a ser utilizada pelo visor. Este serviço é normalmente invocado pelo GUIX Studio gerado função gx_studio_display_configure, mas também pode ser chamado pelo software de aplicação.
 
@@ -6132,7 +6138,7 @@ UINT gx_display_pixelmap_table_set(
     INT table_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reatribui a tabela pixelmap para ser utilizada pelo visor. Este serviço é normalmente invocado pela função de configuração gerada pelo Estúdio, mas também pode ser chamado pelo software da aplicação.
 
@@ -6182,7 +6188,7 @@ UINT gx_display_string_get(
     GX_CONST GX_CHAR **string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é precotado a favor de gx_display_string_get_ext().
 
@@ -6238,7 +6244,7 @@ UINT gx_display_string_get_ext(
     GX_STRING *string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera uma corda da tabela de cordas ativa para o visor indicado. O idioma ativo é utilizado para selecionar a cadeia da tabela linguística atribuída ao visor.
 
@@ -6296,7 +6302,7 @@ UINT gx_display_string_table_get(
     UINT *table_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é precotado e substituído por gx_display_string_table_get_ext().
 
@@ -6354,7 +6360,7 @@ UINT gx_display_string_table_get(
     UINT *table_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a tabela de cordas associada à linguagem ativa. Este serviço não é frequentemente utilizado, mas é fornecido para a completude para as aplicações que podem precisar de fazer modificações de tempo de execução na tabela de cordas.
 
@@ -6408,7 +6414,7 @@ UINT gx_display_theme_install(
     GX_THEME *theme_table);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço instala temas para o visor especificado. Este serviço é normalmente invocado pela função de configuração gerada pelo Estúdio, mas também pode ser chamado pelo software da aplicação.
 
@@ -6498,7 +6504,7 @@ Feche uma lista de entrega
 UINT gx_drop_list_close(GX_DROP_LIST *drop_list);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço fecha a lista popup da lista de lançamentos especificada.
 
@@ -6555,7 +6561,7 @@ UINT gx_drop_list_create(
     GX_CONST GX_RECTANGLE *size)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma lista de entrega. Uma lista de drop é uma combinação do widget da lista de lançamento, e uma lista vertical pop-up que é exibida quando a lista de lançamento é aberta. A lista vertical popup é criada automaticamente quando o widget da lista de lançamento é criado, e exibido ou escondido quando o widget da lista de lançamento é aberto ou fechado, respectivamente.
 
@@ -6637,7 +6643,7 @@ UINT gx_drop_list_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para a lista de entrega.
 
@@ -6700,7 +6706,7 @@ Abrir uma lista de lançamentos
 UINT gx_drop_list_open(GX_DROP_LIST *drop_list);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço abre uma lista de drop previamente criada.
 
@@ -6750,7 +6756,7 @@ UINT gx_drop_list_pixelmap_set(
     GX_RESOURCE_ID id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Atribua uma imagem de fundo à lista de lançamentos. Este pixelmap é usado como pano de fundo para o próprio widget da lista de lançamento, e não para a lista vertical popup que é apresentada quando a lista é aberta. Para atribuir um pixelmap ao pop-up da lista de lançamento, você precisaria primeiro ligar para gx_drop_list_popup_get para recuperar um ponteiro para a lista pop-up e, em seguida, usar gx_window_wallpaper_set() para atribuir um pixelmap a esta lista pop-up.
 
@@ -6805,7 +6811,7 @@ UINT gx_drop_list_popup_get(
     GX_VERTICAL_LIST **return_list);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Um widget drop-list é composto pelo widget drop-list em si, e uma lista vertical pop-up que é mostrada quando o widget da lista de lançamento é aberto. Este serviço recupera um ponteiro para o componente de lista vertical da lista de entrega, permitindo que a aplicação invoque serviços API diretamente nesta lista vertical.
 
@@ -6842,6 +6848,405 @@ status = gx_drop_list_popup_get(&drop_list, &vertical_list)
 - gx_drop_list_open
 - gx_drop_list_pixelmap_set
 
+## <a name="gx_generic_scroll_wheel_children_position"></a>gx_generic_scroll_wheel_children_position
+### <a name="position-children-for-the-generic-scroll-wheel"></a>Posicione as crianças para a roda de deslocação genérica
+
+### <a name="prototype"></a>Prototype
+
+```C
+UINT gx_generic_scroll_wheel_children_position(
+    GX_GENERIC_SCROLL_WHEEL *wheel)
+```
+
+### <a name="description"></a>Description
+
+Esta função posiciona as crianças para a roda de deslocação genérica de acordo com a altura genérica da roda da roda de deslocamento. Esta função é chamada por padrão quando a roda de deslocação genérica é mostrada.
+
+### <a name="parameters"></a>Parâmetros
+
+- **roda** Ponteiro para o bloco de controlo genérico da roda de deslocação
+
+### <a name="return-values"></a>Valores de devolução
+
+- **GX_SUCCESS** (0x00) posicionou com sucesso as crianças para a roda de deslocação genérica
+- **GX_CALLER_ERROR** (0x11) Inválido desta função
+- **GX_PTR_ERROR** (0x07) Ponteiro inválido
+- Widget **GX_INVALID_WIDGET** (0x12) não é válido
+
+### <a name="allowed-from"></a>Permitido a partir de
+
+Inicialização e fios
+
+### <a name="example"></a>Exemplo
+
+```C
+/* Position children in the generic scroll wheel. */
+status = gx_generic_scroll_wheel_children_position (&wheel);
+
+/* If status is GX_SUCCESS the children in the generic scroll wheel are positioned. */
+```
+
+### <a name="see-also"></a>Consulte também
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_create"></a>gx_generic_scroll_wheel_create
+
+
+Criar roda de pergaminho genérica
+
+### <a name="prototype"></a>Prototype
+
+```C
+UINT gx_generic_scroll_wheel_create(
+    GX_GENERIC_SCROLL_WHEEL *wheel,
+    GX_CONST GX_CHAR *name,
+    GX_WIDGET *parent,
+    INT total_rows,
+    VOID (*callback)(GX_GENERIC_SCROLL_WHEEL *, GX_WIDGET *, INT),
+    ULONG style,
+    USHORT id,
+    GX_CONST GX_RECTANGLE *size);
+```
+
+### <a name="description"></a>Description
+
+Este serviço cria um widget genérico de roda de deslocação.
+
+Uma roda de deslocação genérica é um tipo de widget de roda de deslocal que é composto por widgets infantis. Outros tipos de widgets de roda de deslocação também estão disponíveis. Para obter mais informações sobre a hierarquia do widget da roda de deslocação, os tipos de widget e a derivação widget, consulte a API gx_scroll_wheel_create().
+
+GX_GENERIC_SCROLL_WHEEL é derivado de GX_SCROLL_WHEEL e apoia todos os serviços gx_scroll_wheel.
+
+Todos os tipos de rodas de deslocação geram eventos GX_EVENT_LIST_SELECT para os seus pais quando a roda de deslocação é deslocalizada.
+
+### <a name="parameters"></a>Parâmetros
+
+- **roda** Ponteiro para bloco de controlo genérico da roda de deslocamento
+- **nome** Nome lógico do widget genérico da roda de pergaminho
+- **pai** Ponteiro para o widget dos pais
+- **total_rows** Filas totais da roda de deslocação.
+- **callback** Função de retorno para criar uma linha widget. Pode ser GX_NULL se o número total de linhas corresponder à contagem de crianças. Deve ser previsto para a reutilização do widget quando a contagem de crianças for inferior ao número total de linhas ou GX_STYLE_WRAP estilo é definido. E, neste caso, certifique-se de que a contagem de crianças é mais 1 do que o número de linhas visíveis.
+- **estilo** Estilo de roda de pergaminho genérico. **O apêndice D** contém estilos gerais pré-definidos para todos os widgets e estilos específicos do widget.
+- **ID Id** ID definido por aplicação da roda de pergaminho genérico
+- **tamanho** Dimensões do widget genérico da roda de pergaminho
+
+### <a name="return-values"></a>Valores de devolução
+
+- **GX_SUCCESS** (0x00) criou com sucesso a roda de deslocação genérica
+- **GX_CALLER_ERROR** (0x11) Inválido desta função
+- **GX_PTR_ERROR** (0x07) Ponteiro inválido
+- Widget **GX_ALREADY_CREATED** (0x13) já criado
+- **GX_INVALID_SIZE** (0x19) Tamanho do bloco de controlo de widget inválido
+- **GX_INVALID_VALUE** (0x22) Número inválido de linhas
+- **GX_INVALID_WIDGET** (0x12) Widget parental inválido
+
+### <a name="allowed-from"></a>Permitido a partir de
+
+Inicialização e fios
+
+### <a name="example"></a>Exemplo
+
+```C
+
+/* Define visible rows.  */
+#define VISIBLE_ROWS 5
+
+/* Define row memory.  */
+GX_NUMERIC_PROMPT row_memory[VISIBLE_ROWS + 1];
+
+/* Define callback function.  */
+VOID row_create(GX_GENERIC_SCROLL_WHEEL *wheel, GX_WIDGET *widget, INT index)
+{
+GX_NUMERIC_PROMPT *row = (GX_PROMPT *)widget;
+GX_BOOL result;
+GX_RECTANGLE size;
+
+    gx_widget_created_test(widget, &result);
+
+    if(!result)
+    {
+        gx_numeric_prompt_create(row, "", wheel, 0, GX_STYLE_ENABLED, 0, &size);
+    }
+
+    gx_numeric_prompt_value_set(row, index);
+}
+
+/* Create "generic_wheel” with 20 rows.  */
+status = gx_generic_scroll_wheel_create(&generic_wheel, “generic_wheel”, &parent, 20, row_create,
+                                       GX_STYLE_ENABLED, WHEEL_ID, &size);
+
+/* If status is GX_SUCCESS the generic scroll wheel "generic_wheel”" has been created. */
+
+/* Create children for generic scroll wheel.  */
+for(index = 0; index <= VISIBLE_ROWS; index++)
+{
+    row_create(generic_wheel, (GX_WIDGET *)&row_memory[index], index);
+}
+```
+
+### <a name="see-also"></a>Consulte também
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_draw"></a>gx_generic_scroll_wheel_draw
+### <a name="draw-window"></a>Desenhar janela
+
+### <a name="prototype"></a>Prototype
+
+```C
+VOID gx_generic_scroll_wheel_draw(GX_GENERIC_SCROLL_WHEEL *wheel);
+```
+
+### <a name="description"></a>Description
+
+Este serviço desenha uma roda de deslocação genérica. Este serviço é normalmente chamado internamente durante a atualização de lona, mas também pode ser chamado de funções de desenho de roda de deslocamento genérico personalizado.
+
+### <a name="parameters"></a>Parâmetros
+
+- **roda** Ponteiro para bloco de controlo genérico da roda de deslocamento
+
+### <a name="return-values"></a>Valores de devolução
+
+- **Nenhuma**
+
+### <a name="allowed-from"></a>Permitido a partir de
+
+Fios
+
+### <a name="example"></a>Exemplo
+
+```C
+/* Write a custom generic scroll wheel draw function. */
+
+VOID my_custom_generic_scroll_wheel_draw(GX_GENERIC_SCROLL_WHEEL *wheel)
+{
+    /* Call default generic scroll wheel draw. */
+    gx_generic_scroll_wheel_draw(wheel);
+
+    /* Add your own drawing here. */
+}
+```
+
+### <a name="see-also"></a>Consulte também
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_event_process"></a>gx_generic_scroll_wheel_event_process
+### <a name="process-generic-scroll-wheel-event"></a>Evento de roda de pergaminho genérico do processo
+
+### <a name="prototype"></a>Prototype
+
+```C
+UINT gx_generic_scroll_wheel_event_process(
+    GX_GENERIC_SCROLL_WHEEL *wheel, 
+    GX_EVENT *event);
+```
+
+### <a name="description"></a>Description
+
+Este serviço processa um evento para esta janela.
+
+### <a name="parameters"></a>Parâmetros
+
+- **roda** Ponteiro para bloco de controlo genérico da roda de deslocamento
+- **evento** Ponteiro para o evento para processar
+
+### <a name="return-values"></a>Valores de devolução
+
+- **GX_SUCCESS** (0x00) Processamento de eventos genéricos de roda de deslocação com sucesso
+- **GX_CALLER_ERROR** (0x11) Inválido desta função
+- **GX_PTR_ERROR** (0x07) Ponteiro inválido
+- Widget **GX_INVALID_WIDGET** (0x12) não é válido
+
+### <a name="allowed-from"></a>Permitido a partir de
+
+Fios
+
+### <a name="example"></a>Exemplo
+
+```C
+/* Call generic generic scroll wheel event processing as part of custom event processing function. */
+
+UINT custom_generic_scroll_wheel_event_process(GX_GENERIC_SCROLL_WHEEL *wheel,
+                                               GX_EVENT *event)
+{
+    UINT status = GX_SUCCESS;
+
+    switch(event->gx_event_type)
+    {
+        case xyz:
+
+            /* Insert custom event handling here */
+            break;
+
+        default:
+
+            /* Pass all other events to the default generic scroll wheel
+            event processing */
+            status = gx_generic_scroll_wheel_event_process(wheel, event);
+            break;
+        }
+        return status;
+}
+```
+
+### <a name="see-also"></a>Consulte também
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_row_height_set"></a>gx_generic_scroll_wheel_row_height_set
+
+
+Atribua a altura da linha para cada linha de roda
+
+### <a name="prototype"></a>Prototype
+
+```C
+UINT gx_generic_scroll_wheel_row_height_set(
+    GX_GENERIC_SCROLL_WHEEL *wheel,
+    GX_VALUE row_height);
+```
+
+### <a name="description"></a>Description
+
+Este serviço atribui a altura da linha para cada linha da roda de deslocação.
+
+### <a name="parameters"></a>Parâmetros
+
+- **roda** Ponteiro para o bloco de controlo genérico da roda de deslocação
+- **row_height** Valor da altura da linha, em pixels.
+
+### <a name="return-values"></a>Valores de devolução
+
+- **GX_SUCCESS** (0x00) definir com sucesso a altura da roda do pergaminho
+- **GX_CALLER_ERROR** (0x11) Inválido desta função
+- **GX_PTR_ERROR** (0x07) Ponteiro inválido
+- Widget **GX_INVALID_WIDGET** (0x12) não é válido
+- **GX_INVALID_VALUE** (0x22) Altura da fila inválida
+
+### <a name="allowed-from"></a>Permitido a partir de
+
+Inicialização e fios
+
+### <a name="example"></a>Exemplo
+
+```C
+status = gx_generic_scroll_wheel_row_height_set(&wheel, 40);
+
+/* if status == GX_SUCCESS the wheel row height has been set to 40
+pixels. */
+```
+
+### <a name="see-also"></a>Consulte também
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_total_rows_set"></a>gx_generic_scroll_wheel_total_rows_set
+
+
+Atribua o total de linhas de roda de deslocação disponíveis
+
+### <a name="prototype"></a>Prototype
+
+```C
+UINT gx_generic_scroll_wheel_total_rows_set(
+    GX_GENERIC_SCROLL_WHEEL *wheel,
+    INT total_rows);
+```
+
+### <a name="description"></a>Description
+
+Este serviço atribui ou altera o número total de linhas genéricas de rodas de deslocamento.
+
+### <a name="parameters"></a>Parâmetros
+
+- **roda** Ponteiro para bloco de controlo genérico genérico da roda de deslocamento
+- **total_rows** Número total de linhas de roda para apresentar ao utilizador.
+
+### <a name="return-values"></a>Valores de devolução
+
+- **GX_SUCCESS** (0x00) definir com sucesso a linha total da roda de deslocação genérica
+- **GX_CALLER_ERROR** (0x11) Inválido desta função
+- **GX_PTR_ERROR** (0x07) Ponteiro inválido
+- Widget **GX_INVALID_WIDGET** (0x12) não é válido
+- **GX_INVALID_VALUE** (0x22) Número inválido de linhas totais
+
+### <a name="allowed-from"></a>Permitido a partir de
+
+Inicialização e fios
+
+### <a name="example"></a>Exemplo
+
+```C
+status = gx_generic_scroll_wheel_total_rows_set(&wheel, 20);
+
+/* if status == GX_SUCCESS the scroll wheel has been changed to
+display 20 total rows */
+```
+### <a name="see-also"></a>Consulte também
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
+
 ## <a name="gx_horizontal_list_children_position"></a>gx_horizontal_list_children_position
 
 
@@ -6853,7 +7258,7 @@ Posicione as crianças para a lista horizontal
 UINT gx_horizontal_list_children_position(GX_HORIZONTAL_LIST *horizontal_list);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função posiciona as crianças para a lista horizontal. Esta função é chamada automaticamente quando a lista recebe o evento GX_EVENT_SHOW, mas deve ser chamada diretamente se a lista for modificada depois de ter sido tornada visível.
 
@@ -6910,7 +7315,7 @@ UINT gx_horizontal_list_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma lista horizontal.
 
@@ -6971,7 +7376,7 @@ UINT gx_horizontal_list_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para a lista horizontal.
 
@@ -7040,7 +7445,7 @@ UINT gx_horizontal_list_page_index_set(
     INT *index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o índice inicial para a lista horizontal.
 
@@ -7092,7 +7497,7 @@ UINT gx_horizontal_list_selected_index_get(
     INT *return_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o índice de inscrição da lista selecionada da lista horizontal.
 
@@ -7145,7 +7550,7 @@ UINT gx_horizontal_list_selected_set(
     INT index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a entrada selecionada numa lista horizontal. Se necessário, a lista horizontal deslocar-se-á para tornar visível a entrada selecionada.
 
@@ -7198,7 +7603,7 @@ UINT gx_horizontal_list_selected_widget_get(
     GX_WIDGET **return_list_entry);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve a inscrição da lista selecionada da lista horizontal. Note que se a lista horizontal tiver mais linhas do que widgets infantis, e a entrada selecionada tiver sido deslocada da vista, esta API voltará GX_NULL porque os widgets para crianças são reutilizados à medida que o conteúdo da lista é deslocalizado. A função gx_horizontal_list_selected_index_get devolverá de forma fiável o índice do item selecionado, mesmo que esse item tenha sido deslocalizado da vista.
 
@@ -7252,7 +7657,7 @@ UINT gx_horizontal_list_total_columns_set(
     INT count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui o número total de colunas a visualizar pela lista horizontal.
 
@@ -7306,7 +7711,7 @@ UINT gx_horizontal_scrollbar_create(
     GX_SCROLLBAR_APPEARANCE *appearance ULONG style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma barra de deslocação horizontal. O ID para uma barra de deslocamento horizontal é pré-definido (porque uma janela tem de saber como apanhar eventos a partir dele), e o tamanho é automático (porque tem de preencher a largura do cliente da janela dos pais). Se decidirmos permitir as barras de deslocamento da área do cliente, teremos de adicionar outra função de criação com os parâmetros de id e tamanho.
 
@@ -7367,7 +7772,7 @@ UINT gx_icon_button_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria o widget de botão de ícone especificado.
 
@@ -7436,7 +7841,7 @@ Desenhe um botão de ícone
 VOID gx_icon_button_draw(GX_ICON_BUTTON *button);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o botão de ícone. Esta função é normalmente chamada internamente pelo GUIX como parte de uma operação de atualização de tela, mas também exposta à aplicação que pode querer fornecer uma função de desenho personalizado e invocar o desenho do botão de ícone padrão como base de desenho personalizado.
 
@@ -7496,7 +7901,7 @@ UINT gx_icon_button_pixelmap_set(
     GX_RESOURCE_ID icon_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui um novo pixelmap ao widget do botão de ícone.
 
@@ -7554,7 +7959,7 @@ Desenhar fundo de ícone
 VOID gx_icon_background_draw(GX_ICON *icon);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o fundo do widget de ícone especificado. Este serviço é normalmente chamado internamente pela função gx_icon_button_draw, mas está exposto à aplicação para ajudar a escrever funções de desenho personalizado.
 
@@ -7612,7 +8017,7 @@ UINT gx_icon_create(
     GX_VALUE y);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria o widget de ícone especificado.
 
@@ -7667,7 +8072,7 @@ Desenhar ícone
 VOID gx_icon_draw(GX_ICON *icon);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o widget de ícone especificado. Este serviço é normalmente chamado internamente pelo GUIX como parte de uma operação de atualização de tela, mas também exposto à aplicação que pode querer fornecer uma função de desenho personalizado e invocar o desenho de ícone padrão como base de desenho personalizado.
 
@@ -7715,7 +8120,7 @@ UINT gx_icon_event_process(
     GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço trata dos eventos enviados para um widget GX_ICON.
 
@@ -7768,7 +8173,7 @@ UINT gx_icon_pixelmap_set(
     GX_RESOURCE_ID selected_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o mapa de pixels para o widget de ícone especificado.
 
@@ -7821,7 +8226,7 @@ UINT gx_image_reader_create(
     GX_UBYTE mode);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função cria um leitor de imagem/descodificador de imagem em bruto. Atualmente apenas os tipos de imagem em bruto jpeg e png são suportados. Este serviço requer GX_SOFTWARE_DECODER_SUPPORT para ser definido.
 
@@ -7882,7 +8287,7 @@ UINT gx_image_reader_palette_set(
     UINT palsize);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define paleta para o bloco de controlo do leitor de imagem. Este serviço requer GX_SOFTWARE_DECODER_SUPPORT para ser definido.
 
@@ -7929,7 +8334,7 @@ UINT gx_image_reader_start(
     GX_PIXELMAP *outmap);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço descodifica uma imagem em bruto para um formato de cor especificado. Atualmente apenas os tipos de imagem em bruto jpeg e png são suportados. Isto requer que GX_SOFTWARE_DECODER_SUPPORT sejam definidos.
 
@@ -7980,7 +8385,7 @@ Desenhar gráfico de linha x,y eixo
 VOID gx_line_chart_axis_draw(GX_LINE_CHART *chart);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o eixo x,y de um gráfico de linha. As cores do eixo e os parâmetros de largura da linha são recuperados a partir da estrutura de informação do gráfico de linha.
 
@@ -8043,7 +8448,7 @@ UINT gx_line_chart_create(
     USHORT chart_id, GX_RECTANGLE *size)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma janela de gráfico de linha. Os parâmetros de desenho do gráfico e os dados do gráfico são transmitidos através da estrutura GX_LINE_CHART_INFO.
 
@@ -8124,7 +8529,7 @@ Linha de dados de gráfico de linha
 VOID gx_line_chart_data_draw(GX_LINE_CHART *chart);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço traça a linha de dados do gráfico de linha. As cores da linha e os parâmetros de largura da linha são recuperados a partir da estrutura de informação do gráfico de linha.
 
@@ -8180,7 +8585,7 @@ Desenhe o gráfico de linha
 UINT gx_line_chart_draw(GX_LINE_CHART *chart);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta é a função de desenho de gráfico de linha padrão, que desenha o eixo do gráfico e a linha de dados. As aplicações geralmente fornecem uma função de desenho personalizado para substituir o desenho padrão para adicionar coisas como marcas de cócegas, escala ou outras informações ao eixo do gráfico e linha de dados desenhada pelo widget de gráfico de linha base.
 
@@ -8231,7 +8636,7 @@ UINT gx_line_chart_update(
     INT data_count)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atualiza a matriz de dados traçada pela janela do gráfico de linha, e força a janela a redesenhar.
 
@@ -8283,7 +8688,7 @@ UINT gx_line_chart_y_scale_calculate(
     INT *return_val);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula o valor de escala de ponto fixo utilizado para traçar valores de dados no eixo Y do gráfico. Os parâmetros chart_info e o retângulo de delimitação de gráficos são usados para calcular este valor de escala.
 
@@ -8338,7 +8743,7 @@ UINT gx_menu_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um menu conforme especificado e associa o menu ao widget dos pais fornecidos. Aceita todos os tipos de widget como item do menu infantil. Para inserir um widget como um item de menu infantil, ligue **para gx_menu_insert**.
 
@@ -8404,7 +8809,7 @@ Menu de desenho
 VOID gx_menu_draw(GX_MENU *menu);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o menu especificado. Esta função é normalmente chamada internamente pelo mecanismo de atualização de lona GUIX, mas está exposta à aplicação para ajudar na implementação de funções de desenho personalizado para widgets de menu personalizados.
 
@@ -8457,7 +8862,7 @@ Evento do menu do processo
 UINT gx_menu_event_process(GX_MENU *menu, GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para o menu especificado. Este serviço deve ser chamado como o manipulador de eventos predefinido por quaisquer funções de processamento de eventos de menu personalizado.
 
@@ -8528,7 +8933,7 @@ UINT gx_menu_insert(
     GX_WIDGET *insert);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço insere um novo item no menu.
 
@@ -8582,7 +8987,7 @@ UINT gx_menu_remvoe(
     GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove um item do menu.
 
@@ -8634,7 +9039,7 @@ Desenhar texto do menu
 VOID gx_menu_text_draw(GX_MENU *menu);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o texto de um menu. Esta função é normalmente chamada internamente pelo mecanismo de atualização de lona GUIX, mas está exposta à aplicação para ajudar na implementação de funções de desenho personalizado para widgets de menu personalizados.
 
@@ -8695,7 +9100,7 @@ UINT gx_menu_text_offset_set(
     GX_VALUE y_offset);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define x, y display offset para o texto do menu.
 
@@ -8755,7 +9160,7 @@ UINT gx_multi_line_text_button_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de botão de texto multi-linha. Um botão de texto multi-linha exibe o texto do botão sobre linhas de 1-n. O número máximo de linhas é definido pela GX_MULTI_LINE_TEXT_BUTTON_MAX_LINES constante, que não chega a 4. As quebras de linha são definidas por retorno de transporte e/ou retorno de transporte + pares de alimentação de linha dentro da cadeia de texto atribuída ao botão de texto multi-linha.
 
@@ -8815,7 +9220,7 @@ Desenhar botão de texto multi-linha
 VOID gx_multi_line_text_button_draw(GX_MULTI_LINE_TEXT_BUTTON *button);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o botão de texto multi-linha. Esta função é normalmente chamada internamente pelo GUIX como parte de uma operação de atualização de tela, mas também exposta à aplicação que pode querer fornecer uma função de desenho personalizado e invocar o desenho de botão de texto multi-linha padrão como base de desenho personalizado.
 
@@ -8866,7 +9271,7 @@ UINT gx_multi_line_text_button_event_process(
     GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é a função de tratamento de eventos predefinido para o widget de botão de texto multi linha. Esta função é tornada acessível a aplicações que pretendam fornecer o manuseamento personalizado de eventos para um widget de botão de texto.
 
@@ -8925,7 +9330,7 @@ Função de suporte de desenho
 VOID gx_multi_line_text_button_text_draw(GX_MULTI_LINE_TEXT_BUTTON *text_button);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função de suporte desenha a parte de texto de um botão de texto multi-linha. Esta função é chamada internamente por gx_multi_line_text_button_draw(), e é fornecida como uma API separada como uma conveniência para aplicações que definem uma função de desenho de botão de texto multi-linha personalizada. As aplicações que pretendem personalizar o desenho de fundo do botão podem fornecer a sua função de desenho personalizado e invocar o serviço de multi_line_text_button_text_draw como parte do seu desenho personalizado para desenhar o texto do botão sobre o fundo.
 
@@ -8980,7 +9385,7 @@ UINT gx_multi_line_text_button_text_id_set(
     RESOURCE_ID string_id)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o ID de recurso de cadeia especificado para o botão de texto. A cadeia pode conter caracteres newline que atuam para exibir o texto em várias linhas dentro da área do botão.
 
@@ -9031,7 +9436,7 @@ UINT gx_mult_line_text_button_text_set(
     GX_CHAR *text);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é precotado a favor de gx_multi_line_text_button_text_set_ext().
 
@@ -9087,7 +9492,7 @@ UINT gx_mult_line_text_button_text_set_ext(
     GX_STRING *string)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a cadeia especificada ao botão de texto. Se o widget text_button foi criado com GX_STYLE_TEXT_COPY de estilo, o widget cria uma cópia privada da cadeia de texto atribuída, pelo que a API gx_system_memmory_allocate_set deve ser invocada uma vez antes deste serviço ser solicitado. Se GX_STYLE_TEXT_COPY não estiver ativa, o widget não faz uma cópia privada da cadeia de entrada, pelo que a cadeia deve ser atribuída estática ou globalmente, ou seja, pode não ser uma variável automática ou temporária.
 
@@ -9142,7 +9547,7 @@ UINT gx_multi_line_text_input_backspace(
     GX_MULTI_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o carácter antes da posição do cursor de entrada de texto de várias linhas. Este serviço é chamado internamente quando um evento de chave de backspace para baixo é recebido, mas também pode ser invocado pela aplicação.
 
@@ -9215,7 +9620,7 @@ Elimina todos os caracteres do tampão de entrada de texto
 UINT gx_multi_line_text_input_buffer_clear(GX_MULTI_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina todos os caracteres do tampão de entrada de texto.
 
@@ -9290,7 +9695,7 @@ UINT gx_multi_line_text_input_buffer_get(
     UINT *buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações tampão de um widget de entrada de texto de várias linhas.
 
@@ -9373,7 +9778,7 @@ UINT gx_multi_line_text_input_char_insert(
     UINT insert_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API é depreciada e substituída por gx_multi_line_text_input_char_insert_ext().
 
@@ -9427,7 +9832,7 @@ UINT gx_multi_line_text_input_char_insert_ext(
     GX_CONST GX_STRING *string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço insere uma cadeia de caracteres no tampão de cadeia de entrada de texto multi linha na posição atual do cursor. Este serviço é chamado internamente quando eventos específicos de down são recebidos, mas também pode ser invocado pela aplicação.
 
@@ -9514,7 +9919,7 @@ UINT gx_multi_line_text_input_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de entrada de texto multi-line.
 
@@ -9609,7 +10014,7 @@ UINT gx_multi_line_text_input_cursor_pos_get(
     GX_POINT cursor_pos);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a posição do cursor de entrada de texto de linha de mult.
 
@@ -9684,7 +10089,7 @@ Elimine o carácter na posição do cursor de entrada de texto multi linha
 UINT gx_multi_line_text_input_delete(GX_MULTI_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o carácter após a posição do cursor de entrada de texto multi linha. Este serviço é chamado internamente quando um evento de eliminação de chave para baixo é recebido, mas também pode ser invocado pela aplicação.
 
@@ -9757,7 +10162,7 @@ Mova o cursor de entrada de texto de várias linhas para a linha seguinte
 UINT gx_multi_line_text_input_down_arrow(GX_MULTI_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço posiciona o cursor de widget de entrada de texto multi linha para a linha seguinte. Este serviço é chamado internamente quando um evento de tecla de seta para baixo é recebido, mas também pode ser invocado pela aplicação.
 
@@ -9830,7 +10235,7 @@ Mova o cursor de entrada de texto de várias linhas para o fim da linha atual
 UINT gx_multi_line_text_input_end(GX_MULTI_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço posiciona o cursor de widget de entrada de texto multi linha até ao fim da linha de corda atual. Este serviço é chamado internamente quando um evento de chave final para baixo é recebido, mas também pode ser invocado pela aplicação.
 
@@ -9904,7 +10309,7 @@ UINT gx_multi_line_text_input_event_process(
     GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é a função de tratamento de eventos predefinido para o widget de entrada de texto de várias linhas. Esta função é disponibilizada a aplicações que pretendam fornecer o manuseamento personalizado de eventos para um widget de entrada de texto de várias linhas.
 
@@ -9994,7 +10399,7 @@ UINT gx_multi_line_text_input_fill_color_set(
     GX_RESOURCE_ID readonly_fill_color_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui cores de preenchimento para o widget de entrada de texto multi-linha.
 
@@ -10074,7 +10479,7 @@ Mova o cursor de entrada de texto para o início da linha atual
 UINT gx_multi_line_text_input_home(GX_MULTI_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move a posição do cursor de entrada de texto para o início da linha atual. Este serviço é chamado internamente quando um evento de home key down é recebido, mas também pode ser invocado pela aplicação.
 
@@ -10146,7 +10551,7 @@ Mover cursor de entrada de texto multi linha um personagem para a esquerda
 UINT gx_multi_line_text_input_left_arrow(GX_MULTI_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move o cursor de entrada de texto de várias linhas um caracter para a esquerda. Este serviço é chamado internamente quando um evento de chave esquerda para baixo é recebido, mas também pode ser invocado pela aplicação.
 
@@ -10220,7 +10625,7 @@ Mover cursor de entrada de texto de linha de mult um personagem para a direita
 UINT gx_multi_line_text_input_right_arrow(GX_MULTI_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move o cursor de entrada de texto de várias linhas um caracter para a direita. Este serviço é chamado internamente quando um evento de chave direita para baixo é recebido, mas também pode ser invocado pela aplicação.
 
@@ -10294,7 +10699,7 @@ UINT gx_multi_line_text_input_style_add(
     ULONG style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona estilos a um widget de entrada de texto multi-line.
 
@@ -10369,7 +10774,7 @@ UINT gx_multi_line_text_input_remove(
     ULONG style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove os estilos especificados do widget de entrada de texto multi-line.
 
@@ -10443,7 +10848,7 @@ UINT gx_multi_line_text_input_style_set(
     ULONG style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define os estilos para um widget de entrada de texto multi-line.
 
@@ -10521,7 +10926,7 @@ UINT gx_multi_line_text_input_text_color_set(
     GX_RESOURCE_ID readonly_text_color_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui cores de texto para o widget de entrada de texto multi-linha.
 
@@ -10602,7 +11007,7 @@ UINT gx_multi_line_text_input_text_select(
     UINT start_index, UINT end_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço seleciona o texto de entrada de texto de várias linhas com o índice de marca de início e de marca final especificado e destaca o texto selecionado com as cores de preenchimento e texto selecionados.
 
@@ -10681,7 +11086,7 @@ UINT gx_mult_line_text_input_text_set(
     GX_CHAR *text);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API é depreciada e substitua por gx_multi_line_text_input_text_set_ext().
 
@@ -10730,7 +11135,7 @@ UINT gx_mult_line_text_input_text_set(
     GX_CONST GX_STRING *string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui o fio especificado à entrada de texto de várias linhas. Se o tamanho do tampão de entrada do widget multi_line_text_input for menor do que o comprimento da corda, a corda será truncada.
 
@@ -10808,7 +11213,7 @@ Mova o cursor de entrada de texto de várias linhas para a linha anterior
 UINT gx_multi_line_text_input_up_arrow(GX_MULTI_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move o cursor de entrada de texto de várias linhas para a linha de texto anterior. Este serviço é chamado internamente quando um evento de tecla de seta para cima é recebido, mas também pode ser invocado pela aplicação.
 
@@ -10889,7 +11294,7 @@ UINT gx_multi_line_text_view_create(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget GX_MULTI_LINE_TEXT_VIEW. Este tipo de widget é derivado de GX_WINDOW, e, portanto, todos os gx_window serviços de API também podem ser utilizados com este tipo de widget.
 
@@ -10971,7 +11376,7 @@ Desenhe um widget de visualização de texto de várias linhas
 VOID gx_multi_line_text_view_draw(GX_MULTI_LINE_TEXT_VIEW * text_view);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um widget de visualização de texto de várias linhas. Este serviço é normalmente chamado internamente durante a atualização de tela, mas também pode ser chamado de funções de desenho de visão de texto multi-linha personalizadas.
 
@@ -11047,7 +11452,7 @@ UINT gx_multi_line_text_view_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para um widget de visualização de texto multi-line.
 
@@ -11133,7 +11538,7 @@ UINT gx_multi_line_text_view_text_id_set(
     GX_RESOURCE_ID font_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a fonte de um widget de visualização de texto multi-linha.
 
@@ -11207,7 +11612,7 @@ UINT gx_multi_line_text_view_line_space_set(
     GX_BYTE line_space);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o espaçamento entre linhas de texto para o widget de visualização de texto multi-linha.
 
@@ -11279,7 +11684,7 @@ UINT gx_multi_line_text_view_scroll_info_get(
     GX_SCROLL_INFO *info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém a informação de visualização de texto multi-linha.
 
@@ -11359,7 +11764,7 @@ UINT gx_multi_line_text_view_text_color_set(
     GX_RESOURCe_ID disabled_text_color_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a cor de texto ao widget de visualização de texto multi-linha.
 
@@ -11438,7 +11843,7 @@ UINT gx_multi_line_text_view_text_id_set(
     GX_RESOURCE_ID text_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o ID de recurso de uma cadeia para o widget de visualização de texto multi-line.
 
@@ -11513,7 +11918,7 @@ UINT gx_multi_line_text_view_text_set(
     GX_CONST GX_CHAR *text);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui uma cadeia de texto ao widget de visualização de texto multi-linha. Se o widget text_view foi criado com GX_STYLE_TEXT_COPY de estilo, o widget cria uma cópia privada da cadeia de texto atribuída, pelo que a API gx_system_memory_allocate_set deve ser invocada uma vez antes deste serviço ser solicitado. Se GX_STYLE_TEXT_COPY não estiver ativa, o widget não faz uma cópia privada da cadeia de entrada, pelo que a cadeia atribuída deve ser estática ou globalmente atribuída, ou seja, pode não ser uma variável automática ou temporária.
 
@@ -11588,7 +11993,7 @@ UINT gx_multi_line_text_view_whitespace_set(
     GX_UBYTE whitespace);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o espaçamento entre os contornos do widget e a área do cliente para um widget de visualização de texto multi-line.
 
@@ -11665,7 +12070,7 @@ UINT gx_numeric_pixelmap_prompt_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de pixelmap numérico. Um numeric_pixelmap_prompt é apenas um pixelmap_prompt que mantém o seu próprio tampão e fornece uma API gx_numeric_pixelmap_prompt_value_set(INT), o tamanho do tampão é definido pelo GX_NUMERIC_PROMPT_BUFFER_SIZE constante, que não chega a 16.
 
@@ -11725,7 +12130,7 @@ UINT gx_numeric_pixelmap_format_function_set(
     OID (*format_func)(GX_NUMERIC_PIXELMAP_PROMPT *, INT));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço substitui a função de formato predefinido do widget de pixlemap numérico. A função de formato predefinido converte o valor de pedido de pixelmap numérico para uma cadeia e armazena-o no tampão privado do widget. Este serviço permite que a aplicação defina a sua própria função de formato e armazene o valor de solicitação numérica do pixelmap no tampão privado do widget.
 
@@ -11789,7 +12194,7 @@ UINT gx_numeric_pixelmap_prompt_value_set(
     INT value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tem um valor inteiro para um pedido de pixelmap numérico.
 
@@ -11838,7 +12243,7 @@ UINT gx_numeric_prompt_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget numérico. Um numeric_ é apenas uma solicitação que mantém o seu próprio tampão e fornece uma API gx_numeric_ prompt_value_set(INT), o tamanho do tampão é definido pela GX_NUMERIC_PROMPT_BUFFER_SIZE constante, que não chega a 16.
 
@@ -11896,7 +12301,7 @@ UINT gx_numeric_format_function_set(
     VOID (*format_func)(GX_NUMERIC_PROMPT *, INT));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço substitui a função de formato predefinido de um widget numérico. A função de formato predefinido converte o valor de solicitação numérica a uma corda e armazena-a no tampão privado do widget. Este serviço permite que a aplicação defina a sua própria função de formato para formato e armazenar o valor numérico de solicitação no tampão privado do widget.
 
@@ -11957,7 +12362,7 @@ UINT gx_numeric_prompt_value_set(
     INT value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define um valor inteiro para um pedido numérico.
 
@@ -12000,7 +12405,7 @@ Criar roda de pergaminho numérico
 
 UINT gx_numeric_scroll_wheel_create, GX_NUMERIC_SCROLL_WHEEL *roda, GX_CONST GX_CHAR *nome, GX_WIDGET *pai, INT start_val, INT end_val, estilo ULONG, USHORT wheel_id, GX_CONST GX_RECTANGLE *tamanho);
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de roda de deslocal numérico.
 
@@ -12096,7 +12501,7 @@ gx_numeric_scroll_wheel_range_set(
     INT start_val, INT end_val);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço modifica a gama de valores permitidos e exibidos por um widget de roda de deslocação numérica.
 
@@ -12170,7 +12575,7 @@ UINT gx_pixelmap_button_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de botão pixelmap.
 
@@ -12248,7 +12653,7 @@ Desenhe o botão pixelmap
 VOID gx_pixelmap_button_draw(GX_PIXELMAP_BUTTON *button);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um widget de botão pixelmap. Esta função é normalmente chamada internamente pelo mecanismo de atualização de lona GUIX, mas está exposta à aplicação para ajudar na implementação de funções de desenho personalizado para widgets de botões pixelmap personalizados.
 
@@ -12314,7 +12719,7 @@ UINT gx_pixelmap_button_event_process(
     GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço fornece o manuseamento predefinido do evento para o tipo de widget de botão pixelmap.
 
@@ -12385,7 +12790,7 @@ UINT gx_pixelmap_button_pixelmap_set(
     GX_RESOURCE_ID disabled_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define pixelmaps para o botão pixelmap.
 
@@ -12459,7 +12864,7 @@ UINT gx_pixelmap_prompt_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de solicitação pixelmap. Uma solicitação de pixelmap difere de um GX_PROMPT padrão na medida em que pinta o fundo da solicitação usando pixelmaps. A função de criação aceita um id pixelmap, o mapa de pixels de preenchimento de estado normal. Até seis pixelmaps podem ser atribuídos à solicitação pixelmap.
 
@@ -12528,7 +12933,7 @@ Desenhe o pixelmap
 VOID gx_pixelmap_prompt_draw(GX_PIXELMAP_PROMPT *prompt);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um widget de solicitação pixelmap. Esta função é normalmente chamada internamente pelo mecanismo de atualização de lona GUIX, mas está exposta à aplicação para ajudar na implementação de funções de desenho personalizado para widgets de pixelmap personalizados.
 
@@ -12593,7 +12998,7 @@ UINT gx_pixelmap_prompt_pixelmap_set(
     GX_RESOURCE_ID selected_right_pixelmap);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui ids pixelmap à solicitação pixelmap. Os ids pixelmap esquerdo, preenchido e direito são usados para permitir que a aplicação use um conjunto de pixelmaps para solicitações de várias larguras, mas uma altura comum para economizar nos requisitos de armazenamento. Se os IDs esquerdo e direito não forem utilizados, devem ser definidos para 0. Se a solicitação se desenergem de forma diferente quando ganha o foco de entrada, os ids pixelmap selecionados são utilizados para o efeito. Se os ids selecionados não forem utilizados ou forem os mesmos que os ids normais, desa coloca-os em 0.
 
@@ -12669,7 +13074,7 @@ UINT gx_pixelmap_slider_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de slider pixelmap.
 
@@ -12763,7 +13168,7 @@ Desenhe o slider do pixelmap
 VOID gx_pixelmap_slider_draw(GX_PIXELMAP_SLIDER *slider);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um widget de slider pixelmap. Esta função é normalmente chamada internamente pelo mecanismo de atualização de lona GUIX, mas está exposta à aplicação para ajudar na implementação de funções de desenho personalizado para widgets de slider de pixelmap personalizados.
 
@@ -12828,7 +13233,7 @@ UINT gx_pixelmap_slider_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para o widget de slider pixelmap especificado.
 
@@ -12907,7 +13312,7 @@ UINT gx_pixelmap_slider_pixelmap_set(
     GX_PIXELMAP_SLIDER_INFO *pixinfo);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define pixelmaps para o slider pixelmap.
 
@@ -12980,7 +13385,7 @@ Desenhar fundo de barra de progresso
 VOID gx_progress_bar_background_draw(GX_PROGRESS_BAR *progress_bar)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o pano de fundo da barra de progresso especificada. Esta função é chamada internamente como parte do gx_progress_bar_draw,, mas está exposta à aplicação de suporte aos casos em que a aplicação define uma função de desenho de barra de progresso personalizada.
 
@@ -13043,7 +13448,7 @@ UINT gx_progress_bar_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de barra de progresso.
 
@@ -13120,7 +13525,7 @@ Desenhar uma barra de progresso
 VOID gx_progress_bar_draw(GX_PROGRESS_BAR *progress_bar);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um widget de barra de progresso. Esta função é normalmente chamada internamente pelo mecanismo de atualização de lona GUIX, mas está exposta à aplicação para ajudar na implementação de funções de desenho personalizado para widgets de barras de progresso personalizados.
 
@@ -13175,7 +13580,7 @@ UINT gx_progress_bar_event_process(
     GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento de barras de progresso.
 
@@ -13244,7 +13649,7 @@ UINT gx_progress_bar_font_set(
     GX_RESOURCE_ID font_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a fonte de um widget de barra de progresso.
 
@@ -13297,7 +13702,7 @@ UINT gx_progress_bar_info_set(
     GX_PROGRESS_BAR_INFO *info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço repõe a estrutura de informação de um widget de barra de progresso.
 
@@ -13359,7 +13764,7 @@ UINT gx_progress_bar_pixelmap_set(
     GX_RESOURCE_ID pixelmap_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o pixelmap utilizado para preencher o fundo da barra de progresso.
 
@@ -13413,7 +13818,7 @@ UINT gx_progress_bar_range_set(
     INT max_value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a gama de valor da barra de progresso.
 
@@ -13468,7 +13873,7 @@ UINT gx_progress_bar_text_color_set(
     GX_RESOURCE_ID disabled_text_color);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cor de texto de um widget de barra de progresso.
 
@@ -13524,7 +13929,7 @@ Desenhar texto de barra de progresso
 VOID gx_progress_bar_text_draw(GX_PROGRESS_BAR *progress_bar)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o texto da barra de progresso especificada. Esta função é chamada internamente como parte do gx_progress_bar_draw,, mas está exposta à aplicação de suporte aos casos em que a aplicação define uma função de desenho de barra de progresso personalizada.
 
@@ -13582,7 +13987,7 @@ UINT gx_progress_bar_value_set(
     INT value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui o valor atual da barra de progresso. O widget da barra de progresso invalida-se automaticamente e redesenhar-se-á quando o valor da barra de progresso for alterado.
 
@@ -13639,7 +14044,7 @@ UINT gx_prompt_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget rápido.
 
@@ -13700,7 +14105,7 @@ Desenhe o pedido de sorteio
 VOID gx_prompt_draw(GX_PROMPT *prompt);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um widget rápido. Este serviço é chamado internamente pelo GUIX durante a atualização de lona, mas também pode ser chamado por funções de desenho personalizado.
 
@@ -13754,7 +14159,7 @@ Evento de solicitação de processo
 UINT gx_prompt_event_process(GX_PROMPT *prompt, GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para a solicitação especificada. Este serviço deve ser chamado como o manipulador de eventos predefinido por quaisquer funções de processamento de eventos de solicitação personalizadas.
 
@@ -13824,7 +14229,7 @@ UINT gx_prompt_font_set(
     GX_RESOURCE_ID font_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a fonte de um widget rápido.
 
@@ -13881,7 +14286,7 @@ UINT gx_prompt_text_color_set(
     GX_RESOURCE_ID disabled_color);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cor de texto de um widget rápido.
 
@@ -13939,7 +14344,7 @@ Função de suporte de desenho
 VOID gx_prompt_text_draw(GX_PROMPT *prompt);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função de suporte desenha a parte de texto de um pedido. Esta função é chamada internamente por gx_prompt_draw(), e é fornecida como uma API separada como uma conveniência para aplicações que definem uma função de desenho rápido personalizado. As aplicações que pretendam personalizar o desenho de fundo rápido podem fornecer a sua função de desenho personalizado, e invocar o serviço de gx_prompt_text_draw como parte do seu desenho personalizado para desenhar o texto rápido sobre o fundo.
 
@@ -13997,7 +14402,7 @@ UINT gx_prompt_text_get(
     GX_CHAR **return_text);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é prevadido a favor de gx_prompt_text_get_ext().
 
@@ -14056,7 +14461,7 @@ UINT gx_prompt_text_get(
     GX_STRING *return_string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém a sequência de um widget rápido.
 
@@ -14113,7 +14518,7 @@ UINT gx_prompt_text_id_set(
     GX_RESOURCE_ID string_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o ID de cadeia para o widget de texto.
 
@@ -14168,7 +14573,7 @@ UINT gx_prompt_text_set(
     GX_CHAR *text);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço foi prevadido a favor de gx_prompt_text_set_ext().
 
@@ -14227,7 +14632,7 @@ UINT gx_prompt_text_set_ext(
     GX_STRING *string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o texto de um widget rápido. Se o widget rápido foi criado com GX_STYLE_TEXT_COPY de estilo, o widget cria uma cópia privada da cadeia de texto atribuída. Se GX_STYLE_TEXT_COPY não estiver ativa, o widget não faz uma cópia privada da cadeia de entrada, pelo que a cadeia deve ser atribuída estática ou globalmente, ou seja, pode não ser uma variável automática ou temporária.
 
@@ -14289,7 +14694,7 @@ UINT gx_radial_progress_bar_anchor_set(
     GX_VALUE angle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o ângulo de partida para a barra de progresso radial.
 
@@ -14343,7 +14748,7 @@ Desenhar fundo
 VOID gx_radial_progress_bar_background_draw(GX_RADIAL_PROGRESS_BAR *progress_bar);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um fundo de barra de progresso radial. Este serviço é referenciado internamente pela função gx_radial_progress_bar_draw, mas está exposto para utilização pela aplicação nos casos em que a aplicação define uma função de desenho de barra de progresso radial personalizado
 
@@ -14404,7 +14809,7 @@ UINT gx_radial_progress_bar_create(
     USHORT id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma barra de progresso radial.
 
@@ -14491,7 +14896,7 @@ Desenhe uma barra de progresso radial
 VOID gx_radial_progress_bar_draw(GX_RADIAL_PROGRESS_BAR *progress_bar);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha uma barra de progresso radial. Este serviço é utilizado internamente referenciado pela função gx_radial_progress_bar_create, mas está exposto para utilização pela aplicação nos casos em que a aplicação define uma função de desenho de barra de progresso radial personalizada.
 
@@ -14550,7 +14955,7 @@ UINT gx_radial_progress_bar_event_process(
     GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento radial progress bar. Esta função é referenciada internamente pela função gx_radial_progress_bar_create, mas está exposta para utilização pela aplicação nos casos em que a aplicação define uma função de processamento de eventos de progresso radial personalizado.
 
@@ -14619,7 +15024,7 @@ UINT gx_radial_progress_bar_font_set(
     GX_RESOURCE_ID font_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a fonte de um widget de barra de progresso radial. Este parâmetro não tem efeito se o estilo widget GX_STYLE_PROGRESS_TEXT_DRAW não estiver definido.
 
@@ -14673,7 +15078,7 @@ UINT gx_radial_progress_bar_info_set(
     GX_RADIAL_PROGRESS_BAR_INFO *info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço repõe os parâmetros de informação atribuídos à barra de progresso radial.
 
@@ -14750,7 +15155,7 @@ UINT gx_radial_progress_bar_text_color_set(
     GX_RESOURCE_ID disabled_text_color);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cor de texto da barra de progresso radial. Este valor só é utilizado se o estilo GX_STYLE_PROGRESS_TEXT_DRAW estiver definido.
 
@@ -14807,7 +15212,7 @@ Desenhar texto de barra de progresso radial
 VOID gx_radial_progress_bar_text_draw(GX_RADIAL_PROGRESS_BAR *progress_bar);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o texto da barra de progresso radial especificada. Esta função é chamada internamente como parte do gx_radial_progress_bar_draw,, mas está exposta à aplicação de suporte aos casos em que a aplicação define uma função de desenho de barra de progresso personalizada.
 
@@ -14869,7 +15274,7 @@ UINT gx_radial_progress_bar_value_set(
     GX_VALUE value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o valor da barra de progresso radial. O valor atribuído limita-se ao intervalo [-360, 360], definindo a possível gama de valores angulares para a localização atual da barra de progresso. A aplicação deve escalar o valor real indicado para atribuir um valor angular ao widget da barra de progresso.
 
@@ -14934,7 +15339,7 @@ UINT gx_radio_button_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de botão de rádio. GX_RADIO_BUTTON é derivado de GX_TEXT_BUTTON, pelo que todos os serviços gx_text_button também são suportados por este tipo de widget.
 
@@ -14999,7 +15404,7 @@ Desenhe botão de rádio
 VOID gx_radio_button_draw(GX_RADIO_BUTTON *button);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um widget de botão de rádio. Este serviço é chamado internamente pela atualização de tela GUIX, mas também pode ser chamado por funções de desenho overridden.
 
@@ -15064,7 +15469,7 @@ UINT gx_radio_button_pixelmap_set(
     GX_RESOURCE_ID on_disabled_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui as pixelmaps a serem exibidas pelo botão de rádio especificado para cada estado de botão. Os IDs de recursos podem ser duplicados.
 
@@ -15129,7 +15534,7 @@ UINT gx_radial_slider_anchor_angles_set(
     USHORT anchor_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define ângulos de ancoragem para o deslizador radial. Se a lista de ângulos de ancoragem estiver definida, o ângulo do deslizador radial será um dos ângulos de ancoragem definidos.
 
@@ -15193,7 +15598,7 @@ UINT gx_radial_slider_angle_set(
     GX_VALUE new_angle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define um novo valor de ângulo para o deslizador radial.
 
@@ -15249,7 +15654,7 @@ UINT gx_radial_slider_animation_set(
     VOID (*animation_update_callback)(GX_RADIAL_SLIDER *slider));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define passos de animação, tempo de atraso e estilos de animação para animação de agulha de slider radial.
 
@@ -15350,7 +15755,7 @@ UINT gx_radial_slider_animation_start(
     GX_VALUE target_angle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma animação para mover a agulha de slider da posição atual para a posição especificada.
 
@@ -15410,7 +15815,7 @@ UINT gx_radial_slider_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de slider radial.
 
@@ -15511,7 +15916,7 @@ Desenhe o slider radial
 VOID gx_radial_slider_draw(GX_RADIAL_SLIDER *slider);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um deslize radial. Este serviço é chamado internamente pela atualização de tela GUIX, mas também pode ser chamado por funções de desenho overridden.
 
@@ -15567,7 +15972,7 @@ UINT gx_radial_slider_event_process(
     GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento de slider radial. Este serviço deve ser chamado como o manipulador de eventos predefinido por quaisquer funções de processamento de eventos de slider radiais personalizados.
 
@@ -15636,7 +16041,7 @@ UINT gx_radial_slider_info_get(
     GX_RADIAL_SLIDER_INFO **info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o ponteiro de informação do deslizador radial.
 
@@ -15692,7 +16097,7 @@ UINT gx_radial_slider_info_set(
     GX_RADIAL_SLIDER_INFO *info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define informações de deslizamento radial.
 
@@ -15782,7 +16187,7 @@ UINT gx_radial_slider_pixelmap_set(
     GX_REOUSRCE_ID needle_pixelmap);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o fundo do slider radial e as pixelmaps da agulha.
 
@@ -15841,7 +16246,7 @@ UINT gx_rich_text_view_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma visão de texto rica como especificado.
 
@@ -15935,7 +16340,7 @@ Desenhar vista de texto rica
 VOID gx_rich_text_view_draw(GX_RICH_TEXT_VIEW *text_view);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o widget de visualização de texto rico especificado. Este serviço é normalmente chamado internamente pelo GUIX como parte de uma operação de atualização de tela, mas também exposto à aplicação que pode querer fornecer uma função de desenho personalizado e invocar o desenho de visão de texto rico padrão como base de desenho personalizado.
 
@@ -15981,7 +16386,7 @@ Definir fontes de vista de texto ricas
 UINT gx_rich_text_view_fonts_set(GX_RICH_TEXT_VIEW *text_view, GX_RICH_TEXT_FONTS *fonts);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define as fontes de um widget de visualização de texto rico.
 
@@ -16035,7 +16440,7 @@ Desenhar texto de vista de texto rico
 VOID gx_rich_text_view_text_draw(GX_RICH_TEXT_VIEW *text_view);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função de suporte desenha a parte de texto de uma visão de texto rica. Esta função é chamada internamente por gx_rich_text_view_draw(), e é fornecida como uma API separada como uma conveniência para aplicações que definem uma função de desenho de visão de texto rico personalizado. As aplicações que pretendem personalizar o desenho de fundo de vista de texto rico podem fornecer a sua função de desenho personalizado, e invocar o serviço de gx_rich_text_view_text_draw como parte do seu desenho personalizado para desenhar o rico texto de vista de texto sobre o fundo.
 
@@ -16088,7 +16493,7 @@ UINT gx_screen_stack_create(
     INT buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa uma pilha de ecrã. A aplicação deve definir o bloco de memória e o tamanho do tampão utilizados para implementar a função de pilha de ecrã.
 
@@ -16143,7 +16548,7 @@ Remova a entrada mais alta da pilha de ecrã
 UINT gx_screen_stack_pop(GX_SCREEN_STACK_CONTROL *control);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove a entrada mais alta da pilha de ecrã e liga o ecrã estalado ao seu progenitor anterior. Esta API também separa quaisquer crianças existentes do progenitor.
 
@@ -16194,7 +16599,7 @@ UINT gx_screen_stack_push(
     GX_WIDGET *new_screen);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço separa o ecrã do seu progenitor e empurra o ponteiro do ecrã e o ponteiro dos pais para a pilha de ecrã. O novo ponteiro de ecrã é então ligado ao progenitor.
 
@@ -16245,7 +16650,7 @@ Remove todas as entradas da pilha de ecrã
 UINT gx_screen_stack_reset(GX_SCREEN_STACK_CONTROL *control);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove todas as entradas da pilha de ecrã.
 
@@ -16293,7 +16698,7 @@ UINT gx_scroll_thumb_create(
     GX_SCROLLBAR *parent, ULONG style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma roda de polegar de deslocal. Este serviço é normalmente chamado internamente quando um GX_SCROLLBAR é criado, mas é tornado público de forma a permitir implementações personalizadas de barra de deslocamento.
 
@@ -16344,7 +16749,7 @@ Desenhe o polegar do pergaminho
 VOID gx_scroll_thumb_draw(GX_SCROLL_THUMB *scroll_thumb);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha uma roda de polegar de deslocal. Este serviço é chamado internamente pela atualização de tela GUIX, mas também pode ser chamado por funções de desenho overridden.
 
@@ -16392,7 +16797,7 @@ UINT gx_scroll_thumb_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço trata dos eventos enviados para uma roda de polegar de uma barra de deslocação. Este serviço é normalmente utilizado internamente pelo GUIX, mas é tornado público para ajudar na implementação de comportamentos personalizados da barra de deslocamento.
 
@@ -16458,11 +16863,11 @@ UINT gx_scroll_wheel_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
-Este serviço cria um widget genérico de roda de deslocação.
+Este serviço cria um widget de roda de deslocação base.
 
-Uma roda de deslocação genérica é o widget base para todos os tipos de widgets de roda de deslocação, incluindo o *gx_text_scroll_wheel*** que é a base para widgets *gx_numeric_scroll_wheel*** e *gx_string_ scroll_wheel**.* O widget da roda de deslocação base fornece manuseamento de eventos, animação de deslocação e cálculo de linha selecionado para todos os tipos de widgets de roda de deslocamento.
+Uma roda de deslocação base é o widget base para todos os tipos de widgets de roda de deslocação, incluindo o **gx_generic_scroll_wheel** e **gx_text_scroll_wheel** que é a base para widgets **gx_numeric_scroll_wheel** e **gx_string_ scroll_wheel.** O widget da roda de deslocação base fornece manuseamento de eventos, animação de deslocação e cálculo de linha selecionado para todos os tipos de widgets de roda de deslocamento.
 
 As aplicações normalmente não criariam um exemplo de um widget genérico da roda de deslocação, uma vez que este tipo de widget não fornece nenhuma função de desenho. No entanto, o acesso a esta API é fornecido para ajudar aplicações que precisam de criar um tipo de widget de roda de deslocação personalizado.
 
@@ -16545,7 +16950,7 @@ UINT gx_scroll_wheel_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço fornece o manuseamento básico do evento de entrada para todos os tipos de widgets de roda de deslocação.
 
@@ -16627,7 +17032,7 @@ UINT gx_scroll_wheel_gradient_alpha_set(
     GX_UBYTE end_alpha);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define os valores alfa inicial e final para uma sobreposição opcional do gradiente do widget da roda de deslocamento.
 
@@ -16696,7 +17101,7 @@ UINT gx_scroll_wheel_row_height_set(
     GX_VALUE row_height);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a altura da linha para cada linha da roda de deslocação. Note que se a roda de deslocação tiver GX_STYLE_TEXT_SCROLL_WHEEL_ROUND de estilo, a altura da linha passa através de uma transformação que reduz eficazmente a altura da linha à medida que a linha se aproxima da borda superior ou inferior da roda.
 
@@ -16759,7 +17164,7 @@ UINT gx_scroll_wheel_selected_background_set(
     GX_RESOURCE_ID image_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui um ID de pixelmap opcional que é desenhado atrás da linha selecionada da roda de deslocação. Isto pode ser usado para destacar a linha selecionada para que o utilizador possa facilmente distinguir qual a linha da roda de deslocação selecionada.
 
@@ -16823,7 +17228,7 @@ UINT gx_scroll_wheel_selected_get(
     INT *row);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço irá consultar a roda de deslocação para recuperar a linha atualmente selecionada. O chamador deve passar o local para devolver o índice de linha selecionado como o segundo parâmetro para esta função.
 
@@ -16887,7 +17292,7 @@ UINT gx_scroll_wheel_selected_set(
     INT row);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a linha de roda de deslocal já selecionada.
 
@@ -16953,7 +17358,7 @@ UINT gx_scroll_wheel_speed_set(
     GX_VALUE delay);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a velocidade de deslocação para o widget da roda de deslocamento.
 
@@ -17021,7 +17426,7 @@ UINT gx_scroll_wheel_total_rows_set(
     INT total_rows);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui o número de linhas disponíveis na roda de deslocação indicada. O widget da roda de deslocação geralmente recebe o conteúdo da linha da aplicação sob a forma de uma matriz de cordas ou dados de cadeia fornecidos pelo utilizador. Esta API informa a roda de deslocação do número total de linhas que devem ser apresentadas ao utilizador.
 
@@ -17081,7 +17486,7 @@ Desenhar barra de deslocal
 VOID gx_scrollbar_draw(GX_SCROLLBAR *scrollbar);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha uma barra de deslocação. Uma função de desenho comum é utilizada para widgets verticais e horizontais da barra de deslocamento. Este serviço é chamado internamente pela atualização de tela GUIX, mas também pode ser chamado por funções de desenho overridden.
 
@@ -17132,7 +17537,7 @@ UINT gx_scrollbar_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento de barra de deslocamento. Uma função comum de manuseamento de eventos utilizada para widgets verticais e horizontais da barra de deslocamento.
 
@@ -17193,7 +17598,7 @@ Verifique o limite da barra de deslocação
 UINT gx_scrollbar_limit_check(GX_SCROLLBAR *scrollbar);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço verifica o limite da barra de deslocação e impede que a roda do polegar da barra de deslocação viaje para além dos limites predefinidos.
 
@@ -17242,7 +17647,7 @@ UINT gx_scrollbar_reset(
     GX_SCROLL_INFO *info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reinicia a barra de deslocação.
 
@@ -17302,7 +17707,7 @@ UINT gx_scrollbar_value_set(
     INT value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui o valor atual da barra de deslocação. Um evento GX_EVENT_VERTICAL_SCROLL ou GX_EVENT_HORIZONTAL_SCROLL será gerado para a janela dos pais.
 
@@ -17353,7 +17758,7 @@ Processar um personagem de backspace no widget de entrada de texto
 UINT gx_single_line_text_input_backspace(GX_SINGLE_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o carácter antes da posição do cursor de entrada de texto. Este serviço é chamado internamente quando um evento de chave de backspace para baixo é recebido, mas também pode ser invocado pela aplicação.
 
@@ -17416,7 +17821,7 @@ UINT gx_single_line_text_input_buffer_clear(
     GX_SINGLE_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina todos os caracteres do tampão de entrada de texto.
 
@@ -17482,7 +17887,7 @@ UINT gx_single_line_text_input_buffer_get(
     UINT *buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações tampão do widget de entrada de texto.
 
@@ -17552,7 +17957,7 @@ UINT gx_single_line_text_input_character_delete(
     GX_SINGLE_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o carácter após a posição do cursor de entrada de texto. Este serviço é chamado internamente quando um evento de eliminação de chave para baixo é recebido, mas também pode ser invocado pela aplicação.
 
@@ -17618,7 +18023,7 @@ UINT gx_single_line_text_input_character_insert(
     UINT insert_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço insere uma cadeia de caracteres no tampão de cadeia de entrada de texto na posição atual do cursor.
 
@@ -17690,7 +18095,7 @@ UINT gx_single_line_text_input_create(
     UINT style, USHORT text_input_id, GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de entrada de texto. O chamador deve fornecer armazenamento para a cadeia de entrada e indicar o comprimento máximo da corda.
 
@@ -17772,7 +18177,7 @@ Desenhe um widget de entrada de texto
 VOID gx_single_line_text_input_draw(GX_SINGLE_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um widget de entrada de texto. Este serviço é normalmente chamado internamente durante a atualização de lona, mas também pode ser chamado de funções de desenho de entrada de texto personalizado.
 
@@ -17838,7 +18243,7 @@ UINT gx_single_line_text_input_draw_position_get(
     GX_VALUE *xpos, GX_VALUE *ypos);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a posição inicial de desenho do texto de entrada de texto.
 
@@ -17913,7 +18318,7 @@ Mova o cursor de entrada de texto para a extremidade da corda
 UINT gx_single_line_text_input_end(GX_SINGLE_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço posiciona o cursor widget de entrada de texto na extremidade da cadeia de entrada. Este serviço é chamado internamente quando um evento de chave final para baixo é recebido, mas também pode ser invocado pela aplicação.
 
@@ -17977,7 +18382,7 @@ UINT gx_single_line_text_input_event_process(
     GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento de entrada de texto de uma única linha. Esta função é referenciada internamente pela função gx_single_line_text_input_create, mas está exposta para utilização pela aplicação nos casos em que a aplicação define uma função de processamento de evento de entrada de texto de linha única personalizada.
 
@@ -18063,7 +18468,7 @@ UINT gx_single_line_text_input_fill_color_set(
     GX_RESOURCE_ID readonly_fill_color_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cor de preenchimento da entrada de texto de linha única.
 
@@ -18134,7 +18539,7 @@ Mova o cursor de entrada de texto para a posição de casa
 UINT gx_single_line_text_input_home(GX_SINGLE_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move a posição do cursor de entrada de texto para o início da cadeia de entrada. Este serviço é chamado internamente quando um evento de home key down é recebido, mas também pode ser invocado pela aplicação.
 
@@ -18195,7 +18600,7 @@ Mover cursor de entrada um personagem para a esquerda
 UINT gx_single_line_text_input_left_arrow(GX_SINGLE_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move o cursor de entrada de texto um caracter para a esquerda. Este serviço é chamado internamente quando um evento de chave esquerda para baixo é recebido, mas também pode ser invocado pela aplicação.
 
@@ -18258,7 +18663,7 @@ UINT gx_single_line_text_input_position_get(
     INT pixel_position);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço posiciona o cursor de entrada de texto com base na posição de pixel solicitado. O índice de cursor de entrada de texto será calculado com base no valor x da posição do pixel. Este serviço é chamado internamente quando um evento pen down é recebido, mas também pode ser invocado pela aplicação.
 
@@ -18323,7 +18728,7 @@ UINT gx_single_line_text_input_right_arrow(
     GX_SINGLE_LINE_TEXT_INPUT *text_input);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move o cursor de entrada de texto de um personagem para a direita. Este serviço é chamado internamente quando um evento de chave direita para baixo é recebido, mas também pode ser invocado pela aplicação.
 
@@ -18386,7 +18791,7 @@ UINT gx_single_line_text_input_style_add(
     ULONG style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona o(s) estilo especificado ao widget de entrada de texto de linha única.
 
@@ -18450,7 +18855,7 @@ UINT gx_single_line_text_input_style_remove(
     ULONG style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove o(s) estilo especificado(s) do widget de entrada de texto de linha única.
 
@@ -18514,7 +18919,7 @@ UINT gx_single_line_text_input_style_set(
     ULONG style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o(s) estilo especificado para o widget de entrada de texto de linha única.
 
@@ -18581,7 +18986,7 @@ UINT gx_single_line_text_input_text_color_set(
     GX_RESOURCE_ID readonly_text_color_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cor de texto da entrada de texto de linha única.
 
@@ -18652,7 +19057,7 @@ UINT gx_single_line_text_input_text_color_set(
     UINT start_index, UINT end_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço seleciona texto com índice de marca de início e de marca final especificado e destaca o texto selecionado com as cores de preenchimento e texto selecionados.
 
@@ -18719,7 +19124,7 @@ UINT gx_single_line_text_input_text_set(
     GX_CONST GX_CHAR *text);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço foi precotado a favor de gx_single_line_text_input_text_set_ext()
 
@@ -18771,7 +19176,7 @@ UINT gx_single_line_text_input_text_set(
     GX_CONST GX_STRING *string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o texto da entrada de texto de linha única.
 
@@ -18845,7 +19250,7 @@ UINT gx_slider_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de slider.
 
@@ -18926,7 +19331,7 @@ Desenhe o slider
 VOID gx_slider_draw(GX_SLIDER *slider);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha um slider. Este serviço é utilizado internamente pela função gx_slider_create, mas também é exposto para utilização pela aplicação nesses casos quando é definida uma função de desenho de slider personalizado.
 
@@ -18983,7 +19388,7 @@ UINT gx_slider_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento de slider. Esta função é referenciada internamente pela função gx_slider_create, mas está exposta para utilização pela aplicação nos casos em que a aplicação define uma função de processamento de eventos de slider personalizado.
 
@@ -19054,7 +19459,7 @@ UINT gx_slider_info_set(
     GX_SLIDER_INFO *info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui as informações de slider especificadas, tais como o mínimo de slider, o máximo de deslizamento e o valor de corrente do slider para o deslizador indicado. O slider atualizará a posição da agulha e redesenhará com base nas novas informações de slider.
 
@@ -19122,7 +19527,7 @@ Desenhe a agulha de slider
 VOID gx_slider_needle_draw(GX_SLIDER *slider);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha uma agulha deslizante. Este serviço é automaticamente chamado pela função gx_slider_draw, mas também pode ser invocado pela aplicação como parte de uma função de desenho de slider personalizado.
 
@@ -19183,7 +19588,7 @@ UINT gx_slider_needle_position_get(
     GX_RECTANGLE *return_position);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula a posição da agulha deslizante com base no valor atual do slider.
 
@@ -19243,7 +19648,7 @@ Desenhe marcas de carraças de slider
 VOID gx_slider_tickmarks_draw(GX_SLIDER *slider);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha as marcas de carraças deslizantes. Esta função é chamada internamente pela função gx_slider_draw, mas é exposta para utilização por aplicações que podem implementar uma função de desenho de slider personalizado.
 
@@ -19305,7 +19710,7 @@ UINT gx_slider_travel_get(
     INT *return_max_travel);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço faz com que o slider viaje.
 
@@ -19367,7 +19772,7 @@ UINT gx_slider_value_calculate(
     INT new_position);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula o valor do deslizador com base na posição da agulha deslizante. Esta função é chamada internamente pelo GUIX quando o utilizador move a agulha de slider, mas também pode ser invocada pela aplicação ao implementar um widget de slider personalizado.
 
@@ -19429,7 +19834,7 @@ UINT gx_slider_value_set(
     INT new_value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o valor do slider. Esta API pode ser chamada pela aplicação para mover uma agulha de slider sob controlo do programa, ignorando a necessidade de entrada do utilizador para arrastar a agulha deslizante.
 
@@ -19492,7 +19897,7 @@ UINT gx_sprite_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget GX_SPRITE. Um sprite é usado para exibir uma sequência de pixelmaps como em uma animação, ou pode ser usado como um widget de exibição de pixelmap multi-estado.
 
@@ -19556,7 +19961,7 @@ UINT gx_sprite_current_frame_set(
     USHORT frame);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a estrutura de sprite atual. Se um widget GX_SPRITE não estiver a funcionar automaticamente, pode ser utilizado como uma luz de estado controlada por programa, exibindo o mapa pixelmap de quadro comandado.
 
@@ -19605,7 +20010,7 @@ UINT gx_sprite_frame_list_set(
     USHORT frame_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço pode ser usado para atribuir ou reatribuir a lista de quadros utilizada por um widget sprite após a criação do widget sprite. Para obter informações sobre o conteúdo de uma lista de quadros de sprite, consulte a documentação gx_sprite_create API.
 
@@ -19654,7 +20059,7 @@ UINT gx_sprite_start(
     USHORT frame);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma sequência de funcionação automática. O widget sprite irá pedalar através dos quadros do sprite até que o último quadro seja atingido, ou funcionará continuamente se o estilo GX_SPRITE_LOOP estiver definido.
 
@@ -19700,7 +20105,7 @@ Pare uma sequência de corrida sprite
 UINT gx_sprite_stop(GX_SPRITE *sprite);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço para uma sequência de funcionação automática.
 
@@ -19753,7 +20158,7 @@ UINT gx_string_scroll_wheel_create(
     GX_CONST GX_RECTANGLE *size)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma roda de deslocação tipo de corda.
 
@@ -19846,7 +20251,7 @@ UINT gx_string_scroll_wheel_string_id_list_set(
     INT id_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para a roda de deslocação de cordas especificada. Este serviço deve ser chamado como o manipulador de eventos predefinido por quaisquer funções de processamento de eventos de roda de roda de roda de fio personalizadas.
 
@@ -19922,7 +20327,7 @@ UINT gx_string_scroll_wheel_string_id_list_set(
     GX_CONST GX_RESOURCE_ID *string_id_list, INT id_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui uma variedade de IDs de corda a um widget de roda de roda de roda de fio. Este método de atribuição de cordas a uma roda de deslocamento de cordas é recomendado se as cordas estiverem estáticas definidas e o widget funcionar em várias línguas. Se esta API for utilizada, o widget da roda de deslocação deve ser criado primeiro com uma lista de cordas GX_NULL.
 
@@ -19999,7 +20404,7 @@ UINT gx_string_scroll_wheel_string_list_set(
     INT string_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Isto atribui uma variedade de cordas a um widget de roda de roda de roda de roda de fio. Isto pode ser usado para modificar as cordas apresentadas após a criação do widget inicialmente.
 
@@ -20078,7 +20483,7 @@ GX_WIDGET *gx_studio_widget_create(
     GX_WIDGET *parent);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget e os filhos do widget usando uma especificação widget definida dentro do ficheiro de especificações geradas pelo ESTÚDIO GUIX. Esta função evita o aspeto "por nome" da função semelhante `gx_studio_named_widget_create()` .
 
@@ -20136,7 +20541,7 @@ UINT *gx_studio_named_widget_create(
     GX_WIDGET **new_widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget e os filhos do widget usando uma especificação widget definida dentro do ficheiro de especificações geradas pelo ESTÚDIO GUIX.
 
@@ -20191,7 +20596,7 @@ UINT *gx_studio_display_configure(
     GX_WINDOW_ROOT **return_root);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa uma GX_DISPLAY para que esteja pronto a ser utilizado. Esta função consolida as funções para inicializar um bloco de controlo GX_DISPLAY, criar uma tela para encaixar no visor e criar uma janela de raiz para a tela. Esta função também instala o tema do idioma e recurso solicitado após a inicial do visor.
 
@@ -20253,7 +20658,7 @@ Definir linguagem ativa
 UINT gx_system_active_language_set(GX_UBYTE language);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o idioma atual. O índice linguístico deve ser inferior ao número de colunas na tabela de cordas de aplicação. Esta função foi depreciada a favor de gx_display_ative_language_set. Todas as novas aplicações devem ser utilizadas gx_display_ative_langauge_set.
 
@@ -20297,7 +20702,7 @@ Obtenha o bloco de controlo de animação a partir da piscina do sistema
 UINT gx_system_animation_get(GX_ANIMATION **animation);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço pode ser utilizado para obter um bloco de controlo de animação a partir de um conjunto de tais blocos de controlo mantidos pelo componente gx_system. O conjunto de blocos de controlo de animação e os serviços API relacionados só são fornecidos se o GX_ANIMATION_POOL_SIZE constante for definido com um valor 0. A definição padrão para este valor é 6, o que significa que o conjunto de blocos de controlo de animação do sistema contém tamanho GX_ANIMATION bloco de controlo.
 
@@ -20348,7 +20753,7 @@ Devolva um bloco de controlo de animação à piscina do sistema
 UINT gx_system_animation_free(GX_ANIMATION *animation);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço pode ser utilizado para devolver um bloco de controlo de animação à piscina do sistema. O conjunto de blocos de controlo de animação e os serviços API relacionados só são fornecidos se o GX_ANIMATION_POOL_SIZE constante for definido com um valor 0. A definição padrão para este valor é 6, o que significa que o conjunto de blocos de controlo de animação do sistema contém tamanho GX_ANIMATION bloco de controlo.
 
@@ -20409,7 +20814,7 @@ Desativar suporte de texto bidirecional dinâmico
 UINT gx_system_bidi_text_disable(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa suporte dinâmico de texto bidirecional. Este serviço requer GX_DYNAMIC_BIDI_TEXT_SUPPORT a ser definido na construção da biblioteca GUIX, e só é necessário se for necessário reordenar os dados de cadeias BiDi. A maioria das aplicações utiliza o GUIX Studio para produzir cordas de texto BiDi reordenada corretamente.
 
@@ -20450,7 +20855,7 @@ Ativar suporte dinâmico de texto bidi
 UINT gx_system_bidi_text_enable(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite suporte dinâmico de texto bidis. Este serviço requer GX_DYNAMIC_BIDI_TEXT_SUPPORT a ser definido na construção da biblioteca GUIX, e só é necessário se for necessário reordenar os dados de cadeias BiDi. A maioria das aplicações utiliza o GUIX Studio para produzir cordas de texto BiDi corretamente reordenadas.
 
@@ -20491,7 +20896,7 @@ Refresque todas as telas sujas
 UINT gx_system_canvas_refresh(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço força uma redeensar imediata de todos os widgets sujos e telas. Este serviço é normalmente invocado internamente pelo componente do sistema GUIX, mas pode ser chamado pela aplicação para forçar uma operação de redesenhar o sistema imediato.
 
@@ -20554,7 +20959,7 @@ status = gx_system_canvas_refresh();
 UINT gx_system_dirty_mark(GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço marca a área deste widget como sujo. Isto faz fila efetivamente com o widget para redesenhar quando o processamento do evento do sistema estiver concluído.
 
@@ -20621,7 +21026,7 @@ UINT gx_system_dirty_partial_add(
     GX_RECTANGLE *dirty_area);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço marca a área parcial deste widget como sujo. Isto faz fila com o widget para redesenhar a operação de atualização de lona GUIX quando o processamento do evento do sistema estiver concluído.
 
@@ -20690,7 +21095,7 @@ Obtenha contexto de desenho
 UINT gx_system_draw_context_get(GX_DRAW_CONTEXT **current_context);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve um ponteiro ao contexto de desenho atual.
 
@@ -20756,7 +21161,7 @@ Enviar evento
 UINT gx_system_event_fold(GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço procura a fila do evento GUIX para um evento do mesmo tipo. Se existir um evento do mesmo tipo, a carga útil do evento é atualizada para corresponder ao novo evento. Se não for encontrado nenhum evento correspondente, a função gx_system_event_send é chamada para adicionar o novo evento ao final da fila do evento.
 
@@ -20830,7 +21235,7 @@ Enviar evento
 UINT gx_system_event_send(GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia o evento especificado para a fila de eventos do sistema GUIX. O novo evento é colocado no final da fila.
 
@@ -20904,7 +21309,7 @@ Foco de reclamação
 UINT gx_system_focus_claim(GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reivindica o foco para o widget especificado. Se o widget não tiver tido foco anteriormente, receberá um evento GX_EVENT_FOCUS_GAINED.
 
@@ -20970,7 +21375,7 @@ Inicializar GUIX
 UINT gx_system_initialize(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa o GUIX. Este serviço deve ser invocado antes de qualquer outro serviço API GUIX, e só deve ser invocado uma vez no arranque do sistema.
 
@@ -21036,7 +21441,7 @@ UINT gx_system_language_table_get(
     UINT *string_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a tabela de linguagem ativa. Esta função é depreciada a favor de gx_display_language_table_get. Todas as novas aplicações devem ser utilizadas gx_display_language_table_get.
 
@@ -21089,7 +21494,7 @@ UINT gx_system_language_table_set(
     UINT string_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço instala a tabela de linguagem ativa. Esta função foi depreciada a favor de gx_display_language_table_set. Todas as novas aplicações devem ser utilizadas gx_display_language_table_set.
 
@@ -21135,7 +21540,7 @@ UINT gx_system_memory_allocator_set(VOID *(allocate)(ULONG size),
     VOID(*release)(VOID *));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a função de retorno fornecido à aplicação para alocação dinâmica de memória e desalocação.
 
@@ -21249,7 +21654,7 @@ Configuração da caneta definida
 UINT gx_system_pen_configure(GX_PEN_CONFIGURATION *pen_configuration);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a configuração da caneta para controlar os parâmetros de velocidade e distância da caneta utilizados para desencadear a geração de GX_EVENT_FLICK tipos de eventos.
 
@@ -21306,7 +21711,7 @@ UINT gx_system_screen_stack_create(
     INT size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define um conjunto de memórias para ser usado para a pilha de ecrã do sistema. A pilha de ecrã do sistema é uma funcionalidade opcional que pode ser usada pela aplicação para gerir a aparência do fluxo de ecrã de aplicação.
 
@@ -21363,7 +21768,7 @@ UINT gx_system_screen_stack_get(
     GX_WIDGET **popped_screen);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função coloca os ponteiros mais altos da pilha de ecrã e devolve esses ponteiros ao ouvinte. Esta função difere de gx_system_screen_stack_pop na medida em que o ecrã estalado não é automaticamente religado ao progenitor anterior. Em vez disso, os ponteiros são retirados da pilha e devolvidos ao autor da chamada, permitindo que o chamador anexe o ecrã ou descarte o ecrã devolvido conforme desejado.
 
@@ -21416,7 +21821,7 @@ Pop a entrada mais alta da pilha de ecrã do sistema
 UINT gx_system_screen_stack_pop();
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função coloca a entrada mais alta na pilha de ecrã e liga automaticamente o ecrã estalado ao widget dos pais.
 
@@ -21464,7 +21869,7 @@ Empurre um widget e um ponteiro dos pais para a pilha de ecrã
 UINT gx_system_screen_stack_push(GX_WIDGET *screen)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço coloca um ponteiro para o widget indicado, que normalmente é um ecrã de nível superior, na pilha de ecrã. Se o widget tem um pai, é separado do progenitor. O ponteiro widget dos pais também é empurrado para a pilha de ecrã. O widget principal pode ser NU, o que significa que um ecrã que não seja visível ou ligado a qualquer progenitor pode ser empurrado para a pilha de ecrã. Se um widget sem pai for empurrado para a pilha de ecrã, a API de screen_stack_get() deve ser usada para recuperar o ponteiro de ecrã empurrado, em vez de utilizar a API screen_stack_pop,que tenta recolocar o widget estalado ao seu progenitor anterior.
 
@@ -21510,7 +21915,7 @@ Redefinir a pilha de ecrã do sistema
 UINT gx_system_screen_stack_reset();
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função remove todas as entradas da pilha de ecrã do sistema. Se os ecrãs saltarem da pilha tiverem blocos de controlo atribuídos dinamicamente atribuídos pelo GUIX Studio, a memória desses blocos de controlo é libertada.
 
@@ -21557,7 +21962,7 @@ UINT gx_system_scroll_appearance_get(
     GX_SCROLLBAR_APPEARANCE *return_appearance);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém a aparência da barra de pergaminho.
 
@@ -21627,7 +22032,7 @@ UINT gx_system_scroll_appearance_set(
     GX_SCROLLBAR_APPEARANCE *appearance);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a aparência de pergaminho predefinido. Quando um pergaminho é criado, esta estrutura de aparência é usada a menos que a aplicação forneça uma versão personalizada.
 
@@ -21705,7 +22110,7 @@ Iniciar GUIX
 UINT gx_system_start(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia o processamento DO GUIX. Em circunstâncias normais, esta função nunca volta, mas em vez disso começa a processar a fila do evento GUIX. Quando a fila do evento GUIX está vazia, este serviço suspende o fio de chamada até que novos eventos cheguem na fila do evento GUIX.
 
@@ -21769,7 +22174,7 @@ UINT gx_system_string_get(
     GX_CHAR **return_string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém a cadeia para o ID de recursos especificado, utilizando o primeiro visor definido e o idioma atualmente ativo. Esta função foi depreciada a favor de gx_display_string_get. Todas as novas aplicações devem ser utilizadas gx_display_string_get.
 
@@ -21819,7 +22224,7 @@ UINT gx_system_string_table_get(
     UINT *get_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a tabela de cordas para o idioma solicitado a partir do primeiro visor. Esta função foi depreciada a favor de gx_display_string_table_get. Todas as novas aplicações devem ser utilizadas gx_display_string_table_get.
 
@@ -21872,7 +22277,7 @@ UINT gx_system_string_width_get(
     GX_VALUE *return_width);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é precotado a favor de gx_system_string_width_get_ext().
 
@@ -21926,7 +22331,7 @@ UINT gx_system_string_width_get_ext(
     GX_VALUE *return_width);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula a largura de visualização da cadeia fornecida em pixels utilizando o tipo de letra especificado.
 
@@ -21997,7 +22402,7 @@ UINT gx_system_timer_start(
     UINT reschedule_ticks);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia um temporizador para o widget especificado. Os GX_MAX_ATIVE_TIMERS constantes definiram os temporizadores máximos ativos suportados. A definição predefinida para este valor é de 32.
 
@@ -22062,7 +22467,7 @@ UINT gx_system_timer_stop(
     UINT timer_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço para o temporizador com o timer_id especificado associado ao widget de chamada. Para parar todos os temporizadores ligados a um widget específico, a aplicação pode passar o valor timer_id de 0.
 
@@ -22122,7 +22527,7 @@ Obter a cadeia de versão da biblioteca GUIX (depreciada)
 UINT gx_system_version_string_get(GX_CHAR **version);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é prevadido a favor de gx_system_version_string_get_ext().
 
@@ -22165,7 +22570,7 @@ Recuperar a versão da biblioteca GUIX
 UINT gx_system_version_string_get(GX_STRING *version);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a cadeia de versão da biblioteca GUIX.
 
@@ -22232,7 +22637,7 @@ UINT gx_system_widget_find(
     GX_WIDGET **return_search_result);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço procura o ID widget especificado. Ao contrário gx_widget_find(), esta função procura as crianças de todas as janelas de raiz definidas no sistema, o que significa que esta é uma pesquisa exaustiva de todos os widgets visíveis. Se conhece o progenitor do widget que procura, use gx_widget_find() em vez disso.
 
@@ -22309,7 +22714,7 @@ UINT gx_text_button_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget de botão de texto.
 
@@ -22389,7 +22794,7 @@ Desenhe botão de texto
 VOID gx_text_button_draw(GX_TEXT_BUTTON *button);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o botão de texto. Este serviço é normalmente chamado internamente durante a atualização de lona, mas também pode ser chamado de funções de desenho de botões de texto personalizados.
 
@@ -22449,7 +22854,7 @@ Evento de botão de texto do processo
 UINT gx_text_button_event_process(GX_TEXT_BUTTON *text_button, GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para o botão de texto especificado. Este serviço deve ser chamado como o manipulador de eventos predefinido por quaisquer funções de processamento de eventos de botão de texto personalizado.
 
@@ -22524,7 +22929,7 @@ UINT gx_text_button_font_set(
     GX_RESOURCE_ID font_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui um tipo de letra ao botão especificado.
 
@@ -22587,7 +22992,7 @@ UINT gx_text_button_text_color_set(
     GX_RESOURCE_ID disabled_text_color_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cor do botão de texto.
 
@@ -22650,7 +23055,7 @@ Função de suporte para desenhar texto de botão
 VOID gx_text_button_text_draw(GX_TEXT_BUTTON *text_button);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função de suporte desenha a parte de texto de um botão de texto. Esta função é chamada internamente por gx_text_button_draw, e é fornecida como uma API separada como uma conveniência para aplicações que definem uma função de desenho de botão personalizado. As aplicações que pretendem personalizar o desenho de fundo do botão podem fornecer a sua função de desenho personalizado e invocar o serviço de gx_text_button_text_draw como parte do seu desenho personalizado para desenhar o texto do botão sobre o fundo.
 
@@ -22713,7 +23118,7 @@ UINT gx_text_button_text_get(
     GX_CHAR **return_text);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é prevadido a favor de gx_text_button_text_get_ext().
 
@@ -22763,7 +23168,7 @@ UINT gx_text_button_text_get_ext(
     GX_STRING *return_string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a cadeia especificada do botão de texto.
 
@@ -22825,7 +23230,7 @@ UINT gx_text_button_text_id_set(
     RESOURCE_ID string_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o ID de recurso de cadeia especificado para o botão de texto.
 
@@ -22888,7 +23293,7 @@ UINT gx_text_button_text_set(
     GX_CHAR *text);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é precotado a favor de gx_text_button_text_set_ext().
 
@@ -22942,7 +23347,7 @@ UINT gx_text_button_text_set_ext(
     GX_STRING *string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a cadeia especificada ao botão de texto. Se o widget text_button foi criado com GX_STYLE_TEXT_COPY de estilo, o widget cria uma cópia privada da cadeia de texto atribuída. Se GX_STYLE_TEXT_COPY não estiver ativa, o widget não faz uma cópia privada da cadeia de entrada, pelo que a cadeia deve ser atribuída estática ou globalmente, ou seja, pode não ser uma variável automática ou temporária.
 
@@ -23010,7 +23415,7 @@ UINT gx_text_input_cursor_blink_interval_set(
     GX_UBYTE blink_interval);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o valor do intervalo intermitente do cursor.
 
@@ -23063,7 +23468,7 @@ UINT gx_text_input_cursor_height_set(
     GX_UBYTE height);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a altura do cursor.
 
@@ -23116,7 +23521,7 @@ UINT gx_text_input_cursor_blink_width_set(
     GX_UBYTE *width);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a largura do cursor.
 
@@ -23170,7 +23575,7 @@ UINT gx_text_scroll_wheel_callback_set(
     GX_CONST GX_CHAR *(*callback)(GX_TEXT_SCROLL_WHEEL *, int));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é prevadido a favor de gx_text_scroll_wheel_callback_set_ext().
 
@@ -23259,7 +23664,7 @@ UINT gx_text_scroll_wheel_callback_set_ext(
     UINT *(*callback)(GX_TEXT_SCROLL_WHEEL *, int, GX_STRING *));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a função de retorno que uma roda de deslocação do tipo de texto invocará para determinar o fio de texto a ser apresentado em cada linha da roda de deslocação.
 
@@ -23357,7 +23762,7 @@ UINT gx_text_scroll_wheel_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma roda de deslocação de texto. A roda de deslocação de texto é um widget base para os widgets GX_STRING_SCROLL_WHEEL e GX_NUMERIC_SCROLL_WHEEL tipo. Esta função é chamada internamente por gx_string_scroll_wheel_create e gx_numeric_scroll_wheel_create, e é fornecida como uma API separada como uma conveniência para aplicações que definem um widget de roda de deslocal personalizado.
 
@@ -23450,7 +23855,7 @@ Desenhe uma roda de rolo de texto
 VOID gx_text_scroll_wheel_draw(GX_TEXT_SCROLL_WHEEL *wheel);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta é a função de desenho predefinido para todos os tipos de rodas com base em GX_TEXT_SCROLL_WHEEL. Esta função pode ser ultrapassada por aplicações que requerem a personalização da aparência de desenho da roda de rolo de texto.
 
@@ -23510,7 +23915,7 @@ Evento de roda de pergaminho de texto do processo
 UINT gx_text_scroll_wheel_event_process(GX_TEXT_SCROLL_WHEEL *wheel, GX_EVENT *event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para a roda de deslocação de texto especificada. Este serviço deve ser chamado como o manipulador de eventos predefinido por quaisquer funções de processamento de eventos de roda de rolo de texto personalizado.
 
@@ -23585,7 +23990,7 @@ UINT gx_text_scroll_font_set(
     GX_RESOURCE_ID selected_font);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Atribua o uso dos tipos de letra para desenhar o texto de um widget baseado na roda de texto.
 
@@ -23648,7 +24053,7 @@ UINT gx_text_scroll_wheel_text_color_set(
     GX_RESOURCe_ID disabled_text_color);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função atribui as cores de texto utilizadas para desenhar uma linha de roda de deslocamento baseada em texto.
 
@@ -23717,7 +24122,7 @@ UINT gx_tree_view_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma vista de árvore conforme especificado e associa a vista da árvore com o widget progenitor fornecido. Aceita todos os tipos de widget como item do menu infantil. Recomenda-se a utilização de GX_MENU widget tipo como item do menu infantil.
 
@@ -23782,7 +24187,7 @@ Desenhar vista de árvore
 VOID gx_tree_view_draw(GX_TREE_VIEW *tree);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha a vista de árvores especificada. Esta função é normalmente chamada internamente pelo mecanismo de atualização de lona GUIX, mas está exposta à aplicação para ajudar na implementação de funções de desenho personalizado para widgets de vista personalizados para a visão de árvore.
 
@@ -23839,7 +24244,7 @@ UINT gx_tree_view_event_process(
     GX_EVENT event_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para a vista de árvores especificada. Este serviço deve ser chamado como o manipulador de eventos predefinido por quaisquer funções de processamento de eventos de visualização de árvores personalizadas.
 
@@ -23913,7 +24318,7 @@ UINT gx_tree_view_indentation_set(
     GX_VALUE indentation);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o entalhe para a vista da árvore.
 
@@ -23969,7 +24374,7 @@ Posicione os itens de vista da árvore
 UINT gx_tree_view_position(GX_TREE_VIEW *tree);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço posiciona os itens de vista para a árvore.
 
@@ -24026,7 +24431,7 @@ UINT gx_tree_view_root_line_color_set(
     GX_RESOURCE_ID color_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a cor da linha de raiz para a vista da árvore.
 
@@ -24087,7 +24492,7 @@ UINT gx_tree_view_root_pixelmap_set(
     GX_RESOURCE_ID collapse_map_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui mapa de pixels de expansão e colapso para a vista da árvore.
 
@@ -24148,7 +24553,7 @@ UINT gx_tree_view_selected_get(
     GX_WIDGET **selected);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o item atual selecionado da vista da árvore.
 
@@ -24208,7 +24613,7 @@ UINT gx_tree_view_selected_set(
     GX_WIDGET *selected);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o item selecionado para a vista para a árvore.
 
@@ -24267,7 +24672,7 @@ UINT gx_utility_canvas_to_bmp(
     UINT (*write_data)(GX_UBYTE *byte_data, UINT data_count));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço converte a memória de tela em ficheiro bitmap.
 
@@ -24355,7 +24760,7 @@ INT gx_utility_circle_point_get(
     GX_POINT *point);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula o ponto num círculo dado o centro do círculo, raio e ângulo.
 
@@ -24427,7 +24832,7 @@ INT gx_utility_gradient_create(
     GX_UBYTE end_alpha);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um mapa de pixels gradiente no tempo de funcionação. Uma imagem de gradiente pode ser usada para realizar efeitos de desvanecimento e outras mudanças visuais interessantes.
 
@@ -24505,7 +24910,7 @@ Eliminar um gradiente previamente criado
 INT gx_utility_gradient_delete(GX_GRADIENT *gradient);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina um gradiente previamente criado. Se o pixelmap associado a este gradiente não for utilizado por outros gradientes, os dados do pixelmap também serão eliminados.
 
@@ -24568,7 +24973,7 @@ UINT gx_utility_itoa(
     UINT seturn_buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço converte um valor inteiro longo numa cadeia ASCII.
 
@@ -24631,7 +25036,7 @@ Cosine do arco compute
 INT gx_utility_math_acos(GX_FIXED_VAL x);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula o valor angular do arco cosine x.
 
@@ -24699,7 +25104,7 @@ Sine arco compute
 INT gx_utility_math_asin(GX_FIXED_VAL x);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula o valor angular do arco sine x.
 
@@ -24767,7 +25172,7 @@ Cosine computacional
 GX_FIXED_VAL gx_utility_math_cos(GX_FIXED_VAL angle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula o cosine do ângulo fornecido.
 
@@ -24839,7 +25244,7 @@ Seno computacional
 GX_FIXED_VAL gx_utility_math_sin(GX_FIXED_VAL angle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula o seno do ângulo fornecido.
 
@@ -24911,7 +25316,7 @@ Raiz quadrada computacional
 UINT gx_utility_math_sqrt(UINT value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula a raiz quadrada do valor fornecido.
 
@@ -24964,7 +25369,7 @@ UINT gx_utility_bidi_paragraph_reorder(GX_BIDI_TEXT_INFO *input_info,
                                        GX_BIDI_RESOLVED_TEXT_INFO **resolved_info_head)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reencomenda o texto BiDi na sua ordem de exibição. Se o tipo de letra de desenho de texto e a largura do visor forem fornecidos, a rutura da linha será aplicada primeiro, o processo de reordenamento será aplicado com base em cada linha. Se o texto fornecido contiver mais de um parágrafo, o serviço quebrará o texto em parágrafos, o resultado de rutura e reordenamento de cada parágrafo será ligado como uma lista.
 
@@ -25129,7 +25534,7 @@ Eliminar lista de informações de texto BiDi resolvidas
 UINT gx_utility_bidi_resolved_text_info_delete(GX_BIDI_RESOLVED_TEXT_INFO **resolved_info_head)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina a lista de informações resolvidas que foram devolvidas por gx_utility_bidi_paragraph_reorder.
 
@@ -25194,7 +25599,7 @@ UINT gx_utility_pixelmap_resize(
     INT height);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço redimensiona um mapa pixel e devolve um ponteiro a um novo mapa pixel, que é o resultado do redimensionar o pixelmap.
 
@@ -25264,7 +25669,7 @@ UINT gx_utility_pixelmap_rotate(
     UINT *rot_cy);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço gira um pixelmap e devolve um ponteiro a um novo mapa pixel, que é o resultado da rotação do pixelmap. Para rodar um mapa de pixels diretamente para a tela, utilize gx_canvas_pixelmap_rotate).).
 
@@ -25337,7 +25742,7 @@ UINT gx_utility_pixelmap_simple_rotate(
     UINT *rot_cy);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço gira um mapa de pixels em 90 graus, 180 graus ou 270 graus.
 
@@ -25405,7 +25810,7 @@ UINT gx_utility_rectangle_center(
     GX_RECTANGLE *within_rectangle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço centra o retângulo dentro de outro retângulo.
 
@@ -25466,7 +25871,7 @@ UINT gx_utility_rectangle_center_find(
     GX_POINT *return_center);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço encontra o centro do retângulo.
 
@@ -25534,7 +25939,7 @@ UINT gx_utility_rectangle_combine(
     GX_RECTANGLE *second_rectangle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço combina o primeiro e o segundo retângulo no primeiro retângulo. O primeiro retângulo é expandido para incluir o segundo.
 
@@ -25600,7 +26005,7 @@ GX_BOOL gx_utility_rectangle_compare(
     GX_RECTANGLE *second_rectangle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço compara o primeiro e o segundo retângulo. Se forem iguais, o valor da GX_TRUE é devolvido.
 
@@ -25659,7 +26064,7 @@ UINT gx_utility_rectangle_define(
     GX_VALUE bottom);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define um retângulo conforme especificado.
 
@@ -25724,7 +26129,7 @@ GX_BOOL gx_utility_rectangle_overlap_detect(
     GX_RECTANGLE *return_overlap_area);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço deteta qualquer sobreposição dos retângulos fornecidos. Se for encontrada sobreposição, o serviço devolve GX_TRUE e o retângulo sobreposto.
 
@@ -25783,7 +26188,7 @@ GX_BOOL gx_utility_rectangle_point_detect(
     GX_POINT point);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço deteta se o ponto especificado reside no retângulo. Se o ponto residir no retângulo, o serviço devolve-GX_TRUE.
 
@@ -25847,7 +26252,7 @@ UINT gx_utility_rectangle_resize(
     GX_VALUE adjust);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço aumenta o tamanho do retângulo conforme especificado.
 
@@ -25906,7 +26311,7 @@ UINT gx_utility_rectangle_shift(
     GX_VALUE y_shift);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desloca o retângulo pelos valores especificados.
 
@@ -25967,7 +26372,7 @@ UINT gx_utility_string_to_alphamap(
     GX_PIXELMAP *return_map);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço foi prevadido a favor de gx_utility_string_to_alphamap_ext().
 
@@ -26046,7 +26451,7 @@ UINT gx_utility_string_to_alphamap_ext(
     GX_PIXELMAP *return_map);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço torna uma cadeia de texto para um mapa alfa, que é uma forma especial de pixelmap de 8bpp contendo apenas valores alfa. Este serviço é normalmente utilizado juntamente com gx_utility_pixelmap_rotate e gx_canvas_pixelmap_draw para desenhar texto rotativo para a tela.
 
@@ -26137,7 +26542,7 @@ UINT gx_vertical_list_children_position(
     GX_VERTICAL_LIST *vertical_list)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função posiciona as crianças para a lista vertical.
 
@@ -26191,7 +26596,7 @@ UINT gx_vertical_list_create(
     ULONG style, USHORT vertical_list_id,
     GX_CONST GX_RECTANGLE *size);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma lista vertical.
 
@@ -26253,7 +26658,7 @@ UINT gx_vertical_list_event_process(GX_VERTICAL_LIST *list,
                                                       GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para a lista vertical.
 
@@ -26302,7 +26707,7 @@ UINT gx_vertical_list_page_index_set(
     GX_VERTICAL_LIST *list,
     INT index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o índice inicial para a lista vertical.
 
@@ -26352,7 +26757,7 @@ UINT gx_vertical_list_selected_index_get(
     GX_VERTICAL_LIST *vertical_list,
     INT *return_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o índice selecionado da lista vertical
 
@@ -26402,7 +26807,7 @@ UINT gx_vertical_list_selected_set(
     INT index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a inscrição selecionada numa lista vertical. Se necessário, a lista vertical deslocar-se-á para tornar visível a entrada selecionada.
 
@@ -26451,7 +26856,7 @@ UINT gx_vertical_list_selected_widget_get(
     GX_VERTICAL_LIST *vertical_list,
     GX_WIDGET **return_list_entry);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o widget selecionado da lista vertical. Note que se a lista contiver mais linhas do que widgets infantis, e o widget para crianças selecionados tiver sido deslocalizado da vista, esta função voltará GX_NULL como ponteiro GX_WIDGET, uma vez que o widget foi reutilizado para apresentar uma nova entrada de lista.
 
@@ -26502,7 +26907,7 @@ UINT gx_vertical_list_total_rows_set(
     GX_VERTICAL_LIST *vertical_list,
     INT count);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui ou altera o número total de linhas de lista.
 
@@ -26554,7 +26959,7 @@ UINT gx_vertical_scrollbar_create(
     GX_SCROLLBAR_APPEARANCE *appearance,
     ULONG style);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma barra de deslocação vertical.
 
@@ -26608,7 +27013,7 @@ UINT gx_widget_allocate(
     GX_WIDGET **control_block,
     ULONG memsize);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui dinamicamente um bloco de controlo widget, chamando a função de atribuição de memória definida pela aplicação. Este serviço é usado principalmente pelas funções geradas pelo GUIX Studio para alocar dinamicamente o bloco de controlo quando a propriedade "Dynamic Allocation" é selecionada na vista de propriedades do GUIX Studio.
 
@@ -26687,7 +27092,7 @@ UINT gx_widget_attach(
     GX_WIDGET *parent, 
     GX_WIDGET *widget);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço anexa o widget ao progenitor especificado. Se o widget já estiver ligado a outro progenitor, é primeiro destacado. Se o widget já estiver ligado ao mesmo progenitor, a função não faz nada.
 
@@ -26765,7 +27170,7 @@ status = gx_widget_attach(&my_parent, &my_widget);
 ```C
 VOID gx_widget_background_draw(GX_WIDGET *widget);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa um preenchimento de cor sólida de um fundo widget. Este serviço é automaticamente chamado pela função gx_widget_draw, mas também pode ser invocado pela aplicação como parte de uma função de desenho de widget personalizado.
 
@@ -26846,7 +27251,7 @@ UINT gx_widget_back_attach(
     GX_WIDGET *parent, 
     GX_WIDGET *widget);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço anexa o widget ao progenitor especificado. Se o widget já estiver ligado a outro progenitor, é primeiro destacado. Se o widget já estiver ligado ao mesmo progenitor, a função não faz nada.
 
@@ -26925,7 +27330,7 @@ UINT gx_widget_back_move(
     GX_WIDGET *widget,
     GX_BOOL *return_widget_moved);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move o widget para trás na ordem Z dos widgets infantis dos pais.
 
@@ -27004,7 +27409,7 @@ UINT gx_widget_block_move(
     INT xshift, INT yshift);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move um bloco retangular de pixéis. Este serviço é mais utilizado para implementar deslocamento rápido.
 
@@ -27088,7 +27493,7 @@ VOID gx_widget_border_draw(
     GX_BOOL fill);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço traça a fronteira widget. Este serviço é normalmente invocado como parte de uma função de desenho widget. Este serviço interpreta as bandeiras de estilo fronteiriço widget para não desenhar nenhuma fronteira, uma fronteira fina, uma fronteira elevada, uma fronteira embutida, ou uma fronteira espessa.
 
@@ -27175,7 +27580,7 @@ UINT gx_widget_border_style_set(
     ULONG style);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o estilo de fronteira widget.
 
@@ -27253,7 +27658,7 @@ UINT gx_widget_border_width_get(
     GX_VALUE *return_width);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém a largura da fronteira widget.
 
@@ -27331,7 +27736,7 @@ UINT gx_widget_canvas_get(
     GX_WIDGET *widget,
     GX_CANVAS **return_canvas)
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve um ponteiro à tela sobre a qual este widget é renderizado.
 
@@ -27411,7 +27816,7 @@ UINT gx_widget_child_detect(
     GX_BOOL *return_detect);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço deteta se o widget é uma criança do widget dos pais. Este serviço nidifica para procurar crianças de crianças, e retorna TRUE se o widget dos pais estiver em qualquer nível um ancestral do widget da criança.
 
@@ -27488,7 +27893,7 @@ status = gx_widget_child_detect(&my_widget, &my_child, &detected);
 VOID gx_widget_children_draw(GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atrai todas as crianças do widget dos pais. Este serviço é normalmente invocado por todas as funções padrão de desenho de widgets para desenhar quaisquer widgets infantis existentes, e deve ser invocado por quaisquer funções de desenho personalizado para permitir que widgets infantis sejam ligados ao seu tipo de widget parental personalizado.
 
@@ -27569,7 +27974,7 @@ UINT gx_widget_client_get(
     GX_VALUE border_width,
     GX_RECTANGLE *return_client_area);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula a área do widget ao subtrair a largura da fronteira widget do tamanho geral do widget.
 
@@ -27650,7 +28055,7 @@ UINT gx_widget_color_get(
     GX_COLOR *return_color);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém a cor associada ao ID de recursos fornecido. Este serviço só deve ser chamado por widgets visíveis.
 
@@ -27702,7 +28107,7 @@ UINT gx_widget_create(
     USHORT widget_id,
     GX_CONST GX_RECTANGLE *size);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um widget.
 
@@ -27790,7 +28195,7 @@ UINT gx_widget_created_test(
     GX_WIDGET *widget,
     GX_BOOL *return_test);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço testa para determinar se o widget foi previamente criado. Se não forem encontrados erros, esta função volta GX_SUCCESS, independentemente de o widget ser criado ainda ou não. O resultado do teste está no ponteiro return_test.
 
@@ -27866,7 +28271,7 @@ GX_TRUE, the widget “my_widget” has been created. */
 UINT gx_widget_delete(GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o widget. Se o bloco de controlo widget for atribuído dinamicamente, o serviço gx_system_memory_free é invocado para armazenamento gratuito e dinamicamente atribuído.
 
@@ -27940,7 +28345,7 @@ status = gx_widget_delete(&my_widget);
 UINT gx_widget_detach(GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço separa o widget do seu progenitor.
 
@@ -28013,7 +28418,7 @@ status = gx_widget_detach(&my_widget);
 VOID gx_widget_draw(GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o widget. Esta função é normalmente chamada internamente pelo mecanismo de atualização de lona GUIX, mas está exposta à aplicação para ajudar na implementação de funções de desenho personalizado.
 
@@ -28091,7 +28496,7 @@ UINT gx_widget_draw_set(
     VOID (*drawing_function) (GX_WIDGET *));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço substitui a função de desenho predefinido do widget.
 
@@ -28174,7 +28579,7 @@ UINT gx_widget_event_generate(
     USHORT event_type, LONG value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço gera um tipo GX_SIGNAL de evento, que é um tipo ou classe particular de GX_EVENT. gx_widget_event_generate() codifica o ID widget de 16 bits, juntamente com o passado em event_type, em um único valor de 32 bits GX_EVENT.gx_event_type. O parâmetro de valor é codificado no gx_event gerado. gx_event_payload.gx_event_longdata.
 
@@ -28257,7 +28662,7 @@ UINT gx_widget_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta é a função de processamento de eventos predefinido para todos os widgets. Quando uma função de processamento de eventos personalizado é escrita, a ação padrão para qualquer tipo de evento deve ser sempre passar o evento para o tipo de widget em que se baseia um widget. Widgets que são baseados na utilização mais básica do GX_WIDGET tipo de passe gx_widget_event_process como função de processamento de eventos predefinido.
 
@@ -28334,7 +28739,7 @@ UINT gx_widget_event_process_set(
     UINT (*event_processing) (GX_WIDGET *, GX_EVENT *));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço substitui a função de processamento de eventos do widget.
 
@@ -28430,7 +28835,7 @@ UINT gx_widget_event_to_parent(
     GX_WIDGET *widget,
     GX_EVENT *event);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um evento para o pai do widget.
 
@@ -28507,7 +28912,7 @@ UINT gx_widget_fill_color_set(
     GX_RESOURCE_ID selected_color_id,
     GX_RESOURCE_ID disabled_color_id);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define as cores de fundo do widget.
 
@@ -28591,7 +28996,7 @@ UINT gx_widget_find(
     INT search_depth, 
     GX_WIDGET **return_widget);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço procura através das crianças do progenitor especificado à procura de um widget com o valor de ID solicitado.
 
@@ -28672,7 +29077,7 @@ UINT gx_widget_first_child_get(
     GX_WIDGET *parent,
     GX_WIDGET **widget_return);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O GUIX mantém uma lista estruturada de widgets de pais e filhos. Este serviço devolve um ponteiro ao primeiro widget infantil do progenitor.
 
@@ -28726,7 +29131,7 @@ GX_WIDGET *get_child_widget(GX_WIDGET *parent)
 UINT gx_widget_focus_next(GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move o foco para o próximo widget irmão na lista de widgets ligados que aceitam o foco.
 
@@ -28768,7 +29173,7 @@ widget in the navigation order */
 UINT gx_widget_focus_previous(GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move o foco para o widget anterior na ordem de navegação.
 
@@ -28809,7 +29214,7 @@ UINT gx_widget_font_get(
     GX_RESOURCE_ID resource_id,
     GX_FONT **return_font);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o tipo de letra associado ao ID de recursos especificado a partir da tabela de fontes do visor em que este widget é visível. Esta função só deve ser chamada por um widget visível.
 
@@ -28853,7 +29258,7 @@ status = gx_widget_font_get(widget, MY_FONT_RESOURCE_ID, &my_font);
 UINT gx_widget_free(GX_WIDGETG *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta a memória associada a um bloco de controlo widget.
 
@@ -28938,7 +29343,7 @@ UINT gx_widget_front_move(
     GX_BOOL *return_moved);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço move o widget para a frente na lista de pedidos de Z dos widgets infantis.
 
@@ -29019,7 +29424,7 @@ UINT gx_widget_height_get(
     UINT *return_height);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém a altura do widget.
 
@@ -29097,7 +29502,7 @@ status = gx_widget_height_get(&my_widget, &widget_height);
 UINT gx_widget_hide(GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço esconde o widget. Este widget ainda está ligado ao seu progenitor, mas não é permitido desenhar na tela.
 
@@ -29172,7 +29577,7 @@ UINT gx_widget_last_child_get(
     GX_WIDGET *parent,
     GX_WIDGET **widget_return);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O GUIX mantém uma lista estruturada de widgets de pais e filhos. Este serviço devolve um ponteiro ao último widget infantil do progenitor.
 
@@ -29228,7 +29633,7 @@ UINT gx_widget_next_sibling_get(
     GX_WIDGET *current,
     GX_WIDGET **widget_return);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O GUIX mantém uma lista estruturada de widgets de pais e filhos. Este serviço devolve um ponteiro ao próximo irmão do widget atual.
 
@@ -29283,7 +29688,7 @@ UINT gx_widget_parent_get(
     GX_WIDGET *current,
     GX_WIDGET **widget_return);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O GUIX mantém uma lista estruturada de widgets de pais e filhos. Este serviço devolve um ponteiro ao progenitor do widget atual.
 
@@ -29340,7 +29745,7 @@ UINT gx_widget_pixelmap_get(
     GX_PIXELMAP **return_pixelmap);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém o pixelmap associado ao ID de recursos fornecido. Este serviço só deve ser solicitado para widgets visíveis.
 
@@ -29389,7 +29794,7 @@ UINT gx_widget_previous_sibling_get(
     GX_WIDGET **widget_return);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O GUIX mantém uma lista estruturada de widgets de pais e filhos. Este serviço devolve um ponteiro ao irmão anterior do widget atual.
 
@@ -29444,7 +29849,7 @@ UINT gx_widget_resize(
     GX_WIDGET *widget, 
     GX_RECTANGLE *new_size);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço redimensiona o widget. Se o widget estiver visível, é automaticamente invalidado e em fila para redesenhar.
 
@@ -29527,7 +29932,7 @@ UINT gx_widget_shift(
     GX_BOOL mark_dirty);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desloca o widget e, opcionalmente, marca-o como sujo.
 
@@ -29604,7 +30009,7 @@ status = gx_widget_shift(&my_widget, 10, 20, GX_FALSE);
 UINT gx_widget_show(GX_WIDGET *widget);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço mostra o widget. O widget só se tornará visível se estiver ligado a um progenitor e o widget dos pais também for visível.
 
@@ -29680,7 +30085,7 @@ UINT gx_widget_status_add(
     ULONG status)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona qualquer combinação de bandeiras de estado ao widget especificado.
 
@@ -29756,7 +30161,7 @@ UINT gx_widget_status_get(
     ULONG *return_status)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera bandeiras de estado do widget.
 
@@ -29834,7 +30239,7 @@ UINT gx_widget_status_remove(
     ULONG status)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove as bandeiras de estado especificadas da variável de estado interno dos widgets.
 
@@ -29911,7 +30316,7 @@ UINT gx_widget_status_test(
     ULONG status,
     GX_BOOL *return_test);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço testa as bandeiras de estado do widget especificado e armazena o resultado na memória apontada por "return_test".
 
@@ -29965,7 +30370,7 @@ UINT gx_widget_string_get(
     GX_CONST GX_CHAR **string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é prevadido a favor de gx_widget_string_get_ext().
 
@@ -30015,7 +30420,7 @@ UINT gx_widget_string_get(
     GX_CONST GX_STRING *string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve a entrada da tabela de cordas para o valor de ID de cadeia dado. Este serviço é semelhante ao gx_display_string_get, exceto que o visor ativo é determinado automaticamente em vez de ser transmitido pelo chamador. Este serviço só pode ser utilizado para widgets visíveis, ou seja, o visor associado a este widget é conhecido.
 
@@ -30064,7 +30469,7 @@ UINT gx_widget_style_add(
     ULONG style)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona um estilo ao widget. Além disso, são tomadas as seguintes ações.
 
@@ -30148,7 +30553,7 @@ UINT gx_widget_style_get(
     ULONG *return_style)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a bandeira de estilo do widget.
 
@@ -30227,7 +30632,7 @@ UINT gx_widget_style_remove(
     ULONG style)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove um estilo do widget. Além disso, são tomadas as seguintes ações.
 
@@ -30312,7 +30717,7 @@ UINT gx_widget_style_set(
     ULONG style)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define um estilo para o widget.
 
@@ -30401,7 +30806,7 @@ UINT gx_widget_text_blend(
     UCHAR alpha)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é prevadido a favor de gx_widget_text_blend_ext().
 
@@ -30459,7 +30864,7 @@ UINT gx_widget_text_blend(
     UCHAR alpha)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é prevadido a favor de gx_widget_text_blend_ext().
 
@@ -30523,7 +30928,7 @@ VOID gx_widget_text_draw(
     INT y_offset)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é prevadido a favor de gx_widget_text_draw_ext().
 
@@ -30581,7 +30986,7 @@ VOID gx_widget_text_draw(
     INT y_offset)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha o texto especificado sobre um widget utilizando o alinhamento de texto e escova de texto.
 
@@ -30641,7 +31046,7 @@ VOID gx_widget_text_id_draw(
     INT y_offse)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha texto sobre um widget dado um id de texto.
 
@@ -30693,7 +31098,7 @@ UINT gx_widget_top_visible_child_find(
     GX_WIDGET **widget_return);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O GUIX mantém uma lista estruturada de widgets de pais e filhos.
 Este serviço devolve um ponteiro à criança mais visível do widget atual.
@@ -30752,7 +31157,7 @@ UINT gx_widget_type_find(
     GX_WIDGET **return_widget)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço procura um widget do tipo solicitado.
 
@@ -30832,7 +31237,7 @@ UINT gx_widget_width_get(
     GX_VALUE *return_width)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém a largura do widget.
 
@@ -30912,7 +31317,7 @@ UINT gx_window_client_height_get(
     GX_VALUE *return_height);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tem a altura do cliente da janela.
 
@@ -30972,7 +31377,7 @@ UINT gx_window_client_scroll(
     GX_VALUE y_scroll);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desloca os clientes da janela pelo valor especificado.
 
@@ -31030,7 +31435,7 @@ UINT gx_window_client_width_get(
     GX_VALUE *return_width);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém a largura do cliente da janela especificada.
 
@@ -31086,7 +31491,7 @@ status = gx_window_client_width_get(&my_window, &my_client_width);
 UINT gx_window_close(GX_WINDOW *window);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obriga uma janela modal a separar-se do seu progenitor e a regressar do ciclo de execução modal.
 
@@ -31146,7 +31551,7 @@ UINT gx_window_create(
     GX_CONST GX_RECTANGLE *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma janela.
 
@@ -31213,7 +31618,7 @@ status = gx_window_create(&my_window, "my window",
 VOID gx_window_draw(GX_WINDOW *window);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desenha uma janela. Este serviço é normalmente chamado internamente durante a atualização de lona, mas também pode ser chamado de funções de desenho de janelas personalizadas.
 
@@ -31271,7 +31676,7 @@ UINT gx_window_event_process(
     GX_EVENT *event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa um evento para esta janela.
 
@@ -31344,7 +31749,7 @@ UINT gx_window_execute(
     ULONG *return_ptr)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa modally uma janela. Qualquer entrada do utilizador (eventos de caneta, etc.) fora da área do cliente da janela será ignorada. Note que esta função introduz um ciclo de execução de bloqueio contínuo e não volta ao chamador até que a execução do modelo seja terminada.
 
@@ -31408,7 +31813,7 @@ UINT gx_window_root_create(
     GX_CONST GX_RECTANGLE *size)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma janela de raiz.
 
@@ -31458,7 +31863,7 @@ GX_STYLE_BORDER_NONE, GX_NULL, &size);
 UINT gx_window_root_delete(GX_WINDOW_ROOT *root_window)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma janela de raiz.
 
@@ -31515,7 +31920,7 @@ UINT gx_window_root_create(
     GX_EVENT *event)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço processa eventos para a janela de raiz especificada.
 
@@ -31587,7 +31992,7 @@ UINT gx_window_root_find(
     GX_WINDOW_ROOT **return_root_window);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço encontra a janela raiz para o widget especificado.
 
@@ -31645,7 +32050,7 @@ UINT gx_window_scroll_info_get(
     GX_SCROLL_INFO *return_scroll_info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém a informação do pergaminho da janela.
 
@@ -31706,7 +32111,7 @@ UINT gx_window_scrollbar_find(
     GX_SCROLLBAR **return_scrollbar);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço encontra a barra de deslocação para a janela especificada.
 
@@ -31766,7 +32171,7 @@ UINT gx_window_wallpaper_get(
     GX_RESOURCE_ID *return_wallpaper_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém o papel de parede para a janela especificada.
 
@@ -31825,7 +32230,7 @@ UINT gx_window_wallpaper_set(
     GX_BOOL tile);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o papel de parede para a janela especificada.
 
