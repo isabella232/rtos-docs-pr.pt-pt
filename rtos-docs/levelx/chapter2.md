@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 575776875452cfc718401556a6440d787cb18893
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 34110e74e8ad0a6acd376c00c1284a3ea715c5f5
+ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827067"
+ms.lasthandoff: 05/20/2021
+ms.locfileid: "110223320"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-levelx"></a>Capítulo 2 - Instalação e utilização do Azure RTOS LevelX
 
@@ -80,6 +80,10 @@ O LevelX pode ser configurado no momento da compilação através das definiçõ
 - **LX_NOR_EXTENDED_CACHE_SIZE**: Por defeito, este valor é de 8, o que representa um máximo de 8 sectores que podem ser cached em um caso NOR.
 - **LX_NOR_SECTOR_MAPPING_CACHE_SIZE**: Por padrão, este valor é de 16 e define o tamanho da cache de mapeamento do sector lógico. Os grandes valores melhoram o desempenho, mas a memória de custos. O tamanho mínimo é de 8 e todos os valores devem ser uma potência de 2.
 - **LX_THREAD_SAFE_ENABLE**: Definido, isto torna o LevelX seguro com um objeto mutex ThreadX em toda a API.
+- **LX_STANDALONE_ENABLE**: Definido, permite que o LevelX seja utilizado em modo autónomo (sem Azure RTOS). Por padrão, este símbolo não está definido.
+
+> [!IMPORTANT]
+> Ao utilizar o LevelX no modo Autónomo **(LX_STANDALONE_ENABLE** deve ser definido), não são necessários ficheiros/bibliotecas ThreadX. A função de segurança de linha LevelX é desativada neste modo.
 
 ## <a name="using-levelx"></a>Usando o LevelX
 

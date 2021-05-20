@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 89761ec3438b1b16c1a603764bf7d4e1eac1b4ea
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 80ec22058ab64ed0c6258bb3d9364ec44f9a741b
+ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826948"
+ms.lasthandoff: 05/20/2021
+ms.locfileid: "110223397"
 ---
 # <a name="chapter-4---description-of-azure-rtos-netx-secure-services"></a>Capítulo 4 - Descrição dos serviços Azure RTOS NetX Secure
 
@@ -124,7 +124,7 @@ UINT nx_secure_crypto_table_self_test(
                                   VOID *metadata, UINT metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa através do método cripto-método auto-testes para validar. O auto-teste só está disponível se a biblioteca NetX Secure for construída com o símbolo NX_SECURE_POWER_ON_SELF_TEST_MODULE_INTEGRITY_CHECK definido.
 
@@ -204,7 +204,7 @@ UINT nx_secure_module_hash_compute(
                       UINT *actual_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função calcula o valor do hash do fluxo de dados na área de memória especificada, utilizando o método de cripto HMAC fornecido e a cadeia de chaves. A função de computação de haxixe do módulo só está disponível se a biblioteca NetX Secure for construída com o seguinte símbolo a ser definido: NX_SECURE_POWER_ON_SELF_TEST_MODULE_INTEGRITY_CHECK
 
@@ -294,7 +294,7 @@ UINT  nx_secure_tls_active_certificate_set(
                    NX_SECURE_X509_CERT *certificate);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço destina-se a ser chamado a partir de uma chamada de sessão (ver nx_secure_tls_session_client_callback_set e nx_secure_tls_session_server_callback_set). Quando chamado com uma estrutura de NX_SECURE_X509_CERT previamente inicializada, esse certificado será utilizado em vez do certificado de identidade padrão. Na maioria dos casos, o certificado deve ter sido adicionado à loja local (ver nx_secure_tls_local_certificate_add) ou o aperto de mão TLS pode falhar.
 
@@ -470,7 +470,7 @@ UINT  nx_secure_tls_client_psk_set(NX_SECURE_TLS_SESSION *session_ptr,
                               UCHAR *hint, UINT hint_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma chave pré-partilhada (PSK), a sua cadeia de identidade e uma dica de identidade para um bloco de controlo de Sessão TLS, e define que o PSK deve ser usado nas ligações subsequentes do Cliente TLS. O PSK é utilizado em vez de um certificado digital quando as cifrasuites PSK são ativadas e utilizadas.
 
@@ -528,7 +528,7 @@ Inicializa o módulo NetX Secure TLS
 VOID nx_secure_tls_initialize(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa o módulo NetX Secure TLS. Deve ser chamado antes que outros serviços NetX Secure possam ser acedidos.
 
@@ -538,7 +538,7 @@ Nenhum
 
 ### <a name="return-values"></a>Valores de devolução
 
-Nenhum
+Nenhuma
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -567,7 +567,7 @@ UINT  nx_secure_tls_local_certificate_add(
               NX_SECURE_X509_CERT *certificate_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma instância de estrutura NX_SECURE_X509_CERT inicializada à loja local de uma sessão TLS. Este certificado pode ser utilizado pela pilha TLS para identificar o dispositivo durante o aperto de mão TLS (se tiver sido marcado como um certificado de identidade durante a inicialização da estrutura do certificado utilizando nx_secure_x509_certificate_initialize), ou como emitente como parte de uma cadeia de certificados fornecida ao anfitrião remoto durante o aperto de mão TLS.
 
@@ -630,7 +630,7 @@ UINT  nx_secure_tls_local_certificate_find(NX_SECURE_TLS_SESSION
                         name_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço encontra um certificado na loja de certificados de dispositivo local de uma sessão TLS e devolve um ponteiro à estrutura NX_SECURE_X509_CERT da loja. O parâmetro common_name e o seu comprimento (name_length) são utilizados para identificar o certificado na loja, correspondendo ao campo X.509 Nome Comum do certificado.
 
@@ -698,7 +698,7 @@ UINT  nx_secure_tls_local_certificate_remove(NX_SECURE_TLS_SESSION
                   common_name_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove uma instância de certificado local de uma sessão de TLS, chave no campo Nome Comum no certificado.
 
@@ -751,7 +751,7 @@ UINT  nx_secure_tls_metadata_size_calculate(
                         ULONG *metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula e devolve o tamanho dos metadados criptográficos necessários para uma sessão de TLS e tabela de criptografia TLS (consulte a secção "Inicialização de TLS com Métodos Criptográficos" para obter mais informações sobre a tabela de cifra criptográfica).
 
@@ -793,43 +793,6 @@ status =  nx_secure_tls_metadata_size_calculate(&nx_crypto_tls_ciphers,
 
 - nx_secure_tls_session_create
 
-## <a name="nx_secure_module_hash_compute"></a>nx_secure_module_hash_compute
-
-Calcular o valor de haxixe das rotinas da biblioteca NetX Secure
-
-### <a name="prototype"></a>Prototype
-
-```C
-VOID nx_secure_module_hash_compute(VOID);
-```
-
-### <a name="description"></a>Descrição
-
-Este serviço inicializa o módulo NetX Secure TLS. Deve ser chamado antes que outros serviços NetX Secure possam ser acedidos.
-
-### <a name="parameters"></a>Parâmetros
-
-Nenhum
-
-### <a name="return-values"></a>Valores de devolução
-
-Nenhum
-
-### <a name="allowed-from"></a>Permitido a partir de
-
-Inicialização, Threads
-
-### <a name="example"></a>Exemplo
-
-```C
-/* Initializes the TLS module. */
-Nx_secure_tls_initialize();
-```
-
-### <a name="see-also"></a>Consulte também
-
-- nx_secure_tls_session_create
-
 ## <a name="nx_secure_tls_packet_allocate"></a>nx_secure_tls_packet_allocate
 
 Aloque um pacote para uma Sessão NetX Secure TLS
@@ -843,7 +806,7 @@ UINT  nx_secure_tls_packet_allocate(NX_SECURE_TLS_SESSION *session_ptr,
                                     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui uma NX_PACKET para a sessão de TLS ativa especificada a partir do NX_PACKET_POOL especificado. Este serviço deve ser chamado pela aplicação para atribuir pacotes de dados a serem enviados através de uma ligação TLS. A sessão TLS deve ser inicializada antes de ligar para este serviço.
 
@@ -905,7 +868,7 @@ UINT  nx_secure_tls_psk_add(NX_SECURE_TLS_SESSION *session_ptr,
                             hint_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma chave pré-partilhada (PSK), a sua cadeia de identidade e uma dica de identidade para um bloco de controlo TLS Session. O PSK é utilizado em vez de um certificado digital quando as cifrasuites PSK são ativadas e utilizadas.
 
@@ -965,7 +928,7 @@ UINT  nx_secure_tls_remote_certificate_allocate(
                  UINT raw_buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma instância de estrutura de NX_SECURE_X509_CERT não iniializada a uma sessão de TLS com o objetivo de atribuir espaço para certificados fornecidos por um anfitrião remoto durante uma sessão de TLS. Os dados do certificado remoto são analisados pelo NetX Secure TLS e essa informação é utilizada para preencher a instância da estrutura do certificado fornecida a esta função. Os certificados adicionados desta forma são colocados numa lista ligada.
 
@@ -1031,7 +994,7 @@ UINT  nx_secure_tls_remote_certificate_buffer_allocate(
                   ULONG buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui espaço para processar as cadeias de certificados de entrada de anfitriões de servidores remotos de forma a realizar a autenticação e verificação X.509 numa instância do Cliente TLS. No que diz o modo TLS Server, a atribuição de certificados remotos só é necessária se a autenticação do certificado do cliente X.509 estiver ativada – para as instâncias do Servidor TLS, o serviço *nx_secure_tls_session_x509_client_verify_configure* deve ser utilizado.
 
@@ -1100,7 +1063,7 @@ UINT  nx_secure_tls_remote_certificate_free_all(
                   NX_SECURE_TLS_SESSION *session_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é utilizado para libertar todos os amortecedores de certificados atribuídos a uma sessão TLS específica, nx_secure_tls_remote_certificate_allocated devolvendo-os ao espaço de certificado gratuito da sessão. Isto pode ser necessário se uma aplicação reutilizar um objeto de sessão TLS sem o eliminar e recriar com nx_secure_tls_session_delete e nx_secure_tls_session_create.
 
@@ -1165,7 +1128,7 @@ UINT  nx_secure_tls_server_certificate_add(
                   NX_SECURE_X509_CERT *certificate, UINT cert_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é utilizado para adicionar um certificado à loja local de uma sessão de TLS (ver nx_secure_tls_local_certificate_add) utilizando um identificador numérico em vez de indexar a loja utilizando o Sujeito X.509 (Nome Comum) dentro do certificado. O identificador numérico é separado do certificado e permite a adição de vários certificados como certificados de identidade a um servidor TLS, bem como permitir que vários certificados com o mesmo Nome Comum sejam adicionados à mesma loja local de sessão TLS. Este mesmo serviço pode ser utilizado para certificados de cliente, mas é raro um cliente TLS ter vários certificados de identidade.
 
@@ -1227,7 +1190,7 @@ UINT  nx_secure_tls_server_certificate_find(
                   NX_SECURE_X509_CERT **certificate, UINT cert_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é utilizado para encontrar um certificado na loja local de uma sessão de TLS (ver nx_secure_tls_local_certificate_add) utilizando um identificador numérico em vez de indexar a loja utilizando o Sujeito X.509 (Nome Comum) dentro do certificado.
 
@@ -1285,7 +1248,7 @@ UINT  nx_secure_tls_server_certificate_remove(
                   NX_SECURE_TLS_SESSION *session_ptr, UINT cert_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é utilizado para remover um certificado da loja local de uma sessão de TLS (ver nx_secure_tls_local_certificate_add) utilizando um identificador numérico em vez de indexar a loja utilizando o Sujeito X.509 (Nome Comum) dentro do certificado.
 
@@ -1344,7 +1307,7 @@ UINT  nx_secure_tls_session_alert_value_get(
                    UINT *alert_level, UINT *alert_value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é utilizado para recuperar o nível de alerta e valor do TLS quando o hospedeiro remoto envia um alerta em resposta a algum problema ou erro.
 
@@ -1446,7 +1409,7 @@ UINT  nx_secure_tls_ session_certificate_callback_set (
                                     NX_SECURE_X509_CERT *certificate));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui um ponteiro de função a uma sessão de TLS que o TLS invocará quando um certificado é recebido de um anfitrião remoto, permitindo que o pedido efetue verificações de validação como validação de DNS, revogação de certificados e aplicação da política de certificados.
 
@@ -1509,7 +1472,7 @@ UINT  nx_secure_tls_ session_client_callback_set (
                                     *extensions, UINT num_extensions));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui um ponteiro de função a uma sessão de TLS que o TLS invocará quando um aperto de mão do Cliente TLS tiver recebido uma mensagem ServerHelloDone. A função de retorno permite que uma aplicação processe quaisquer extensões TLS da mensagem ServerHello recebida que exijam entrada ou tomada de decisão.
 
@@ -1586,7 +1549,7 @@ UINT  nx_secure_tls_session_x509_client_verify_configure(
                   ULONG buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite a autenticação opcional do cliente X.509 para uma instância do Servidor TLS. Também aloca o espaço necessário para processar as cadeias de certificados de entrada do anfitrião remoto do cliente. Os certificados fornecidos pelo cliente remoto serão verificados contra os certificados fidedignos do servidor TLS, atribuídos com o *serviço nx_secure_tls_trusted_certificate_add.*
 
@@ -1657,7 +1620,7 @@ UINT  nx_secure_tls_session_client_verify_disable(
                               NX_SECURE_TLS_SESSION *session_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa a autenticação do Certificado de Cliente para uma sessão específica de TLS. Consulte nx_secure_tls_session_client_verify_enable para mais informações.
 
@@ -1701,7 +1664,7 @@ UINT  nx_secure_tls_session_client_verify_enable(
                                 NX_SECURE_TLS_SESSION *session_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite a autenticação do Certificado de Cliente para uma sessão específica de TLS. Permitir a autenticação do certificado de cliente para uma instância do Servidor TLS fará com que o Servidor TLS solicite um certificado a qualquer Cliente TLS remoto durante o aperto de mão TLS inicial. O certificado recebido do cliente TLS remoto é acompanhado por uma mensagem CertificateVerify, que o Servidor TLS utiliza para verificar se o Cliente é dono do certificado (tem acesso à chave privada associada a esse certificado).
 
@@ -1757,7 +1720,7 @@ UINT  nx_secure_tls_session_create(NX_SECURE_TLS_SESSION *session_ptr
                                    ULONG encryption_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa uma NX_SECURE_TLS_SESSION exemplo de estrutura para utilização no estabelecimento de comunicações TLS seguras sobre uma ligação de rede.
 
@@ -1823,7 +1786,7 @@ Excluir uma Sessão de TLS Segura NetX
 UINT  nx_secure_tls_session_delete(NX_SECURE_TLS_SESSION *session_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma sessão TLS representada por uma instância de estrutura NX_SECURE_TLS_SESSION e liberta todos os recursos do sistema detidos por essa instância de sessão.
 
@@ -1871,7 +1834,7 @@ UINT  nx_secure_tls_session_end(NX_SECURE_TLS_SESSION *session_ptr,
                                     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço termina uma sessão TLS representada por uma NX_SECURE_TLS_SESSION instância de estrutura enviando a mensagem TLS CloseNotify para o anfitrião remoto. Em seguida, o serviço aguarda que o anfitrião remoto responda com a sua própria mensagem CloseNotify.
 
@@ -1927,7 +1890,7 @@ UINT  nx_secure_tls_session_packet_buffer_set(
                                     ULONG buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço associa um tampão de remontagem de pacote a uma sessão de TLS. Para desencriptar e analisar os registos TLS de entrada, os dados em cada registo devem ser reunidos a partir dos pacotes TCP subjacentes. Os registos TLS podem ter até 16KB de tamanho (embora normalmente sejam muito menores) pelo que podem não caber num único pacote TCP.
 
@@ -1984,7 +1947,7 @@ UINT  nx_secure_tls_session_protocol_version_override(
                               USHORT protocol_version);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço substitui a versão padrão (mais recente) do protocolo TLS utilizada por uma determinada sessão. Isto permite ao NetX Secure TLS utilizar uma versão mais antiga do TLS para uma Sessão TLS específica sem desativar as versões TLS mais recentes no momento da compilação. Isto pode ser útil em aplicações que possam necessitar de comunicar com um anfitrião mais antigo que não suporte a versão mais recente do TLS.
 
@@ -2048,7 +2011,7 @@ UINT  nx_secure_tls_session_receive(NX_SECURE_TLS_SESSION *session_ptr,
                                     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recebe dados da sessão de TLS ativa especificada, manuseando a desencriptação desses dados antes de os fornecer ao chamador no parâmetro NX_PACKET. Se não houver dados na sessão especificada, a chamada suspende com base na opção de espera fornecida.
 
@@ -2113,7 +2076,7 @@ UINT  nx_secure_tls_ session_renegotiate_callback_set (
                   *session));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui uma chamada de volta a uma sessão TLS que será invocada sempre que a primeira mensagem de um aperto de mão de renegociação de sessão for recebida do anfitrião remoto.
 
@@ -2181,7 +2144,7 @@ UINT  nx_secure_tls_ session_renegotiate (
                   UINT wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia um aperto de mão *de renegociação* de sessão com um anfitrião TLS remoto conectado. Uma renegociação consiste num segundo aperto de mão TLS no contexto de uma sessão TLS previamente estabelecida. Cada uma das novas mensagens de aperto de mão é encriptada utilizando a sessão TLS até que novas teclas de sessão sejam geradas e as mensagens ChangeCipherSpec sejam trocadas, altura em que as novas teclas são usadas para encriptar todas as mensagens.
 
@@ -2273,7 +2236,7 @@ Limpe e reponha uma Sessão de TLS De Segurança NetX
 UINT  nx_secure_tls_session_reset (NX_SECURE_TLS_SESSION *session_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço limpa uma sessão de TLS e repõe o estado como se a sessão tivesse acabado de ser criada para que um objeto de sessão TLS existente possa ser reutilizado para uma nova sessão.
 
@@ -2323,7 +2286,7 @@ UINT  nx_secure_tls_session_send(NX_SECURE_TLS_SESSION *session_ptr,
                                     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia dados no NX_PACKET fornecido, utilizando a sessão de TLS ativa especificada, e manuseando a encriptação desses dados antes de os enviar para o anfitrião remoto. Se o último tamanho da janela anunciado pelo recetor for inferior a este pedido, o serviço suspende opcionalmente com base nas opções de espera especificadas.
 
@@ -2386,7 +2349,7 @@ UINT  nx_secure_tls_ session_server_callback_set (
                                    *extensions, UINT num_extensions));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui um ponteiro de função a uma sessão de TLS que o TLS invocará quando um aperto de mão do Servidor TLS tiver recebido uma mensagem ClientHello. A função de retorno permite que uma aplicação processe quaisquer extensões TLS da mensagem ClientHello recebida que exijam entrada ou tomada de decisão.
 
@@ -2524,7 +2487,7 @@ UINT  nx_secure_tls_session_sni_extension_parse(
                                     NX_SECURE_X509_DNS_NAME *dns_name);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço destina-se a ser chamado a partir de uma chamada de sessão do TLS Server, adicionada a uma sessão de TLS utilizando nx_secure_tls_session_server_callback_set. A chamada é invocada após a receção de uma mensagem ClientHello de um cliente TLS remoto e é fornecida uma série de extensões disponíveis (e o número de extensões na matriz). Este conjunto e o seu comprimento podem ser transmitidos diretamente a esta rotina para determinar se existe uma extensão SNI presente – se não, NX_SECURE_TLS_EXTENSION_NOT_FOUND é devolvida, indicando simplesmente que o cliente optou por não provicendo a extensão SNI (isto não é um erro).
 
@@ -2571,7 +2534,7 @@ UINT  nx_secure_tls_session_sni_extension_set(
                                     NX_SECURE_X509_DNS_NAME *dns_name);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite que uma aplicação do Cliente TLS forneça um nome DNS de servidor preferido a um servidor TLS remoto utilizando a extensão TLS de Indicação de Nome do Servidor (SNI). A extensão SNI permite ao servidor selecionar o certificado de identidade e parâmetros adequados com base na preferência indicada do servidor do cliente. A extensão SNI suporta atualmente apenas um único nome DNS a ser enviado, daí o parâmetro de nome singular. O parâmetro dns_name deve ser inicializado com *nx_secure_x509_dns_name_initialize* e conterá o servidor preferido do cliente. Para desaparar o nome da extensão, basta ligar para este serviço com um valor de parâmetro "dns_name" de NX_NULL.
 
@@ -2642,7 +2605,7 @@ UINT  nx_secure_tls_session_start(NX_SECURE_TLS_SESSION *session_ptr,
                                   ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma sessão TLS utilizando o bloco de controlo de sessão TLS fornecido e uma tomada TCP conectada. A ligação TCP já deve estar completa na sequência de uma chamada bem sucedida para nx_tcp_client_socket_connect ou nx_tcp_server_socket_accept.
 
@@ -2812,7 +2775,7 @@ UINT  nx_secure_tls_time_function_set(
                               ULONG (*time_func_ptr)(void));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função configura um ponteiro de função que o TLS invocará quando precisar de obter o tempo atual, que é usado em várias mensagens de aperto de mão TLS e para verificação de certificados.
 
@@ -2876,7 +2839,7 @@ UINT  nx_secure_tls_trusted_certificate_add(NX_SECURE_TLS_SESSION
                             *session_ptr, NX_SECURE_X509_CERT *certificate_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma instância de estrutura de NX_SECURE_X509_CERT inicializada a uma sessão de TLS. Este certificado é utilizado pela pilha TLS para verificar os certificados fornecidos pelo anfitrião remoto durante o aperto de mão TLS.
 
@@ -2935,7 +2898,7 @@ UINT  nx_secure_tls_trusted_certificate_remove(
                                     UINT common_name_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove um certificado de confiança de uma sessão de TLS, insutado no campo Nome Comum no certificado.
 
@@ -2991,7 +2954,7 @@ UINT  nx_secure_x509_certificate_initialize(
                   UINT private_key_type);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa uma estrutura NX_SECURE_X509_CERT a partir de um certificado digital X.509 codificado binário para utilização numa sessão de TLS.
 
@@ -3067,7 +3030,7 @@ UINT  nx_secure_x509_common_name_dns_check(
                         const UCHAR *dns_tld, UINT dns_tld_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço verifica o Nome Comum de um certificado contra um nome de domínio superior (TLD) fornecido pelo chamador para efeitos de validação de DNS de um anfitrião remoto. Esta função de utilidade destina-se a ser chamada a partir de uma rotina de validação de certificado fornecida pela aplicação. O nome TLD deve ser a parte superior do URL utilizado para aceder ao hospedeiro remoto (o "". -corda separada antes do primeiro corte). Se o Nome Comum contiver um wildcard (como *.example.com), o wildcard combinará qualquer um com o mesmo sufixo. Note que apenas o primeiro wildcard ("*") encontrado (lendo da direita para a esquerda) será considerado para correspondência wildcard – por exemplo, abc.*.exemplo.com corresponderá *a qualquer* nome que termine em ".example.com".
 
@@ -3141,7 +3104,7 @@ UINT  nx_secure_x509_crl_revocation_check(const UCHAR *crl_data,
                               NX_SECURE_X509_CERT *certificate);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço requer uma Lista de Revogação de Certificado codificada pelo DER e procura um certificado específico nessa lista. O emitente do CRL é validado contra uma loja de certificados fornecida, o emitente CRL é validado para ser o mesmo que o certificado que está a ser verificado, e o número de série do certificado em questão é utilizado para pesquisar a lista de certificados revogados. Se os emitentes coincidirem, a assinatura confere e o certificado **não** está presente na lista, a chamada é bem sucedida. Todos os outros casos causam um erro a ser devolvido.
 
@@ -3241,7 +3204,7 @@ UINT  nx_secure_x509_dns_name_initialize(
                         const UCHAR *name_string, UINT length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa um nome DNS X.509 para utilização com certos serviços API que requerem um formato de nome específico. Por exemplo, o serviço *nx_secure_tls_sni_extension_parse* espera que um objeto NX_SECURE_X509_DNS_NAME para corresponder ao nome fornecido por um anfitrião remoto na extensão de indicação de nome do servidor durante o aperto de mão TLS. Um nome DNS é simplesmente uma corda de charater com um comprimento – o comprimento máximo permitido de um nome DNS (e o tamanho do tampão interno em NX_SECURE_X509_DNS_NAME) é controlado pelo NX_SECURE_X509_DNS_NAME_MAX macro (padrão 100 bytes).
 
@@ -3293,7 +3256,7 @@ UINT  nx_secure_x509_extended_key_usage_extension_parse(
                         UINT key_usage);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço destina-se a ser chamado a partir de uma chamada de verificação de certificado (ver *nx_secure_tls_session_certificate_callback_set)*. Procurará uma chave específica de utilização OID dentro de um certificado X.509 e devolverá se o OID está presente. O parâmetro key_usage é um mapeamento inteiro dos OIDs que é usado internamente por NetX Secure X.509 e TLS para evitar passar as cordas OID de comprimento variável como parâmetros.
 
@@ -3301,7 +3264,7 @@ Os OIDs relevantes para a extensão de utilização da chave estendida são indi
 
 Na chamada de verificação do certificado, o código de devolução de erros NX_SECURE_X509_KEY_USAGE_ERROR está reservado para utilização de pedidos. Se houver um erro na verificação da utilização da chave, este valor pode ser devolvido da chamada para indicar o motivo da falha.
 
-| Identificador de segurança NetX                                | Valor OID         | Descrição                                      |
+| Identificador de segurança NetX                                | Valor OID         | Description                                      |
 | --------------------------------------------------------- | --------------------- | ---------------------------------------------------- |
 | NX_SECURE_TLS_X509_TYPE_PKIX_KP_SERVER_AUTH   | 1.3.6.1.5.5.7.3.1 | O certificado pode ser usado para identificar um servidor TLS |
 | NX_SECURE_TLS_X509_TYPE_PKIX_KP_CLIENT_AUTH   | 1.3.6.1.5.5.7.3.2 | O certificado pode ser usado para identificar um cliente TLS |
@@ -3385,7 +3348,7 @@ UINT  nx_secure_x509_extension_find(
                         USHORT extension_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço destina-se a ser chamado a partir de uma chamada de verificação de certificado (ver *nx_secure_tls_session_certificate_callback_set)* e é um serviço avançado X.509.
 
@@ -3404,11 +3367,11 @@ A versão atual do NetX Secure X.509 tem suporte limitado para extensões X.509.
 > [!IMPORTANT]
 > *Este serviço é uma funcionalidade avançada para utilizadores familiarizados com extensões X.509 e ASN.1 codificadas por DER. É fornecido para permitir que esses utilizadores acedam a extensões para as quais o NetX Secure X.509 não fornece atualmente funções de ajudante. Para essas extensões sem funções de ajudante, você mesmo terá de analisar o ASN.1 codificado em bruto.*
 
-| Identificador de segurança NetX                              | Valor OID | Descrição                                                                    | Função ajudante? |
+| Identificador de segurança NetX                              | Valor OID | Description                                                                    | Função ajudante? |
 | ------------------------------------------------------- | ------------- | ---------------------------------------------------------------------------------- | -------------------- |
 | NX_SECURE_TLS_X509_TYPE_DIRECTORY_ATTRIBUTES  | 2.5.29.9  | Atributos do Diretório – atributos básicos de informação sobre o tema do certificado  | No               |
 | NX_SECURE_TLS_X509_TYPE_SUBJECT_KEY_ID       | 2.5.29.14 | Usado para identificar uma chave pública específica                                         | No               |
-| NX_SECURE_TLS_X509_TYPE_KEY_USAGE             | 2.5.29.15 | Fornece informações sobre utilizações válidas para a chave pública do certificado              | Sim              |
+| NX_SECURE_TLS_X509_TYPE_KEY_USAGE             | 2.5.29.15 | Fornece informações sobre utilizações válidas para a chave pública do certificado              | Yes              |
 | NX_SECURE_TLS_X509_TYPE_SUBJECT_ALT_NAME     | 2.5.29.17 | Fornece nomes DNS alternativos para identificar o certificado                     | Sim<sup>24</sup>        |
 | NX_SECURE_TLS_X509_TYPE_ISSUER_ALT_NAME      | 2.5.29.18 | Fornece nomes DNS alternativos para identificar o emitente do certificado            | No               |
 | NX_SECURE_TLS_X509_TYPE_BASIC_CONSTRAINTS     | 2.5.29.19 | Fornece informações básicas sobre restrições de utilização de certificados                        | No               |
@@ -3418,7 +3381,7 @@ A versão atual do NetX Secure X.509 tem suporte limitado para extensões X.509.
 | NX_SECURE_TLS_X509_TYPE_CERT_POLICY_MAPPINGS | 2.5.29.33 | Lista das políticas de certificados de CA                                                | No               |
 | NX_SECURE_TLS_X509_TYPE_AUTHORITY_KEY_ID     | 2.5.29.35 | Usado para identificar uma chave pública específica associada a uma assinatura de certificado | No               |
 | NX_SECURE_TLS_X509_TYPE_POLICY_CONSTRAINTS    | 2.5.29.36 | Restrições de política da AC                                                          | No               |
-| NX_SECURE_TLS_X509_TYPE_EXTENDED_KEY_USAGE   | 2.5.29.37 | Informações adicionais de utilização das chaves baseadas em OID                                     | Sim              |
+| NX_SECURE_TLS_X509_TYPE_EXTENDED_KEY_USAGE   | 2.5.29.37 | Informações adicionais de utilização das chaves baseadas em OID                                     | Yes              |
 | NX_SECURE_TLS_X509_TYPE_FRESHEST_CRL          | 2.5.29.46 | Fornece informações para a obtenção de CRLs delta                                  | No               |
 | NX_SECURE_TLS_X509_TYPE_INHIBIT_ANYPOLICY     | 2.5.29.54 | Campo de certificados da AC indicando que a AnyPolicy não pode ser utilizada                  | No               |
 
@@ -3498,7 +3461,7 @@ UINT  nx_secure_x509_key_usage_extension_parse(
                         USHORT *bitfield);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço destina-se a ser chamado a partir de uma chamada de verificação de certificado (ver *nx_secure_tls_session_certificate_callback_set)*. Procurará a extensão de utilização da chave e, se for encontrada, devolverá o bitfield de utilização da chave no parâmetro "bitfield".
 
@@ -3508,7 +3471,7 @@ Note que a codificação deR do bitfield elimina zeros extra, de modo que a posi
 
 Na chamada de verificação do certificado, o código de devolução de erros NX_SECURE_X509_KEY_USAGE_ERROR está reservado para utilização de pedidos. Se houver um erro na verificação da utilização da chave, este valor pode ser devolvido da chamada para indicar o motivo da falha.
 
-| Identificador de segurança NetX                            | Posição do bit | Descrição                                                                                                                                                  |
+| Identificador de segurança NetX                            | Posição do bit | Description                                                                                                                                                  |
 | ----------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | NX_SECURE_X509_KEY_USAGE_DIGITAL_SIGNATURE  | 0            | O certificado pode ser usado para assinaturas digitais                                                                                                               |
 | NX_SECURE_X509_KEY_USAGE_NON_REPUDIATION    | 1            | O certificado pode ser utilizado para verificar assinaturas digitais que não as dos certificados e CRLs                                                              |

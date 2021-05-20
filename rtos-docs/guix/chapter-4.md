@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 2513c1b6f349260c615abbc4056fb856005446c9
-ms.sourcegitcommit: 5c870219b8e7e3f303acc8ddc70320ef3506a3f0
+ms.openlocfilehash: b07e275468484ccc905655dcd13197de42b2ac86
+ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110027967"
+ms.lasthandoff: 05/20/2021
+ms.locfileid: "110223414"
 ---
 # <a name="chapter-4---description-of-guix-services"></a>Capítulo 4 - Descrição dos Serviços GUIX
 
@@ -27,7 +27,7 @@ Na secção "Valores de Retorno" nas seguintes descrições da API, os valores e
 | gx_accordion_menu_position          | Posicione os itens do menu                                                                          |
 | gx_animation_canvas_define          | Forneça memória a um controlador de animação para que uma tela seja usada para animações subsequentes. |
 | gx_animation_create                  | Criar um controlador de animação                                                               |
-| gx_animation_delete                  | Excluir um controlador de animação                                                               |
+| gx_animation_delete                  | Eliminar um ou vários controladores de animação |
 | gx_animation_drag_disable           | Desativar o gancho de animação de arrasto de tela                                                           |
 | gx_animation_drag_enable            | Ativar o gancho de animação de arrasto de tela                                                            |
 | gx_animation_landing_speed_set     | Definir velocidade de aterragem para a animação de drag de tela                                                  |
@@ -388,7 +388,7 @@ Na secção "Valores de Retorno" nas seguintes descrições da API, os valores e
 | gx_text_scroll_wheel_event_process      | Evento de roda de pergaminho de texto do processo                        |
 | gx_text_scroll_wheel_font_set          | Atribuir fontes de roda de deslocação de texto                         |
 | gx_text_scroll_wheel_text_color_set   | Atribuir cores de texto de roda de rolo de texto de texto de texto                   |
-| gx_tree_view_create                    | Cretae uma vista de árvore                          |
+| gx_tree_view_create                    | Criar uma vista de árvore                          |
 | gx_tree_view_draw                      | Desenhar vista de árvore                              |
 | gx_tree_view_event_process            | Evento de visão de árvore de processo                     |
 | gx_tree view_indentation_set           | Conjunto de recuo da vista da árvore                   |
@@ -868,11 +868,11 @@ if (status == GX_SUCCESS)
 
 ### <a name="see-also"></a>Consulte também
 
-- gx_animation_create,
+- gx_animation_create
 - gx_animation_delete
-- gx_animation_drag_disable,
+- gx_animation_drag_disable
 - gx_animation_drag_enable
-- gx_animation_landing_speed_set,
+- gx_animation_landing_speed_set
 - gx_animation_start
 - gx_animation_stop
 
@@ -917,7 +917,7 @@ gx_system_animation_get(&animation);
 
 if (animation)
 {
-    status = gx_animation_create(&animation);
+    status = gx_animation_create(animation);
 }
 
 /* If status is GX_SUCCESS the new animation controller was successfully created and initialized. */
@@ -926,8 +926,81 @@ if (animation)
 
 ### <a name="see-also"></a>Consulte também
 
-- gx_animation_canvas_define,
+- gx_animation_canvas_define
 - gx_animation_delete
+- gx_animation_drag_disable
+- gx_animation_drag_enable
+- gx_animation_start
+- gx_animation_landing_speed_set
+- gx_animation_stop
+- gx_system_animation_get
+- gx_system_animation_free
+
+## <a name="gx_animation_delete"></a>gx_animation_delete
+
+Eliminar um ou vários controladores de animação
+
+### <a name="prototype"></a>Prototype
+
+```C
+UINT gx_animation_delete(GX_ANIMATION *animation, GX_WIDGET *parent);
+```
+
+### <a name="description"></a>Description
+
+Este serviço elimina uma sequência de animação se o ponteiro de animação de entrada estiver definido, caso contrário, elimina todas as animações pertencentes ao widget dos pais especificado.
+
+### <a name="parameters"></a>Parâmetros
+
+- **animação** Ponteiro para bloco de controlo de animação
+- **pai** Ponteiro para widget dos pais
+
+
+### <a name="return-values"></a>Valores de devolução
+
+- **GX_SUCCESS** (0x00) Controlador de animação eliminado com sucesso
+- **GX_PTR_ERROR** (0x07) Ponteiro inválido
+
+### <a name="allowed-from"></a>Permitido a partir de
+
+Inicialização e fios
+
+### <a name="example"></a>Exemplo
+
+- Apagar uma animação
+
+```C
+GX_ANIMATION *animation;
+
+/* Allocate an animaton control from system pool */
+gx_system_animation_get(&animation);
+
+if (animation)
+{
+    /* Create an animation.  */
+    gx_animation_create(animation);
+
+    /* Delete an animation.  */
+    status = gx_animation_delete(animation, GX_NULL);
+}
+
+/* If status is GX_SUCCESS the animation controller was successfully deleted and returned back to system animation pool. */
+
+```
+
+- Eliminar várias animações
+```C
+
+status = gx_animation_delete(GX_NULL, parent);
+
+/* If status is GX_SUCCESS all the animations belong to the parent were successfully deleted. */
+
+```
+
+### <a name="see-also"></a>Consulte também
+
+- gx_animation_canvas_define,
+- gx_animation_create
 - gx_animation_drag_disable,
 - gx_animation_drag_enable
 - gx_animation_start
@@ -983,14 +1056,15 @@ status = gx_animation_drag_disable(&animation, animation_parent);
 
 ### <a name="see-also"></a>Consulte também
 
-- gx_animation_canvas_define,
-- gx__animation_create
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
 - gx_animation_drag_enable
-- gx_animation_landing_speed_set,
-- gx__animation_start
+- gx_animation_landing_speed_set
+- gx_animation_start
 - gx_animation_stop
-- gx_system_animation_get,
-- gx__system_animation_free
+- gx_system_animation_get
+- gx_system_animation_free
 
 ## <a name="gx_animation_drag_enable"></a>gx_animation_drag_enable
 
@@ -1062,13 +1136,14 @@ status = gx_animation_drag_enable(&animation, animation_parent,
 
 ### <a name="see-also"></a>Consulte também
 
-- gx_animation_canvas_define,
-- gx__animation_create
-- gx_animation_drag_disable,
-- gx__animation_landing_speed_set
-- gx_animation_start,
-- gx__animation_stop,
-- gx__system_animation_get
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
+- gx_animation_drag_disable
+- gx_animation_landing_speed_set
+- gx_animation_start
+- gx_animation_stop
+- gx_system_animation_get
 - gx_system_animation_free
 
 ## <a name="gx_animation_landing_speed_set"></a>gx_animation_landing_speed_set
@@ -1112,13 +1187,14 @@ status = gx_animation_landing_peed_set(&my_animation, 20);
 
 ### <a name="see-also"></a>Consulte também
 
-- gx_animation_canvas_define,
-- gx__animation_create
-- gx_animation_slide_disable,
-- gx__animation_slide_enable
-- gx_animation_start,
-- gx__animation_stop,
-- gx__system_animation_get
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
+- gx_animation_slide_disable
+- gx_animation_slide_enable
+- gx_animation_start
+- gx_animation_stop
+- gx_system_animation_get
 - gx_system_animation_free
 
 ## <a name="gx_animation_start"></a>gx_animation_start
@@ -1242,12 +1318,13 @@ status = gx_animation_stop(&animation);
 
 ### <a name="see-also"></a>Consulte também
 
-- gx_animation_canvas_define,
-- gx__animation_create
-- gx_animation_drag_disable,
-- gx__animation_drag_enable
-- gx_animation_start,
-- gx__system_animation_get
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
+- gx_animation_drag_disable
+- gx_animation_drag_enable
+- gx_animation_start
+- gx_system_animation_get
 - gx_system_animation_free
 
 ## <a name="gx_binres_language_count_get"></a>gx_binres_language_count_get
