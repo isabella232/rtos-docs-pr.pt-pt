@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 53ffc900debd3bfaa1a38d792ddf294b2ce92461
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 2a53da048b18d35b6b15a4ad8d4138e1a2acd4e8
+ms.sourcegitcommit: 95f4ae0842a486fec8f10d1480203695faa9592d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550308"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111875256"
 ---
 # <a name="chapter-3---functional-overview-of-guix"></a>Capítulo 3 - Visão geral funcional do GUIX
 
@@ -254,7 +254,9 @@ O GUIX reside juntamente com o programa de candidatura. Como resultado, a utiliz
 
 ### <a name="static-memory-usage"></a>Utilização da memória estática 
 
-A maioria das ferramentas de desenvolvimento divide a imagem do programa de aplicação em cinco áreas básicas: *instrução,* dados *constantes,* *inicializados,* *dados não ininitializados* e a *pilha de fios GUIX.* A figura X na página X mostra um exemplo destas áreas de memória.
+A maioria das ferramentas de desenvolvimento divide a imagem do programa de aplicação em cinco áreas básicas: *instrução,* dados *constantes,* *inicializados,* *dados não ininitializados* e a *pilha de fios GUIX.*  A figura abaixo demonstra um possível layout destas áreas de memória:
+
+![Layout de memória](./media/guix/user-guide/memory-area-example.png)
 
 É importante compreender que este é apenas um exemplo. O layout real da memória estática é específico para o processador, ferramentas de desenvolvimento, hardware subjacente e a própria aplicação.
 
@@ -310,7 +312,7 @@ Finalmente, os blocos de controlo para os ecrãs guix e widgets podem ser atribu
 
 As APIs GUIX são divididas e organizadas em vários grupos básicos que correspondem a componentes fundamentais do sistema GUIX. Os componentes fundamentais incluem:
 
-| Componentes  | Descrição  |
+| Componentes  | Description  |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | GX_SYSTEM  | O componente do sistema GUIX, responsável pela inicialização, eventos, temporizadores, tabelas de cordas e gestão da hierarquia widget visível.                                                                                                                                                                                                                                                                      |
 | GX_CANVAS  | Uma área de desenho. Uma Tela pode ser uma abstração fina do tampão de moldura de hardware, ou também pode ser uma tela de memória pura. O tipo de lona é determinado por parâmetros passados para a função API gx_canvas_create.                                                                                                                                                                                   |
@@ -477,7 +479,7 @@ O GUIX fornece funções de desenho do controlador de estoque ou de ecrã genér
 
 O GUIX suporta profundidades de cor até 32 bpp, bem como monocromáticos e em tons de cinza. O tipo de suporte de profundidade de cor em grande parte determinado pelas capacidades do ecrã físico subjacente e também tem um impacto na quantidade de memória necessária para a área de desenho de tela. Segue-se uma lista de suporte de profundidade de cor, juntamente com uma breve descrição das variações dentro dessa profundidade de cor.
 
-| Formato de cor &nbsp;       | Descrição                                                                                                   |
+| Formato de cor &nbsp;       | Description                                                                                                   |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
 | Monocromático de 1 bit   | Formato embalado de 1 bit por pixel.                                                                                                   |
 | Escala de cinza de 2 bits    | 4 níveis cinzentos, embalados quatro píxeis por byte.                                                                                      |
@@ -532,7 +534,7 @@ O componente de exibição GUIX também fornece definições padrão para vário
 
 As definições de cor predefinidas são definidas pela tabela de cores atribuída a cada ecrã e pelos IDs de cor predefinidos pré-definidos. Estes ids de cores padrão incluem o seguinte.
 
-| ID de cor | Descrição |
+| ID de cor | Description |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
 | GX_COLOR_ID_CANVAS | Tela padrão (ou seja, fundo de exibição) cor |
 | GX_COLOR_ID_WIDGET_FILL | Cor de preenchimento de widget padrão |
@@ -567,7 +569,7 @@ Estes valores de ID de cor são mapeados para um valor de cor específico, tal c
 
 O componente de visualização GUIX também mantém uma tabela de fontes predefinido. A tabela de fontes predefinida define o tipo de letra utilizado por cada tipo de widget, a menos que especificamente especificado pela aplicação. Os IDs de tabela de tipo de letra de exibição pré-definidos incluem os seguintes valores.
 
-| &nbsp;ID de fonte | Descrição |
+| &nbsp;ID de fonte | Description |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------|
 | GX_FONT_ID_DEFAULT | Fonte padrão utilizada quando não é definida nenhuma fonte específica |
 | GX_FONT_ID_BUTTON | Fonte padrão utilizada para todo o texto em botões |
@@ -596,7 +598,7 @@ typedef struct GX_SCROLLBAR_APPEARANCE_STRUCT
     GX_RESOURCE_ID gx_scroll_button_color;
 } GX_SCROLLBAR_APPEARANCE;
 ```
-| Membro da Estrutura GX_SCROLLBAR_APPEARANCE | Descrição |
+| Membro da Estrutura GX_SCROLLBAR_APPEARANCE | Description |
 | --- | --- |
 | gx_scroll_width | Largura de uma barra de deslocal vertical ou altura de uma barra de deslocação horizontal, em pixels. |
 | gx_scroll_thumb_width | Largura do elevador e botões finais, em pixels. |
@@ -969,7 +971,7 @@ Finalmente, a janela GUIX responde ao foco de entrada recebendo movendo a janela
 
 A janela GUIX mantém o conceito de área de *cliente,* que é a parte interna da janela uma vez que as bordas da janela e objetos não clientes, como barras de deslocamento, são removidos da área disponível. Os widgets para crianças da área do cliente são cortados na área do cliente da janela, enquanto crianças não clientes, como barras de deslocação, são autorizadas a desenhar fora da área do cliente, mas ainda são cortadas às dimensões exteriores da janela.
 
-As janelas são mantidas de forma pai-filho, onde as crianças herdam características dos pais. As janelas das crianças podem ter as suas próprias janelas de filhos, herdando novamente várias características do progenitor. As características de qualquer janela podem ser explicitamente redefinidas através de várias chamadas DE API GUIX.
+Windows são mantidas de forma pai-filho, onde as crianças herdam características dos pais. As janelas das crianças podem ter as suas próprias janelas de filhos, herdando novamente várias características do progenitor. As características de qualquer janela podem ser explicitamente redefinidas através de várias chamadas DE API GUIX.
 
 ### <a name="window-creation"></a>Criação de janelas 
 
@@ -1078,14 +1080,14 @@ O **membro gx_animation_screen_list** define uma lista widget para animações d
 
 O **gx_animation_style** é um bitmask que define o tipo de animação a ser realizado e opções associadas. As bandeiras de estilo de animação incluem o seguinte.
 
-| &nbsp;Bandeira de estilo de &nbsp; animação | Descrição |
+| &nbsp;Bandeira de estilo de &nbsp; animação | Description |
 | --- | --- |
 | GX_ANIMATION_TRANSLATE | Solicite uma animação do tipo slide ou desvaneça. |
 | GX_ANIMATION_SCREEN_DRAG | Solicite uma animação de arrasto de tela orientada por canetas. |
 
 As seguintes bandeiras podem ser usadas em combinação com **SCREEN_DRAG** animações do tipo.
 
-| &nbsp;Bandeiras de arrasto &nbsp; de tela | Descrição |
+| &nbsp;Bandeiras de arrasto &nbsp; de tela | Description |
 | --- | --- |
 | GX_ANIMATION_WRAP | A lista de ecrã deve ser embrulhada de trás para a ponta. |
 | GX_ANIMATION_HORIZONTAL | Arrasto de tela permitido na direção horizontal.  |
@@ -1093,7 +1095,7 @@ As seguintes bandeiras podem ser usadas em combinação com **SCREEN_DRAG** anim
 
 A seguinte bandeira pode ser usada em combinação com animações de tradução.
 
-| Traduzir &nbsp; bandeiras de &nbsp; animações | Descrição |
+| Traduzir &nbsp; bandeiras de &nbsp; animações | Description |
 | --- | --- |
 | GX_ANIMATION_DETACH | Retire o alvo de animação do progenitor de animação quando a animação estiver concluída. Se o alvo foi dinamicamente atribuído e criado pelo GUIX Studio gerou manuseamento automatizado de eventos, o alvo será eliminado após a sua desconexão. |
 | GX_ANIMATION_TRANSLATE | Os tipos de animação são animações orientadas por temporizadores. A aplicação define a posição inicial e final e o valor alfa inicial e final para o widget alvo, e o gestor de animação cria um temporizador para servir e como a força motriz para executar a animação.

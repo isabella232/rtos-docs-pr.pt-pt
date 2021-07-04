@@ -6,16 +6,16 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: cd736cf6bbe15e1f407d1812072a4308435c8007
-ms.sourcegitcommit: c2f5da5d6c7b230799f8fbd77885e9940acfbab4
+ms.openlocfilehash: 3323af5eaf31ac9c167966522df6477c82e99fdc
+ms.sourcegitcommit: c98e5360c9cedbe773af5a44f5163f563c85b570
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2021
-ms.locfileid: "110236157"
+ms.lasthandoff: 05/24/2021
+ms.locfileid: "110337011"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-crypto"></a>Capítulo 2 - Instalação e utilização do Azure RTOS NetX Crypto
 
-Este capítulo contém uma descrição de vários problemas relacionados com a instalação, configuração e utilização do componente Azure RTOS NetX Crypto.
+Este capítulo descreve a instalação, configuração e utilização do componente Azure RTOS NetX Crypto.
 
 ## <a name="product-distribution"></a>Distribuição de Produtos
 
@@ -36,7 +36,7 @@ Para que o NetX Crypto seja utilizado em modo autónomo, toda a distribuição m
 
 ## <a name="using-netx-crypto"></a>Usando o NetX Crypto
 
-Este capítulo descreve a instalação, configuração e utilização do componente Azure RTOS NetX Crypto. Basicamente, o código de aplicação deve incluir o *nx_crypto.h*.  Uma vez *incluído nx_crypto.h,* o código de aplicação é então capaz de fazer as chamadas de função NetX Crypto especificadas mais tarde neste guia.
+O código de aplicação deve incluir o *nx_crypto.h*.  Uma vez *incluído nx_crypto.h,* o código de aplicação é então capaz de fazer as chamadas de função NetX Crypto especificadas mais tarde neste guia.
 
 ## <a name="configuration-options"></a>Opções de configuração
 

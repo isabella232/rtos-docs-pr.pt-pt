@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: e3fe3bcc602f409cc76f3be47aca865bf8116697
-ms.sourcegitcommit: 19d50693d8f5287ba6938ae1d23eef88435ed7b1
+ms.openlocfilehash: 6112ab5cb711ca1a5c83fd5cd4b43abc0302c6c5
+ms.sourcegitcommit: f9d8cf23becf96d5bd6d31dd54f89c48962fd09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108171340"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549340"
 ---
 # <a name="overview-of-azure-rtos-netx-duo"></a>Visão geral do Azure RTOS NetX Duo
 
@@ -83,9 +83,9 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
 * Apoio ao cliente
 * mDNS e DNS-SD só estão disponíveis com Azure RTOS NetX Duo
 
-### <a name="p0p3"></a>P0P3
+### <a name="pop3"></a>POP3
 
-* Protocolo dos Correios Versão 3 (POP3)
+* Versão 3 do Protocolo de Office (POP3)
 * Pegada mínima de 8,1 KB e 1,4 KB RAM
 * Apoio ao cliente
 
@@ -251,15 +251,15 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
     * AES
     * HMAC-MD5
     * HMAC-SHA1
-* Suporte à Internet Key Exchange (IKE) Versão 2
+* Suporte da Exchange da Internet (IKE) Versão 2
 * IPsec Intuitivo APIs: *nx_ipsec_ \**
 * IPsec só está disponível com Azure RTOS NetX Duo
 
-## <a name="safe-and-secure"></a>Seguro e seguro
+## <a name="safe-and-secure"></a>Cofre e seguro
 
 Azure RTOS NetX Duo está seguro. Esta segurança é fornecida através de produtos de segurança adicionais, incluindo IPsec, SSL, TLS e DTLS. Além disso, a aplicação tem controlo total sobre todo o acesso externo ao Azure RTOS NetX Duo, tornando a determinação do risco de segurança muito mais fácil.
 
-O Microsoft Azure RTOS fornece componentes para garantir a comunicação e criar o isolamento de códigos e dados utilizando mecanismos de proteção de hardware MCU/MPU subjacentes. Em última análise, é da responsabilidade do construtor de dispositivos garantir que o dispositivo satisfaz plenamente os requisitos de segurança em evolução associados ao seu caso de utilização específico.
+Microsoft Azure O RTOS fornece componentes para garantir a comunicação e criar o isolamento de códigos e dados utilizando mecanismos de proteção de hardware MCU/MPU subjacentes. Em última análise, é da responsabilidade do construtor de dispositivos garantir que o dispositivo satisfaz plenamente os requisitos de segurança em evolução associados ao seu caso de utilização específico.
 
 
 ## <a name="interoperability-verification"></a>Verificação da interoperabilidade
@@ -294,7 +294,30 @@ Azure RTOS NetX Duo é uma tecnologia avançada que inclui:
 
 ## <a name="related-services"></a>Serviços relacionados
 
-O módulo de segurança Azure Security Center for IoT RTOS fornece uma solução de segurança abrangente para dispositivos Azure RTOS. O Módulo de Segurança para O Azure RTOS oferece deteção de atividade de rede maliciosa, baseamento de comportamento de dispositivo baseado em alerta personalizado e ajuda a melhorar a higiene de segurança do dispositivo. Saiba mais sobre o [Módulo de Segurança para Azure RTOS](https://docs.microsoft.com/azure/asc-for-iot/iot-security-azure-rtos) ou inicie com o Módulo de Segurança [Configurar para O Azure RTOS](https://docs.microsoft.com/azure/asc-for-iot/quickstart-azure-rtos-security-module) quickstart.
+### <a name="azure-iot"></a>Azure IoT
+
+A NetX Duo inclui [o Azure IoT Middleware para Azure RTOS](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/docs/README.md), uma biblioteca específica da plataforma que funciona como uma camada de ligação entre o Azure RTOS e o Azure SDK para Embedded C para facilitar a conectividade aos serviços Azure IoT. Os objetivos de Azure IoT Middleware são os seguintes.
+* Forneça as interfaces inteligentes do cliente (IoTHub_Client, DeviceProvisioning_Client) que os desenvolvedores precisam para as suas aplicações.
+* Orquestrou a interação entre o SDK Incorporado e a plataforma.
+* Fornecer inicialização da plataforma Azure RTOS.
+* IoT Plug e Suporte de Reprodução.
+* Capacidades de segurança.
+* Limitação de recursos consciente.
+* Apoio ao protocolo.
+
+![Azure RTOS NetX Duo Serviços relacionados](./media/overview-netx-duo/related-services.png)
+
+### <a name="azure-defender"></a>Azure Defender
+
+O módulo de segurança Azure Defender for IoT fornece uma solução de segurança abrangente para dispositivos Azure RTOS. O Módulo de Segurança para O Azure RTOS oferece deteção de atividade de rede maliciosa, baseamento de comportamento de dispositivo baseado em alerta personalizado e ajuda a melhorar a higiene de segurança do dispositivo. Saiba mais sobre o [Módulo de Segurança para Azure RTOS](https://docs.microsoft.com/azure/asc-for-iot/iot-security-azure-rtos) ou inicie com o Módulo de Segurança [Configurar para O Azure RTOS](https://docs.microsoft.com/azure/asc-for-iot/quickstart-azure-rtos-security-module) quickstart.
+
+### <a name="device-update-for-iot-hub"></a>Atualização do dispositivo para ioT hub
+
+A [Azure Device Update for IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/understand-device-update) é um serviço que lhe permite implementar atualizações over-the-air (OTA) para os seus dispositivos IoT. O módulo Device Update for IoT Hub é a implementação da Atualização do Dispositivo para OOT Hub Agent em Azure RTOS NetX Duo. Fornece APIs simples para os construtores de dispositivos integrarem a capacidade de Atualização do Dispositivo na sua aplicação.
+
+Consulte as amostras dos principais conselhos de avaliação de semicondutores que incluem os guias de arranque para aprender a configurar, construir e implementar as atualizações over-the-air (OTA) para os dispositivos.
+
+E pode aprender mais detalhes sobre a utilização [de Device Update para IoT Hub com Azure RTOS](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-azure-real-time-operating-system).
 
 ## <a name="next-steps"></a>Passos seguintes
 

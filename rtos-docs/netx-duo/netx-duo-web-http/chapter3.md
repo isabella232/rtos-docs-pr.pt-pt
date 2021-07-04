@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/14/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 30168ad5a564b0f4c0a8c999046c5103385f4f90
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6bb2743f05c5b56331d1c0e948601ad23bf340d1
+ms.sourcegitcommit: 95f4ae0842a486fec8f10d1480203695faa9592d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826984"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111875277"
 ---
 # <a name="chapter-3---description-of-http-services"></a>Capítulo 3 - Descrição dos serviços HTTP
 
@@ -34,7 +34,7 @@ UINT nx_web_http_client_connect(NX_WEB_HTTP_CLIENT *client_ptr,
     UINT server_port, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método é para **texto simples** HTTP.
 
@@ -79,7 +79,7 @@ nx_web_http_client_connect(&my_client, &server_ip_address,
 /* Create a new GET request on the HTTP client instance. */
 nx_web_http_client_request_initialize(&my_client,
     NX_WEB_HTTP_METHOD_GET,
-    "https://192.168.1.150/test.txt ",
+    "https://192.168.1.150/test.txt ", "host.com",
     0, /* Used by PUT and POST only */
     NX_FALSE,
     NX_NULL, /* username */
@@ -94,7 +94,7 @@ status = nx_web_http_client_request_header_add(&my_client, "Server", 6,
 status = nx_web_http_client_request_send(&my_client, 1000);
 
 /* At this point, we need to handle the response from the server by repeatedly
-    calling *nx_web_http_client_response_body_get* until the entire response is retrieved. *./
+    calling *nx_web_http_client_response_body_get* until the entire response is retrieved. */
 
 get_status = NX_SUCCESS;
 
@@ -118,7 +118,7 @@ UINT nx_web_http_client_create(NX_WEB_HTTP_CLIENT *client_ptr,
     ULONG window_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância http cliente na instância IP especificada. A instância do Cliente pode ser usada para HTTP ou HTTPS. Consulte os serviços *nx_web_http_client_connect()* e *nx_web_http_client_secure_connect()* para obter mais informações sobre o início de um caso HTTP ou HTTPS. Consulte também a API para *nx_web_http_client_get_**, *nx_web_http_client_put_*** *nx_web_http_client_post_** para simples invocações de métodos GET, PUT e POST.
 
@@ -160,7 +160,7 @@ Excluir uma instância de cliente HTTP
 UINT nx_web_http_client_delete(NX_WEB_HTTP_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância do cliente HTTP previamente criada.
 
@@ -201,7 +201,7 @@ UINT nx_web_http_client_delete_start(NX_WEB_HTTP_CLIENT *client_ptr,
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método é para **texto simples** HTTP.
 
@@ -271,7 +271,7 @@ UINT nx_web_http_client_delete_start_extended(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método é para **texto simples** HTTP.
 
@@ -352,7 +352,7 @@ UINT nx_web_http_client_delete_secure_start(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método **destina-se a HTTPS protegidos por TLS.**
 
@@ -424,7 +424,7 @@ UINT nx_web_http_client_delete_secure_start_extended(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método **destina-se a HTTPS protegidos por TLS.**
 
@@ -502,7 +502,7 @@ UINT nx_web_http_client_get_start(NX_WEB_HTTP_CLIENT *client_ptr,
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método é para **texto simples** HTTP.
 
@@ -572,7 +572,7 @@ UINT nx_web_http_client_get_start_extended(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método é para **texto simples** HTTP.
 
@@ -652,7 +652,7 @@ UINT nx_web_http_client_get_secure_start(
         ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método **destina-se a HTTPS protegidos por TLS.**
 
@@ -726,7 +726,7 @@ UINT nx_web_http_client_get_secure_start_extended(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método **destina-se a HTTPS protegidos por TLS.**
 
@@ -805,7 +805,7 @@ UINT nx_web_http_client_head_start(NX_WEB_HTTP_CLIENT *client_ptr,
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método é para **texto simples** HTTP.
 
@@ -875,7 +875,7 @@ UINT nx_web_http_client_head_start_extended(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método é para **texto simples** HTTP.
 
@@ -955,7 +955,7 @@ UINT nx_web_http_client_head_secure_start(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método **destina-se a HTTPS protegidos por TLS.**
 
@@ -1028,7 +1028,7 @@ CHAR *host, UINT host_length, CHAR *username,
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método **destina-se a HTTPS protegidos por TLS.**
 
@@ -1106,7 +1106,7 @@ UINT nx_web_http_client_request_packet_allocate(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta alocar um pacote para o Cliente HTTP(S).
 
@@ -1157,7 +1157,7 @@ UINT nx_web_http_client_post_start(NX_WEB_HTTP_CLIENT *client_ptr,
     ULONG total_bytes, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método é para **texto simples** HTTP.
 
@@ -1227,7 +1227,7 @@ UINT nx_web_http_client_post_start_extended(
     ULONG total_bytes, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método é para **texto simples** HTTP.
 
@@ -1308,7 +1308,7 @@ UINT nx_web_http_client_post_secure_start(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método **destina-se a HTTPS protegidos por TLS.**
 
@@ -1382,7 +1382,7 @@ UINT nx_web_http_client_post_secure_start_extended(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método **destina-se a HTTPS protegidos por TLS.**
 
@@ -1462,7 +1462,7 @@ UINT nx_web_http_client_put_start(NX_WEB_HTTP_CLIENT *client_ptr,
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método é para **texto simples** HTTP.
 
@@ -1533,7 +1533,7 @@ UINT nx_web_http_client_put_start(
     ULONG total_bytes, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método é para **texto simples** HTTP.
 
@@ -1615,7 +1615,7 @@ UINT nx_web_http_client_put_secure_start(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método **destina-se a HTTPS protegidos por TLS.**
 
@@ -1689,7 +1689,7 @@ UINT nx_web_http_client_put_secure_start(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método **destina-se a HTTPS protegidos por TLS.**
 
@@ -1766,7 +1766,7 @@ UINT nx_web_http_client_put_packet(NX_WEB_HTTP_CLIENT *client_ptr,
     NX_PACKET *packet_ptr, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta enviar o próximo pacote de conteúdo de recursos para o servidor HTTP para operações PUT e POST. Note que esta rotina deve ser chamada repetitivamente até que o comprimento combinado dos pacotes enviados seja igual ao "total_bytes" especificado na chamada *nx_web_http_client_put_start* ou *nx_web_http_client_post_start anteriores* (ou nas respetivas versões seguras).
 
@@ -1820,7 +1820,7 @@ UINT nx_web_http_client_request_chunked_set(
     UINT chunk_size, NX_PACKET *packet_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço utiliza códigos de transferência em pedaços para enviar um pedido http(S) personalizado para o servidor especificado na chamada *nx_web_http_client_connect()* ou *nx_web_http_client_secure_connect()* que previamente estabeleceu a ligação da tomada ao anfitrião remoto.
 
@@ -1853,7 +1853,8 @@ nx_web_http_client_secure_connect(&my_client, IP_ADDRESS(1,2,3,5),
 
 /* Create a PUT request on the HTTP client instance. */
 nx_web_http_client_request_initialize(&my_client,
-    NX_WEB_HTTP_METHOD_PUT, "https://192.168.1.150/test.txt ",
+    NX_WEB_HTTP_METHOD_PUT,
+    "https://192.168.1.150/test.txt ", "host.com",
     0, /* Used by PUT and POST only */
     NX_TRUE,
     NX_NULL, /* username */
@@ -1871,7 +1872,7 @@ nx_web_http_client_request_packet_allocate(&my_client,
 /* Set the chunked transfer. */
 status = nx_web_http_client_request_chunked_set(&my_client, 128, my_packet);
 
-/* At this point, user can fill the data into my_packet. *./
+/* At this point, user can fill the data into my_packet. */
 nx_packet_data_append(my_packet, data_ptr, data_size,
     packet_pool, NX_WAIT_FOREVER);
 
@@ -1894,7 +1895,7 @@ UINT nx_web_http_client_request_header_add(
     UINT wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona um cabeçalho personalizado (sob a forma de nome de campo e valor) a um pedido HTTP personalizado criado com n *x_web_http_client_request_initialize()*.
 
@@ -1935,7 +1936,7 @@ nx_web_http_client_secure_connect(&my_client, IP_ADDRESS(1,2,3,5),
 
 nx_web_http_client_request_initialize(&my_client,
     NX_WEB_HTTP_METHOD_GET,
-    "https://192.168.1.150/test.txt ",
+    "https://192.168.1.150/test.txt ", "host.com",
     0, /* Used by PUT and POST only */
     NX_FALSE,
     NX_NULL, /* username */
@@ -1951,7 +1952,7 @@ status = nx_web_http_client_request_send(&my_client, 1000);
 
 /* At this point, we need to handle the response from the server
     by repeatedly calling *nx_web_http_client_response_body_get()*
-    until the entire response is retrieved. *./
+    until the entire response is retrieved. */
 
 get_status = NX_SUCCESS;
 
@@ -1978,7 +1979,7 @@ UINT nx_web_http_client_request_initialize(
     CHAR *username, CHAR *password, UINT wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um pedido HTTP personalizado e associa-o à instância do Cliente HTTP. Ao contrário do nx_web_http_client_get_start mais *simples()* (juntamente com os métodos de PUT, POST e as versões seguras associadas dessas API), o pedido personalizado não é enviado até que o serviço *nx_web_http_client_request_send()* seja chamado.
 
@@ -2042,7 +2043,7 @@ nx_web_http_client_request_initialize(&my_client,
 status = nx_web_http_client_request_send(&my_client, 1000);
 
 /* At this point, we need to handle the response from the server by repeatedly
-    calling *nx_web_http_client_response_body_get()* until the entire response is retrieved. *./
+    calling *nx_web_http_client_response_body_get()* until the entire response is retrieved. */
 get_status = NX_SUCCESS;
 
 while(get_status != NX_WEB_HTTP_GET_DONE)
@@ -2061,14 +2062,16 @@ Inicialize um pedido HTTP personalizado
 ### <a name="prototype"></a>Prototype
 
 ```C
-UINT nx_web_http_client_request_initialize(
-    NX_WEB_HTTP_CLIENT *client_ptr,
-    UINT method, CHAR *resource, CHAR *host,
+UINT nx_web_http_client_request_initialize_extended(
+    NX_WEB_HTTP_CLIENT *client_ptr, UINT method,
+    CHAR *resource, UINT resource_length,
+    CHAR *host, UINT host_length,
     UINT input_size, UINT transfer_encoding_trunked,
-    CHAR *username, CHAR *password, UINT wait_option);
+    CHAR *username, UINT username_length,
+    CHAR *password, UINT password_length, UINT wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um pedido HTTP personalizado e associa-o à instância do Cliente HTTP. Ao contrário do nx_web_http_client_get_start mais *simples()* (juntamente com os métodos de PUT, POST e as versões seguras associadas dessas API), o pedido personalizado não é enviado até que o serviço *nx_web_http_client_request_send()* seja chamado.
 
@@ -2141,7 +2144,7 @@ status = nx_web_http_client_request_send(&my_client, 1000);
 
 
 /* At this point, we need to handle the response from the server by repeatedly
-    calling *nx_web_http_client_response_body_get()* until the entire response is retrieved. *./
+    calling *nx_web_http_client_response_body_get()* until the entire response is retrieved. */
 get_status = NX_SUCCESS;
 while(get_status != NX_WEB_HTTP_GET_DONE)
 {
@@ -2165,7 +2168,7 @@ UINT nx_web_http_client_request_packet_send(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pacote de dados de pedido HTTP(S) personalizado criado com *nx_web_http_client_request_packet_allocate* () para o servidor especificado na *chamada nx_web_http_client_connect()* ou *nx_web_http_client_secure_connect,* que previamente estabeleceu a ligação da tomada ao anfitrião remoto.
 
@@ -2197,7 +2200,7 @@ nx_web_http_client_secure_connect(&my_client, IP_ADDRESS(1,2,3,5),
 /* Create a PUT request on the HTTP client instance. */
 nx_web_http_client_request_initialize(&my_client,
     NX_WEB_HTTP_METHOD_PUT,
-    "https://192.168.1.150/test.txt ",
+    "https://192.168.1.150/test.txt ", "host.com",
     128, /* Used by PUT and POST only */
     NX_FALSE,
     NX_NULL, /* username */
@@ -2212,7 +2215,7 @@ nx_web_http_client_request_packet_allocate(&my_client,
     &my_packet,
     NX_WAIT_FOREVER);
 
-/* At this point, user can fill the data into my_packet. *./
+/* At this point, user can fill the data into my_packet. */
 nx_packet_data_append(my_packet, data_ptr, data_size,
     packet_pool, NX_WAIT_FOREVER);
 
@@ -2234,7 +2237,7 @@ UINT nx_web_http_client_request_send(NX_WEB_HTTP_CLIENT *client_ptr,
     UINT wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pedido HTTP personalizado criado com *nx_web_http_client_request_initialize()* para o servidor especificado no *nx_web_http_client_connect()* ou *nx_web_http_client_secure_connect()* ambos já estabeleceram previamente a ligação da tomada ao anfitrião remoto.
 
@@ -2270,7 +2273,7 @@ nx_web_http_client_secure_connect(&my_client, IP_ADDRESS(1,2,3,5),
 /* Create a new GET request on the HTTP client instance. */
 nx_web_http_client_request_initialize(&my_client,
     NX_WEB_HTTP_METHOD_GET,
-    "https://192.168.1.150/test.txt ",
+    "https://192.168.1.150/test.txt ", "host.com",
     0, /* Used by PUT and POST only */
     NX_FALSE,
     NX_NULL, /* username */
@@ -2282,7 +2285,7 @@ status = nx_web_http_client_request_send(&my_client, 1000);
 
 /* At this point, we need to handle the response from the server by
     repeatedly calling *nx_web_http_client_response_body_get* until
-    the entire response is retrieved. *./
+    the entire response is retrieved. */
 
 get_status = NX_SUCCESS;
 
@@ -2308,7 +2311,7 @@ UINT nx_web_http_client_response_body_get(
     wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o próximo pacote de conteúdo do recurso solicitado pela *chamada anterior nx_web_http_client_get_start ou* *nx_web_http_client_get_secure_start().* Devem ser feitas sucessivas chamadas para esta rotina até que seja recebida a situação de devolução do NX_WEB_HTTP_GET_DONE.
 
@@ -2398,7 +2401,7 @@ UINT nx_web_http_client_response_header_callback_set(
     CHAR *field_value, UINT field_value_length));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui uma chamada que será invocada sempre que o Cliente NetX Web HTTP processa um cabeçalho HTTP numa resposta recebida a partir de um servidor HTTP remoto. A chamada é invocada uma vez para cada cabeçalho na resposta à medida que é processada. O retorno permite que uma aplicação http cliente aceda a cada um dos cabeçalhos na resposta do servidor HTTP para tomar quaisquer ações desejadas para além do processamento básico que o Cliente Web HTTP NetX faz.
 
@@ -2467,7 +2470,7 @@ UINT nx_web_http_client_secure_connect(NX_WEB_HTTP_CLIENT *client_ptr,
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este método **destina-se a HTTPS protegidos por TLS.**
 
@@ -2513,7 +2516,7 @@ nx_web_http_client_secure_connect(&my_client, &server_ip_addr,
 /* Create a new GET request on the HTTP client instance. */
 nx_web_http_client_request_initialize(&my_client,
     NX_WEB_HTTP_METHOD_GET,
-    "https://192.168.1.150/test.txt ",
+    "https://192.168.1.150/test.txt ", "host.com",
     0, /* Used by PUT and POST only */
     NX_FALSE,
     NX_NULL, /* username */
@@ -2528,7 +2531,7 @@ status = nx_web_http_client_request_header_add(&my_client, "Server", 6,
 status = nx_web_http_client_request_send(&my_client, 1000);
 
 /* At this point, we need to handle the response from the server by repeatedly
-    calling *nx_web_http_client_response_body_get* until the entire response is retrieved. *./
+    calling *nx_web_http_client_response_body_get* until the entire response is retrieved. */
 
 get_status = NX_SUCCESS;
 
@@ -2556,7 +2559,7 @@ UINT nx_web_http_server_cache_info_callback_set(
     NX_WEB_HTTP_SERVER_DATE *date));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o serviço de retorno invocado para obter a idade máxima e última data modificada do recurso especificado.
 
@@ -2603,7 +2606,7 @@ UINT nx_web_http_server_callback_data_send(
     VOID *data_ptr, ULONG data_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia os dados no pacote fornecido da rotina de chamada da aplicação. Isto é normalmente usado para enviar dados dinâmicos associados a pedidos GET/POST. Note que se esta função for utilizada, a rotina de retorno é responsável pelo envio de toda a resposta no formato adequado. Além disso, a rotina de retorno deve devolver o estado de NX_WEB_HTTP_CALLBACK_COMPLETED.
 
@@ -2665,7 +2668,7 @@ UINT nx_web_http_server_callback_generate_response_header(
     CHAR *content_type, CHAR* additional_header);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é utilizado na rotina de chamada do servidor HTTP(S) (definida pela aplicação) para gerar um cabeçalho de resposta HTTP. A rotina de chamada do servidor é invocada quando o servidor HTTP responde a pedidos de OBTER, PUT e DELETE do Cliente que requerem uma resposta HTTP. Esta função retira a informação de resposta da aplicação e gera o cabeçalho de resposta apropriado. Consulte o *nx_web_http_server_create de* serviço para obter mais informações sobre a rotina de chamada do pedido do servidor.
 
@@ -2770,7 +2773,7 @@ UINT nx_web_http_server_callback_generate_response_header_extended(
     UINT additional_header_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é utilizado na rotina de chamada do servidor HTTP(S) (definida pela aplicação) para gerar um cabeçalho de resposta HTTP. A rotina de chamada do servidor é invocada quando o servidor HTTP responde a pedidos de OBTER, PUT e DELETE do Cliente que requerem uma resposta HTTP. Esta função retira a informação de resposta da aplicação e gera o cabeçalho de resposta apropriado. Consulte o *nx_web_http_server_create de* serviço para obter mais informações sobre a rotina de chamada do pedido do servidor.
 
@@ -2873,7 +2876,7 @@ UINT nx_web_http_server_callback_packet_send(
     NX_PACKET *packet_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma resposta completa do servidor HTTP a partir de uma chamada HTTP. O servidor HTTP enviará o pacote com o NX_WEB_HTTP_SERVER _TIMEOUT_SEND. O cabeçalho HTTP e os dados devem ser anexados ao pacote. Se o estado de devolução indicar um erro, a aplicação HTTP deve libertar o pacote.
 
@@ -2924,7 +2927,7 @@ UINT nx_web_http_server_callback_response_send(
     CHAR additional_info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia as informações de resposta fornecidas da rotina de retorno da aplicação. Isto é normalmente usado para enviar respostas personalizadas associadas a pedidos GET/POST. Note que se esta função for utilizada, a rotina de retorno deve devolver o estado de NX_WEB_HTTP_CALLBACK_COMPLETED.
 
@@ -2986,7 +2989,7 @@ UINT nx_web_http_server_callback_response_send_extended(
     UINT additional_info_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia as informações de resposta fornecidas da rotina de retorno da aplicação. Isto é normalmente usado para enviar respostas personalizadas associadas a pedidos GET/POST. Note que se esta função for utilizada, a rotina de retorno deve devolver o estado de NX_WEB_HTTP_CALLBACK_COMPLETED.
 
@@ -3054,7 +3057,7 @@ UINT nx_web_http_server_content_get(NX_WEB_HTTP_SERVER *server_ptr,
     UINT *actual_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta recuperar a quantidade especificada de conteúdo do pedido do CLIENTE POST ou PUT HTTP. Deve ser chamado a partir do pedido da aplicação notificar a chamada especificada durante a criação do SERVIDOR HTTP *(nx_web_http_server_create()*).
 
@@ -3109,7 +3112,7 @@ UINT nx_web_http_server_content_get_extended(
     UINT *actual_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é quase idêntico ao *nx_web_http_server_content_get;;* tenta recuperar a quantidade especificada de conteúdo do pedido do CLIENTE POST ou PUT HTTP. No entanto, trata os pedidos com contentamento comprimento de valor zero ('pedido vazio') como um pedido válido. Deve ser chamado a partir do pedido da aplicação notificar a chamada especificada durante a criação do SERVIDOR HTTP *(nx_web_http_server_create()*).
 
@@ -3162,7 +3165,7 @@ UINT nx_web_http_server_content_length_get(
     UINT *content_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta recuperar o comprimento do conteúdo HTTP no pacote fornecido. O valor de retorno indica o estado de conclusão bem-sucedido e o valor real do comprimento é devolvido no ponteiro de entrada content_length. Se não houver conteúdo/comprimento de conteúdo HTTP = 0, esta rotina ainda devolve um estado de conclusão bem-sucedido e o ponteiro de entrada content_length aponta para um comprimento válido (zero). Deve ser chamado a partir do pedido da aplicação notificar a chamada especificada durante a criação do SERVIDOR HTTP *(nx_web_http_server_create()*).
 
@@ -3212,7 +3215,7 @@ UINT nx_web_http_server_create(NX_WEB_HTTP_SERVER *http_server_ptr,
         UINT request_type, CHAR *resource, NX_PACKET *packet_ptr));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância http server, que funciona no contexto da sua própria linha ThreadX. As rotinas de *chamada de authentication_check* e *request_notify* de aplicações opcionais dão ao software de aplicação controlo sobre as operações básicas do Servidor HTTP.
 
@@ -3262,7 +3265,7 @@ Excluir uma instância do servidor HTTP
 UINT nx_web_http_server_delete(NX_WEB_HTTP_SERVER *http_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância do servidor HTTP anteriormente criada.
 
@@ -3303,7 +3306,7 @@ UINT nx_web_http_server_get_entity_content(
     ULONG *available_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço determina a localização do início dos dados dentro da atual entidade multipartidária nas mensagens do Cliente recebidas e o comprimento dos dados que não incluem a cadeia de limites. Internamente, o servidor HTTP atualiza as suas próprias compensações para que esta função possa ser novamente chamada no mesmo datagrama do Cliente para mensagens com várias entidades. O ponteiro do pacote é atualizado para o próximo pacote onde a mensagem cliente é um datagrama de vários pacotes.
 
@@ -3360,7 +3363,7 @@ UINT nx_web_http_server_get_entity_header(
     ULONG buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o cabeçalho da entidade no tampão especificado. Internamente HTTP Server atualiza os seus próprios ponteiros para localizar a próxima entidade multipartida num datagrama do Cliente com vários cabeçalhos de entidade. O ponteiro do pacote é atualizado para o próximo pacote onde a mensagem cliente é um datagrama de vários pacotes.
 
@@ -3457,7 +3460,7 @@ UINT nx_web_http_server_gmt_callback_set(
     VOID (*gmt_get)(NX_WEB_HTTP_SERVER_DATE *date);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a chamada para obter data e hora DE GMT com um servidor HTTP previamente criado. Este serviço é invocado com o servidor HTTP está a criar um cabeçalho em respostas do servidor HTTP ao Cliente.
 
@@ -3507,7 +3510,7 @@ UINT nx_web_http_server_invalid_userpassword_notify_set(
         UINT request_type));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a chamada invocada quando um nome de utilizador e palavra-passe inválidos é recebido num Pedido de Cliente obter, colocar ou apagar, seja por digestão ou autenticação básica. O servidor HTTP deve ser previamente criado.
 
@@ -3564,7 +3567,7 @@ UINT nx_web_http_server_mime_maps_additional_set(
     UINT mime_maps_num);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite ao desenvolvedor de aplicações HTTP adicionar tipos de MIME adicionais dos tipos de MIME predefinidos fornecidos pelo Servidor WEB HTTP NetX. Consulte *nx_web_http_server_get_type para lista* de tipos definidos.
 
@@ -3617,7 +3620,7 @@ UINT nx_web_http_server_response_packet_allocate(
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta atribuir um pacote para o servidor HTTP(S).
 
@@ -3669,7 +3672,7 @@ UINT nx_web_http_server_packet_content_find(
     UINT *content_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço extrai o comprimento do conteúdo do cabeçalho HTTP. Também atualiza o pacote fornecido da seguinte forma: o ponteiro pré-final do pacote (início da localização do tampão do pacote para escrever) é definido para o conteúdo HTTP (dados) acabado de passar o cabeçalho HTTP.
 
@@ -3721,7 +3724,7 @@ UINT nx_web_http_server_packet_get(NX_WEB_HTTP_SERVER *server_ptr,
     NX_PACKET **packet_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o próximo pacote recebido na tomada do servidor HTTP. A opção de espera para receber um pacote é NX_WEB_HTTP_SERVER_TIMEOUT_RECEIVE.
 
@@ -3766,7 +3769,7 @@ UINT nx_web_http_server_param_get(NX_PACKET *packet_ptr,
     UINT *param_size, UINT max_param_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta recuperar o parâmetro HTTP URL especificado no pacote de pedido fornecido. Se o parâmetro HTTP solicitado não estiver presente, esta rotina devolve um estado de NX_WEB_HTTP_NOT_FOUND. Esta rotina deve ser chamada a partir do pedido da aplicação notificar a chamada especificada durante a criação do SERVIDOR HTTP *(nx_web_http_server_create).).*
 
@@ -3818,7 +3821,7 @@ UINT nx_web_http_server_query_get(NX_PACKET *packet_ptr,
     UINT max_query_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta recuperar a consulta de URL HTTP especificada no pacote de pedido fornecido. Se a consulta HTTP solicitada não estiver presente, esta rotina devolve um estado de NX_WEB_HTTP_NOT_FOUND. Esta rotina deve ser chamada a partir do pedido da aplicação notificar a chamada especificada durante a criação do SERVIDOR HTTP *(nx_web_http_server_create).).*
 
@@ -3871,7 +3874,7 @@ UINT nx_web_http_server_response_chunked_set(
     UINT chunk_size, NX_PACKET *packet_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço utiliza códigos de transferência em pedaços para enviar um pacote de dados de resposta HTTP(S) personalizado criado com *nx_web_http_server_response_packet_allocate*() ao cliente.
 
@@ -3907,7 +3910,7 @@ nx_web_http_server_response_packet_allocate(&my_server, &my_packet, NX_WAIT_FORE
 /* Set the chunked transfer. */
 status = nx_web_http_server_response_chunked_set(&my_server, 128, my_packet)
 
-/* At this point, user can fill the data into my_packet. *./
+/* At this point, user can fill the data into my_packet. */
 nx_packet_data_append(my_packet, data_ptr, data_size,
     packet_pool, NX_WAIT_FOREVER);
 
@@ -3936,7 +3939,7 @@ UINT nx_web_http_server_secure_configure(
     UINT remote_cert_buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura uma instância do servidor NetX Web HTTP previamente criada para utilizar TLS para comunicações HTTPS seguras. Os parâmetros são usados para configurar todas as sessões TLS possíveis com estado idêntico para que cada cliente HTTPS que chega experimente um comportamento consistente. O número de sessões TLS é controlado utilizando o NX_WEB_HTTP_SESSION_MAX macro.
 
@@ -4035,7 +4038,7 @@ Inicie o servidor HTTP
 UINT nx_web_http_server_start(NX_WEB_HTTP_SERVER *http_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma instância http ou https anteriormente criada.
 
@@ -4073,7 +4076,7 @@ Parar o servidor HTTP
 UINT nx_web_http_server_stop(NX_WEB_HTTP_SERVER *http_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço para a instância do servidor HTTP anteriormente criado. Esta rotina deve ser chamada antes de eliminar uma instância do servidor HTTP.
 
@@ -4112,7 +4115,7 @@ UINT nx_web_http_server_type_get(NX_WEB_HTTP_SERVER *http_server_ptr,
     UINT *string_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 > [!NOTE]
 > Este serviço é precotado. Os utilizadores são encorajados a utilizar o serviço *nx_web_http_server_type_get_extended()*.
@@ -4178,7 +4181,7 @@ UINT nx_web_http_server_type_get_extended(
     UINT *string_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço extrai o tipo de pedido HTTP no *http_type_string* tampão e o seu comprimento em *string_size* a partir do *nome* do tampão de entrada , normalmente o URL. Se não for encontrado nenhum mapa MIME, este desrescume do tipo "texto/planície". Caso contrário, compara o tipo extraído com os mapas MIME padrão do servidor HTTP para uma correspondência. Os mapas MIME padrão no Servidor HTTP Web NetX são:
 
@@ -4254,7 +4257,7 @@ UINT nx_web_http_server_digest_authenticate_notify_set(
         CHAR *authorization_cnonce));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a chamada invocada quando a digestão autenticada é realizada.
 
@@ -4316,7 +4319,7 @@ UINT nx_web_http_server_digest_authenticate_notify_set(
         UINT *realm_length));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a chamada invocada quando é efetuada uma verificação autenticada.
 
