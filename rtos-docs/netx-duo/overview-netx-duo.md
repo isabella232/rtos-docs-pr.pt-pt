@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 6112ab5cb711ca1a5c83fd5cd4b43abc0302c6c5
-ms.sourcegitcommit: f9d8cf23becf96d5bd6d31dd54f89c48962fd09b
+ms.openlocfilehash: b40a57bf385ddcf623ff7cbe0d2e798c547227d7
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111549340"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754901"
 ---
 # <a name="overview-of-azure-rtos-netx-duo"></a>Visão geral do Azure RTOS NetX Duo
 
@@ -30,6 +30,7 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
 * Mínimo 1.2 KB, 300 bytes de RAM
 
 ### <a name="http-https"></a>HTTP, HTTPS
+A NetX Duo suporta os seguintes protocolos HTTP/HTTPS.
 
 #### <a name="http-10"></a>HTTP 1.0
 
@@ -120,14 +121,8 @@ A pilha de rede TCP/IP incorporada da Azure RTOS NetX Duo é a pilha de rede de 
 * Apoio ao cliente
 * APIs intuitivos: *nx_sntp_ \**
 
-### <a name="azure-rtos-netx-duo-api"></a>Azure RTOS NetX Duo API
+### <a name="legacy-code-support"></a>Suporte de código legado
 
-* API intuitiva e consistente
-* Convenção de nomeação de substantivos
-* Implementação rápida e zero-copy API
-* Todas as APIs têm <i>nx_*</i> para identificar facilmente como Azure RTOS NetX
-* ApIs de bloqueio têm tempo limite opcional de fio
-* Consulte [o Guia de Utilizador Azure RTOS NetX Duo](about-this-guide.md) para mais detalhes
 * Camada opcional de BSD para porting código de tomada legado
 
 ### <a name="igmp"></a>IGMP
@@ -261,7 +256,6 @@ Azure RTOS NetX Duo está seguro. Esta segurança é fornecida através de produ
 
 Microsoft Azure O RTOS fornece componentes para garantir a comunicação e criar o isolamento de códigos e dados utilizando mecanismos de proteção de hardware MCU/MPU subjacentes. Em última análise, é da responsabilidade do construtor de dispositivos garantir que o dispositivo satisfaz plenamente os requisitos de segurança em evolução associados ao seu caso de utilização específico.
 
-
 ## <a name="interoperability-verification"></a>Verificação da interoperabilidade
 
 O NetX Duo está em conformidade com os padrões RFC e oferece uma interoperabilidade completa com dispositivos para a maioria dos fornecedores.
@@ -274,11 +268,32 @@ O Azure RTOS NetX Duo é uma das únicas pilhas TCP/IP incorporadas para obter a
 
 A NetX Duo tem uma das redes TCP/IP mais abrangentes para aplicações IoT profundamente incorporadas. Este suporte inclui os seguintes produtos de protocolo adicional.
 
-MQTT, CoAP, LWM2M, 6LoWPAN, SSL/TLS/DTLS, IPsec, AutoIP, DHCP, DNS, mDNS, DNS-SD, FTP, HTTP, IPsec, NAT, POP3, PPP, PPPoE, SMTP, SNMP v1/2/3, Telnet, TFTP
+* MQTT
+* CoAP
+* LWM2M
+* 6LoWPAN
+* SSL/TLS/DTLS
+* IPsec
+* AutoIP
+* DHCP
+* DNS
+* mDNS
+* DNS-SD
+* FTP
+* HTTP
+* IPsec
+* NAT
+* POP3
+* PPP
+* PPPoE
+* SMTP
+* SNMP v1/2/3
+* Telnet
+* TFTP
 
 ## <a name="advanced-technology"></a>Tecnologia avançada
 
-Azure RTOS NetX Duo é uma tecnologia avançada que inclui:
+Azure RTOS NetX Duo é uma tecnologia avançada que inclui o seguinte.
 
 * Piconet™ arquitetura
 * Dimensionamento automático
@@ -294,7 +309,13 @@ Azure RTOS NetX Duo é uma tecnologia avançada que inclui:
 
 ## <a name="related-services"></a>Serviços relacionados
 
-### <a name="azure-iot"></a>Azure IoT
+A NetX Duo fornece os seguintes serviços adicionais.
+
+* Azure IoT Middleware
+* Azure Defender
+* Atualização do dispositivo para IoT Hub.
+
+### <a name="azure-iot-middleware"></a>Azure IoT Middleware
 
 A NetX Duo inclui [o Azure IoT Middleware para Azure RTOS](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/docs/README.md), uma biblioteca específica da plataforma que funciona como uma camada de ligação entre o Azure RTOS e o Azure SDK para Embedded C para facilitar a conectividade aos serviços Azure IoT. Os objetivos de Azure IoT Middleware são os seguintes.
 * Forneça as interfaces inteligentes do cliente (IoTHub_Client, DeviceProvisioning_Client) que os desenvolvedores precisam para as suas aplicações.

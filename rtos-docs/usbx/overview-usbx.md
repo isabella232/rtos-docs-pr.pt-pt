@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 87eb6ee9f8733db3201280d377aa832b87131871
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 3c214a49f7dd1af20c20f07412fb072dd785b16f
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104828471"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754833"
 ---
 # <a name="overview-of-azure-rtos-usbx"></a>Visão geral do Azure RTOS USBX
 
@@ -21,21 +21,13 @@ Azure RTOS USBX é um hospedeiro USB de alto desempenho, dispositivo e stack inc
 
 A pilha de protocolo USB,de Azure RTOS USBX é uma solução USB incorporada em grau industrial projetada especificamente para aplicações de IoT profundamente incorporadas, em tempo real e ioT. O Azure RTOS USBX fornece suporte ao hospedeiro, dispositivo e OTG, bem como um extenso suporte de classe. O Azure RTOS USBX está totalmente integrado com o Sistema Operativo ThreadX Real-Time, o Azure RTOS FileX incorporado no sistema de ficheiros compatível com a GORDURA, o Azure RTOS NetX e o Azure RTOS NetX Duo incorporados TCP/IP. Tudo isto, combinado com uma pegada extremamente pequena, execução rápida e facilidade superior de utilização, fazem do Azure RTOS USBX a escolha ideal para as aplicações IoT incorporadas mais exigentes que requerem conectividade USB.
 
-### <a name="small-footprint"></a>Pequena pegada
+### <a name="usbx-memory-footprint"></a>Pegada de memória USBX
 
 O Azure RTOS USBX tem uma pegada mínima notável de 10,5 KB de FLASH e 5.1 KB RAM para suporte a um dispositivo USBX Azure RTOS CDC/ACM. O anfitrião Azure RTOS USBX requer um mínimo de 18 KB de FLASH e 25 KB de RAM para suporte CDC/ACM.
 
 Para a funcionalidade TCP, são necessários mais 10 KB a 13 KB de memória da área de instrução. O uso do RAM Azure RTOS USBX varia tipicamente de 2,6 KB a 3,6 KB mais a memória do pacote pool, que é definido pela aplicação.
 
 Tal como o ThreadX, o tamanho do Azure RTOS USBX escala automaticamente com base nos serviços realmente utilizados pela aplicação. Isto praticamente elimina a necessidade de configuração complicada e constrói parâmetros, tornando as coisas mais fáceis para o desenvolvedor.
-
-### <a name="fast-execution"></a>Execução rápida
-
-O Azure RTOS USBX foi concebido para velocidade e tem camadas mínimas de chamada interna e suporte para cache e utilização de DMA. Tudo isto e uma filosofia geral de design orientada para o desempenho ajuda o Azure RTOS USBX a alcançar o desempenho mais rápido possível.
-
-### <a name="simple-easy-to-use"></a>Simples e fácil de usar
-
-Azure RTOS USBX é simples de usar. O Azure RTOS USBX API é simultaneamente intuitivo e altamente funcional. Os nomes da API são feitos de palavras reais e não da "sopa do alfabeto" ou nomes altamente abreviados que são tão comuns em outros produtos do sistema de ficheiros. Todas as APIs Azure RTOS USBX têm um "ux_" líder e seguem uma convenção de nomeação de substantivos. Além disso, existe uma consistência funcional em toda a API. Por exemplo, todas as APIs que suspendem têm um tempo limite opcional que funciona de forma idêntica para as APIs.
 
 ### <a name="usb-interoperability-verification"></a>Verificação da interoperabilidade USB
 
@@ -70,46 +62,6 @@ Tecnologia avançada Azure RTOS USBX Host e Device suportam classes personalizad
 * Totalmente integrado com ThreadX, Azure RTOS FileX e Azure RTOS NetX
 * Métricas de desempenho opcionais
 * Suporte de análise do sistema Azure RTOS TraceX
-
-### <a name="fastest-time-to-market"></a>O tempo de venda mais rápido
-
-O Azure RTOS USBX tem uma pegada notavelmente pequena de 9 KB a 15 KB para suporte básico de IP e UDP. O Azure RTOS USBX é fácil de instalar, aprender, usar, depurar, verificar, certificar e manter. Como resultado, o Azure RTOS USBX é uma das soluções USB mais populares para dispositivos IoT incorporados. A nossa vantagem consistente no mercado baseia-se em:
-
-* Documentação de qualidade – por favor, reveja os nossos Guias de Anfitriões e Utilizadores de Dispositivos Azure RTOS e veja por si mesmo!
-* Disponibilidade completa de código fonte
-* API de fácil utilização
-* Conjunto de funcionalidades abrangente e avançado
-
-## <a name="one-simple-license"></a>Uma licença simples
-
-Não há qualquer custo para usar e testar o código fonte e nenhum custo para licenças de produção quando implementados em dispositivos pré-licenciados, todos os outros dispositivos precisam de uma licença anual simples.
-
-## <a name="full-highest-quality-source-code"></a>Código fonte completo e de alta qualidade
-
-Ao longo dos anos, o código fonte Azure RTOS NetX definiu a fasquia em qualidade e facilidade de compreensão. Além disso, a convenção de ter uma função por ficheiro prevê uma fácil navegação de origem.
-
-### <a name="supports-most-popular-architectures"></a>Apoia as arquiteturas mais populares
-
-O Azure RTOS USBX funciona nos microprocessadores mais populares de 32/64 bits, fora da caixa, totalmente testados e totalmente suportados, incluindo os seguintes:
-
-* **Dispositivos Analógicos**: SHARC, Blackfin, CM4xx
-* **Núcleo de Andes**: RISC-V
-* **Ambiqmicro**: Apollo MCUs
-* **BRAÇO**: ARM7, ARM9, ARM11, Córtex-M0/M3/M4/M7/A15/A5/A7/A8/A5x 64-bi/A7x 64-bit/R4/R5, TrustZone ARMv8-M
-* **Cadência**: Xtensa, Diamante
-* **CEVA**: PSoC, PSoC 4, PSoC 5, PSoC 6, FM0+, FM3, MF4, WiCED WiFi
-* **Cipreste**: RISC-V
-* **EnSilica**: eSi-RISC
-* **Infineon**: XMC1000, XMC4000, TriCore
-* **Intel & Intel FPGA**: x36/Pentium, XScale, NIOS II, Ciclone, Arria 10
-* **Microchip**: AVR32, ARM7, ARM9, Córtex-M3/M4/M7, SAM3/4/7/9/A/C/D/E/G/L/SV, PIC24/PIC32
-* **Microsemi**: RISC-V
-* **NXP**: LPC, ARM7, ARM9, PowerPC, 68 K, i.MX, ColdFire, Kinetis Cortex-M3/M4
-* **Renesas**: SH, HS, V850, RX, RZ, Synergy Silicon Labs: EFM32
-* **Sinopses**: ARC 600, 700, ARC EM, ARC HS
-* **ST**: STM32, ARM7, ARM9, Córtex-M3/M4/M7
-* **Tl**: C5xxx, C6xxx, Stellaris, Sitara, Tiva-C
-* **Computação de ondas**: MIPS32 4K, 24 K, 34 K, 1004 K, MIPS64 5K, microAptiv, interAptiv, proAptiv, M-Class **Xilinx**: MicroBlaze, PowerPC 405, ZYNQ, ZYNQ UltraSCALE
 
 ## <a name="azure-rtos-usbx-apis"></a>Azure RTOS USBX APIs
 

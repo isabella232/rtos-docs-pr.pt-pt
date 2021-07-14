@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 39b31c1abae8613eb54382162504aaadc07ceebf
-ms.sourcegitcommit: 97f6724d6eee7b9c251a50c191911050c52b1c69
+ms.openlocfilehash: c24259fb9b6b212dda99422e3ee1ad0e2fd970ce
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025926"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754884"
 ---
 # <a name="chapter-4--description-of-azure-rtos-filex-services"></a>Capítulo 4- Descrição dos serviços Azure RTOS FileX
 
@@ -30,7 +30,7 @@ UINT fx_directory_attributes_read (
     UINT *attributes_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço lê os atributos do diretório a partir dos meios de comunicação especificados.
 
@@ -111,7 +111,7 @@ UINT fx_directory_attributes_set(
     UINT *attributes);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço define os atributos do diretório aos especificados pelo autor da chamada.
 
@@ -194,7 +194,7 @@ UINT fx_directory_create(
     FX_MEDIA *media_ptr,
     CHAR *directory_name);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço cria uma subdiretório no diretório predefinido atual ou no caminho fornecido no nome do diretório. Ao contrário do diretório de raiz, as subdiretórios não têm um limite para o número de ficheiros que podem reter. O diretório de raiz só pode conter o número de entradas determinadas pelo registo de arranque.
 
@@ -271,7 +271,7 @@ UINT fx_directory_default_get(
     CHAR **return_path_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço devolve o ponteiro ao caminho definido pela ***última vez por fx_directory_default_set***. Se o diretório predefinido não tiver sido definido ou se o diretório predefinido atual for o diretório de raiz, é devolvido um valor de FX_NULL.
 
@@ -342,7 +342,7 @@ UINT fx_directory_default_set(
     CHAR *new_path_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço define o diretório predefinido dos meios de comunicação. Se for fornecido um valor de FX_NULL, o diretório predefinido é definido para o diretório de raiz dos meios de comunicação. Todas as operações de ficheiro subsequentes que não especificam explicitamente um caminho por defeito a este diretório.
 
@@ -414,7 +414,7 @@ UINT fx_directory_delete(
     CHAR *directory_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço elimina o diretório especificado. Note que o diretório deve estar vazio para eliminá-lo.
 
@@ -490,7 +490,7 @@ UINT fx_directory_first_entry_find(
     CHAR *return_entry_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o primeiro nome de entrada no diretório predefinido e copia-o para o destino especificado.
 
@@ -746,7 +746,7 @@ Limpa o caminho local padrão
 UINT fx_directory_local_path_clear(FX_MEDIA *media_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço limpa o caminho local anterior configurado para o fio de chamada.
 
@@ -810,7 +810,7 @@ UINT fx_directory_local_path_clear(
     CHAR **return_path_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço devolve o ponteiro de percurso local dos meios de comunicação especificados. Se não houver um caminho local definido, um NU É devolvido ao chamador.
 
@@ -877,7 +877,7 @@ UINT fx_directory_local_path_restore(
     FX_LOCAL_PATH *local_path_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço restaura um caminho local previamente definido. A posição de pesquisa de diretórios feita neste caminho local também é restaurada, o que torna esta rotina útil em diretórios recursivos pela aplicação.
 
@@ -947,7 +947,7 @@ UINT fx_directory_local_path_set(
     CHAR *new_path_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço estabelece um caminho específico de fio, conforme especificado pela ***new_path_string** _. Após a conclusão com sucesso desta rotina, as informações locais armazenadas em _ *_local_path_ptr_** terão precedência sobre o caminho global dos meios de comunicação para todas as operações de arquivo e diretório feitas por este fio. Isto não terá qualquer impacto em qualquer outro fio no sistema 
 > [!IMPORTANT]
@@ -1027,7 +1027,7 @@ UINT fx_directory_long_name_get(
     CHAR *long_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o nome longo (se houver) associado ao nome fornecido curto (formato 8.3). O nome curto pode ser um nome de ficheiro ou um nome de diretório.
 
@@ -1101,7 +1101,7 @@ UINT fx_directory_long_name_get_extended(
     UINT long_file_name_buffer_length);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o nome longo (se houver) associado ao nome fornecido curto (formato 8.3). O nome curto pode ser um nome de ficheiro ou um nome de diretório.
 
@@ -1137,7 +1137,7 @@ UCHAR            my_long_name[FX_MAX_LONG_NAME_LEN];
 /* Retrieve the long name associated with "TEXT~01.TXT". */
 
 status = fx_directory_long_name_get_extended(&my_media,
-    "TEXT~01.TXT", my_long_name), sizeof(my_long_name));
+    "TEXT~01.TXT", my_long_name, sizeof(my_long_name));
 
 /* If status is FX_SUCCESS the long name was successfully retrieved. */
 ```
@@ -1177,7 +1177,7 @@ UINT fx_directory_name_test(
     CHAR *directory_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço testa se o nome fornecido é ou não um diretório. Em caso afirmativo, um FX_SUCCESS é devolvido.
 
@@ -1251,7 +1251,7 @@ UINT fx_directory_next_entry_find(
     CHAR *return_entry_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço devolve o próximo nome de entrada no diretório padrão atual.
 
@@ -1337,7 +1337,7 @@ UINT fx_directory_next_full_entry_find(
     UINT *second);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o próximo nome de entrada no diretório predefinido e copia-o para o destino especificado. Também devolve informações completas sobre a entrada, conforme especificado pelos parâmetros de entrada adicionais.
 
@@ -1443,7 +1443,7 @@ UINT fx_directory_rename(
     CHAR *new_directory_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço altera o nome do diretório para o novo nome especificado do diretório. O renomeamento também é feito em relação ao caminho especificado ou ao caminho padrão. Se um caminho for especificado no novo nome do diretório, o diretório renomeado é efetivamente movido para o caminho especificado. Se não for especificado nenhum caminho, o diretório renomeado é colocado na trajetória predefinida atual.
 
@@ -1525,7 +1525,7 @@ UINT fx_directory_short_name_get(
     CHAR *short_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o nome curto (formato 8.3) associado ao nome longo fornecido. O nome longo pode ser um nome de arquivo ou um nome de diretório.
 
@@ -1604,7 +1604,7 @@ UINT fx_directory_short_name_get_extended(
     UINT short_file_name_length);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o nome curto (formato 8.3) associado ao nome longo fornecido. O nome longo pode ser um nome de arquivo ou um nome de diretório.
 
@@ -1683,7 +1683,7 @@ UINT fx_fault_tolerant_enable(
     UINT memory_size);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço permite o módulo tolerante a falhas. Ao iniciar, o módulo tolerante a falhas deteta se o sistema de ficheiros está ou não sob proteção tolerante a falhas do FileX. Caso contrário, o serviço encontra setores disponíveis no sistema de ficheiros para armazenar registos em transações do sistema de ficheiros. Se o sistema de ficheiros estiver sob proteção tolerante a falhas do FileX, aplica os registos no sistema de ficheiros para manter a sua integridade.
 
@@ -1755,7 +1755,7 @@ UINT fx_file_allocate(
     FX_FILE *file_ptr, 
     ULONG size);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço atribui e liga um ou mais aglomerados contíguos ao fim do ficheiro especificado. O FileX determina o número de clusters necessários dividindo o tamanho solicitado pelo número de bytes por cluster. O resultado é então arredondado para todo o cluster seguinte.
 
@@ -1838,7 +1838,7 @@ Lê atributos de ficheiros
     CHAR *file_name,
     UINT *attributes_ptr);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço lê os atributos do ficheiro a partir dos meios de comunicação especificados.
 
@@ -1929,7 +1929,7 @@ UINT fx_file_attributes_set(
     CHAR *file_name,
     UINT attributes);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço define os atributos do ficheiro aos especificados pelo autor da chamada.
 
@@ -2025,7 +2025,7 @@ UINT fx_file_best_effort_allocate(
     ULONG size,
     ULONG *actual_size_allocated);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço atribui e liga um ou mais aglomerados contíguos ao fim do ficheiro especificado. O FileX determina o número de clusters necessários dividindo o tamanho solicitado pelo número de bytes por cluster. O resultado é então arredondado para todo o cluster seguinte. Se não houver aglomerados consecutivos suficientes disponíveis nos meios de comunicação, este serviço liga o maior bloco disponível de clusters consecutivos ao ficheiro. A quantidade de espaço efetivamente alocada ao ficheiro é devolvida ao autor da chamada.
 
@@ -2110,7 +2110,7 @@ Arquivo de fechos
 ```c
 UINT fx_file_close(FX_FILE *file_ptr);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço fecha o ficheiro especificado. Se o ficheiro estiver aberto para escrita e se foi modificado, este serviço completa o processo de modificação do ficheiro atualizando a sua entrada no diretório com o novo tamanho e a hora e data do sistema atuais.
 
@@ -2185,7 +2185,7 @@ UINT fx_file_create(
     FX_MEDIA *media_ptr,
     CHAR *file_name);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço cria o ficheiro especificado no diretório predefinido ou no caminho do diretório fornecido com o nome do ficheiro.
 
@@ -2282,7 +2282,7 @@ UINT fx_file_date_time_set(
     UINT minute, 
     UINT second);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço define a data e a hora do ficheiro especificado.
 
@@ -2384,7 +2384,7 @@ UINT fx_file_delete(
     FX_MEDIA *media_ptr, 
     CHAR *file_name);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço elimina o ficheiro especificado.
 
@@ -2469,7 +2469,7 @@ UINT fx_file_extended_allocate(
     FX_FILE *file_ptr, 
     ULONG64 size);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço atribui e liga um ou mais aglomerados contíguos ao fim do ficheiro especificado. O FileX determina o número de clusters necessários dividindo o tamanho solicitado pelo número de bytes por cluster. O resultado é então arredondado para todo o cluster seguinte.
 
@@ -2555,7 +2555,7 @@ UINT fx_file_extended best_effort_allocate(
     ULONG64 size,
     ULONG64 *actual_size_allocated);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço atribui e liga um ou mais aglomerados contíguos ao fim do ficheiro especificado. O FileX determina o número de clusters necessários dividindo o tamanho solicitado pelo número de bytes por cluster. O resultado é então arredondado para todo o cluster seguinte. Se não houver aglomerados consecutivos suficientes disponíveis nos meios de comunicação, este serviço liga o maior bloco disponível de clusters consecutivos ao ficheiro. A quantidade de espaço efetivamente alocada ao ficheiro é devolvida ao autor da chamada.
 
@@ -2643,7 +2643,7 @@ UINT fx_file_extended_relative_seek(
     ULONG64 byte_offset,
     UINT seek_from);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço posiciona o ponteiro interno de leitura/escrita para o byte relativo especificado. Qualquer pedido de leitura ou escrita subsequente começará neste local no ficheiro.
 
@@ -2731,7 +2731,7 @@ UINT fx_file_extended_seek(
     FX_FILE *file_ptr, 
     ULONG64 byte_offset);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço posiciona o ponteiro interno de leitura/escrita para o byte especificado. Qualquer pedido de leitura ou escrita subsequente começará neste local no ficheiro.
 
@@ -2809,7 +2809,7 @@ UINT fx_file_truncate(
     FX_FILE *file_ptr,
     ULONG64 size);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço trunca o tamanho do ficheiro para o tamanho especificado. Se o tamanho fornecido for maior do que o tamanho real do ficheiro, este serviço não faz nada. Nenhum dos clusters de meios associados ao ficheiro é libertado.
 
@@ -2894,7 +2894,7 @@ UINT fx_file_extended_truncate_release(
     ULONG64 size);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço trunca o tamanho do ficheiro para o tamanho especificado. Se o tamanho fornecido for maior do que o tamanho real do ficheiro, este serviço não faz nada. Ao contrário do ***serviço fx_file_extended_truncate,*** este serviço liberta quaisquer clusters não-reutilizados.
 
@@ -2982,7 +2982,7 @@ UINT fx_file_open(
     CHAR *file_name,
     UINT open_type);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço abre o ficheiro especificado para leitura ou escrita. Um ficheiro pode ser aberto para leitura várias vezes, enquanto um ficheiro só pode ser aberto para escrita uma vez até que o escritor feche o ficheiro.
 
@@ -3080,7 +3080,7 @@ UINT fx_file_read(
     ULONG request_size, 
     ULONG *actual_size);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço lê bytes do ficheiro e armazena-os no tampão fornecido. Depois de concluída a leitura, o ponteiro de leitura interno do ficheiro é ajustado para apontar para o byte seguinte no ficheiro. Se houver menos bytes restantes no pedido, apenas os bytes restantes são armazenados no tampão. Em todo o caso, o número total de bytes colocados no tampão é devolvido ao chamador.
 
@@ -3168,7 +3168,7 @@ UINT fx_file_relative_seek(
     ULONG byte_offset,
     UINT seek_from);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço posiciona o ponteiro interno de leitura/escrita para o byte relativo especificado. Qualquer pedido de leitura ou escrita subsequente começará neste local no ficheiro.
 
@@ -3259,7 +3259,7 @@ UINT fx_file_rename(
     CHAR *old_file_name,
     CHAR *new_file_name);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço altera o nome do ficheiro especificado por *old_file_name*. O renomeamento também é feito em relação ao caminho especificado ou ao caminho padrão. Se um caminho for especificado no nome do novo ficheiro, o ficheiro renomeado é efetivamente movido para o caminho especificado. Se não for especificado nenhum caminho, o ficheiro renomeado é colocado na trajetória predefinida atual.
 
@@ -3347,7 +3347,7 @@ UINT fx_file_seek(
     FX_FILE *file_ptr,
     ULONG byte_offset);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço posiciona o ponteiro interno de leitura/escrita para o byte especificado. Qualquer pedido de leitura ou escrita subsequente começará neste local no ficheiro.
 
@@ -3425,7 +3425,7 @@ UINT fx_file_truncate(
     ULONG size);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço trunca o tamanho do ficheiro para o tamanho especificado. Se o tamanho fornecido for maior do que o tamanho real do ficheiro, este serviço não faz nada. Nenhum dos clusters de meios associados ao ficheiro é libertado.
 
@@ -3509,7 +3509,7 @@ UINT fx_file_truncate(
     FX_FILE *file_ptr,
     ULONG size);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço trunca o tamanho do ficheiro para o tamanho especificado. Se o tamanho fornecido for maior do que o tamanho real do ficheiro, este serviço não faz nada. Ao contrário do ***serviço fx_file_truncate,*** este serviço liberta quaisquer clusters não-reutilizados.
 
@@ -3596,7 +3596,7 @@ UINT fx_file_write(
     VOID *buffer_ptr,
     ULONG size);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço escreve bytes a partir do tampão especificado a partir da posição atual do ficheiro. Após a gravação estar concluída, o ponteiro de leitura interna do ficheiro é ajustado para apontar para o byte seguinte no ficheiro.
 
@@ -3680,7 +3680,7 @@ UINT fx_file_write_notify_set(
     FX_FILE *file_ptr,
     VOID (*file_write_notify)(FX_FILE*));
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço instala a função de retorno que é invocada após uma operação de escrita de ficheiros bem sucedida.
 
@@ -3744,7 +3744,7 @@ Aborta atividades mediáticas
 ```c
 UINT fx_media_abort(FX_MEDIA *media_ptr);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço aborta todas as atividades atuais associadas aos meios de comunicação, incluindo o encerramento de todos os ficheiros abertos, o envio de um pedido de abortar ao motorista associado e a colocação dos meios de comunicação em estado abortado. Este serviço é normalmente chamado quando são detetados erros de E/S.
 
@@ -3810,7 +3810,7 @@ Invalida cache do sector lógico
 UINT fx_media_cache_invalidate(FX_MEDIA *media_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço elimina todos os sectores sujos da cache e, em seguida, invalida toda a cache do sector lógico.
 
@@ -3877,7 +3877,7 @@ UINT fx_media_check(
     ULONG error_correction_option,
     ULONG *errors_detected_ptr);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço verifica os meios de comunicação especificados para erros estruturais básicos, incluindo ligação cruzada de ficheiros/diretórios, cadeias de GORDURA inválidas e aglomerados perdidos. Este serviço também fornece a capacidade de corrigir erros detetados.
 
@@ -3967,7 +3967,7 @@ Fecha os meios de comunicação
 ```c
 UINT fx_media_close(FX_MEDIA *media_ptr);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço fecha os meios de comunicação especificados. No processo de fecho dos meios de comunicação, todos os ficheiros abertos estão fechados e os restantes tampão são lavados para os meios físicos.
 
@@ -4032,7 +4032,7 @@ UINT fx_media_close_notify_set(
     VOID (*media_close_notify)(FX_MEDIA*));
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço define uma função de chamada de notificação que será invocada após o encerramento de um meio de comunicação com sucesso.
 
@@ -4099,7 +4099,7 @@ UINT fx_media_exFAT_format(
     UINT volume_serial_number, 
     UINT boundary_unit);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço forma os meios fornecidos de forma exFAT compatível com base nos parâmetros fornecidos. Este serviço deve ser chamado antes da abertura dos meios de comunicação.
 
@@ -4195,7 +4195,7 @@ UINT fx_media_extended_space_available(
     FX_MEDIA *media_ptr,
     ULONG64 *available_bytes_ptr);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço devolve o número de bytes disponíveis nos meios de comunicação.
 
@@ -4260,7 +4260,7 @@ Flushes dados para meios físicos
 ```c
 UINT fx_media_flush(FX_MEDIA *media_ptr);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço elimina todos os sectores em cache e entradas de diretórios de quaisquer ficheiros modificados para os meios físicos.
 
@@ -4343,7 +4343,7 @@ UINT fx_media_format(
     UINT heads,
     UINT sectors_per_track);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço forma o meio fornecido de forma compatível COM FAT 12/16/32 com base nos parâmetros fornecidos. Este serviço deve ser chamado antes da abertura dos meios de comunicação.
 
@@ -4443,7 +4443,7 @@ UINT fx_media_open(
     VOID *memory_ptr, 
     ULONG memory_size);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço abre um meio de acesso a ficheiros utilizando o controlador de E/S fornecido.
 
@@ -4519,7 +4519,7 @@ UINT fx_media_open_notify_set(
     FX_MEDIA *media_ptr,
     VOID (*media_open_notify)(FX_MEDIA*));
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço define uma função de chamada de notificação que será invocada após a abertura de um meio de comunicação com sucesso.
 
@@ -4578,7 +4578,7 @@ UINT fx_media_read(
     ULONG logical_sector, 
     VOID *buffer_ptr);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço lê um sector lógico dos meios de comunicação social e coloca-o no tampão fornecido.
 
@@ -4645,7 +4645,7 @@ UINT fx_media_space_available(
     ULONG *available_bytes_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço devolve o número de bytes disponíveis nos meios de comunicação.
 
@@ -4713,7 +4713,7 @@ UINT fx_media_volume_get(
     CHAR *volume_name,
     UINT volume_source);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o nome de volume do meio de comunicação anteriormente aberto.
 
@@ -4785,7 +4785,7 @@ UINT fx_media_volume_get_extended(
     UINT volume_name_buffer_length,
     UINT volume_source);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o nome de volume do meio de comunicação anteriormente aberto.
 
@@ -4861,7 +4861,7 @@ UINT fx_media_volume_set(
     FX_MEDIA *media_ptr, 
     CHAR *volume_name);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço define o nome de volume do meio de comunicação anteriormente aberto.
 
@@ -4929,7 +4929,7 @@ UINT fx_media_write(
     ULONG logical_sector,
     VOID *buffer_ptr);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço escreve o tampão fornecido para o sector lógico especificado.
 
@@ -5001,7 +5001,7 @@ UINT fx_system_date_get(
     UINT *month, 
     UINT *day);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço devolve a data atual do sistema.
 
@@ -5055,7 +5055,7 @@ UINT fx_system_date_set(
     UINT day);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço define a data do sistema conforme especificado.
 
@@ -5109,7 +5109,7 @@ Inicializa todo o sistema
 VOID fx_system_initialize(void);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço inicializa todas as principais estruturas de dados do FileX. Deve ser chamado em ***tx_application_define*** ou possivelmente a partir de um fio de inicialização e deve ser chamado antes de usar qualquer outro serviço FileX.
 
@@ -5170,7 +5170,7 @@ UINT fx_system_time_get(
     UINT *second);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o tempo atual do sistema.
 
@@ -5222,7 +5222,7 @@ Define o tempo atual do sistema
 UINT fx_system_time_set(UINT hour, UINT minute, UINT second);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço define o tempo atual do sistema para o especificado pelos parâmetros de entrada.
 
@@ -5278,7 +5278,7 @@ UINT fx_unicode_directory_create(
     ULONG source_unicode_length, 
     CHAR *short_name);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço cria um subdiretório nomeado Unicode no diretório predefinido atual — nenhuma informação de caminho é permitida no parâmetro de nome de origem Unicode. Se for bem sucedido, o nome curto (formato 8.3) da recém-criada subdirectory Unicode é devolvido pelo serviço.
 
@@ -5368,7 +5368,7 @@ UINT fx_unicode_directory_rename(
     ULONG new_unicode_length,
     CHAR *new_short_name);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço altera uma subdiretório nomeada pelo Unicode para o novo nome Unicode especificado no diretório de trabalho atual. Os parâmetros do nome Unicode não devem ter informações sobre o caminho.
 
@@ -5453,7 +5453,7 @@ UINT fx_unicode_file_create(
     CHAR *short_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço cria um ficheiro nomeado pelo Unicode no diretório predefinido atual — nenhuma informação de caminho é permitida no parâmetro de nome de origem Unicode. Se for bem sucedido, o nome curto (formato 8.3) do ficheiro Unicode recém-criado é devolvido pelo serviço.
 
@@ -5548,7 +5548,7 @@ UINT fx_unicode_file_rename(
     CHAR *new_short_name);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço altera um nome de ficheiro nomeado Unicode para o novo nome Unicode especificado no diretório predefinido atual. Os parâmetros do nome Unicode não devem ter informações sobre o caminho.
 
@@ -5635,7 +5635,7 @@ Obtém comprimento do nome Unicode
 ```c
 ULONG fx_unicode_length_get(UCHAR *unicode_name);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço determina o comprimento do nome Unicode fornecido. Um caracteres Unicode é representado por dois bytes. Um nome Unicode é uma série de dois caracteres Unicode byte terminados por dois bytes NULL (dois bytes de 0 valor).
 
@@ -5710,7 +5710,7 @@ UINT fx_unicode_length_get_extended(
     UCHAR *unicode_name,
     UINT buffer_length);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço obtém o comprimento do nome Unicode fornecido. Um caracteres Unicode é representado por dois bytes. Um nome Unicode é uma série de caracteres Unicode de doisbytes terminados por dois bytes NULL (dois bytes de 0 valor).
 
@@ -5792,7 +5792,7 @@ UINT fx_unicode_name_get(
     ULONG *destination_unicode_length);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o nome Unicode associado ao nome curto fornecido (formato 8.3) dentro do diretório predefinido atual — nenhuma informação sobre o caminho é permitida no parâmetro de nome curto. Se for bem sucedido, o nome Unicode associado ao nome curto é devolvido pelo serviço.
 
@@ -5881,7 +5881,7 @@ UINT fx_unicode_name_get_extended(
     ULONG *destination_unicode_length,
     ULONG unicode_name_buffer_length);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o nome Unicode associado ao nome curto fornecido (formato 8.3) dentro do diretório predefinido atual — nenhuma informação sobre o caminho é permitida no parâmetro de nome curto. Se for bem sucedido, o nome Unicode associado ao nome curto é devolvido pelo serviço.
 
@@ -6065,7 +6065,7 @@ UINT fx_unicode_short_name_get_extended(
     ULONG short_name_buffer_length);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 Este serviço recupera o nome curto (formato 8.3) associado ao nome Unicode dentro do diretório predefinido atual — nenhuma informação de caminho é permitida no parâmetro nome Unicode. Se for bem sucedido, o nome curto associado ao nome Unicode é devolvido pelo serviço.
 

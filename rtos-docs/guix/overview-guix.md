@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 8f4a1578fcabdabfb213ced9c6593f6cffc964aa
-ms.sourcegitcommit: 19d50693d8f5287ba6938ae1d23eef88435ed7b1
+ms.openlocfilehash: 0a6ac2c7a76893d516b9beae9b893c9764de60ba
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108171408"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754935"
 ---
 # <a name="overview-of-azure-rtos-guix-and-azure-rtos-guix-studio"></a>Visão geral do Azure RTOS GUIX e Azure RTOS GUIX Studio
 
@@ -130,11 +130,11 @@ Azure RTOS GUIX e Azure RTOS GUIX Studio fornecem todas as funcionalidades neces
 
 <img alt="Screenshot of the GUIX industrial control" class="img-responsive" src="./media/overview/demo_guix_industrial.png"/>
 
-Cada referência Azure RTOS GUIX tem um projeto correspondente do Azure RTOS GUIX Studio que define todos os elementos gráficos do design de referência. Mudar um design de referência é fácil. Basta abrir o projeto Azure RTOS GUIX correspondente, fazer as alterações desejadas, salvar o projeto e, em seguida, selecionar *o Projeto*.
+Cada referência Azure RTOS GUIX tem um projeto correspondente do Azure RTOS GUIX Studio que define todos os elementos gráficos do design de referência. Mudar um design de referência é fácil. Basta abrir o projeto Azure RTOS GUIX correspondente, fazer as alterações desejadas, salvar o projeto e, em seguida, selecionar *Project*.
 
 Gere todos os ficheiros de saída para gerar o código C para Azure RTOS GUIX. Em seguida, basta reconstruir a aplicação-alvo e correr para observar o design de referência modificado.
 
-### <a name="memory-footprint"></a>Pegada de memória
+### <a name="guix-memory-footprint"></a>Pegada de memória GUIX
 
 O Azure RTOS GUIX tem uma pegada mínima notável de 13.2KB de FLASH e 4KB RAM para suporte básico, sem incluir a memória necessária para uma tela.
 
