@@ -6,18 +6,18 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: b099a5f18accfbe467a2a8fa680c0c76666a9ff3
-ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
+ms.openlocfilehash: a6f9cfd772c81340a90b7dc217c0ccc160c7f957
+ms.sourcegitcommit: 7993d2c3b0711ae2c246561a0c8bf963d8e0324a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113754918"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114661203"
 ---
 # <a name="what-is-microsoft-azure-rtos"></a>O que é Microsoft Azure RTOS?
 
 O Azure RTOS é um sistema operativo em tempo real (RTOS) para internet das coisas (IoT) e dispositivos de borda alimentados por unidades de microcontrolador (MCUs). O Azure RTOS foi concebido para suportar os dispositivos mais constrangidos (alimentados por bateria e com menos de 64 KB de memória flash).
 
-O Azure RTOS é pré-certificado para uma variedade de normas de segurança. Estes incluem as certificações IEC 61508 SIL 4, IEC 62304 Classe C e ISO 26262 ASIL D. Azure RTOS ThreadX também é certificada do DO-178.
+O Azure RTOS é pré-certificado para uma variedade de normas de segurança. Estes incluem as certificações IEC 61508 SIL 4, IEC 62304 Classe C e ISO 26262 ASIL D.
 
 O Azure RTOS fornece um ambiente certificado de segurança EAL4+ Common Criteria, incluindo a segurança total da camada IP via IPsec e a segurança da camada de tomada via TLS e DTLS. A nossa biblioteca de criptomoedas de software obteve certificação FIPS 140-2. Também aproveitamos as capacidades criptográficas de hardware, a proteção da memória através de módulos ThreadX e o suporte para as funcionalidades de segurança ARMv8-M da ARM.
 
