@@ -6,12 +6,12 @@ ms.author: kemaxwel
 ms.date: 9/30/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 3194a1b8c8965bf821631a8c34ac5e9961f8c8ff
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 374471df85c4cd0fffae5b5cc7ad31d2237877f2
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827127"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178287"
 ---
 # <a name="chapter-8-notes-on-editing-specific-widget-types"></a>Capítulo 8: Notas sobre edição de tipos específicos de widgets
 
@@ -23,7 +23,7 @@ Este capítulo fornece notas sobre as funcionalidades de edição mais avançada
 
 ## <a name="rich-text-view"></a>Vista de texto rico
 
-Este widget é utilizado para exibir textos ricos que suporta códigos de formatação de texto inline. Estes códigos de formatação incluem negrito, itálico, e vários outros. Para começar, clique com o pai selecionado a partir do *Project View* ou *Target View* e selecione o menu **Inserir/Texto/Vista de Texto Rico** para inserir um widget de visualização de texto rico.
+Este widget é utilizado para exibir textos ricos que suporta códigos de formatação de texto inline. Estes códigos de formatação incluem negrito, itálico, e vários outros. Para começar, clique com o pai do pai selecionado a partir do *Project Ver* ou *Visualização alvo* e selecione o menu **Inserir/Texto/Vista de Texto Rico** para inserir um widget de visualização de texto rico.
 
 Além do conjunto padrão de propriedades suportadas por todos os tipos de widgets, o tipo de widget Rich Text View suporta propriedades adicionais.
 
@@ -85,7 +85,7 @@ O widget da roda de rolo de corda suporta uma variedade de cordas. O diálogo de
 
 **Figura 8.2**
 
-Para invocar este diálogo, selecione um widget de roda de deslocação de cordas dentro da *Vista Alvo* ou da Vista do *Projeto*. Uma vez selecionado este tipo de widget, o *View Propriedades* incluirá um botão **editar cordas.** Selecione este botão para invocar o diálogo de edição de roda de deslocação de cordas.
+Para invocar este diálogo, selecione um widget de roda de deslocação de cordas dentro da *Vista Alvo* ou da *vista Project*. Uma vez selecionado este tipo de widget, o *View Propriedades* incluirá um botão **editar cordas.** Selecione este botão para invocar o diálogo de edição de roda de deslocação de cordas.
 
 Para atribuir uma cadeia para cada índice de texto, pode selecionar um ID de cadeia da lista de recuos ou pode digitar um novo valor de corda no campo Texto à direita. Quando terminar as alterações, quaisquer cordas novas ou modificadas são guardadas na tabela de cordas ativa.
 
@@ -97,7 +97,7 @@ Um widget sprite é usado para exibir uma sequência de imagens para fornecer um
 
 **Figura 8.3**
 
-Para invocar este diálogo, selecione um widget sprite dentro da *Vista Alvo* ou da Vista do *Projeto*. Uma vez selecionado este tipo de widget, o *'View' Properties* incluirá um botão **Editar Framelist.** Selecione este botão para invocar o diálogo de edição de roda de deslocação de cordas.
+Para invocar este diálogo, selecione um widget sprite dentro da *Vista Alvo* ou da *vista Project*. Uma vez selecionado este tipo de widget, o *'View' Properties* incluirá um botão **Editar Framelist.** Selecione este botão para invocar o diálogo de edição de roda de deslocação de cordas.
 
 O *número total de quadros sprite* é um campo de entrada que lhe permite introduzir o número total inteiro de quadros a exibir pelo widget sprite. As imagens podem ser reutilizadas dentro da lista de quadros, o que significa que nem todas as imagens devem ser únicas.
 
@@ -118,3 +118,10 @@ Pode especificar uma compensação dentro do quadro de sprite em que o mapa de p
 O período de atraso especifica o tempo a atrasar antes de passar para a próxima armação do sprite. Este valor está em tiques, que para a configuração padrão do temporizador GUIX/ThreadX cada carrapato representa 50 ms.
 
 Quando guarda as alterações no diálogo Editar Sprite Frames, o GUIX Studio é capaz de gerar o conjunto completo da lista de quadros como parte da geração de ficheiros de especificações de saída.
+
+### <a name="assign-a-sprite-widget-with-gif-resource"></a>Atribua um widget sprite com recurso GIF
+Pode adicionar um recurso GIF ao grupo de recursos **Pixelmap** e atribuir o recurso GIF diretamente ao widget sprite. Após a definição do recurso GIF, uma lista de quadros será gerada automaticamente, pode editar ainda mais cada quadro da lista de quadros através do diálogo de edição sprite:
+
+![Screenshot do diálogo GUIX Studio Edit Sprite Frames para recurso GIF.](./media/guix-studio/edit_sprite_gif_frames.jpg)
+
+**Figura 8.4**

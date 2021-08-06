@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 8ee9d16c71d6c207de2098d688d49e6482c8b780
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: ac41672959c0873d90bdafe0d6b959efdddf8ecc
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550155"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178226"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo"></a>Capítulo 2 - Instalação e Utilização do Azure RTOS NetX Duo
 
@@ -19,7 +19,7 @@ Este capítulo contém uma descrição de vários problemas relacionados com a i
 
 ## <a name="host-considerations"></a>Considerações de Anfitrião
 
-O desenvolvimento incorporado é geralmente realizado em computadores anfitriões Windows ou Linux (Unix). Após a compilação da aplicação, ligada e o executável é gerado no anfitrião, é descarregado para o hardware alvo para execução.
+O desenvolvimento incorporado é geralmente realizado em computadores de Windows ou Linux (Unix). Após a compilação da aplicação, ligada e o executável é gerado no anfitrião, é descarregado para o hardware alvo para execução.
 
 Normalmente, o download do alvo é feito a partir do depurar da ferramenta de desenvolvimento. Após o download, o depurante é responsável por fornecer controlo de execução de alvos (ir, parar, quebrar, etc.) bem como aceder aos registos de memória e processador.
 
@@ -57,7 +57,7 @@ O NetX Duo é instalado clonando o repositório GitHub à sua máquina local. Se
     git clone https://github.com/azure-rtos/netxduo
 ```
 
-Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal do GitHub.
+Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal GitHub.
 
 Você também encontrará instruções para a construção da biblioteca NetX Duo na primeira página do repositório online.
 
@@ -70,9 +70,7 @@ Usar o NetX Duo é fácil. Basicamente, o código de aplicação deve incluir **
 
 Seguem-se os quatro passos fáceis necessários para a construção de uma aplicação NetX Duo:
 
-[!div class="mx-tdCol2BreakAll"]
-
-| Passo  | Descrição  |
+| Passo  | Description  |
 |---|---|
 |Passo &nbsp; 1: |Inclua o ficheiro ***nx_api.h*** em todos os ficheiros de aplicações que utilizam serviços NetX Duo ou estruturas de dados.|
 |Passo &nbsp; 2: |Inicialize o sistema NetX Duo chamando ***nx_system_initialize** _ da função _ *_tx_application_define_** ou de um fio de aplicação.|

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 84f215ad990a2fe185a08f3876276528787ef8bc
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: ea348d94e83863c0e2652df29f92d952f2242661
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826540"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178022"
 ---
 # <a name="chapter-5---usbx-device-class-considerations"></a>Capítulo 5 - Considerações da classe do dispositivo USBX
 
@@ -60,7 +60,13 @@ VOID tx_demo_hid_instance_deactivate(VOID *hid_instance)
 
 Não é aconselhável fazer nada dentro destas funções, mas memorizar a instância da classe e sincronizar com o resto da aplicação.
 
-## <a name="usb-device-storage-class"></a>Classe de armazenamento de dispositivo USB
+## <a name="general-considerations-for-bulk-transfer"></a>Considerações Gerais para transferência a granel
+
+De acordo com a especificação USB 2.0, um ponto final deve sempre transmitir cargas de dados com um campo de dados inferior ou igual ao valor reportado wMaxPacketSize do ponto final. O tamanho de um pacote de dados é limitado ao bMaxPacketSize. A transferência pode ser concluída com os seguintes casos
+1. O ponto final transferiu exatamente a quantidade de dados esperados
+2. Quando um dispositivo ou ponto final do anfitrião reveste um pacote com tamanho inferior ao tamanho máximo do pacote (wMaxPacketSize). Este pacote curto indica que já não há mais pacote de dados e a transferência está completa ou quando os pacotes de dados a transmitir são todos iguais ao wMaxPacketSize, então o fim da transferência não pode ser determinado. Para a conclusão da transferência, um pacote de comprimento zero (ZLP) deve ser enviado pacotes curtos e pacotes de comprimento zero significam o fim de uma transferência de dados a granel. As considerações acima referidas aplicam-se às API de transferência de dados a granel brutos, por exemplo, ux_device_class_cdc_acm_read().
+
+## <a name="usb-device-storage-class"></a>Classe Armazenamento de dispositivo USB
 
 A classe de armazenamento de dispositivos USB permite que um dispositivo de armazenamento incorporado no sistema seja tornado visível para um hospedeiro USB.
 
@@ -170,7 +176,7 @@ O valor de retorno é um código de erro SCSI que pode ter o seguinte formato.
 
 A tabela a seguir fornece as possíveis combinações Sense/ASC/ASCQ.
 
-| Chave do sentido | ASC | ASCQ | Descrição                                       |
+| Chave do sentido | ASC | ASCQ | Description                                       |
 | --------- | --- | ---- | ------------------------------------------------- |
 | 00        | 00  | 00   | SEM SENTIDO                                          |
 | 01        | 17  | 01   | DADOS RECUPERADOS COM RETRÓSCA                       |
@@ -237,7 +243,7 @@ O valor de retorno indica se o comando foi ou não bem sucedido – deve ser **U
 
 Se a aplicação não implementar esta chamada, então ao receber o comando **GET_STATUS_NOTIFICATION,** a USBX notificará o anfitrião de que o comando não é implementado.
 
-O **comando SYNCHRONIZE_CACHE** deve ser manuseado se a aplicação estiver a utilizar uma cache para escritas do anfitrião. Um anfitrião pode enviar este comando se souber que o dispositivo de armazenamento está prestes a ser desligado, por exemplo, no Windows, se clicar corretamente num ícone de pen na barra de ferramentas e selecionar "Ejetar o \[ nome do dispositivo de \] armazenamento", o Windows emitirá o comando **SYNCHRONIZE_CACHE** para esse dispositivo.
+O **comando SYNCHRONIZE_CACHE** deve ser manuseado se a aplicação estiver a utilizar uma cache para escritas do anfitrião. Um anfitrião pode enviar este comando se souber que o dispositivo de armazenamento está prestes a ser desligado, por exemplo, em Windows, se clicar corretamente num ícone de pen na barra de ferramentas e selecionar "Ejetar o \[ nome do dispositivo de \] armazenamento", Windows emitirá o comando **SYNCHRONIZE_CACHE** para esse dispositivo.
 
 Se a aplicação quiser lidar com o comando **GET_STATUS_NOTIFICATION** do anfitrião, deverá implementar uma chamada com o seguinte protótipo.
 
@@ -389,7 +395,7 @@ Os 2 parâmetros definidos são os ponteiros de retorno nas aplicações do util
 
 O terceiro parâmetro definido é um ponteiro de retorno para a aplicação do utilizador que será chamado quando houver codificação de linha ou mudança de parâmetro de linha. Por exemplo, quando há pedido do anfitrião para alterar o estado DTR para **TRUE,** a chamada é invocada, na sua aplicação o utilizador pode verificar os estados da linha através da função IOCTL para o anfitrião kow está pronto para comunicação.
 
-O CDC-ACM baseia-se numa norma USB-IF e é automaticamente reconhecido pelos sistemas operativos MACOs e Linux. Nas plataformas do Windows, esta classe requer um ficheiro .inf para a versão do Windows antes de 10. O Windows 10 não requer ficheiros .inf. Fornecemos um modelo para a classe CDC-ACM e pode ser encontrado no ***diretório usbx_windows_host_files.*** Para a versão mais recente do Windows, o ficheiro CDC_ACM_Template_Win7_64bit.inf deve ser utilizado (exceto Win10). Este ficheiro precisa de ser modificado para refletir o PID/VID utilizado pelo dispositivo. O PID/VID será específico para o cliente final quando a empresa e o produto estiverem registados no USB-IF. No ficheiro inf, os campos a modificar estão localizados aqui.
+O CDC-ACM baseia-se numa norma USB-IF e é automaticamente reconhecido pelos sistemas operativos MACOs e Linux. Nas plataformas Windows, esta classe requer um ficheiro .inf para Windows versão antes de 10. Windows 10 não requer ficheiros .inf. Fornecemos um modelo para a classe CDC-ACM e pode ser encontrado no ***diretório usbx_windows_host_files.*** Para uma versão mais recente de Windows o ficheiro CDC_ACM_Template_Win7_64bit.inf deve ser usado (exceto Win10). Este ficheiro precisa de ser modificado para refletir o PID/VID utilizado pelo dispositivo. O PID/VID será específico para o cliente final quando a empresa e o produto estiverem registados no USB-IF. No ficheiro inf, os campos a modificar estão localizados aqui.
 
 ```INF
 [DeviceList]
@@ -418,7 +424,7 @@ UINT ux_device_class_cdc_acm_ioctl (
     VOID *parameter);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa executar várias chamadas ioctl para a interface cdc acm
 
@@ -470,7 +476,7 @@ UINT ux_device_class_cdc_acm_ioctl (
     VOID *parameter);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa de definir os parâmetros de codificação da linha.
 
@@ -528,7 +534,7 @@ device_class_cdc_acm_ioctl (
     VOID *parameter);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa de obter os parâmetros de codificação da linha.
 
@@ -598,7 +604,7 @@ UINT ux_device_class_cdc_acm_ioctl (
     VOID *parameter);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa de obter os parâmetros do Estado da Linha.
 
@@ -653,7 +659,7 @@ UINT ux_device_class_cdc_acm_ioctl (
     VOID *parameter);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa de obter os parâmetros do Estado da Linha
 
@@ -700,7 +706,7 @@ UINT ux_device_class_cdc_acm_ioctl (
     VOID *parameter);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa de abortar um tubo. Por exemplo, para abortar uma escrita em curso, UX_SLAVE_CLASS_CDC_ACM_ENDPOINT_XMIT deve ser passado como parâmetro.
 
@@ -746,7 +752,7 @@ UINT ux_device_class_cdc_acm_ioctl (
     VOID *parameter);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação quer utilizar a transmissão com retorno.
 
@@ -803,7 +809,7 @@ UINT ux_device_class_cdc_acm_ioctl(
     VOID *parameter);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação quer parar de usar a transmissão com retorno.
 
@@ -843,9 +849,12 @@ UINT ux_device_class_cdc_acm_read(
     ULONG *actual_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa de ser lida a partir do tubo de dados OUT (OUT do anfitrião, IN do dispositivo). Está a bloquear.
+
+> [!Note]
+> Esta função lê dados em massa brutos do hospedeiro, pelo que continua pendente até que o tampão esteja cheio ou o anfitrião termine a transferência por um pacote curto (incluindo pacote de comprimento zero). Para mais detalhes, consulte a secção [**Considerações Gerais para transferência a granel**](#general-considerations-for-bulk-transfer).
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -884,7 +893,7 @@ UINT ux_device_class_cdc_acm_write(
     ULONG *actual_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa de escrever para o tubo de dados IN (IN do anfitrião, OUT do dispositivo). Está a bloquear.
 
@@ -924,7 +933,7 @@ UINT ux_device_class_cdc_acm_write_with_callback(
     ULONG requested_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa de escrever para o tubo de dados IN (IN do anfitrião, OUT do dispositivo). Esta função não bloqueia e a conclusão será feita através de um revés definido em UX_SLAVE_CLASS_CDC_ACM_IOCTL_TRANSMISSION_START.
 
@@ -1086,7 +1095,7 @@ ux_network_driver_init();
 
 A pilha de rede USB precisa de ser ativada apenas uma vez e não é específica da CDCECM, mas é exigida por qualquer classe USB que exija serviços NetX.
 
-A classe CDC-ECM será reconhecida pelos anfitriões MAC OS e Linux. Mas não existe nenhum controlador fornecido pelo Microsoft Windows para reconhecer o CDC-ECM de forma nativa. Alguns produtos comerciais existem para as plataformas do Windows e fornecem o seu próprio ficheiro .inf. Este ficheiro terá de ser modificado da mesma forma que o modelo inf CDC-ACM para corresponder ao PID/VID do dispositivo de rede USB.
+A classe CDC-ECM será reconhecida pelos anfitriões MAC OS e Linux. Mas não há nenhum condutor fornecido pela Microsoft Windows para reconhecer o CDC-ECM de forma nativa. Alguns produtos comerciais existem para Windows plataformas e fornecem o seu próprio ficheiro .inf. Este ficheiro terá de ser modificado da mesma forma que o modelo inf CDC-ACM para corresponder ao PID/VID do dispositivo de rede USB.
 
 ## <a name="usb-device-hid-class"></a>Classe HID dispositivo USB
 
@@ -1170,7 +1179,7 @@ UINT ux_device_class_hid_event_set(
     UX_SLAVE_CLASS_HID_EVENT *hid_event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa enviar um evento HID de volta para o anfitrião. A função não é bloquear, apenas coloca o relatório numa fila circular e regressa à aplicação.
 
@@ -1217,7 +1226,7 @@ UINT hid_callback(
     UX_SLAVE_CLASS_HID_EVENT *hid_event);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando o anfitrião envia um relatório HID para a aplicação.
 

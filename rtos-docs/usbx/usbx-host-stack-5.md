@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: bf5876042e08a59979adcd429917bfc3fbfdbc20
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2e9e2e0286300b3f79f7f9e6ad2d7fab96ba7337
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104828621"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115177750"
 ---
 # <a name="chapter-5---usbx-host-classes-api"></a>Capítulo 5 - Aulas de Anfitrião USBX API
 
@@ -20,7 +20,7 @@ Este capítulo abrange todas as APIs expostas das classes de anfitriões USBX. A
 - Classe HID
 - Classe CDC-ACM
 - Classe CDC-ECM
-- Classe de armazenamento
+- Armazenamento classe
 
 ## <a name="ux_host_class_hid_client_register"></a>ux_host_class_hid_client_register
 
@@ -35,7 +35,7 @@ UINT ux_host_class_hid_client_register(
     (struct UX_HOST_CLASS_HID_CLIENT_COMMAND_STRUCT *));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada para registar um cliente HID na classe HID. A classe HID precisa de encontrar uma correspondência entre um dispositivo HID e um cliente HID antes de solicitar dados deste dispositivo.
 
@@ -80,7 +80,7 @@ UINT ux_host_class_hid_report_callback_register(
     UX_HOST_CLASS_HID_REPORT_CALLBACK *call_back);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada para registar uma chamada da classe HID para o cliente HID quando um relatório é recebido.
 
@@ -125,7 +125,7 @@ Inicie o ponto final periódico para uma instância de classe HID.
 UINT ux_host_class_hid_periodic_report_start(UX_HOST_CLASS_HID *hid);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada para iniciar o ponto final periódico (interromper) para o exemplo da classe HID que está ligada a este cliente HID. A classe HID não pode iniciar o ponto final periódico até que o cliente HID seja ativado e, portanto, cabe ao cliente HID iniciar este ponto final para receber relatórios.
 
@@ -162,7 +162,7 @@ Pare o ponto final periódico para uma instância de classe HID.
 UINT ux_host_class_hid_periodic_report_stop(UX_HOST_CLASS_HID *hid);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada para parar o ponto final periódico (interromper) para o exemplo da classe HID que está ligada a este cliente HID. A classe HID não pode parar o ponto final periódico até que o cliente HID seja desativado, todos os seus recursos libertados e, portanto, cabe ao cliente HID parar este ponto final.
 
@@ -200,7 +200,7 @@ UINT ux_host_class_hid_report_get(
     UX_HOST_CLASS_HID_CLIENT_REPORT *client_report);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada para receber um relatório diretamente do dispositivo sem depender do ponto final periódico. Este relatório provém do ponto final de controlo, mas o seu tratamento é o mesmo que se tratasse do ponto final periódico.
 
@@ -247,7 +247,7 @@ UINT ux_host_class_hid_report_set(
     UX_HOST_CLASS_HID_CLIENT_REPORT *client_report);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada para enviar um relatório diretamente para o dispositivo.
 
@@ -292,7 +292,7 @@ UINT ux_host_class_hid_mouse_buttons_get(
     ULONG *mouse_buttons);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é usada para obter os botões do rato
 
@@ -333,7 +333,7 @@ UINT ux_host_class_hid_mouse_position_get(
     SLONG *mouse_y_position);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é usada para obter a posição do rato em coordenadas x & y.
 
@@ -377,7 +377,7 @@ UINT ux_host_class_hid_keyboard_key_get(
     ULONG *keyboard_state);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada para obter a chave e o estado do teclado.
 
@@ -462,7 +462,7 @@ UINT ux_host_class_hid_keyboard_ioctl(
     ULONG ioctl_function, VOID *parameter);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa uma função de coitl específica para o teclado HID. A chamada está a bloquear e só retorna quando há um erro ou quando o comando está concluído.
 
@@ -605,7 +605,7 @@ UINT ux_host_class_hid_remote_control_usage_get(
     ULONG *value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada para obter os controlos remotos.
 
@@ -682,9 +682,12 @@ UINT ux_host_class_cdc_acm_read(
     ULONG *actual_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função lê-se a partir da interface cdc_acm. A chamada está a bloquear e só regressa quando há um erro ou quando a transferência está completa.
+
+> [!Note]
+> Esta função lê dados em massa brutos do dispositivo, pelo que continua pendente até que o tampão esteja cheio ou o dispositivo termine a transferência por um pacote curto (incluindo pacote de comprimento zero). Para mais detalhes, consulte as [**Considerações Gerais para a Transferência a Granel.**](usbx-device-stack-5.md#general-considerations-for-bulk-transfer)
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -726,7 +729,7 @@ UINT ux_host_class_cdc_acm_write(
     ULONG *actual_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função escreve para a interface cdc_acm. A chamada está a bloquear e só regressa quando há um erro ou quando a transferência está completa.
 
@@ -769,7 +772,7 @@ UINT ux_host_class_cdc_acm_ioctl(
     VOID *parameter);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função desempenha uma função de coitl específica para a interface cdc_acm. A chamada está a bloquear e só retorna quando há um erro ou quando o comando está concluído.
 
@@ -820,7 +823,7 @@ UINT ux_host_class_cdc_acm_reception_start(
     UX_HOST_CLASS_CDC_ACM_RECEPTION *cdc_acm_reception);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função faz com que o USBX leia continuamente os dados do dispositivo em segundo plano. Após a conclusão de cada transação, é invocada a chamada especificada em **cdc_acm_reception** para que a aplicação possa efetuar o tratamento posterior dos dados da transação.
 
@@ -892,7 +895,7 @@ UINT ux_host_class_cdc_acm_reception_stop(
     UX_HOST_CLASS_CDC_ACM_RECEPTION *cdc_acm_reception);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função faz com que o USBX pare a receção de fundo previamente iniciada por **ux_host_class_cdc_acm_reception_start**.
 

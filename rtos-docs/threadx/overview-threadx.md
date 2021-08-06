@@ -7,12 +7,12 @@ ms.date: 6/9/2021
 ms.service: rtos
 ms.topic: overview
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 8c0bec2bb3b699b3a8d39d85eb322f3bbd95515a
-ms.sourcegitcommit: 8b03df42920bdd544fb4195ab818043f6c71969e
+ms.openlocfilehash: 4b6c8df5133f16cf3ed4006c12433ac426453cb5
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114436751"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178209"
 ---
 # <a name="overview-of-azure-rtos-threadx"></a>Visão geral do Azure RTOS ThreadX
 
@@ -36,7 +36,7 @@ Aqui estão algumas características típicas do tamanho Azure RTOS ThreadX.
 
 ## <a name="threadx-execution-speed"></a>Velocidade de execução ThreadX
 
-O Azure RTOS ThreadX consegue um interruptor de contexto submicrosecond nos processadores mais populares e é mais rápido em geral do que outros RTOS comerciais. Além de ser rápido, o Azure RTOS ThreadX também é altamente determinístico. Consegue o mesmo desempenho rápido, quer existam 200 fios prontos, ou apenas um.
+O Azure RTOS ThreadX consegue um interruptor de contexto sub-microsegundo nos processadores mais populares e é mais rápido em geral do que outros RTOS comerciais. Além de ser rápido, o Azure RTOS ThreadX também é altamente determinístico. Consegue o mesmo desempenho rápido, quer existam 200 fios prontos, ou apenas um.
 
 Aqui estão algumas características típicas de desempenho da Azure RTOS ThreadX:
 
@@ -61,7 +61,7 @@ Aqui estão algumas características típicas de desempenho da Azure RTOS Thread
 
 ## <a name="advanced-technology"></a>Tecnologia avançada
 
-A Azure RTOS ThreadX é notável pelo seu agendamento de limiar de pré-edição. Esta funcionalidade é exclusiva da Azure RTOS ThreadX e tem sido alvo de uma extensa investigação académica. Você pode aprender mais com o trabalho [Agendando Fixed-Priority Tarefas com Preemption Threshold](https://www.cs.utah.edu/~regehr/reading/open_papers/preempt_thresh.pdf), por Yun Wang (Universidade de Concordia) e Manas Saksena (Universidade de Pittsburgh).
+A Azure RTOS ThreadX é notável pelo seu agendamento de limiar de pré-edição. Esta funcionalidade é exclusiva da Azure RTOS ThreadX e tem sido alvo de uma extensa investigação académica. Você pode aprender mais com o trabalho [Agendando Fixed-Priority Tarefas com Preemption Threshold](https://ieeexplore.ieee.org/document/811269), por Yun Wang (Universidade de Concordia) e Manas Saksena (Universidade de Pittsburgh).
 
 Principais capacidades da Azure RTOS ThreadX:
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 318e68ab5ab7d841057d65565dfda263597d03e4
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 91377a663dfb605caa33ab019f437f2c3ed1adc7
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826330"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178311"
 ---
 # <a name="chapter-5-guix-studio-screen-designer"></a>Capítulo 5: GUIX Studio Screen Designer
 
@@ -19,13 +19,13 @@ Desenhar ecrãs de aplicações é o principal objetivo do GUIX Studio. O design
 
 ## <a name="creatingconfiguring-projects"></a>Criação/Configuração de Projetos
 
-Criar projetos no GUIX Studio é simples – basta selecionar o botão ***Novo Projeto** _ ou o Projeto de Seleção de _*_Menus, Novo Projeto_*_. Em seguida, o GUIX Studio apresenta o diálogo _ *_Configure Project_** A partir deste diálogo, são especificadas as definições básicas do visor, bem como informações sobre o caminho para onde localizar o código gerado pelo GUIX Studio.
+Criar projetos no GUIX Studio é simples – basta selecionar o botão ***New Project** _ ou a seleção de _*_menus Project, Nova Project_*_. Em seguida, o GUIX Studio apresenta o diálogo _ *_Configure Project_** . A partir deste diálogo, são especificadas as definições básicas do visor, bem como informações sobre o caminho para onde localizar o código gerado pelo GUIX Studio.
 
-Quando um novo projeto é criado, o diálogo do projeto de configuração é apresentado. É aqui que o desenvolvedor especifica o número de ecrãs de hardware disponíveis no alvo e as propriedades de cada ecrã. As propriedades incluem o nome lógico do visor, resolução x/y, profundidade de cor e formato, e outras propriedades do ecrã. O GUIX Studio suporta vários ecrãs no mesmo projeto. Se forem necessários visores adicionais, o campo ***Número de Visualizações** _ deve ser alterado para corresponder ao número de visualizações no dispositivo incorporado. O número máximo de exibições num projeto é de 4. _ *_Figura 21_** mostra o diálogo do Projeto Configure.
+Quando um novo projeto é criado, o diálogo do projeto de configuração é apresentado. É aqui que o desenvolvedor especifica o número de ecrãs de hardware disponíveis no alvo e as propriedades de cada ecrã. As propriedades incluem o nome lógico do visor, resolução x/y, profundidade de cor e formato, e outras propriedades do ecrã. O GUIX Studio suporta vários ecrãs no mesmo projeto. Se forem necessários visores adicionais, o campo ***Número de Visualizações** _ deve ser alterado para corresponder ao número de visualizações no dispositivo incorporado. O número máximo de exibições num projeto é de 4. _ *_Figura 21_** mostra o diálogo configurar Project.
 
 A modificação das definições de projeto e/ou exibição é realizada quer pela opção menu ***Configurar, Project/Display** _ ou selecionando o projeto ou ecrã, clicando à direita e selecionando _*_Configure, Project/Display_*_. Em qualquer dos casos, é apresentado o diálogo _ *_Configure Project_** para facilitar as alterações nas definições e/ou exibição do projeto.
 
-![Screenshot do diálogo do Projeto Configurar.](./media/guix-studio/config_project.png)
+![Screenshot do diálogo de Project configuração.](./media/guix-studio/config_project.png)
 
 **Figura 21**
 
@@ -81,7 +81,7 @@ Os widgets de texto suportam um campo de ID de cadeia, juntamente com estilos de
 
 ## <a name="manipulating-widgets"></a>Manipulação de Widgets
 
-Para manipular um widget, é primeiro deve ser selecionado. Isto é feito clicando diretamente no widget no ***Target View** _ ou selecionando-o na _ *_Project View_** widget tree. Uma vez selecionado, o widget terá um esboço tracejado. Neste estado, pode ser movido simplesmente clicando no widget e arrastando-o para a localização desejada no seu progenitor. Se o widget for um widget de alto nível, arrastar o widget está a definir eficazmente a posição inicial do widget no visor do alvo. É claro que é sempre possível mover ou redimensionar qualquer widget a qualquer momento usando a API GUIX.
+Para manipular um widget, é primeiro deve ser selecionado. Isto é feito clicando diretamente no widget no ***Target View** _ ou selecionando-o na árvore widget _ *_Project View_** . Uma vez selecionado, o widget terá um esboço tracejado. Neste estado, pode ser movido simplesmente clicando no widget e arrastando-o para a localização desejada no seu progenitor. Se o widget for um widget de alto nível, arrastar o widget está a definir eficazmente a posição inicial do widget no visor do alvo. É claro que é sempre possível mover ou redimensionar qualquer widget a qualquer momento usando a API GUIX.
 
 Para redimensionar a altura do widget, posicione o rato na borda superior do widget e aguarde que o ponteiro do rato mude para uma seta para cima para baixo. Neste ponto, a altura do widget pode ser alterada movendo simplesmente o rato enquanto o botão do rato direito está premido. A largura do rato pode ser redimensionada de forma semelhante, posicionando o ponteiro do rato na extremidade esquerda do widget. ***Figura 24** _ mostra o widget "_*_botão_**" redimensionado e movido para a área esquerda/superior da janela dos pais.
 
@@ -117,7 +117,7 @@ Quando copia widgets(s) dentro do Studio, a aplicação Studio faz uma lista dos
 
 Quando o Studio adiciona um recurso ao seu projeto como parte de uma operação de pasta widget, o Studio está realmente adicionando uma ligação ao recurso no caso de recursos de fonte e pixelmap. Esta ligação é gerada a partir do projeto de origem, e receberá mensagens de aviso se esses recursos não forem encontrados em relação à localização do projeto do projeto em que está a colar. As ligações de recursos serão adicionadas ao projeto independentemente, mas pode ser necessário copiar manualmente fontes e ficheiros de imagem para os locais adequados sob a sua nova árvore de projeto para eliminar erros de carregamento de recursos. O estúdio não copia .ttf, .png ou .jpg ficheiros de um local para outro.
 
-A maneira mais fácil de evitar quaisquer problemas a este respeito é manter uma estrutura de diretório consistente entre projetos que você quer partilhar. Se quiser mover as coisas do Projeto A para o Projeto B facilmente, então guarde as imagens e tipos de letra gráficos utilizados por ambos os projetos num sub-directório consistente de cada pasta de projeto.
+A maneira mais fácil de evitar quaisquer problemas a este respeito é manter uma estrutura de diretório consistente entre projetos que você quer partilhar. Se quiser mover as coisas de Project A para Project B facilmente, então guarde as imagens e tipos de letra gráficos utilizados por ambos os projetos num sub-directório consistente de cada pasta de projeto.
 
 ## <a name="changing-z-order"></a>Alteração da Ordem Z
 
@@ -137,7 +137,7 @@ Da mesma forma, os recursos pixelmap são atribuídos ao campo pixelmap "normal"
 
 ## <a name="using-templates"></a>Utilizar modelos
 
-Qualquer ecrã ou coleção de widgets infantis que você desenha no Studio pode ser usado como um modelo para novos ecrãs e novos controlos para crianças. A utilização de um modelo é semelhante à cópia e colagem de um widget, exceto que qualquer coisa derivada de um modelo é automaticamente modificada quando o modelo em que se baseia é modificado. Não está autorizado a modificar as propriedades do widget do modelo ao trabalhar com um ecrã derivado ou com uma instância herdada do modelo. No entanto, quando modifica as propriedades do modelo de qualquer forma, todos os casos que referenciam esse modelo são automaticamente atualizados, uma vez que são derivados desse modelo.
+Qualquer ecrã ou coleção de widgets infantis que você desenha no Studio pode ser usado como um modelo para novos ecrãs e novos controlos para crianças. Pode basear um modelo num widget do tipo Janela, que é o caso de utilização normal, ou qualquer outro tipo de widget. A utilização de um modelo é semelhante à cópia e colagem de um widget, exceto que qualquer coisa derivada de um modelo é automaticamente modificada quando o modelo em que se baseia é modificado. Não está autorizado a modificar as propriedades do widget do modelo ao trabalhar com um ecrã derivado ou com uma instância herdada do modelo. No entanto, quando modifica as propriedades do modelo de qualquer forma, todos os casos que referenciam esse modelo são automaticamente atualizados, uma vez que são derivados desse modelo.
 
 Outra vantagem de usar modelos para itens repetidos é que o ficheiro de especificações gerados pelo Studio será geralmente menor em tamanho do que se recriasse os itens repetidores cada vez que são usados.
 
@@ -167,11 +167,11 @@ Zoom In função ajuda-o a ter uma visão de perto do ecrã alvo.
 
 É capaz de escolher a definição de zoom percentual que deseja em ***Configurar| Vista do alvo| Opção** de menu Zoom _ . A _ *_Tool Bar_** também tem botões para fazer zoom dentro e fora.
 
-## <a name="gridsnap-settings"></a>Definições de grelha/encaixe
+## <a name="gridsnap-settings"></a>Definições de rede/encaixe
 
-As **definições*** Grelha e Definições de Encaixe _ o diálogo contêm algumas definições e opções para grelhar e estalar. _*_A figura 29_*_ mostra o diálogo _*_de definição de grelha e de encaixe_*_ no menu _ *_Congigure| Vista do alvo| A grelha/encaixe_** está selecionada.
+O diálogo ***Grid e Snap Definições** _ contém algumas definições e opções para grelhar e estalar. _*_A figura 29_*_ mostra o diálogo _*_de definição de grelha e de encaixe_*_ no menu _ *_Congigure| Vista do alvo| A grelha/encaixe_** está selecionada.
 
-![Screenshot das definições de grelha e de encaixe.](./media/guix-studio/image63.jpg)
+![Screenshot da Grelha e Definições.](./media/guix-studio/image63.jpg)
 
 **Figura 29**
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 65095e326bc6809eba6e9472e2d74325351354ca
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2b48491e3c601aeb68ecef00fd0f25d93cda6e64
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826414"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115177767"
 ---
 # <a name="appendix-h---guix-build-time-configuration-flags"></a>Apêndice H - GUIX Build-Time Bandeiras de configuração
 
@@ -28,10 +28,6 @@ GX_SYSTEM_TIMER_MS
 TX_TIMER_TICKS_PER_SECOND
 - Predefinição: 100
 - Descrição: Este valor define o número de frequências de interrupção do temporizador TX. Uma vez que o temporizador de intervalo threadx predefinido é de 10 ms, este valor desresídeo para uma frequência de 100-Hz.
-
-GX_SYSTEM_TIMER_TICKS
-- Predefinição: (GX_SYSTEM_TIMER_MS * TX_TIMER_TICKS_PER_SECOND)/1000)
-- Descrição: Este valor define o número de tiques do temporizador RTOS subjacentes por marcação do temporizador GUIX. O valor predefinido é 2, o que significa que o intervalo do temporizador GUIX é de 2 intervalos de interrupção do temporizador ThreadX ou 20 ms por predefinição.
 
 GX_DISABLE_MULTITHREAD_SUPPORT
 - Padrão: Não definido
