@@ -6,12 +6,12 @@ ms.author: kemaxwel
 ms.date: 9/30/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 9f9bfc67c524a77b5bf736407bf2ca372ce98308
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: bd88054d974aabea30b50c6f4e10b4c5df9994db03ab84a4a5d8f9394b4d6ed8
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826293"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785401"
 ---
 # <a name="chapter-9-guix-studio-command-line"></a>Capítulo 9: Linha de Comando do Estúdio GUIX
 
@@ -105,7 +105,7 @@ A opção de especificação, especificar que o estúdio deve produzir um fichei
 ***--project***  
 ```
 
-Opção de nome de pathname do projeto, especifique o projeto exemplo a ser carregado.
+Project opção pathname, especifique o projeto exemplo a carregar.
 
 ```C
 ***-i [pathname]***  

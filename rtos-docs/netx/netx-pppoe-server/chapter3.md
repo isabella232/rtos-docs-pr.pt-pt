@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: d1137fae4dfea428d50e2defed94de6a838b01c6
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: d184fc3c5e6ed74ef25045561b1613e280672f77385fbb13b8e84bccf051b301
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826600"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116782817"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-pppoe-server-services"></a>Capítulo 3 - Descrição dos Serviços de Servidores Azure RTOS NetX PPPoE
 
@@ -58,7 +58,7 @@ UINT nx_pppoe_server_create(NX_PPPOE_SERVER *pppoe_server_ptr,
                             UINT priority);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância ppPoE Server com o controlador de ligação fornecido pelo utilizador para a instância IP netX especificada. Se o controlador de ligação não tiver sido inicializado e ativado, o software de corte PPPoE é responsável por rubricar o controlador de ligação.
 
@@ -111,7 +111,7 @@ Excluir uma instância do Servidor PPPoE
 UINT nx_pppoe_server_delete(NX_PPPOE_SERVER *pppoe_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina a instância do Servidor PPPoE anteriormente criada.
 
@@ -147,7 +147,7 @@ Ativar o serviço PPPoE Server
 UINT nx_pppoe_server_enable(NX_PPPOE_SERVER *pppoe_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite os serviços ppPoE Server.
 
@@ -186,7 +186,7 @@ Desativar o serviço PPPoE Server
 UINT nx_pppoe_server_disable(NX_PPPOE_SERVER *pppoe_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa os serviços ppPoE Server.
 
@@ -231,7 +231,7 @@ UINT nx_pppoe_server_callback_notify_set(
         VOID (* pppoe_discover_notify)(UINT session_index, UCHAR *data))
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define as funções de chamada PPPoE Server notificam as funções.
 
@@ -286,7 +286,7 @@ UINT nx_pppoe_server_ac_name_set(
 );
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função definiu a chamada de função do nome do concentrador de acesso.
 
@@ -330,7 +330,7 @@ UINT nx_pppoe_server_service_name_set(
         UCHAR **service_name, UINT service_name_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o nome de serviço ppPoE Server.
 
@@ -375,7 +375,7 @@ UINT nx_pppoe_server_session_send (NX_PPPOE_SERVER *pppoe_server_ptr,
                 UINT session_index, UCHAR *data_ptr, UINT data_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia quadro PPPoE usando o ID de sessão especificado.
 
@@ -419,7 +419,7 @@ UINT nx_pppoe_server_session_packet_send (
         UINT session_index, NX_PACKET *packet_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia o pacote PPPoE utilizando o ID de sessão especificado.
 
@@ -463,7 +463,7 @@ UINT nx_pppoe_server_session_terminate(
         UINT session_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço termina a sessão PPPoE especificada.
 
@@ -507,7 +507,7 @@ UINT nx_pppoe_server_session_get(NX_PPPOE_SERVER *pppoe_server_ptr,
                                 ULONG *session_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém as informações de sessão PPPoE especificadas, endereço físico do cliente e id de sessão.
 
@@ -549,7 +549,7 @@ Configure o nome de serviço predefinido
 VOID PppInitnd(UINT length, UCHAR *aData);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O software PPPoE exporá esta função para permitir que o software da TTP configuure o 'Nome de Serviço predefinido' que o PPPoE deve utilizar para filtrar os pedidos PADI de entrada. O software PPPoE deve lembrar-se desta informação, e se um pacote PADI for recebido contendo um nome de serviço que corresponda, então deve chamar PppDiscoverReq.
 
@@ -583,7 +583,7 @@ Defina o campo nome de serviço do pacote PADO
 VOID PppDiscoverCnf (UINT length, UCHAR *aData, UINT interfaceHandle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O software PPPoE exporá esta função para permitir que o software da TTP defina o campo nome de serviço do pacote PADO. O software PPPoE não deve enviar o PADO até que o PppDiscoverCnf seja chamado.
 
@@ -624,7 +624,7 @@ Aceitar ou rejeitar a sessão do PPPoE
 VOID PppOpenCnf (UCHAR accept, UINT interfaceHandle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O software PPPoE exporá esta função para permitir que o software da TTP aceite ou rejeite a sessão PPPoE.  Em resposta a isto, a stack PPPoE deve aceitar a ligação e atribuir um número único de PPPoE Session_ID número associado à interfaceHandle.
 
@@ -658,7 +658,7 @@ Fechar uma sessão ppPoE
 VOID PppCloseInd (UINT interfaceHandle, UCHAR *causeCode);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O software PPPoE exporá esta função para permitir que o software da TTP encerre uma sessão ppPoE.
 
@@ -694,7 +694,7 @@ Confirme que o cabo foi libertado.
 VOID PppCloseCnf (UINT interfaceHandle);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O software PPPoE exporá esta função para permitir que o software da TTP confirme que o cabo foi libertado.
 
@@ -728,7 +728,7 @@ VOID PppTransmitDataCnf (UINT interfaceHandle, UCHAR *aData,
                         UINT packet_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O software PPPoE exporá esta função para permitir que um PppTransmitDataReq anterior seja reconhecido.  Implica que o software da TTP está pronto para uma nova moldura de PPP do PPPoE.
 
@@ -765,7 +765,7 @@ Receber dados da transmissão através do Ethernet
 VOID PppReceiveDataInd(UINT interfaceHandle, UINT length, UCHAR *aData);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O software PPPoE irá expor esta função para receber dados para transmissão através do Ethernet
 

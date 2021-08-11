@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: db23aa152b2765ac7cc9be098723fc5df0947484
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 4ebb002bc82d13210acf8db44cafb141d33a1b45fa8710295437e2dd15cbcf22
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826887"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784342"
 ---
 # <a name="chapter-3---functional-components-of-azure-rtos-netx"></a>Capítulo 3 - Componentes funcionais do Azure RTOS NetX
 
@@ -478,7 +478,7 @@ NetX suporta a invalidação de entrada ARP dinâmica automática. ***NX_ARP_EXP
 
 ### <a name="arp-defend"></a>ARP Defender
 
-Quando um pacote de resposta ARP ou ARP é recebido e o remetente tem o mesmo endereço IP, que entra em conflito com o endereço IP deste nó, o NetX envia um pedido de ARP para esse endereço como defesa. Se o pacote ARP de conflito for recebido mais de uma vez em 10 segundos, a NetX não envia mais pacotes de defesa. O intervalo padrão de 10 segundos pode ser redefinido por ***NX_ARP_DEFEND_INTERVAL** _. Este comportamento segue a política especificada em 2.4(c) de RFC5227. Uma vez que o Windows XP ignora o anúncio do ARP como resposta para a sua sonda ARP, o utilizador pode definir _*_NX_ARP_DEFEND_BY_REPLY_**para enviar a resposta ARP como defesa adicional.
+Quando um pacote de resposta ARP ou ARP é recebido e o remetente tem o mesmo endereço IP, que entra em conflito com o endereço IP deste nó, o NetX envia um pedido de ARP para esse endereço como defesa. Se o pacote ARP de conflito for recebido mais de uma vez em 10 segundos, a NetX não envia mais pacotes de defesa. O intervalo padrão de 10 segundos pode ser redefinido por ***NX_ARP_DEFEND_INTERVAL** _. Este comportamento segue a política especificada em 2.4(c) de RFC5227. Uma vez que Windows XP ignora o anúncio da ARP como resposta para a sua sonda ARP, o utilizador pode definir _*_NX_ARP_DEFEND_BY_REPLY_**para enviar a resposta ARP como defesa adicional.
 
 ### <a name="arp-statistics-and-errors"></a>Estatísticas e erros da ARP
 
@@ -776,7 +776,7 @@ O seguinte descreve o formato do cabeçalho TCP:
 
 
 
-| Name | Pouco | Significado                                                     |
+| Name | Bit | Significado                                                     |
 |------|-----|-------------------------------------------------------------|
 | URG  | 21  | Dados urgentes presentes                                         |
 | Rio ACK  | 20  | O número de agradecimento é válido                             |

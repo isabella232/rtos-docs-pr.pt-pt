@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.date: 01/22/2021
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 24b7ff66fb4d060075eb6bc81bed45b3479e18dc
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: be6d9d854ce89140ce749fbeb0364678077337bf19ddc1055d286d0f624e8bd5
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825939"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783463"
 ---
 # <a name="chapter-3--functional-description-of-lwm2m-client"></a>Capítulo 3 Descrição funcional do Cliente LWM2M
 
@@ -49,7 +49,7 @@ typedef VOID \* (NX_LWM2M_CLIENT_SESSION_STATE_CALLBACK)(NX_LWM2M_CLIENT_SESSION
 
 Os seguintes estados são definidos.
 
-| Estado da Sessão &nbsp; | Descrição |
+| Estado da Sessão &nbsp; | Description |
 | --- | --- |
 | **NX_LWM2M_CLIENT_SESSION_INIT** | O estado inicial após a criação da sessão. |
 | **NX_LWM2M_CLIENT_SESSION_BOOTSTRAP_WAITING** | O cliente está à espera da expiração do temporizador 'Hold Off' ou da Bootstrap iniciado pelo servidor. |
@@ -72,7 +72,7 @@ Em caso de erro, a aplicação pode recuperar a causa do erro chamando ***nx_lwm
 
 A aplicação pode aceder aos Objetos do Cliente LWM2M utilizando as funções de gestão de dispositivos locais. São fornecidas as seguintes funções.
 
-| Nome da função &nbsp; | Descrição |
+| Nome da função &nbsp; | Description |
 | --- | --- |
 | ***nx_lwm2m_client_object_read*** | Leia os recursos de uma instância de objeto. |
 | ***nx_lwm2m_client_object_discover*** | Obtenha a lista dos recursos de uma Instância de Objeto.
@@ -89,7 +89,7 @@ Ao ler e escrever para Objetos, um recurso é representado pela estrutura NX_LWM
 
 As seguintes funções são fornecidas para a definição de informações e valor dos recursos.
 
-| Nome da função &nbsp; | Descrição |
+| Nome da função &nbsp; | Description |
 | --- | --- |
 | ***nx_lwm2m_client_resource_info_set*** | Definir informações de recursos: id de recursos e funcionamento: LEIA, WRITE, EXECUTÁVEL. |
 | ***nx_lwm2m_client_resource_string_set*** | Desaprova o valor do recurso como cadeia. |
@@ -105,7 +105,7 @@ As seguintes funções são fornecidas para a definição de informações e val
 
 As seguintes funções são fornecidas para obter informações e valor de recursos.
 
-| Nome da função &nbsp; | Descrição |
+| Nome da função &nbsp; | Description |
 | --- | --- |
 | ***nx_lwm2m_client_resource_info_get*** | Obtenha informações sobre recursos: id de recursos e funcionamento: LEIA, ESCREVa, EXECUTE. |
 | ***nx_lwm2m_client_resource_string_get*** | Obtenha o valor de um recurso de corda. |
@@ -127,7 +127,7 @@ Duas estruturas de dados são usadas para definir um Objeto: a estrutura NX_LWM2
 
 São fornecidas as seguintes funções.
 
-| Nome da função &nbsp; | Descrição |
+| Nome da função &nbsp; | Description |
 | --- | --- |
 | ***nx_lwm2m_client_object_add*** | Adicione a implementação do objeto ao Cliente LwM2M. |
 | ***nx_lwm2m_client_object_remove*** | Remova a implementação do objeto do Cliente LwM2M. |

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b07e275468484ccc905655dcd13197de42b2ac86
-ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
+ms.openlocfilehash: 7c89014c571b2b59279487cd24d5ec9e36019ed4c3ec2b6470b80e150214ebf3
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2021
-ms.locfileid: "110223414"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116786828"
 ---
 # <a name="chapter-4---description-of-guix-services"></a>Capítulo 4 - Descrição dos Serviços GUIX
 
@@ -531,7 +531,7 @@ Este serviço cria um menu de acordeão conforme especificado e anexa o menu de 
 
 Para inserir um item infantil num widget de item de menu, é recomendado usar GX_MENU tipo widget como um item do menu dos pais.
 
-Dicas para criar um menu de acordeão de nível único:
+Sugestões para criar um menu de acordeão de nível único:
 
 1.  Crie um menu de acordeão.
 
@@ -539,7 +539,7 @@ Dicas para criar um menu de acordeão de nível único:
 
 3.  Ligue os widgets das crianças ao GX_MENU tipo de progenitor. O tipo de artigo de criança pode ser qualquer tipo de widget GUIX.
 
-Dicas para criar menu de acordeão de vários níveis:
+Sugestões para criar menu de acordeão de vários níveis:
 
 1.  Crie um menu de acordeão.
 
@@ -18183,7 +18183,7 @@ GX_SINGLE_LINE_TEXT_INPUT é derivado de GX_PROMPT e, portanto, todos os serviç
 - **text_input** Bloco de controlo widget de entrada de texto de linha única
 - **nome** Nome lógico de widget opcional
 - **pai** Widget parental opcional
-- **input_buffer** Armazenamento para cadeia de entrada
+- **input_buffer** Armazenamento para a cadeia de entrada
 - **buffer_size** Tamanho da área de armazenamento de cordas de entrada, em bytes.
 - **estilo** Bandeiras de estilo de entrada de texto
 - **text_input_id** ID opcional do widget de entrada

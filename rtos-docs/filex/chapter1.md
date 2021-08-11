@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: be7e6f9cd9fbc69ac0908d1de733dac1c4f73bf6
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 48fab21d78ede88e84db11a4f30574ce2061d145820b819ec7846203e297f42a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825519"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116782977"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-filex"></a>Capítulo 1 - Introdução ao Azure RTOS FileX
 
@@ -75,7 +75,7 @@ Além disso, a SGS-TÜV Saar certificou o FileX para ser utilizado em aplicaçõ
 
 ### <a name="ul-certification"></a>Certificação UL
 
-O FileX foi certificado pela UL para o cumprimento do anexo H da UL 60730-1, do CSA E60730-1 Anexo H, do IEC 60730-1 Anexo H, do ul 60335-1 anexo R, do IEC 603351 anexo R e das normas de segurança UL 1998 para o software em componentes programáveis. Juntamente com iEC/UL 60730-1, que tem requisitos para "Controlos de Software utilizando" no seu anexo H, a norma IEC 60335-1 descreve os requisitos relativos aos "Circuitos Eletrónicos Programáveis" no seu anexo R. IEC 60730 Anexo H e IEC 60335-1 Anexo R aborda a segurança do hardware e software MCU utilizados em aparelhos como máquinas de lavar roupa, máquinas de lavar louça, secadores, frigoríficos, congeladores, congeladores e fornos.
+O FileX foi certificado pela UL para o cumprimento do anexo H, do anexo CSA E60730-1, do IEC 60730-1, do anexo H, do ul 60335-1, do anexo IEC 603351 do anexo R e do UL 1998 para as normas de segurança para software em componentes programáveis. Juntamente com iEC/UL 60730-1, que tem requisitos para "Controlos de Software utilizando" no seu anexo H, a norma IEC 60335-1 descreve os requisitos relativos aos "Circuitos Eletrónicos Programáveis" no seu anexo R. IEC 60730 Anexo H e IEC 60335-1 Anexo R aborda a segurança do hardware e software MCU utilizados em aparelhos como máquinas de lavar roupa, máquinas de lavar louça, secadores, frigoríficos, congeladores, congeladores e fornos.
 
 ![C RU US 2](./media/user-guide/c-ru-us-logo.png)
 
@@ -110,7 +110,7 @@ Para obter uma lista completa dos serviços da versão 5 do FileX, consulte [o a
 
 ## <a name="exfat-support"></a>suporte exFAT
 
-exFAT (Tabela de Atribuição de Ficheiros alargado) é um sistema de ficheiros concebido pela Microsoft para permitir que o tamanho do ficheiro exceda 2GB, um limite imposto pelos sistemas de ficheiros FAT32. É o sistema de ficheiros predefinido para cartões SD com capacidade superior a 32GB. Os cartões SD ou as unidades flash formatadas com o formato exFAT do FileX são compatíveis com o Windows. exFAT suporta o tamanho do ficheiro até um Exabyte (EB), que é aproximadamente mil milhões de GB.
+exFAT (Tabela de Atribuição de Ficheiros alargado) é um sistema de ficheiros concebido pela Microsoft para permitir que o tamanho do ficheiro exceda 2GB, um limite imposto pelos sistemas de ficheiros FAT32. É o sistema de ficheiros predefinido para cartões SD com capacidade superior a 32GB. Os cartões SD ou as unidades flash formatadas com o formato exFAT do FileX são compatíveis com Windows. exFAT suporta o tamanho do ficheiro até um Exabyte (EB), que é aproximadamente mil milhões de GB.
 
 Os utilizadores que desejem utilizar o exFAT devem recompiler a biblioteca FileX com o símbolo ***FX_ENABLE_EXFAT** _ definido. Ao abrir os meios de comunicação, o FileX deteta o tipo de mídia. Se o meio for formatado com exFAT, o FileX lê e escreve o sistema de ficheiros seguindo a norma exFAT. Para formatar novos meios de comunicação com exFAT, utilize o serviço _*_fx_media_exFAT_format_**. Por predefinição, o exFAT não está ativado.
 

@@ -6,16 +6,16 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: f8868ec770aa8f7f35d2866b99e3eb8f501281a8
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 78b1ec1eea3ec2fcae48c64ad15931f44f34538c876dc8a267c2b1a84234320a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827128"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785707"
 ---
 # <a name="chapter-6-guix-studio-generated-code"></a>Capítulo 6: Código Gerado pelo estúdio GUIX
 
-Quando termina a edição dos seus ecrãs e recursos, o GUIX Studio produz um conjunto de ficheiros de saída que podem ser incorporados na sua aplicação incorporada. Os ficheiros de saída são gerados selecionando ***Gerar Ficheiros de Recursos** _ e _ Gerar *_Especificações_** a partir do item do menu do Projeto. Os ficheiros de código de origem linguística 'c' gerados pelo GUIX Studio destinam-se a ser compilados e ligados ao código fonte de aplicação incorporado. Se for produzido um ficheiro de recurso de formato binário, este ficheiro deve ser programado para uma área de armazenamento não volátil no alvo e a função API GUIX gx_binres_theme_install deve ser utilizada para instalar os recursos binários em tempo de execução.
+Quando termina a edição dos seus ecrãs e recursos, o GUIX Studio produz um conjunto de ficheiros de saída que podem ser incorporados na sua aplicação incorporada. Os ficheiros de saída são gerados selecionando ***Gerar Ficheiros de Recursos** _ e _ Gerar *_Especificações_** a partir do item do menu Project. Os ficheiros de código de origem linguística 'c' gerados pelo GUIX Studio destinam-se a ser compilados e ligados ao código fonte de aplicação incorporado. Se for produzido um ficheiro de recurso de formato binário, este ficheiro deve ser programado para uma área de armazenamento não volátil no alvo e a função API GUIX gx_binres_theme_install deve ser utilizada para instalar os recursos binários em tempo de execução.
 
 O código de aplicação incorporado do utilizador faz referências ao código gerado pelo GUIX Studio. Além disso, o código gerado pelo GUIX Studio espera que todas as funções de desenho de widgets personalizados, manuseamento de eventos e alocação de memória especificadas no projeto sejam definidas no código de aplicação incorporado do utilizador. Caso contrário, estarão presentes erros de ligação na construção da aplicação.
 
@@ -38,7 +38,7 @@ Por exemplo, os ficheiros de recursos criados para o projeto "***simples***" GUI
 
 **simple_resources.c**
 
-Gerar os ficheiros de Recursos é realizado selecionando ***Gerar Ficheiros de Recursos** _ opção na opção menu _*_Projeto._*_ O destino dos ficheiros de recursos é especificado no diálogo _*_do Projeto configurado,_*_ que é acessível através da opção _*_Configure Project/Displays_*_ no item do menu _ *_Configure*_*.
+Gerar os ficheiros de Recursos é realizado selecionando ***Gerar ficheiros de recursos** _ opção na opção _*_menu Project._*_ O destino dos ficheiros de recursos é especificado no diálogo _*_configurar Project,_*_ que é acessível através da opção _*_Configurar Project/Displays_*_ no item do menu _ *_Configure*_*.
 
 Para os recursos pixelmap e Font, pode especificar um nome de ficheiro de saída personalizado para cada pixelmap e fonte nos diálogos de edição de recursos associados. Esta funcionalidade permite-lhe colocar recursos muito grandes em ficheiros distintos, em vez de colocar todos os recursos num ficheiro de saída comum. Se não especificar um nome de ficheiro overridden para um recurso de tipo de letra ou pixelmap, esses recursos são escritos no ficheiro de recursos comuns.
 
@@ -58,7 +58,7 @@ Por exemplo, os ficheiros especificação criados para o projeto "***simples***"
 
 **simple_specifications.c**
 
-Gerar os ficheiros Especificação é realizado selecionando ***Gerar Ficheiros de Especificação** _ opção na opção _*_menu Projeto._*_ O destino dos ficheiros Especificação é especificado no diálogo _*_do Projeto Configurar,_*_ que é acessível através da opção _*_Configure Project/Displays_*_ no item do menu _ *_Configure*_*.
+Gerar os ficheiros Especificação é realizado selecionando ***Gerar ficheiros de especificação** _ opção na opção _*_menu Project._*_ O destino dos ficheiros Especificação é especificado no diálogo _*_configurar Project,_*_ que é acessível através da opção _*_Configurar Project/Displays_*_ no item do menu _ *_Configure*_*.
 
 ## <a name="integrating-with-user-code"></a>Integração com Código do Utilizador
 

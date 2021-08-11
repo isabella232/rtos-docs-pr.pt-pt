@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b90da988a03d59b1bca3f5584164d641bef96454
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: e85aab43ba803212875f1fef3ba0bee8484c25b015e400d3b927d492177202b8
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827205"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784122"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-guix"></a>Capítulo 1 - Introdução ao Azure RTOS GUIX
 
@@ -86,7 +86,7 @@ Ao contrário de muitas outras implementações do GUI, o GUIX foi concebido par
   
   - Rodas de pergaminho numérico e textual
   
-  - Janelas e barras de pergaminho
+  - barras de Windows e pergaminhos
   
   - Barra de Progresso Radial
   

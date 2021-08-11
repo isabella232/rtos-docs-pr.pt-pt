@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: e1bf85d363b07c81f226d494107eae9ba18114a7
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: a88dc75c3b01e8054f72b3e1475791f064eac0ded02b22ccd18dd46da8c7200a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825454"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785044"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-threadx"></a>Capítulo 2 - Instalação e Utilização do Azure RTOS ThreadX
 
@@ -19,7 +19,7 @@ Este capítulo contém uma descrição de vários problemas relacionados com a i
 
 ## <a name="host-considerations"></a>Considerações de Anfitrião
 
-O software incorporado é geralmente desenvolvido em computadores anfitriões Windows ou Linux (Unix). Após a compilação da aplicação, ligada e localizada no anfitrião, é descarregada para o hardware alvo para execução.
+O software incorporado é geralmente desenvolvido em computadores de Windows ou Linux (Unix). Após a compilação da aplicação, ligada e localizada no anfitrião, é descarregada para o hardware alvo para execução.
 
 Normalmente, o download do alvo é feito a partir do depurar da ferramenta de desenvolvimento. Após o download ter terminado, o depurante é responsável por fornecer controlo de execução de alvo (ir, parar, quebrar, etc.) bem como aceder aos registos de memória e processador.
 
@@ -42,7 +42,7 @@ A Azure RTOS ThreadX pode ser obtido a partir do nosso repositório de código d
 
 Segue-se uma lista de vários ficheiros importantes no repositório.
 
-| Nome de arquivo | Descrição |
+| Nome de arquivo | Description |
 |------------------- | ----------- |
 | **tx_api.h**                      | Ficheiro de cabeçalho C contendo todos os equacionares do sistema, estruturas de dados e protótipos de serviço.                                                             |
 | **tx_port.h**                     | Ficheiro de cabeçalho C contendo todas as definições e estruturas específicas de dados de desenvolvimento e de destino.                                                 |
@@ -55,13 +55,13 @@ Segue-se uma lista de vários ficheiros importantes no repositório.
 
 ## <a name="threadx-installation"></a>Instalação ThreadX
 
-A ThreadX é instalada através da clonagem do repositório GitHub à sua máquina local. Segue-se a sintaxe típica para criar um clone do repositório ThreadX no seu PC.
+A ThreadX é instalada clonando o repositório GitHub à sua máquina local. Segue-se a sintaxe típica para criar um clone do repositório ThreadX no seu PC.
 
 ```c
     git clone https://github.com/azure-rtos/threadx
 ```
 
-Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal do GitHub.
+Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal GitHub.
 
 Também encontrará instruções para a construção da biblioteca ThreadX na primeira página do repositório online.
 
@@ -170,7 +170,7 @@ TX_INLINE_THREAD_RESUME_SUSPEND
 
 ### <a name="global-time-source"></a>Fonte global do tempo
 
-Para outros produtos RTOS da Microsoft Azure (FileX, NetX, GUIX, USBX, etc.), a ThreadX define o número de carraças temporais ThreadX que representam um segundo. Outros derivam dos seus requisitos de tempo com base nesta constante. Por predefinição, o valor é de 100, assumindo uma interrupção periódica de 10ms. O utilizador pode sobrepor-se a este valor definindo TX_TIMER_TICKS_PER_SECOND com o valor pretendido em ***tx_port.h*** ou dentro do IDE ou linha de comando.
+Para outros Microsoft Azure produtos RTOS (FileX, NetX, GUIX, USBX, etc.), a ThreadX define o número de carraças de temporizador ThreadX que representam um segundo. Outros derivam dos seus requisitos de tempo com base nesta constante. Por predefinição, o valor é de 100, assumindo uma interrupção periódica de 10ms. O utilizador pode sobrepor-se a este valor definindo TX_TIMER_TICKS_PER_SECOND com o valor pretendido em ***tx_port.h*** ou dentro do IDE ou linha de comando.
 
 ### <a name="detailed-configuration-options"></a>Opções de configuração detalhadas
 

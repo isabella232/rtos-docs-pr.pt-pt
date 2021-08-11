@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: d7b5f94c26842b408ea1b00aeeb78e111bea3623
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 55d2b0ac08bdceebdf286effe4bbc679320541243ff78359deafe0858a7b597e
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827169"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116786477"
 ---
 # <a name="chapter-2-installation-and-use-of-guix-studio"></a>Capítulo 2: Instalação e Utilização do Estúdio GUIX
 
@@ -23,7 +23,7 @@ Pode obter a aplicação GUIX Studio a partir da [Microsoft App Store,](https://
 
 1. A partir da página do ESTÚDIO GUIX na App Store, clique no botão **Get** ou **Install** para descarregar o GUIX Studio.
 
-1. O seu navegador pode apresentar uma mensagem a perguntar se pretende abrir a Microsoft Store, como mostra a figura abaixo. Se o fizer, escolha o botão **Abrir.**
+1. O seu navegador pode apresentar uma mensagem a perguntar se pretende abrir o Microsoft Store, como mostra a figura abaixo. Se o fizer, escolha o botão **Abrir.**
 ![Escolha Abrir para instalar o GUIX Studio.](./media/guix-studio/open-ms-store.png)
 
 1. Quando a instalação terminar, escolha o botão **Iniciar.**
@@ -43,7 +43,7 @@ A utilização do GUIX Studio é fácil - basta executar o ESTÚDIO GUIX atravé
 > [!NOTE]
 > Também pode clicar duas vezes em qualquer ficheiro de projeto guix Studio com uma extensão de "**gxp**", que lançará automaticamente o GUIX Studio e abrirá o projeto referenciado.
 
-## <a name="guix-studio-project-samples"></a>Amostras de projetos do estúdio GUIX
+## <a name="guix-studio-project-samples"></a>Guix Studio Project Samples
 
 Uma série de ficheiros de projeto guix Studio com a extensão "***gxp"**_encontram-se no_ * sub-diretório "_Samples_**" da sua instalação. Estes projetos de exemplo pré-construídos vão ajudá-lo a se sentir confortável com a utilização do GUIX Studio.
 
@@ -55,8 +55,8 @@ Um exemplo de ficheiro de projeto que está sempre presente é o ficheiro ***sam
 
 ## <a name="keyboard-shortcuts"></a>Keyboard Shortcuts
 
-- **Ctrl + N:** Novo Projeto
-- **Ctrl + O:** Projeto Aberto
-- **CTRL + S:** Projeto Salvar
-- **CTRL + Shift + S:** Salvar projeto como
+- **Ctrl + N:** Nova Project
+- **Ctrl + O:** Abrir Project
+- **CTRL + S:** Salvar Project
+- **CTRL + Shift + S:** Salvar Project As
 - **Alt + F4:** Saída

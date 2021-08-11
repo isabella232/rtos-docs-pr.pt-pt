@@ -6,18 +6,18 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b94dad3c5ec94befd57200049138b184461a9b55
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 5da4c12cf3c035e59dcd1abef063d5ae40a657d6fd91bbd29f51cf7d46813154
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827992"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784058"
 ---
 # <a name="chapter-6---demonstration-system-for-azure-rtos-threadx-smp"></a>Capítulo 6 - Sistema de Demonstração para Azure RTOS ThreadX SMP
 
 Este capítulo contém uma descrição do sistema de demonstração que é entregue com todos os pacotes de suporte ao processador Azure RTOS ThreadX SMP. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Cada distribuição de produto ThreadX SMP contém um sistema de demonstração que funciona em todos os microprocessadores suportados.
 

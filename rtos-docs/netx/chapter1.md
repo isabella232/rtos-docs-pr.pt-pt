@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 48be6a7ecddc53b36b3cc1a9ecfb50a11e285881
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 207aaec18f020e8cc3534a9ef55ed338df487fd95b22b5021f691ea63ba62b8b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826893"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116782867"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx"></a>Capítulo 1 - Introdução ao Azure RTOS NetX
 
@@ -55,7 +55,7 @@ Para aplicações antigas, o NetX fornece uma interface de tomada compatível co
 
 O suporte netX de RFCs que descrevem protocolos básicos de rede inclui, mas não se limita aos seguintes protocolos de rede. A NetX segue todas as recomendações gerais e requisitos básicos dentro dos limites de um sistema operativo em tempo real com pequena pegada de memória e execução eficiente.
 
-| RFC      | Descrição                                            |
+| RFC      | Description                                            |
 |----------|--------------------------------------------------------|
 | RFC 1112 | Extensões de anfitrião para Multicasting IP (IGMPv1)           |
 | RFC 1122 | Requisitos para anfitriões de Internet - Camadas de Comunicação |

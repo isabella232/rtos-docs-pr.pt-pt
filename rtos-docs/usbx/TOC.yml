@@ -62,7 +62,7 @@
   items:
     - name: Defender para IoT - RTOS (pré-visualização)
       href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
-- name: Componentes RTOS microsoft Azure
+- name: Microsoft Azure Componentes RTOS
   items:
     - name: Microsoft Azure RTOS
       href: ../index.yml

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 85617aadab7f484a4f4e467fd13f815f4d8b5609
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: d28ca64a6a655bb3f1ad10c563450a0e65b645a1e1a2a464c4137f9a999815bc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827044"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785027"
 ---
 # <a name="chapter-4---description-of-azure-rtos-netx-duo-services"></a>Capítulo 4 - Descrição dos Serviços Azure RTOS NetX Duo
 
@@ -35,7 +35,7 @@ Invalidar todas as entradas dinâmicas na cache ARP
 UINT nx_arp_dynamic_entries_invalidate(NX_IP *ip_ptr);
 ```
 
-### <a name="description"></a>Descrição   
+### <a name="description"></a>Description   
 Este serviço invalida todas as entradas dinâmicas de ARP atualmente na cache ARP.
 
 ### <a name="parameters"></a>Parâmetros
@@ -95,7 +95,7 @@ UINT nx_arp_dynamic_entry_set(
     ULONG physical_lsw);  
 ```
 
-### <a name="description"></a>Descrição    
+### <a name="description"></a>Description    
 Este serviço atribui uma entrada dinâmica a partir da cache ARP e configura o IP especificado para o mapeamento de endereço físico. Se for especificado um endereço físico zero, é enviado um pedido real de ARP para a rede, a fim de ter o endereço físico resolvido. Note também que esta entrada será removida se o envelhecimento ARP estiver ativo ou se a cache ARP estiver esgotada e esta é a entrada ARP menos usada recentemente.
 
 ### <a name="parameters"></a>Parâmetros
@@ -162,7 +162,7 @@ UINT nx_arp_enable(
     ULONG arp_cache_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa o componente ARP da NetX Duo para a instância IP específica. A inicialização do ARP inclui a configuração da cache ARP e várias rotinas de processamento ARP necessárias para o envio e receção de mensagens ARP.
 
@@ -224,7 +224,7 @@ UINT nx_arp_entry_delete(
     NX_IP *ip_ptr, 
     ULONG ip_address);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove uma entrada ARP para o endereço IP dado da sua tabela ARP interna IP.
 
@@ -285,7 +285,7 @@ UINT nx_arp_gratuitous_send(
     NX_IP *ip_ptr,
     VOID (*response_handler)(NX_IP *ip_ptr, NX_PACKET *packet_ptr));
 ```                               
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço passa por todas as interfaces físicas para transmitir pedidos ARP gratuitos, desde que o endereço IP da interface seja válido. Se uma resposta ARP for posteriormente recebida, o manipulador de resposta fornecido é chamado para processar a resposta ao ARP gratuito.
 
@@ -351,7 +351,7 @@ UINT nx_arp_hardware_address_find(
     ULONG *physical_msw,
     ULONG *physical_lsw);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta encontrar um endereço de hardware físico na cache ARP que esteja associado ao endereço IP fornecido.
 
@@ -428,7 +428,7 @@ UINT nx_arp_info_get(
     ULONG *arp_invalid_messages);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre as atividades ARP para a instância IP associada.
 
@@ -508,7 +508,7 @@ UINT nx_arp_ip_address_find(
     ULONG physical_msw, 
     ULONG physical_lsw);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta encontrar um endereço IP na cache ARP que esteja associado ao endereço físico fornecido.
 
@@ -574,7 +574,7 @@ Eliminar todas as entradas estáticas de ARP
 UINT nx_arp_static_entries_delete(NX_IP *ip_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina todas as entradas estáticas na cache ARP.
 
@@ -637,7 +637,7 @@ UINT nx_arp_static_entry_create(
     ULONG physical_msw,
     ULONG physical_lsw);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um mapeamento de endereço ip-físico estático na cache ARP para a instância IP especificada. As entradas ARP estáticas não estão sujeitas a atualizações periódicas ARP.
 
@@ -708,7 +708,7 @@ UINT nx_arp_static_entry_delete(
     ULONG physical_msw,
     ULONG physical_lsw);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço encontra e elimina um mapeamento de endereço ip-físico previamente criado na cache ARP para a instância IP especificada.
 
@@ -774,7 +774,7 @@ Ativar o Protocolo de Mensagens de Controlo de Internet (ICMP)
 ```c
 UINT nx_icmp_enable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite o componente ICMP para a instância IP especificada. O componente ICMP é responsável pelo tratamento de mensagens de erro da Internet e pedidos e respostas de ping. 
 
@@ -832,7 +832,7 @@ UINT nx_icmp_info_get(
     ULONG *icmp_checksum_errors,
     ULONG *icmp_unhandled_messages);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre as atividades do ICMP para a instância IP especificada.
 
@@ -898,7 +898,7 @@ UINT nx_icmp_ping(
     NX_PACKET **response_ptr,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pedido de ping para o endereço IP especificado e aguarda o tempo especificado para uma mensagem de resposta a ping. Se não for recebida qualquer resposta, um erro é devolvido. Caso contrário, toda a mensagem de resposta é devolvida na variável apontada por response_ptr. 
 
@@ -972,7 +972,7 @@ Ativar o Protocolo de Gestão do Grupo de Internet (IGMP)
 ```c
 UINT nx_igmp_enable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite o componente IGMP na instância IP especificada. A componente IGMP é responsável por fornecer suporte para operações de gestão de grupos multicast IP.
 
@@ -1030,7 +1030,7 @@ UINT nx_igmp_info_get(
     ULONG *igmp_checksum_errors,
     ULONG *current_groups_joined);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre as atividades do IGMP para a instância IP especificada.
 
@@ -1094,7 +1094,7 @@ Desativar o loopback IGMP
 ```c
 UINT nx_igmp_loopback_disable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa o loopback IGMP para todos os grupos multicasts subsequentes.
 
@@ -1148,7 +1148,7 @@ Ativar o loopback IGMP
 ```c
 UINT nx_igmp_loopback_enable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite o loopback IGMP para todos os grupos multicasts subsequentes.
 
@@ -1204,7 +1204,7 @@ UINT nx_igmp_multicast_interface_join(
     ULONG group_address,
     UINT interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço junta-se a uma instância IP ao grupo multicast especificado através de uma interface de rede especificada. Mantém-se um contador interno para acompanhar o número de vezes que o mesmo grupo foi acompanhado. Depois de se juntar ao grupo multicast, o componente IGMP permitirá a receção de pacotes IP com este endereço de grupo através da interface de rede especificada e também reportará aos routers que este IP é membro deste grupo multicast. A adesão ao IGMP junta-se, reporta e deixa as mensagens também são enviadas através da interface de rede especificada. Para aderir a um grupo multicast IPv4 sem enviar o relatório de adesão ao grupo IGMP, a aplicação utilizará o serviço ***nx_ipv4_multicast_interface_join***.
 
@@ -1270,7 +1270,7 @@ UINT nx_igmp_multicast_interface_leave(
     ULONG group_address,
     UINT interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço deixa o grupo multicast especificado através de uma interface de rede especificada. Mantém-se um contador interno para acompanhar o número de vezes que o mesmo grupo tem sido membro. Após deixar o grupo multicast, o componente IGMP enviará o relatório de adesão adequado, e poderá sair do grupo se não houver membros deste nó. Para deixar um grupo multicast IPv4 sem enviar o relatório de adesão ao grupo IGMP, o pedido deve utilizar o serviço ***nx_ipv4_multicast_interface_leave***.
 
@@ -1333,7 +1333,7 @@ UINT nx_igmp_multicast_join(
     NX_IP *ip_ptr, 
     ULONG group_address);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço junta-se a uma instância IP ao grupo multicast especificado. Mantém-se um contador interno para acompanhar o número de vezes que o mesmo grupo foi acompanhado. O condutor é ordenado a enviar um relatório IGMP se este for o primeiro pedido de junção na rede indicando a intenção do anfitrião de se juntar ao grupo. Após a adesão, o componente IGMP permitirá a receção de pacotes IP com este endereço de grupo e informará aos routers que este IP é membro deste grupo multicast. Para aderir a um grupo multicast IPv4 sem enviar o relatório de adesão ao grupo IGMP, a aplicação utilizará o serviço ***nx_ipv4_multicast_interface_join***.
 
@@ -1397,7 +1397,7 @@ UINT nx_igmp_multicast_leave(
     NX_IP *ip_ptr, 
     ULONG group_address);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço faz com que uma instância IP saia do grupo multicast especificado, se o número de equestres de licença corresponder ao número de pedidos de aderi. Caso contrário, a contagem interna de juntas é simplesmente decrementeda. Para deixar um grupo multicast IPv4 sem enviar o relatório de adesão ao grupo IGMP, o pedido deve utilizar o serviço ***nx_ipv4_multicast_interface_leave***.
 
@@ -1458,7 +1458,7 @@ UINT nx_ip_address_change_notify(
     VOID(*change_notify)(NX_IP *, VOID *),
     VOID *additional_info);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma função de notificação de aplicação que é chamada sempre que o endereço IPv4 é alterado.
 
@@ -1530,7 +1530,7 @@ UINT nx_ip_address_get(
     ULONG *ip_address,
     ULONG *network_mask);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço IPv4 e a sua máscara de sub-rede da interface de rede primária.
 
@@ -1604,7 +1604,7 @@ UINT nx_ip_address_set(
     ULONG ip_address,
     ULONG network_mask);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o endereço IPv4 e a máscara de rede para a interface de rede primária.
 
@@ -1679,7 +1679,7 @@ UINT nx_ip_auxiliary_packet_pool_set(
     NX_IP *ip_ptr,
     NX_PACKET_POOL *aux_pool);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura uma piscina de pacotes auxiliares na instância IP. Para um sistema limitado à memória, o utilizador pode aumentar a eficiência da memória criando o conjunto de pacotes predefinidos com o tamanho do pacote de MTU, e criando uma piscina de pacotes auxiliares com tamanho de pacote menor para o fio IP para transmitir pequenos pacotes com. O tamanho recomendado do pacote para a piscina auxiliar é de 256 bytes, assumindo que o IPv6 e o IPsec estão ambos ativados.
 
@@ -1751,7 +1751,7 @@ UINT nx_ip_create(
     ULONG memory_size,
     UINT priority);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância IP com o endereço IP fornecido pelo utilizador e o controlador de rede. Além disso, a aplicação deve fornecer um conjunto de pacotes previamente criado para a instância IP para usar para a atribuição interna de pacotes. Note que o controlador de rede de aplicações fornecido não é chamado até que o fio deste IP seja executado.
 
@@ -1834,7 +1834,7 @@ Eliminar instância IP previamente criada
 ```c
 UINT nx_ip_delete(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância IP previamente criada e liberta todos os recursos do sistema detidos pela instância IP.
 
@@ -1855,7 +1855,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -1903,7 +1903,7 @@ UINT nx_ip_driver_direct_command
     UINT command,
     ULONG *return_value_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço fornece uma interface direta ao controlador de interface de rede primária da aplicação especificado durante a ***chamada nx_ip_create.*** Os comandos específicos da aplicação podem ser utilizados desde que o seu valor numérico seja superior ou igual a NX_LINK_USER_COMMAND.
 
@@ -1991,7 +1991,7 @@ UINT nx_ip_driver_interface_direct_command(
     UINT interface_index,
     ULONG *return_value_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço fornece um comando direto ao controlador de dispositivo de rede da aplicação na instância IP. Os comandos específicos da aplicação podem ser utilizados desde que o seu valor numérico seja superior ou igual a *NX_LINK_USER_COMMAND*.
 
@@ -2079,7 +2079,7 @@ Desativar o encaminhamento do pacote IP
 ```c
 UINT nx_ip_forwarding_disable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa o encaminhamento de pacotes IP dentro do componente IP NetX Duo. Na criação da tarefa IP, este serviço é automaticamente desativado.
 
@@ -2144,7 +2144,7 @@ Ativar o encaminhamento de pacotes IP
 ```c
 UINT nx_ip_forwarding_enable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite reencaminhar pacotes IP dentro do componente NetX Duo IP. Na criação da tarefa IP, este serviço é automaticamente desativado.
 
@@ -2209,7 +2209,7 @@ Desativar a fragmentação do pacote IP
 ```c
 UINT nx_ip_fragment_disable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa a fragmentação e a funcionalidade de fragmentação e remontagem do pacote IPv4 e IPv6. Para pacotes à espera de serem remontados, este serviço liberta estes pacotes. Na criação da tarefa IP, este serviço é automaticamente desativado.
 
@@ -2276,7 +2276,7 @@ Ativar a fragmentação do pacote IP
 ```c
 UINT nx_ip_fragment_enable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite a fragmentação e montagem de pacotes IPv4 e IPv6. Na criação da tarefa IP, este serviço é automaticamente desativado.
 
@@ -2342,7 +2342,7 @@ Limpe o endereço de gateway IPv4
 ```c
 UINT nx_ip_gateway_address_clear(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço limpa o endereço de gateway IPv4 configurado no caso. Para limpar um IPv6 por defeito fora da instância IP, as aplicações devem utilizar o serviço ***nxd_ipv6_default_router_delete.***
 
@@ -2387,7 +2387,7 @@ UINT nx_ip_gateway_address_get(
     NX_IP *ip_ptr, 
     ULONG *ip_address);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço de gateway IPv4 configurado na instância IP.
 
@@ -2445,7 +2445,7 @@ UINT nx_ip_gateway_address_set(
     NX_IP *ip_ptr, 
     ULONG ip_address);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o endereço IP do gateway IPv4. Todo o tráfego fora da rede é encaminhado para este portal de transmissão. O gateway deve estar diretamente acessível através de uma das interfaces de rede. Para configurar o endereço de gateway IPv6, utilize o nxd_ipv6_default_router_add de ***serviço.*** 
 
@@ -2511,7 +2511,7 @@ UINT nx_ip_info_get(
     ULONG *ip_total_fragments_sent,
     ULONG *ip_total_fragments_received);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre as atividades IP para a instância IP especificada.
 
@@ -2603,7 +2603,7 @@ UINT nx_ip_interface_address_get (
     ULONG *ip_address,
     ULONG *network_mask);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço IPv4 de uma interface de rede especificada. Para recuperar o endereço IPv6, a aplicação deve utilizar o serviço ***nxd_ipv6_address_get***
 
@@ -2672,7 +2672,7 @@ UINT nx_ip_interface_address_mapping_configure(
     UINT interface_index,
     UINT mapping_needed);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura se o endereço IP para mapeamento de endereço MAC é necessário para a interface de rede especificada. Este serviço é normalmente chamado do controlador do dispositivo de interface para notificar a pilha IP se a interface subjacente requer endereço IP para o mapeamento de endereços de camada dois (MAC).
 
@@ -2739,7 +2739,7 @@ UINT nx_ip_interface_address_set(
     ULONG ip_address,
     ULONG network_mask);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o endereço IPv4 e a máscara de rede para a interface IP especificada. Para configurar o endereço de interface IPv6, a aplicação deve utilizar o serviço ***nxd_ipv6_address_set***. 
  
@@ -2811,7 +2811,7 @@ UINT nx_ip_interface_attach(
     ULONG network_mask,
     VOID(*ip_link_driver)(struct NX_IP_DRIVER_STRUCT *));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma interface de rede física à interface IP. Note que a instância IP é criada com a interface primária para que cada interface adicional seja secundária à interface primária. O número total de interfaces de rede anexas à instância IP (incluindo a interface primária) não pode exceder **NX_MAX_PHYSICAL_INTERFACES**.
 
@@ -2886,7 +2886,7 @@ UINT nx_ip_interface_capability_get(
     UINT interface_index,
     ULONG *interface_capability_flag);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a bandeira de capacidade da interface de rede especificada. Para utilizar este serviço, a biblioteca NetX Duo deve ser construída com a opção ***NX_ENABLE_INTERFACE_CAPABILITY*** ativada.
 
@@ -2952,7 +2952,7 @@ UINT nx_ip_interface_capability_set(
     UINT interface_index,
     ULONG interface_capability_flag);
 ```                           
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é utilizado pelo controlador do dispositivo de rede para configurar a bandeira de capacidade para uma interface de rede especificada. Para utilizar este serviço, a biblioteca NetX Duo deve ser compilada com a opção ***NX_ENABLE_INTERFACE_CAPABILITY*** definida.
 
@@ -3020,7 +3020,7 @@ UINT nx_ip_interface_address_set(
     NX_IP *ip_ptr, 
     UINT index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço destaca a interface IP especificada da instância IP. Uma vez que uma interface é separada, todas as tomadas TCP conectadas fechadas, e cache ND e entradas ARP para esta interface são removidas das respetivas tabelas. As adesões IGMP para esta interface são removidas.
 
@@ -3086,7 +3086,7 @@ UINT nx_ip_interface_info_get(
     ULONG *physical_address_msw,
     ULONG *physical_address_lsw);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre os parâmetros de rede para a interface de rede especificada. Todos os dados são recuperados por encomenda de byte de anfitrião. 
 
@@ -3161,7 +3161,7 @@ UINT nx_ip_interface_mtu_set(
     UINT interface_index,
     ULONG mtu_size);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é utilizado pelo controlador do dispositivo para configurar o valor IP MTU para a interface de rede especificada.
 
@@ -3225,7 +3225,7 @@ UINT nx_ip_interface_physical_address_get(
     ULONG *physical_msw,
     ULONG *physical_lsw);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço físico de uma interface de rede a partir da instância IP.
 
@@ -3295,7 +3295,7 @@ UINT nx_ip_interface_physical_address_set(
     ULONG physical_lsw,
     UINT update_driver);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é utilizado pela aplicação ou pelo controlador do dispositivo para configurar o endereço físico do endereço MAC da interface de rede especificada. O novo endereço MAC é aplicado no bloco de controlo da estrutura da interface. Se a bandeira ***update_driver*** estiver definida, é emitido um comando ao nível do condutor para que o controlador do dispositivo possa atualizar o seu endereço MAC programado no controlador Ethernet.
 
@@ -3371,7 +3371,7 @@ UINT nx_ip_interface_status_check(
     ULONG *actual_status,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço verifica e aguarda opcionalmente o estado especificado da interface de rede de uma instância IP previamente criada.
 
@@ -3446,7 +3446,7 @@ UINT nx_ip_link_status_change_notify_set(
     NX_IP *ip_ptr,
     VOID(*link_status_change_notify)(NX_IP *ip_ptr, UINT interface_index, UINT link_up));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura a alteração do estado de ligação notifica a função de retorno de chamada. A rotina *de link_status_change_notify* fornecida pelo utilizador é invocada quando o estado da interface primária ou secundária é alterado (por exemplo, o endereço IP é alterado.) Se *link_status_change_notify* é NU, a alteração do estado de ligação notifica a função de chamada de chamada.
 
@@ -3511,7 +3511,7 @@ UINT nx_ip_max_payload_size_find(
     ULONG *start_offset_ptr,
     ULONG *payload_length_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço encontra o tamanho máximo da carga útil da aplicação que não exigirá a fragmentação ip para chegar ao destino; por exemplo, a carga útil está no tamanho mtu da interface local ou abaixo. (ou o valor do Caminho MTU obtido através da descoberta do IPv6 Path MTU). O cabeçalho IP e o tamanho superior do cabeçalho de aplicação (TCP ou UDP) são subtraídos da carga total. Se a Política de Segurança NetX Duo IPsec se aplicar a este ponto final, os cabeçalhos IPsec (ESP/AH) e as despesas gerais associadas, como o Vetor Inicial, também são subtraídos do MTU. Este serviço é aplicável tanto para os pacotes IPv4 como IPv6.
 
@@ -3609,7 +3609,7 @@ Desativar o envio/receção de pacotes brutos
 ```c
 UINT nx_ip_raw_packet_disable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa a transmissão e receção de pacotes IP crus para este caso IP. Se o serviço de pacotes brutos foi previamente ativado, e existem pacotes crus na fila de receção, este serviço libertará quaisquer pacotes crus recebidos.
 
@@ -3658,7 +3658,7 @@ Permitir o processamento de pacotes crus
 ```c
 UINT nx_ip_raw_packet_enable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite a transmissão e receção de pacotes IP crus para este caso IP. Os pacotes de TCP, UDP, ICMP e IGMP ainda são processados pela NetX Duo. Pacotes com tipos de protocolo de camada superior desconhecida são processados pela rotina de receção de pacotes crus.
 
@@ -3710,7 +3710,7 @@ UINT nx_ip_raw_packet_filter_set(
     NX_IP *ip_ptr,
     UINT (*raw_packet_filter)(NX_IP *, ULONG, NX_PACKET *));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura o filtro de pacotes crus IP. A função de filtro de pacotes brutos, implementada pela aplicação do utilizador, permite que uma aplicação receba pacotes crus com base em critérios fornecidos pelo utilizador. Note que a camada de invólucro BSD NetX Duo utiliza a função de filtro de pacote cru para manusear a tomada crua na camada BSD. Para utilizar este serviço, a biblioteca NetX Duo deve ser construída com a opção ***NX_ENABLE_IP_RAW_PACKET_FILTER*** definida.
 
@@ -3781,7 +3781,7 @@ UINT nx_ip_raw_packet_receive(
     NX_PACKET **packet_ptr,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recebe um pacote IP cru a partir da instância IP especificada. Se houver pacotes IP na fila de receção de pacotes brutos, o primeiro pacote (mais antigo) é devolvido ao chamador. Caso contrário, se não houver pacotes disponíveis, o chamador pode suspender conforme especificado pela opção de espera.
 
@@ -3847,7 +3847,7 @@ UINT nx_ip_raw_packet_send(
     ULONG destination_ip,
     ULONG type_of_service);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pacote IPv4 cru para o endereço IP destino. Note que esta rotina retorna imediatamente, pelo que não se sabe se o pacote IP foi efetivamente enviado. O controlador de rede será responsável pela libertação do pacote quando a transmissão estiver completa.
 
@@ -3925,7 +3925,7 @@ UINT nx_ip_raw_packet_source_send(
     UINT address_index,
     ULONG type_of_service);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pacote IP bruto para o endereço IP de destino usando o endereço IPv4 local especificado como endereço de origem, e através da interface de rede associada. Note que esta rotina retorna imediatamente, e não é, portanto, conhecido se o pacote IP foi realmente enviado. O controlador de rede será responsável pela libertação do pacote quando a transmissão estiver completa. Este serviço difere de outros serviços na medida em que não há forma de saber se o pacote foi realmente enviado. Pode perder-se na Internet.
 
@@ -3999,7 +3999,7 @@ UINT nx_ip_raw_receive_queue_max_set(
     NX_IP *ip_ptr, 
     ULONG queue_max);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura a profundidade máxima da fila de receção de pacotes ip crus. Note que a fila de receção de pacotes ip cru é partilhada com pacotes IPv4 e IPv6. Quando a fila de receção do pacote bruto atinge a profundidade máxima configurada pelo utilizador, os pacotes crus recentemente recebidos são largados. O pacote ip bruto predefinido receber profundidade de fila é de 20.
 
@@ -4057,7 +4057,7 @@ UINT nx_ip_static_route_add(
     ULONG net_mask,
     ULONG next_hop);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma entrada na tabela de encaminhamento estático. Note que o endereço *next_hop* deve estar diretamente acessível a partir de um dos dispositivos de rede locais.
 
@@ -4124,7 +4124,7 @@ UINT nx_ip_static_route_delete(
     ULONG network_address,
     ULONG net_mask);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma entrada da tabela de encaminhamento estático.
 
@@ -4190,7 +4190,7 @@ UINT nx_ip_status_check(
     ULONG *actual_status,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço verifica e aguarda opcionalmente o estado especificado da interface de rede primária de uma instância IP previamente criada. Para obter o estatuto nas interfaces secundárias, as aplicações utilizarão o ***serviço nx_ip_interface_status_check.***
 
@@ -4277,7 +4277,7 @@ UINT nx_ipv4_multicast_interface_join(
     ULONG group_address,
     UINT interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço junta-se a uma instância IP ao grupo multicast especificado através de uma interface de rede especificada. Uma vez que a instância IP se junta a um grupo multicast, a lógica de receção IP começa a encaminhar pacotes de dados do grupo dar grupo multicast para a camada superior. Note que este serviço se junta a um grupo multicast sem enviar relatórios IGMP.
 
@@ -4343,7 +4343,7 @@ UINT nx_ipv4_multicast_interface_leave(
     ULONG group_address,
     UINT interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço deixa o grupo multicast especificado através de uma interface de rede especificada. Depois de sair do grupo, este serviço não desencadeia a geração de mensagens IGMP.
 
@@ -4408,7 +4408,7 @@ UINT nx_packet_allocate(
     ULONG packet_type,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui um pacote da piscina especificada e ajusta o ponteiro pré-final no pacote de acordo com o tipo de pacote especificado. Se não houver pacote disponível, o serviço suspende de acordo com a opção de espera fornecida.
 
@@ -4479,7 +4479,7 @@ UINT nx_packet_copy(
     NX_PACKET_POOL *pool_ptr,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço copia as informações no pacote fornecido a um ou mais novos pacotes que são atribuídos a partir da piscina de pacotes fornecidos. Se for bem sucedido, o ponteiro para o novo pacote é devolvido no destino apontado por **new_packet_ptr**.
 
@@ -4551,7 +4551,7 @@ UINT nx_packet_data_append(
     NX_PACKET_POOL *pool_ptr,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço anexa dados ao final do pacote especificado. A área de dados fornecida é copiada para o pacote. Se não houver memória suficiente disponível e a função de pacote acorrentado estiver ativada, um ou mais pacotes serão atribuídos para satisfazer o pedido. Se a função de pacote acorrentado não estiver ativada, *NX_SIZE_ERROR* é devolvida.
 
@@ -4624,7 +4624,7 @@ UINT nx_packet_data_extract_offset(
     ULONG buffer_length,
     ULONG *bytes_copied);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço copia dados de um pacote NetX Duo (ou cadeia de pacotes) a partir da compensação especificada a partir do ponteiro pré-final do pacote do tamanho especificado em bytes no tampão especificado. O número de bytes copiados é devolvido em *bytes_copied.* Este serviço não remove dados do pacote, nem ajusta o ponteiro pré-conjunto ou outras informações internas do estado.
 
@@ -4684,7 +4684,7 @@ UINT nx_packet_data_retrieve(
     VOID *buffer_start,
     ULONG *bytes_copied);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço copia os dados do pacote fornecido no tampão fornecido. O número real de bytes copiados é devolvido no destino apontado por **bytes_copied**.
 
@@ -4750,7 +4750,7 @@ UINT nx_packet_length_get(
     NX_PACKET *packet_ptr, 
     ULONG *length);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém o comprimento dos dados no pacote especificado.
 
@@ -4808,7 +4808,7 @@ UINT nx_packet_pool_create(
     VOID *memory_ptr,
     ULONG memory_size);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um conjunto de pacotes do tamanho especificado do pacote na área de memória fornecida pelo utilizador.
 
@@ -4869,7 +4869,7 @@ Eliminar piscina de pacotes previamente criada
 ```c
 UINT  nx_packet_pool_delete(NX_PACKET_POOL *pool_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina um pacote de pacotes previamente criado. NetX Duo verifica quaisquer fios atualmente suspensos em pacotes na piscina de pacotes e limpa a suspensão.
 
@@ -4889,7 +4889,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -4930,7 +4930,7 @@ UINT nx_packet_pool_info_get(
     ULONG *empty_pool_suspensions,
     ULONG *invalid_packet_releases);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre a piscina de pacotes especificado.
 
@@ -4999,7 +4999,7 @@ UINT nx_packet_pool_low_watermark_set(
     NX_PACKET_POOL *pool_ptr,
     ULONG low_watermark);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura a marca de água baixa para a piscina de pacotes especificado. Uma vez definido o baixo valor da marca de água, o TCP ou a UDP não fazem fila dos pacotes recebidos se o número de pacotes disponíveis na piscina for inferior à marca de água baixa da piscina, impedindo que a piscina do pacote seja esfomeada de pacotes. Este serviço está disponível se a biblioteca NetX Duo for construída com a opção ***NX_ENABLE_LOW_WATERMARK*** definida.
 
@@ -5055,7 +5055,7 @@ Liberação pacote previamente atribuído
 ```c
 UINT nx_packet_release(NX_PACKET *packet_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta um pacote, incluindo quaisquer pacotes adicionais acorrentados ao pacote especificado. Se outro fio for bloqueado na atribuição do pacote, é dado o pacote e retomado.
 
@@ -5079,7 +5079,7 @@ Inicialização, fios, temporizadores e ISRs (controladores de rede de aplicaç�
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -5113,7 +5113,7 @@ Liberte um pacote transmitido
 ```c
 UINT nx_packet_transmit_release(NX_PACKET *packet_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Para pacotes não TCP, este serviço liberta um pacote transmitido, incluindo quaisquer pacotes adicionais acorrentados ao pacote especificado. Se outro fio for bloqueado na atribuição do pacote, é dado o pacote e retomado. Para um pacote TCP transmitido, o pacote é marcado como sendo transmitido, mas não libertado até que o pacote seja reconhecido. Este serviço é normalmente chamado do controlador de rede da aplicação após a transmissão de um pacote.
 
@@ -5137,7 +5137,7 @@ Inicialização, fios, temporizadores, controladores de rede de aplicações (in
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -5173,7 +5173,7 @@ Desativar o Protocolo de Resolução de Endereços Reversos (RARP)
 UINT nx_rarp_disable(NX_IP *ip_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa o componente RARP do NetX Duo para a instância IP específica. Para um sistema multihome, este serviço desativa o RARP em todas as interfaces.
 
@@ -5217,7 +5217,7 @@ Ativar o Protocolo de Resolução de Endereços Reversos (RARP)
 ```c
 UINT nx_rarp_enable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite o componente RARP do NetX Duo para a instância IP específica. Os componentes RARP procuram através de todas as interfaces de rede anexas para um endereço IP zero. Um endereço IP zero indica que a interface ainda não tem a atribuição de endereço IP. A RARP tenta resolver o endereço IP, permitindo o processo RARP nessa interface.
 
@@ -5267,7 +5267,7 @@ UINT nx_rarp_info_get(
     ULONG *rarp_responses_received,
     ULONG *rarp_invalid_messages);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre as atividades da RARP para a instância IP especificada.
 
@@ -5321,7 +5321,7 @@ Inicialize o Sistema NetX Duo
 ```c
 VOID nx_system_initialize(VOID);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa os recursos básicos do sistema NetX Duo em preparação para utilização. Deve ser chamado pela aplicação durante a inicialização e antes de qualquer outra chamada NetX Duo ser feita.
 
@@ -5331,7 +5331,7 @@ Nenhum
 
 ### <a name="return-values"></a>Valores de devolução
 
-Nenhum
+Nenhuma
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -5389,7 +5389,7 @@ UINT nx_tcp_client_socket_bind(
     UINT port,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liga a tomada do cliente TCP previamente criada à porta TCP especificada. As tomadas TCP válidas variam de 0 a 0xFFFF. Se a porta TCP especificada não estiver disponível, o serviço suspende de acordo com a opção de espera fornecida.
 
@@ -5458,7 +5458,7 @@ status = nx_tcp_client_socket_bind(&client_socket, 12, 7);
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_client_socket_connect"></a>nx_tcp_client_socket_connect
-Ligue a tomada TCP do cliente
+tomada TCP cliente Ligação
 
 ### <a name="prototype"></a>Prototype  
 
@@ -5469,7 +5469,7 @@ UINT nx_tcp_client_socket_connect(
     UINT server_port,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liga a tomada do cliente TCP previamente criada e ligada à porta do servidor especificado. As portas de servidores TCP válidas variam de 0 a 0xFFFF. Se a ligação não estiver concluída imediatamente, o serviço suspende de acordo com a opção de espera fornecida.
 
@@ -5555,7 +5555,7 @@ UINT nx_tcp_client_socket_port_get(
     NX_TCP_SOCKET *socket_ptr,
     UINT *port_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o número de porta associado à tomada, o que é útil para encontrar a porta atribuída pela NetX Duo em situações em que o NX_ANY_PORT foi especificado no momento em que a tomada foi ligada.
 
@@ -5623,7 +5623,7 @@ Tomada de cliente unbind TCP da porta TCP
 ```c
 UINT nx_tcp_client_socket_unbind(NX_TCP_SOCKET *socket_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta a encadernação entre a tomada do cliente TCP e uma porta TCP. Se houver outros fios à espera de ligar outra tomada ao mesmo número de porta, o primeiro fio suspenso fica ligado a esta porta.
 
@@ -5646,7 +5646,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -5690,7 +5690,7 @@ Ativar o componente TCP do NetX Duo
 ```c
 UINT nx_tcp_enable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite o componente do Protocolo de Controlo de Transmissão (TCP) da NetX Duo. Após ativação, as ligações TCP podem ser estabelecidas pelo pedido.
 
@@ -5757,7 +5757,7 @@ UINT nx_tcp_free_port_find(
     UINT port,
     UINT *free_port_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta localizar uma porta TCP gratuita (desvinculada) a partir da porta fornecida pela aplicação. A lógica de pesquisa irá envolver-se se a pesquisa atingir o valor máximo da porta de 0xFFFF. Se a pesquisa for bem sucedida, a porta livre é devolvida na variável apontada por *free_port_ptr*.
 
@@ -5842,7 +5842,7 @@ UINT nx_tcp_info_get(
     ULONG *tcp_connections_dropped,
     ULONG *tcp_retransmit_packets);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre as atividades da TCP para a instância IP especificada.
 
@@ -5934,7 +5934,7 @@ UINT nx_tcp_server_socket_accept(
     NX_TCP_SOCKET *socket_ptr,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço aceita (ou prepara-se para aceitar) um pedido de ligação ao cliente TCP para uma porta previamente configurada para escuta. Este serviço pode ser chamado imediatamente após a aplicação chamar o serviço de escuta ou de re-escuta ou depois de a rotina de chamada de escuta ser chamada quando a ligação do cliente estiver realmente presente. Se uma ligação não puder ser estabelecida imediatamente, o serviço suspende de acordo com a opção de espera fornecida.
 
@@ -6105,7 +6105,7 @@ UINT nx_tcp_server_socket_listen(
     UINT listen_queue_size,
     VOID (*listen_callback)(NX_TCP_SOCKET *socket_ptr, UINT port));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite ouvir um pedido de ligação ao cliente na porta TCP especificada. Quando um pedido de ligação ao cliente é recebido, a tomada do servidor fornecida fica ligada à porta especificada e a função de chamada de chamada de chamada de ouvido fornecida é chamada.
 
@@ -6278,7 +6278,7 @@ UINT nx_tcp_server_socket_relisten(
     UINT port,
     NX_TCP_SOCKET *socket_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é chamado depois de ter sido recebida uma ligação numa porta que foi configurada anteriormente para escuta. O principal objetivo deste serviço é fornecer uma nova tomada de servidor para a próxima ligação ao cliente. Se um pedido de ligação for feito em fila, a ligação será processada imediatamente durante esta chamada de serviço.
 
@@ -6444,7 +6444,7 @@ Remova a associação da tomada com a porta de escuta
 ```c
 UINT nx_tcp_server_socket_unaccept(NX_TCP_SOCKET *socket_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove a associação entre esta tomada do servidor e a porta do servidor especificada. O pedido deve ligar para este serviço após uma desconexão ou após uma chamada de aceitação infrutífera.
 
@@ -6600,7 +6600,7 @@ UINT nx_tcp_server_socket_unlisten(
     NX_IP *ip_ptr, 
     UINT port);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa a audição de um pedido de ligação ao cliente na porta TCP especificada.
 
@@ -6759,7 +6759,7 @@ UINT nx_tcp_socket_bytes_available(
     NX_TCP_SOCKET *socket_ptr,
     ULONG *bytes_available);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém o número de bytes disponíveis para recuperação na tomada TCP especificada. Note que a tomada TCP já deve estar ligada.
 
@@ -6835,7 +6835,7 @@ UINT nx_tcp_socket_create(
     VOID (*urgent_data_callback)(NX_TCP_SOCKET *socket_ptr),
     VOID (*disconnect_callback)(NX_TCP_SOCKET *socket_ptr));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um cliente TCP ou tomada de servidor para a instância IP especificada.
 
@@ -6926,7 +6926,7 @@ Eliminar tomada TCP
 UINT nx_tcp_socket_delete(NX_TCP_SOCKET *socket_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma tomada TCP previamente criada. Se a tomada ainda estiver ligada ou ligada, o serviço devolve um código de erro.
 
@@ -6994,7 +6994,7 @@ UINT nx_tcp_socket_disconnect(
     NX_TCP_SOCKET *socket_ptr,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desliga uma ligação estabelecida de tomada de cliente ou servidor. Uma desconexão de uma tomada do servidor deve ser seguida por um pedido não aceite, enquanto uma tomada de cliente desligada é deixada num estado pronto para outro pedido de ligação. Se o processo de desconexão não puder terminar imediatamente, o serviço suspende de acordo com a opção de espera fornecida.
 
@@ -7022,7 +7022,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim 
+Yes 
 
 ### <a name="example"></a>Exemplo 
 
@@ -7070,7 +7070,7 @@ UINT nx_tcp_socket_disconnect_complete_notify(
     NX_TCP_SOCKET *socket_ptr,
     VOID (*tcp_disconnect_complete_notify)(NX_TCP_SOCKET *socket_ptr));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma função de retorno que é invocada após a conclusão de uma operação de desconexão da tomada. A função de chamada completa da tomada TCP está disponível se o NetX Duo for construído com a opção ***NX_ENABLE_EXTENDED_NOTIFY_SUPPORT*** definida.
 
@@ -7125,7 +7125,7 @@ UINT nx_tcp_socket_establish_notify(
     NX_TCP_SOCKET *socket_ptr,
     VOID (*tcp_establish_notify)(NX_TCP_SOCKET *socket_ptr));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma função de retorno, que é chamada depois de uma tomada TCP fazer uma ligação. A tomada TCP estabelece a função de retorno de chamada se o NetX Duo for construído com a opção ***NX_ENABLE_EXTENDED_NOTIFY_SUPPORT*** definida.
 
@@ -7192,7 +7192,7 @@ UINT nx_tcp_socket_info_get(
     ULONG *tcp_transmit_window,
     ULONG *tcp_receive_window);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre as atividades da tomada TCP para a instância de tomada TCP especificada.
 
@@ -7284,7 +7284,7 @@ UINT nx_tcp_socket_mss_get(
     NX_TCP_SOCKET *socket_ptr, 
     ULONG *mss);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o tamanho máximo de segmento local (MSS) da tomada especificada.
 
@@ -7342,7 +7342,7 @@ UINT nx_tcp_socket_mss_peer_get(
     NX_TCP_SOCKET *socket_ptr,
     ULONG *mss);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o Tamanho Máximo do Segmento (MSS) anunciado pela tomada de pares.
 
@@ -7400,7 +7400,7 @@ UINT nx_tcp_socket_mss_set(
     NX_TCP_SOCKET *socket_ptr, 
     ULONG mss);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o tamanho máximo do segmento da tomada especificada (MSS). Note que o valor MSS deve estar dentro da interface de rede IP MTU, permitindo espaço para cabeçalhos IP e TCP.
 
@@ -7463,7 +7463,7 @@ UINT nx_tcp_socket_peer_info_get(
     ULONG *peer_ip_address,
     ULONG *peer_port);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço IP e informações de porta para a tomada TCP conectada sobre a rede IPv4. O serviço equivalente que também suporta a rede IPv6 é ***nxd_tcp_socket_peer_info_get.***
 
@@ -7523,7 +7523,7 @@ UINT nx_tcp_socket_queue_depth_notify_set(
               NX_TCP_SOCKET *socket_ptr,
               VOID(*tcp_socket_queue_depth_notify)(NX_TCP_SOCKET *));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a função de notificação de profundidade de fila de transmissão especificada pela aplicação, que é chamada sempre que a tomada especificada determina que libertou pacotes da fila de transmissão de modo a que a profundidade da fila já não exceda o seu limite. Se uma aplicação for bloqueada no transmissor devido à profundidade da fila, a função de retorno serve como uma notificação à aplicação de que pode voltar a transmitir. Este serviço só está disponível se a biblioteca NetX Duo for construída com a opção ***NX_ENABLE_TCP_QUEUE_DEPTH_UPDATE_NOTIFY*** definida.
 
@@ -7590,7 +7590,7 @@ UINT nx_tcp_socket_receive(
     NX_PACKET **packet_ptr,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recebe dados de TCP da tomada especificada. Se não forem dados na tomada especificada, o chamador suspende com base na opção de espera fornecida.
 
@@ -7671,7 +7671,7 @@ UINT nx_tcp_socket_receive_notify(
     NX_TCP_SOCKET *socket_ptr, 
     VOID (*tcp_receive_notify)(NX_TCP_SOCKET *socket_ptr));
 ```
-### <a name="description"></a>Descrição 
+### <a name="description"></a>Description 
 
 Este serviço configura o ponteiro de função de notificação de receção com a função de retorno especificado pela aplicação. Esta função de retorno é então chamada sempre que um ou mais pacotes são recebidos na tomada. Se for fornecido um ponteiro NX_NULL, a função de notificação é desativada.
 
@@ -7733,7 +7733,7 @@ UINT nx_tcp_socket_send(
     NX_PACKET *packet_ptr,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia dados de TCP através de uma tomada TCP previamente ligada. Se o último tamanho da janela anunciado pelo recetor for inferior a este pedido, o serviço suspende opcionalmente com base na opção de espera especificada. Este serviço garante que nenhum dado de pacote maior do que o MSS é enviado para a camada IP. 
 
@@ -7820,7 +7820,7 @@ UINT nx_tcp_socket_state_wait(
     UINT desired_state,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço aguarda que a tomada entre no estado pretendido. Se a tomada não estiver no estado pretendido, o serviço suspende de acordo com a opção de espera fornecida.
 
@@ -7907,7 +7907,7 @@ UINT nx_tcp_socket_timed_wait_callback(
     NX_TCP_SOCKET *socket_ptr,
     VOID (*tcp_timed_wait_callback)(NX_TCP_SOCKET *socket_ptr));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma função de retorno que é invocada quando a tomada TCP está em estado de espera cronometrado. Para utilizar este serviço, a biblioteca NetX Duo deve ser construída com a opção ***NX_ENABLE_EXTENDED_NOTIFY*** definida.
 
@@ -7967,7 +7967,7 @@ UINT nx_tcp_socket_transmit_configure(
     ULONG max_retries,
     ULONG timeout_shift);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura vários parâmetros de transmissão da tomada TCP especificada.
 
@@ -8031,7 +8031,7 @@ UINT nx_tcp_socket_window_update_notify_set(
     NX_TCP_SOCKET *socket_ptr,
     VOID (*tcp_window_update_notify)(NX_TCP_SOCKET *socket_ptr));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço instala uma rotina de chamada de atualização da janela da tomada. Esta rotina é chamada automaticamente sempre que a tomada especificada recebe um pacote indicando um aumento no tamanho da janela do hospedeiro remoto.
 
@@ -8094,7 +8094,7 @@ Ativar o componente UDP do NetX Duo
 ```c
 UINT nx_udp_enable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite o componente do Protocolo de Datagram do Utilizador (UDP) da NetX Duo. Após ativação, os datagramas da UDP podem ser enviados e recebidos pelo pedido.
 
@@ -8161,7 +8161,7 @@ UINT nx_udp_free_port_find(
     UINT port,
     UINT *free_port_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço procura uma porta UDP gratuita (não ligada) a partir do número de porta fornecido pela aplicação. A lógica de pesquisa irá envolver-se se a pesquisa atingir o valor máximo da porta de 0xFFFF. Se a pesquisa for bem sucedida, a porta livre é devolvida na variável apontada por free_port_ptr.
 
@@ -8241,7 +8241,7 @@ UINT nx_udp_info_get(
     ULONG *udp_receive_packets_dropped,
     ULONG *udp_checksum_errors);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre as atividades da UDP para a instância IP especificada.
 
@@ -8326,7 +8326,7 @@ UINT nx_udp_packet_info_extract(
     UINT *port,
     UINT *interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço extrai parâmetros de rede, tais como endereço IPv4, número de porta de pares, tipo de protocolo (este serviço devolve sempre o tipo UDP) de um pacote recebido numa interface de entrada. Para obter informações sobre um pacote proveniente da rede IPv4 ou IPv6, a aplicação utilizará o ***serviço nxd_udp_packet_info_extract.***
 
@@ -8399,7 +8399,7 @@ UINT nx_udp_socket_bind(
     UINT port,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liga a tomada UDP previamente criada à porta UDP especificada. As tomadas UDP válidas variam de 0 a 0xFFFF. Se o número de porta solicitado estiver ligado a outra tomada, este serviço aguarda por um período de tempo especificado para que a tomada se desvincula do número da porta.
 
@@ -8477,7 +8477,7 @@ UINT nx_udp_socket_bytes_available(
     NX_UDP_SOCKET *socket_ptr,
     ULONG *bytes_available);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o número de bytes disponíveis para receção na tomada UDP especificada.
 
@@ -8544,7 +8544,7 @@ Desativar a parte de verificação da tomada UDP
 ```c
 UINT nx_udp_socket_checksum_disable(NX_UDP_SOCKET *socket_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa a lógica de checkum para o envio e receção de pacotes na tomada UDP especificada. Quando a lógica de checkum é desativada, um valor de zero é carregado no campo de verificação do cabeçalho UDP para todos os pacotes enviados através desta tomada. Um valor de dados de valor zero no cabeçalho UDP indica ao recetor que a parte de verificação não é calculada para este pacote.
 
@@ -8613,7 +8613,7 @@ Ativar a parte de verificação da tomada UDP
 ```c
 UINT nx_udp_socket_checksum_enable(NX_UDP_SOCKET *socket_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite a lógica de checkum para o envio e receção de pacotes na tomada UDP especificada. A função de verificação abrange toda a área de dados da UDP, bem como um cabeçalho pseudo-IP.
 
@@ -8689,7 +8689,7 @@ UINT nx_udp_socket_create(
     UINT time_to_live, 
     ULONG queue_maximum);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma tomada UDP para a instância IP especificada.
 
@@ -8767,7 +8767,7 @@ Eliminar tomada UDP
 ```c
 UINT nx_udp_socket_delete(NX_UDP_SOCKET *socket_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma tomada UDP previamente criada. Se a tomada estava ligada a uma porta, a tomada deve ser desaderada primeiro.
 
@@ -8840,7 +8840,7 @@ UINT nx_udp_socket_info_get(
     ULONG *udp_receive_packets_dropped,
     ULONG *udp_checksum_errors);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre as atividades da tomada UDP para a instância de tomada UDP especificada.
 
@@ -8922,7 +8922,7 @@ UINT nx_udp_socket_port_get(
     NX_UDP_SOCKET *socket_ptr,
     UINT *port_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o número de porta associado à tomada, o que é útil para encontrar a porta atribuída pela NetX Duo em situações em que o NX_ANY_PORT foi especificado no momento em que a tomada foi ligada.
 
@@ -8991,7 +8991,7 @@ UINT nx_udp_socket_receive(
     NX_PACKET **packet_ptr,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recebe um datagrama de UDP a partir da tomada especificada. Se não houver um datagrama na tomada especificada, o chamador suspende com base na opção de espera fornecida.
 
@@ -9070,7 +9070,7 @@ UINT nx_udp_socket_receive_notify(
     NX_UDP_SOCKET *socket_ptr,
     VOID (*udp_receive_notify)(NX_UDP_SOCKET *socket_ptr));
 ```
-### <a name="description"></a>Descrição 
+### <a name="description"></a>Description 
 
 Este serviço define o ponteiro de função de notificação de receção à função de retorno especificado pela aplicação. Esta função de retorno é então chamada sempre que um pacote é recebido na tomada. Se for fornecido um ponteiro NX_NULL, a função de notificação de receção é desativada.
 
@@ -9140,7 +9140,7 @@ UINT nx_udp_socket_send(
     ULONG ip_address, 
     UINT port);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um datagrama de UDP através de uma tomada UDP previamente criada e ligada para redes IPv4. NetX Duo encontra um endereço IP local adequado como endereço de origem baseado no endereço IP de destino. Para especificar uma interface específica e endereço IP de origem, a aplicação deve utilizar o serviço **nxd_udp_socket_source_send.**
 
@@ -9228,7 +9228,7 @@ UINT nx_udp_socket_source_send(
     UINT port,
     UINT address_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um datagrama de UDP através de uma tomada UDP previamente criada e ligada através da interface de rede com o endereço IP especificado como endereço de origem. Note que o serviço regressa imediatamente, independentemente de o datagrama da UDP ter sido enviado com sucesso. ***nxd_udp_socket_source_send*** funciona tanto para as redes IPv4 como para o IPv6.
 
@@ -9307,7 +9307,7 @@ Tomada UDP desaderada da porta UDP
 ```c
 UINT nx_udp_socket_unbind(NX_UDP_SOCKET *socket_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta a encadernação entre a tomada UDP e uma porta UDP. Quaisquer pacotes recebidos armazenados na fila de receção são libertados como parte da operação un encaderna.
 
@@ -9331,7 +9331,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -9377,7 +9377,7 @@ UINT nx_udp_source_extract(
     ULONG *ip_address, 
     UINT *port);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço extrai o número de IP e porta do remetente dos cabeçalhos IP e UDP do programa de dados da UDP fornecido. Note que o ***serviço nxd_udp_source_extract*** funciona com pacotes da rede IPv4 ou IPv6.
 
@@ -9442,7 +9442,7 @@ Ativar serviços ICMPv4 e ICMPv6
 ```c
 UINT nxd_icmp_enable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite tanto os serviços ICMPv4 como ICMPv6 e só pode ser chamado após a criação da instância IP. O serviço pode ser ativado antes ou depois do IPv6 estar ativado (ver *nxd_ipv6_enable).* Os serviços ICMPv4 incluem Pedido de Eco/Resposta. Os serviços ICMPv6 incluem Pedido de Eco/Resposta, Descoberta de Vizinhos, Deteção de Endereços Duplicados, Descoberta do Router e configuração automática de endereços apátridas. O equivalente IPv4 na NetX é *nx_icmp_enable*.
 
@@ -9503,7 +9503,7 @@ UINT nxd_icmp_ping(
     NX_PACKET **response_ptr, 
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pacote ICMP Echo Request através de uma interface física apropriada e aguarda uma Resposta Echo do anfitrião do destino. A NetX Duo determina a interface adequada, com base no endereço de destino, para enviar a mensagem de ping . As aplicações devem utilizar o ***serviço nxd_icmp_source_ping*** para especificar a interface física e o endereço IP de origem precisa para utilizar para a transmissão de pacotes.
 
@@ -9614,7 +9614,7 @@ UINT nxd_icmp_source_ping(
     NX_PACKET **response_ptr,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pacote ICMP Echo Request utilizando o índice especificado de um endereço IPv4 ou IPv6, e através da interface de rede o endereço de origem está associado, e aguarda uma Resposta de Eco do anfitrião do destino. Este serviço funciona com endereços IPv4 e IPv6. O parâmetro *address_index* indica o endereço IPv4 ou IPv6 de origem a utilizar. Para o endereço IPv4, o *address_index* é o mesmo índice da interface de rede anexa. Para o IPv6, o *address_index* indica a entrada na tabela de endereços IPv6.
 
@@ -9732,7 +9732,7 @@ UINT nxd_icmpv6_ra_flag_callback_set(
     NX_IP *ip_ptr, 
     VOID(*ra_callback)(NX_IP*ip_ptr, UINT ra_flag));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a função de retorno de chamada de alteração de bandeira do Router ICMPv6. A função de retorno fornecida pelo utilizador é invocada quando o NetX Duo recebe uma mensagem de anúncio do router.
 
@@ -9796,7 +9796,7 @@ UINT nxd_ip_raw_packet_send(
     UINT ttl, 
     ULONG tos);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pacote IPv4 ou IPv6 em bruto (sem cabeçalhos de protocolo de camada de transporte). Num sistema multihome, se o sistema não conseguir determinar uma interface adequada (por exemplo, se o endereço IP de destino for transmitido IPv4, multicast ou endereço multicast IPv6), o dispositivo principal é selecionado. O serviço ***nxd_ip_raw_packet_source_send** _ pode ser usado para especificar uma interface de saída. O equivalente NetX é _ *_nx_ip_raw_packet_send_.**
 
@@ -9888,7 +9888,7 @@ UINT nxd_ip_raw_packet_source_send(
     UINT ttl,
     ULONG tos);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pacote IPv4 ou IPv6 em bruto utilizando o endereço IPv4 ou IPv6 especificado como endereço de origem. Este serviço é normalmente utilizado num sistema multihome, se o sistema não conseguir determinar uma interface adequada (por exemplo, se o endereço IP de destino for transmitido IPv4, multicast ou endereço multicast IPv6). O parâmetro *address_index* permite que a aplicação especifique o endereço de origem a utilizar ao enviar este pacote cru.
 
@@ -9961,7 +9961,7 @@ UINT nxd_ipv6_address_change_notify(
     NX_IP *ip_ptr,
     VOID (*ip_address_change_notify)(NX_IP *, UINT, UINT, UINT, ULONG *));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma rotina de chamada de chamada de aplicação que o NetX Duo chama sempre que o Endereço IPv6 é alterado.
 
@@ -10046,7 +10046,7 @@ UINT nxd_ipv6_address_delete(
     NX_IP *ip_ptr, 
     UINT address_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o endereço IPv6 no índice especificado na tabela de endereços IPv6 da instância IP especificada. Não há equivalente NetX.
 
@@ -10123,7 +10123,7 @@ UINT nxd_ipv6_address_get(
     ULONG *prefix_length,
     UINT *interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço e prefixo IPv6 no índice especificado na tabela de endereços da instância IP especificada. O índice da interface física com o qual o endereço IPv6 está associado é devolvido no *ponteiro interface_index.* Os serviços equivalentes NetX são ***nx_ip_address_get** _ e _*_nx_ip_interface_address_get_**.
 
@@ -10210,7 +10210,7 @@ UINT nxd_ipv6_address_set(
     ULONG prefix_length,
     UINT *address_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o endereço EPv6 fornecido e prefixo para a instância IP especificada. Se o *argumento address_index* não for nulo, o índice na tabela de endereços IPv6 onde o endereço é inserido é devolvido. Os serviços equivalentes NetX são ***nx_ip_address_set** _ e _*_nx_ip_interface_address_set_**.
 
@@ -10314,7 +10314,7 @@ UINT nxd_ipv6_default_router_add(
     ULONG router_lifetime,
     UINT index_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona um router padrão IPv6 na interface física especificada à tabela de router predefinido. O serviço NetX IPv4 equivalente é ***nx_ip_gateway_address_set***.
 
@@ -10397,7 +10397,7 @@ UINT nxd_ipv6_default_router_delete (
     NX_IP *ip_ptr,
     NXD_ADDRESS *router_address);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina um router padrão IPv6 da tabela de router predefinido. O serviço NetX IPv4 equivalente é ***nx_ip_gateway_address_clear***.
 
@@ -10482,7 +10482,7 @@ UINT nxd_ipv6_default_router_entry_get(
     ULONG *prefix_length,
     ULONG *configuration_method);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera uma entrada de router a partir da tabela de encaminhamento padrão IPv6 que está ligada a um dispositivo de rede especificado.
 
@@ -10559,7 +10559,7 @@ UINT nxd_ipv6_default_router_get(
     ULONG *router_lifetime,
     ULONG *prefix_length);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera um endereço de router padrão IPv6, duração útil e prefixo na interface física especificada a partir da tabela de router predefinido. O serviço NetX IPv4 equivalente é ***nx_ip_gateway_address_get*.**
 
@@ -10635,7 +10635,7 @@ UINT nxd_ipv6_default_router_number_of_entries_get(
     UINT interface_index,
     UINT *num_entries);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o número de routers padrão IPv6 configurados numa determinada interface de rede.
 
@@ -10695,7 +10695,7 @@ Desative a função IPv6
 ```c
 UINT nxd_ipv6_disable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa o IPv6 para a instância IP especificada. Também limpa a tabela de routers predefinidos, cache ND e tabela de endereços IPv6, deixa todos os grupos multicast e repõe as variáveis de solicitação do router. Este serviço não tem efeito se o IPv6 não estiver ativado.
 
@@ -10761,7 +10761,7 @@ Ativar serviços IPv6
 ```c
 UINT nxd_ipv6_enable(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite serviços IPv6. Quando os serviços IPv6 estão ativados, a instância IP junta-se ao grupo multicast all-node (FF02::1). Este serviço não define o endereço local de ligação ou endereço global. As aplicações devem utilizar *nxd_ipv6_address_set* para configurar os endereços de rede do dispositivo. Não há equivalente NetX.
 
@@ -10839,7 +10839,7 @@ UINT nxd_ipv6_multicast_interface_join(
     UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite que uma aplicação se junte a um endereço multicast IPv6 específico numa interface de rede específica. O controlador de ligação é notificado para adicionar o endereço multicast. Este serviço está disponível se a biblioteca NetX Duo for construída com a opção ***NX_ENABLE_IPV6_MULTICAST*** definida.
 
@@ -10905,7 +10905,7 @@ UINT nxd_ipv6_multicast_interface_leave(
     NXD_ADDRESS *group_address,
     UINT interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove o endereço multicast IPv6 específico do dispositivo de rede específico. O controlador de ligação também é notificado da remoção do endereço multicast IPv6. Este serviço está disponível se a biblioteca NetX Duo for construída com a opção ***NX_ENABLE_IPV6_MULTICAST*** definida.
 
@@ -10970,7 +10970,7 @@ UINT nxd_ipv6_stateless_address_autoconfig_disable(
     NX_IP *ip_ptr,
     UINT interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa a função de configuração automática de endereço apátrida IPv6 num dispositivo de rede especificado. Não tem efeito se o endereço IPv6 tiver sido configurado.
 
@@ -11045,7 +11045,7 @@ UINT nxd_ipv6_stateless_address_autoconfig_enable(
     NX_IP *ip_ptr,
     UINT interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite a funcionalidade de configuração automática de endereço apátrida IPv6 num dispositivo de rede especificado.
 
@@ -11122,7 +11122,7 @@ UINT nxd_nd_cache_entry_delete(
     NX_IP *ip_ptr, 
     ULONG *ip_address);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma entrada de cache de descoberta de vizinho iPv6 para o endereço IP fornecido. A função LíquidaX IPv4 equivalente é ***nx_arp_static_entry_delete***.
 
@@ -11199,7 +11199,7 @@ UINT nxd_nd_cache_entry_set(
     char *mac);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma entrada na cache de descoberta do vizinho para o endereço IP especificado *ip_address* mapeado para o endereço MAC de hardware no índice de interface de rede especificado (interface_index). O serviço NetX IPv4 equivalente é ***nx_arp_static_entry_create***.
 
@@ -11287,7 +11287,7 @@ UINT nxd_nd_cache_hardware_address_find(
     ULONG *physical_lsw
     UINT *interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta encontrar um endereço de hardware físico na cache de descoberta do vizinho IPv6 que está associado com o endereço IPv6 fornecido. O índice da interface de rede através do qual o vizinho pode ser alcançado também é devolvido no parâmetro *interface_index.* O serviço NetX IPv4 equivalente é ***nx_arp_hardware_address_find***.
 
@@ -11372,7 +11372,7 @@ Invalidar a Cache de Descoberta do Vizinho
 ```c
 UINT nxd_nd_cache_invalidate(NX_IP *ip_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço invalida toda a cache de descoberta do vizinho IPv6. Este serviço pode ser invocado antes ou depois de o ICMPv6 ter sido ativado. Este serviço não é aplicável à conectividade IPv4, pelo que não existe um serviço equivalente NetX.
 
@@ -11437,7 +11437,7 @@ UINT nxd_nd_cache_ip_address_find(
     ULONG physical_lsw,
     UINT *interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta encontrar um endereço IPv6 na cache de descoberta do vizinho IPv6 que está associado com o endereço físico fornecido. O índice da interface de rede através do qual o vizinho pode ser alcançado também é devolvido. O serviço NetX IPv4 equivalente é ***nx_arp_ip_address_find***.
 
@@ -11517,7 +11517,7 @@ UINT nxd_tcp_client_socket_connect(
     UINT server_port,
     ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço faz a ligação TCP utilizando uma tomada de cliente TCP previamente criada para a porta do servidor especificado. Este serviço funciona em redes IPv4 ou IPv6. As portas de servidores TCP válidas variam de 0 a 0xFFFF. O NetX Duo determina a interface física adequada com base no endereço IP do servidor. O equivalente NetX IPv4 é ***nx_tcp_client_socket_connect***.
 
@@ -11614,7 +11614,7 @@ UINT nxd_tcp_socket_peer_info_get
     NXD_ADDRESS *peer_ip_address,
     ULONG *peer_port);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço IP e informações de porta para a tomada TCP conectada sobre a rede IPv4 ou IPv6. O serviço NetX IPv4 equivalente é ***nx_tcp_socket_peer_info_get***.
 
@@ -11699,7 +11699,7 @@ UINT nxd_udp_packet_info_extract(
     UINT *port,
     UINT *interface_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço extrai parâmetros de rede de um pacote recebido nas redes IPv4 ou IPv6 UDP. O serviço equivalente NetX é ***nx_udp_packet_info_extract.***
 
@@ -11772,7 +11772,7 @@ UINT nxd_udp_socket_send(
     NXD_ADDRESS *ip_address,
     UINT port);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um datagrama de UDP através de uma tomada UDP previamente criada e ligada para redes IPv4 ou IPv6. NetX Duo encontra um endereço IP local adequado como endereço de origem baseado no endereço IP de destino. Para especificar uma interface específica e endereço IP de origem, a aplicação deve utilizar o serviço ***nxd_udp_socket_source_send.***
 
@@ -11883,7 +11883,7 @@ UINT nxd_udp_socket_source_send(
     UINT port, 
     UINT address_index);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um datagrama de UDP através de uma tomada UDP previamente criada e ligada para redes IPv4 ou IPv6. O parâmetro *address_index* especifica o endereço IP de origem a utilizar para o pacote de saída. Note que a função retorna imediatamente independentemente de o datagrama da UDP ter sido enviado com sucesso.
 
@@ -11993,7 +11993,7 @@ UINT nxd_udp_source_extract(
     NXD_ADDRESS *ip_address, 
     UINT *port);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço extrai o endereço IP de origem e o número de porta de um pacote UDP recebido através da tomada UDP hospedeira. O equivalente NetX (IPv4) é ***nx_udp_source_extract***.
 

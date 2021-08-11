@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 6703b10d8e0895984bb92d74d5dff809dca1a7f8
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2f064fc65ef8445ea33590f23d5a040ed8b07c6c651ea4cf5c4aaef4b6c4fa7b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825508"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783854"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-filex"></a>Capítulo 2 - Instalação e utilização do Azure RTOS FileX
 
@@ -21,7 +21,7 @@ Este capítulo contém uma introdução ao Azure RTOS FileX e uma descrição da
 
 ### <a name="computer-type"></a>Tipo de computador
 
-O desenvolvimento incorporado é geralmente realizado em computadores anfitriões Windows ou Linux (Unix). Após a compilação da aplicação, ligada e localizada no anfitrião, é descarregada para o hardware alvo para execução.
+O desenvolvimento incorporado é geralmente realizado em computadores de Windows ou Linux (Unix). Após a compilação da aplicação, ligada e localizada no anfitrião, é descarregada para o hardware alvo para execução.
 
 ### <a name="download-interfaces"></a>Baixar Interfaces
 
@@ -63,7 +63,7 @@ O FileX é instalado clonando o repositório GitHub à sua máquina local. O seg
     git clone https://github.com/azure-rtos/filex
 ```
 
-Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal do GitHub.
+Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal GitHub.
 
 Também encontrará instruções para a construção da biblioteca FileX na primeira página do repositório online.
 
@@ -122,7 +122,7 @@ A lista a seguir descreve cada opção de configuração em detalhe:
 |FX_MEDIA_STATISTICS_DISABLE |Definida, a recolha de estatísticas dos meios de comunicação é desativada.|
 |FX_SINGLE_OPEN_LEGACY |Definida, a lógica aberta única do legado para o mesmo ficheiro está ativada.|
 |FX_RENAME_PATH_INHERIT    |Definido, renomear herda informação do caminho.|
-|FX_DISABLE_ERROR_CHECKING    |Remove o erro básico do FileX que verifica a API e resulta num melhor desempenho (até 30%) e menor tamanho de código.|
+|FX_DISABLE_ERROR_CHECKING    |Remove o erro básico do FileX que verifica a API e resulta num melhor desempenho (até 30%) e no tamanho do código mais pequeno.|
 |FX_MAX_LONG_NAME_LEN    |Especifica o tamanho máximo do nome do ficheiro para FileX. O valor predefinido é de 256, mas este pode ser ultrapassado com uma definição de linha de comando. Os valores legais variam entre 13 e 256.|
 |FX_MAX_SECTOR_CACHE|Especifica o número máximo de sectores lógicos que podem ser cached por FileX. O número real de sectores que podem ser em cache é menor desta constante e quantos sectores podem caber na quantidade de memória fornecida a fx_media_open. O valor predefinido é de 256. Todos os valores devem ser um poder de 2.|
 |FX_FAT_MAP_SIZE    |Especifica o número de sectores que podem ser representados no mapa de atualização fat. O valor predefinido é de 256, mas este pode ser ultrapassado com uma definição de linha de comando. Valores maiores ajudam a reduzir as atualizações não precisadas dos sectores secundários da FAT.|

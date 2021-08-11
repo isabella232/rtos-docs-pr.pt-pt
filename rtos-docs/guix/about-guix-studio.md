@@ -1,21 +1,21 @@
 ---
 title: Guia de utilizadores do estúdio Azure RTOS GUIX
-description: Este guia fornece informações completas sobre o Azure RTOS GUIX Studio, o ambiente de desenvolvimento rápido de UI baseado no Microsoft, especificamente concebido para a biblioteca de tempo de execução Azure RTOS GUIX da Microsoft.
+description: Este guia fornece informações completas sobre o Azure RTOS GUIX Studio, o ambiente de desenvolvimento rápido de UI baseado na Microsoft Windows especificamente concebido para a biblioteca de tempo de execução Azure RTOS GUIX da Microsoft.
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 4be5049fca40d6d57961e692661d8df6706eac28
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 63b3f17aae95cb00a338db423c94e4846c589787027401d3e33a29bbfafdd966
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827295"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784721"
 ---
 # <a name="about-this-guix-studio-user-guide"></a>Sobre este guix Studio User Guide
 
-Este guia fornece informações completas sobre o Azure RTOS GUIX Studio, o ambiente de desenvolvimento rápido de UI baseado no Microsoft, especificamente concebido para a biblioteca de tempo de execução Azure RTOS GUIX da Microsoft. 
+Este guia fornece informações completas sobre o Azure RTOS GUIX Studio, o ambiente de desenvolvimento rápido de UI baseado na Microsoft Windows especificamente concebido para a biblioteca de tempo de execução Azure RTOS GUIX da Microsoft. 
 
 Destina-se ao desenvolvedor de software incorporado em tempo real utilizando o Sistema Operativo Real-Time ThreadX (RTOS) e a biblioteca de tempo de execução Azure RTOS GUIX UI. O desenvolvedor deve estar familiarizado com os conceitos standard Azure RTOS ThreadX e Azure RTOS GUIX.
 

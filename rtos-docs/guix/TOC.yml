@@ -21,23 +21,23 @@
       href: chapter-5.md
     - name: Exemplo GUIX
       href: guix-example.md
-    - name: 'Aplicação: A - DEFINIções de cores GUIX'
+    - name: Aplicativo. A - DEFINIções de cores GUIX
       href: appendix-a.md
-    - name: 'Aplicação: B - Formatos de cores GUIX'
+    - name: Aplicativo. B - Formatos de cores GUIX
       href: appendix-b.md
-    - name: 'Aplicação: C - Estilos widget GUIX'
+    - name: Aplicativo. C - Estilos widget GUIX
       href: appendix-c.md
-    - name: 'Aplicação: D - Pincel GUIX, tela e atributos de gradiente'
+    - name: 'Aplicativo. D - Pincel GUIX, tela e atributos de gradiente'
       href: appendix-d.md
-    - name: 'Aplicação: E - Descrição do evento GUIX'
+    - name: Aplicativo. E - Descrição do evento GUIX
       href: appendix-e.md
-    - name: 'Aplicação: F - SERVIÇOS DE ENCAALHO RTOS GUIX'
+    - name: Aplicativo. F - SERVIÇOS DE ENCAALHO RTOS GUIX
       href: appendix-f.md
-    - name: 'Aplicação: G - estrutura de fonte GUIX'
+    - name: Aplicativo. G - estrutura de fonte GUIX
       href: appendix-g.md
-    - name: 'Aplicação: H - GUIX bandeiras de configuração de tempo de construção'
+    - name: Aplicativo. H - GUIX bandeiras de configuração de tempo de construção
       href: appendix-h.md
-    - name: 'Aplicação: I - ESTRUTURAS DE INFORMAÇÃO GUIX'
+    - name: Aplicativo. I - ESTRUTURAS DE INFORMAÇÃO GUIX
       href: appendix-i.md
 - name: Guia de utilizador do estúdio GUIX
   items:
@@ -55,13 +55,13 @@
       href: guix-studio-5.md
     - name: Ch. 6 - Código Gerado pelo Estúdio GUIX
       href: guix-studio-6.md
-    - name: Ch. 7 - Definição do fluxo de tela
+    - name: Ch. 7 - Definição de Flow de tela
       href: guix-studio-7.md
     - name: Ch. 8 - Notas sobre edição de tipos específicos de widget
       href: guix-studio-8.md
     - name: Ch. 9 - Linha de Comando do Estúdio GUIX
       href: guix-studio-9.md
-    - name: Ch. 10 - Projeto Exemplo Simples
+    - name: Ch. 10 - Exemplo simples Project
       href: guix-studio-10.md
 - name: Repositório GUIX
   href: 'https://github.com/azure-rtos/guix'
@@ -69,7 +69,7 @@
   items:
     - name: Defender para IoT - RTOS (pré-visualização)
       href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
-- name: Componentes RTOS microsoft Azure
+- name: Microsoft Azure Componentes RTOS
   items:
     - name: Microsoft Azure RTOS
       href: ../index.yml

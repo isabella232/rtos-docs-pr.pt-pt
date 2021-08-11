@@ -1,39 +1,39 @@
 ---
 title: Azure Real-Time Sistema Operativo (RTOS) GUIX Studio Quick Start Guide
-description: Este guia fornece uma breve introdução à utilização da aplicação Azure RTOS GUIX Studio, o ambiente de desenvolvimento rápido de UI baseado no Microsoft, especificamente concebido para a biblioteca de tempo de execução Azure RTOS GUIX da Microsoft.
+description: Este guia fornece uma breve introdução à utilização da aplicação Azure RTOS GUIX Studio, o ambiente de desenvolvimento rápido de UI baseado na Microsoft Windows especificamente concebido para a biblioteca de tempo de execução Azure RTOS GUIX da Microsoft.
 author: philmea
 ms.author: philmea
 ms.date: 7/20/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: eedd53867b56312b53f4e9509136ee856acabfd7
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 9ab4dfb2edd8990692ee3dc134207f43e4c757538dbc738f6f406bf40864bfb3
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827110"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785429"
 ---
 # <a name="azure-rtos-guix-studio-quick-start-guide"></a>Guia de arranque rápido do estúdio Azure RTOS GUIX
 
-Este guia fornece uma breve introdução ao uso do Azure RTOS GUIX Studio. O GUIX Studio é uma aplicação de design UI baseada no Windows projetada para ser utilizada com a biblioteca de tempo de execução Azure RTOS GUIX da Microsoft. 
+Este guia fornece uma breve introdução ao uso do Azure RTOS GUIX Studio. O GUIX Studio é uma aplicação de design UI baseada em Windows projetada para ser utilizada com a biblioteca de tempo de execução Azure RTOS GUIX da Microsoft. 
 
 Destina-se ao desenvolvedor de software incorporado em tempo real utilizando o Sistema Operativo Real-Time ThreadX (RTOS) e a biblioteca de tempo de execução Azure RTOS GUIX UI. O desenvolvedor deve estar familiarizado com os conceitos standard Azure RTOS ThreadX e Azure RTOS GUIX.
 
 ## <a name="summary"></a>Resumo
 
-O Azure RTOS GUIX Studio inclui tudo o que precisa para criar, construir e executar o seu próprio design de interface gráfica. Se estiver a avaliar o GUIX Studio, o kit de avaliação foi concebido para permitir que construa e execute o seu design GUIX como uma aplicação de ambiente de trabalho autónoma do Windows para efeitos de teste e avaliação. Uma vez que o GUIX foi concebido para ser utilizado em quase qualquer alvo incorporado capaz de produzir gráfica, o trabalho que faz e os desenhos que cria no ambiente de trabalho podem sempre ser compilados e executados no seu alvo incorporado sem alterar nenhum dos seus softwares de aplicação.
+O Azure RTOS GUIX Studio inclui tudo o que precisa para criar, construir e executar o seu próprio design de interface gráfica. Se estiver a avaliar o GUIX Studio, o kit de avaliação foi concebido para permitir que construa e execute o seu design GUIX como uma aplicação autónoma Windows desktop para fins de teste e avaliação. Uma vez que o GUIX foi concebido para ser utilizado em quase qualquer alvo incorporado capaz de produzir gráfica, o trabalho que faz e os desenhos que cria no ambiente de trabalho podem sempre ser compilados e executados no seu alvo incorporado sem alterar nenhum dos seus softwares de aplicação.
 O instalador do GUIX Studio coloca vários componentes no seu sistema de desenvolvimento:
 
 - A aplicação do ESTÚDIO GUIX.
 - Vários projetos de exemplo GUIX.
 - Todos os recursos gráficos e fontes utilizadas nos projetos de exemplo.
-- Ficheiros de solução e ficheiros de projeto para construir num ambiente de trabalho windows utilizando o Microsoft Visual Studio IDE.
+- Ficheiros de solução e ficheiros de projeto para construir num ambiente de ambiente de trabalho Windows utilizando o Microsoft Visual Studio IDE.
 - Bibliotecas GUIX e ThreadX pré-construídas para o Win32, permitindo-lhe construir e executar as suas próprias aplicações no seu PC.
 - Ficheiros de cabeçalho aPI GUIX e ThreadX.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O instalador do Azure RTOS GUIX Studio inclui vários projetos de exemplo simples, e esperamos que comece por modificar, construir e executar estes exemplos à medida que aprende a usar a aplicação do GUIX Studio. Para construir e executar os exemplos no ambiente de trabalho do Windows, necessitará de um compilador do Microsoft Visual Studio. Estas ferramentas podem ser descarregadas a partir do seguinte local:
+O instalador do Azure RTOS GUIX Studio inclui vários projetos de exemplo simples, e esperamos que comece por modificar, construir e executar estes exemplos à medida que aprende a usar a aplicação do GUIX Studio. Para construir e executar os exemplos no ambiente de trabalho Windows, precisará de um compilador microsoft Visual Studio. Estas ferramentas podem ser descarregadas a partir do seguinte local:
 
 https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs#DownloadFamilies_4
 
@@ -45,9 +45,9 @@ Depois de executar o instalador do GUIX Studio, encontrará vários exemplos de 
 
 ## <a name="building-an-example"></a>Construir um exemplo
 
-Deve encontrar uma subdiretória denominada *construção* dentro de cada pasta de exemplo. Esta direção inclui projetos pré-configurados para cada ferramenta apoiada. Por exemplo, pode navegar para \<root> /GUIX_Studio_6.x/exemplos/termómetro/build/vs_2019 e encontrará um ficheiro de solução e ficheiro de projeto pré-configurado do Microsoft Visual Studio pronto para ser carregado e executado no IDE do Estúdio Visual. Se desejar utilizar uma ferramenta diferente, contacte [azure_rtos_support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request).
+Deve encontrar uma subdiretória denominada *construção* dentro de cada pasta de exemplo. Esta direção inclui projetos pré-configurados para cada ferramenta apoiada. Por exemplo, pode navegar para \<root> /GUIX_Studio_6.x/exemplos/termómetro/build/vs_2019 e encontrará um ficheiro de solução e ficheiro de projeto pré-configurado da Microsoft Visual Studio pronto para ser carregado e executado no Visual Studio IDE. Se desejar utilizar uma ferramenta diferente, contacte [azure_rtos_support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request).
 
-Recomendamos que inicie o Microsoft Visual C++ IDE e abra pelo menos um destes exemplos. Pressione a \<F7> tecla para construir o projeto exemplo e pressione a \<F5> tecla para executar o programa depois de construir com sucesso. Deverá agora ver uma interface de utilizador GUIX a funcionar dentro de uma janela do Microsoft Windows.
+Recomendamos que inicie o Microsoft Visual C++ IDE e abra pelo menos um destes exemplos. Pressione a \<F7> tecla para construir o projeto exemplo e pressione a \<F5> tecla para executar o programa depois de construir com sucesso. Deverá agora ver uma interface de utilizador GUIX a funcionar dentro de uma janela Windows Microsoft.
 
 ## <a name="designing-and-running-your-own-user-interface"></a>Projetar e executar a sua própria interface de utilizador
 
@@ -57,7 +57,7 @@ Existem dois métodos para criar e modificar a sua própria interface de utiliza
 
 Cada um dos exemplos fornecidos foi criado usando a aplicação de design de interface GUIX Studio. Deverá ter um ícone no seu ambiente de trabalho para GUIX Studio 6.x.x.x.x depois de executar o instalador do ESTÚDIO GUIX.  Inicie agora o GUIX Studio e abra o projeto denominado "demo_guix_widget_types\guix_widget_types.gxp". A *demonstração de widget_types* é um projeto de exemplo que demonstra várias variações dos tipos de widget GUIX mais comuns.
 
-Agora que tem um projeto aberto, clique em "+" para abrir o nó de árvore denominado "Primary" no Project View no canto superior esquerdo do IDE, e clique na janela de nível superior dentro desta pasta chamada "Menu_Screen". O seu projeto não deve aparecer como mostrado abaixo:
+Agora que tem um projeto aberto, clique em "+" para abrir o nó de árvore denominado "Primário" no Project Ver no canto superior esquerdo do IDE, e clique na janela de nível superior dentro desta pasta chamada "Menu_Screen". O seu projeto não deve aparecer como mostrado abaixo:
 
 ![Screenshot do Estúdio com projeto aberto.](./media/guix-studio/qs_project_open.png)
 
@@ -65,17 +65,17 @@ Agora que tem um projeto aberto, clique em "+" para abrir o nó de árvore denom
 
 O GUIX Studio IDE é composto por várias ***vistas.*** Cada vista é projetada para ajudá-lo a navegar através do seu design e fazer alterações nesse design.
 
-### <a name="project-view"></a>Vista do Projeto
+### <a name="project-view"></a>Project Ver
 
 A vista superior à esquerda chama-se Project View. Esta vista mostra-lhe cada um dos ecrãs físicos que estão incluídos no seu projeto (a maioria dos projetos tem apenas um ecrã), e os ecrãs e widgets infantis que foram projetados para serem executados nesse ecrã.
 
 ### <a name="properties-view"></a>Vista de propriedades
 
-Abaixo da Vista do Projeto está a Vista de Propriedades. Como o nome Properties View implica, esta vista permite modificar widgets alterando várias propriedades associadas a eles.
+Abaixo da vista Project está a vista de propriedades. Como o nome Properties View implica, esta vista permite modificar widgets alterando várias propriedades associadas a eles.
 
 ### <a name="target-view"></a>Vista do alvo
 
-A área central de exibição chama-se Target View. Esta vista é uma exibição WYSIWYG da sua interface de utilizador. Como a biblioteca GUIX está a desenhar dentro da vista do alvo, esta vista é uma representação precisa de pixels de como o seu design vai ficar ao executar o seu alvo incorporado. Se clicar em diferentes widgets quer na Vista de Projeto quer na Vista Alvo central, verá os valores apresentados na alteração 'Visualização de Propriedades' para exibir as propriedades do widget selecionado.
+A área central de exibição chama-se Target View. Esta vista é uma exibição WYSIWYG da sua interface de utilizador. Como a biblioteca GUIX está a desenhar dentro da vista do alvo, esta vista é uma representação precisa de pixels de como o seu design vai ficar ao executar o seu alvo incorporado. Se clicar em diferentes widgets quer no Project Ver ou na Vista Alvo central, verá os valores apresentados na alteração 'Visualização de Propriedades' para visualizar as propriedades do widget selecionado.
 
 ### <a name="resource-view"></a>Vista de Recursos
 
@@ -93,7 +93,7 @@ Pode utilizar o Edit | Executar o comando do menu de aplicação (ou executar o 
 
 ## <a name="generating-source-files"></a>Gerar ficheiros de origem
 
-Depois de escoar as suas alterações, precisa de invocar comandos de menu GUIX Studio para gerar novos ficheiros de origem para o seu projeto. Em seguida, pode reconstruir o programa de exemplo para ver as suas alterações em ação. Para gerar ficheiros de origem, utilize o menu GUIX Studio comanda o Project| Gerar ficheiros de recursos e projeto| Gere ficheiros de especificações (também pode clicar no ecrã no Visor do Projeto para executar estes comandos).
+Depois de escoar as suas alterações, precisa de invocar comandos de menu GUIX Studio para gerar novos ficheiros de origem para o seu projeto. Em seguida, pode reconstruir o programa de exemplo para ver as suas alterações em ação. Para gerar ficheiros de origem, utilize os comandos do menu GUIX Studio Project| Gerar ficheiros de recursos e Project| Gere ficheiros de especificações (também pode clicar no ecrã no visor Project para executar estes comandos).
 
 À medida que gera estes novos ficheiros de origem, deve observar uma mensagem de confirmação a dizer-lhe que os ficheiros de origem associados ao seu projeto foram atualizados. Se não observar esta mensagem de confirmação, verifique se tem permissões de escrita para o diretório em que o projeto reside. Pode agora fechar a aplicação guix Studio. Se fez alterações no projeto, o GUIX Studio perguntar-lhe-á se pretende guardar essas alterações. Vá em frente e guarde as suas alterações, estes exemplos destinam-se a usar e experimentar à medida que aprende a usar o GUIX Studio.
 

@@ -1,21 +1,21 @@
 ---
 title: Guia de utilizador Azure RTOS TraceX
-description: Este guia contém informações completas sobre o Azure RTOS TraceX, a ferramenta de análise de sistema baseada no Microsoft.
+description: Este guia contém informações completas sobre o Azure RTOS TraceX, a ferramenta de análise de sistema baseada em Windows da Microsoft.
 author: philmea
 ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: 92d886b19a0c67292cd4f6a5f8bd7f9d3106374b
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 89a39112d6fc6d231408179ebb3867c21f927326930a1610529b142aa71a1027
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827871"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784075"
 ---
 # <a name="about-this-guide"></a>Acerca deste guia
 
-Este guia contém informações completas sobre o Azure RTOS TraceX, a ferramenta de análise de sistema baseada no Microsoft Windows para o Microsoft Azure RTOS.
+Este guia contém informações completas sobre o Azure RTOS TraceX, a ferramenta de análise do sistema baseada em Windows da Microsoft para Microsoft Azure RTOS.
 
 Destina-se ao desenvolvedor de software incorporado em tempo real utilizando O Azure RTOS ThreadX Real-Time Sistema Operativo (RTOS) e componentes adicionais. O desenvolvedor deve estar familiarizado com os conceitos padrão Azure RTOS ThreadX Azure RTOS FileX e Azure RTOS NetX.
 

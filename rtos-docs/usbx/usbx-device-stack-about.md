@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: c8e9360c8b72adbc41f840a48e333668c489399e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 042398377766a3e73f72d4dbba0478ba707d378a379fd33de7808675eb96f257
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825429"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788767"
 ---
 # <a name="azure-rtos-usbx-device-stack-user-guide"></a>Guia de utilizadores da pilha de dispositivos USBX Azure RTOS
 

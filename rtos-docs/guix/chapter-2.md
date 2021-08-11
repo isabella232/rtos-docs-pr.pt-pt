@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 6527227062fc667b3f527a798d6621914c374c5c
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: a4572dbf4691869d9a1c32d68fbf9cc1c7dbfbee7e58ad69dd944e668e382b76
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826390"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784121"
 ---
 # <a name="chapter-2---installation-and-use-of-guix"></a>Capítulo 2 - Instalação e Utilização do GUIX
 
@@ -19,7 +19,7 @@ Este capítulo contém uma descrição de vários problemas relacionados com a i
 
 ## <a name="host-considerations"></a>Considerações de Anfitrião
 
-O desenvolvimento incorporado é geralmente realizado em computadores anfitriões Windows ou Linux (Unix). Após a compilação da aplicação, ligada e o executável é gerado no anfitrião, é descarregado para o hardware alvo para execução.
+O desenvolvimento incorporado é geralmente realizado em computadores de Windows ou Linux (Unix). Após a compilação da aplicação, ligada e o executável é gerado no anfitrião, é descarregado para o hardware alvo para execução.
 
 Normalmente, o download do alvo é feito a partir do depurar da ferramenta de desenvolvimento. Após o download, o depurante é responsável por fornecer controlo de execução de alvos (ir, parar, quebrar, etc.) bem como aceder aos registos de memória e processador.
 
@@ -39,7 +39,7 @@ O Azure RTOS GUIX pode ser obtido a partir do nosso repositório de código font
 
 Segue-se uma lista dos ficheiros importantes comuns à maioria das distribuições de produtos:
 
-| Nome de arquivo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Descrição   |
+| Nome de arquivo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Description   |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | gx_api.h        | Este ficheiro de cabeçalho C contém todos os equacionares do sistema, estruturas de dados e protótipos de serviço. |
 | gx_port.h       | Este ficheiro de cabeçalho C contém todas as definições e estruturas específicas de dados específicas do alvo e do desenvolvimento.                                                                                                                                         |
@@ -51,13 +51,13 @@ Segue-se uma lista dos ficheiros importantes comuns à maioria das distribuiçõ
 
 ## <a name="guix-installation"></a>Instalação GUIX
 
-O GUIX é instalado através da clonagem do repositório GitHub à sua máquina local. Segue-se a sintaxe típica para a criação de um clone do repositório GUIX no seu PC:
+O GUIX é instalado clonando o repositório GitHub à sua máquina local. Segue-se a sintaxe típica para a criação de um clone do repositório GUIX no seu PC:
 
 ```c
     git clone https://github.com/azure-rtos/guix
 ```
 
-Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal do GitHub.
+Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal GitHub.
 
 Também encontrará instruções para a construção da biblioteca GUIX na primeira página do repositório online.
 
@@ -70,7 +70,7 @@ A utilização do GUIX é fácil. Basicamente, o código de aplicação deve inc
 
 São necessários quatro passos fáceis para a construção de uma aplicação GUIX:
 
-| Passos   | Descrição    |
+| Passos   | Description    |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Passo &nbsp; 1: | Inclua o ficheiro ***gx_api.h*** em todos os ficheiros de aplicações que utilizam serviços GUIX ou estruturas de dados.                                                               |
 | Passo &nbsp; 2: | Inicialize o sistema GUIX chamando ***gx_system_initialize** _ da função _ *_tx_application_define_** ou de um fio de aplicação.                       |

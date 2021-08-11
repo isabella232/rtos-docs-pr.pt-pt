@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 7dd3485f112bce379ab7d6b11a808605bca191a0
-ms.sourcegitcommit: 1d90854d1da01f4b65e54d732ee9190b57a531e1
+ms.openlocfilehash: dd694cb7d34df7ecae206c3dcaf7d75a20bd4bd4e26471bb94da4129897ef727
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105569002"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116786149"
 ---
 # <a name="chapter-4-guix-studio-resources"></a>Capítulo 4: GUIX Studio Resources
 
@@ -67,7 +67,7 @@ Para cores definidas pelo utilizador, o GUIX Studio tenta sempre converter a cor
 
 Para as cores do sistema pré-definidas, o GUIX Studio define internamente três tabelas de cores padrão únicas. Uma tabela de cores padrão é usada para todas as profundidades de cores superiores a 4 bpp de escala cinzenta, uma segunda tabela de cores padrão é usada para formatos de cor à escala cinzenta (1 bpp < display_color_format <= 4bpp) e, finalmente, uma terceira tabela de cores do sistema padrão é usada para formato de cor monocromática.
 
-Quando muda o formato de cor do visor utilizando o diálogo de configuração do projeto, aplicam-se as seguintes regras:
+Quando muda o formato de cor do visor utilizando Project diálogo de configuração, aplicam-se as seguintes regras:
 
 1) Se os formatos de cores de ecrã antigo e novo utilizarem diferentes tabelas de cores do sistema definidas como definidas acima, as cores do sistema são cada uma reiniciada para as cores predefinidos pré-definidas. Por outras palavras, se mudar de cor para escala cinzenta, ou da escala cinzenta para a profundidade de cor monocromática, as cores do seu sistema serão reiniciadas para os valores padrão definidos internamente para a nova profundidade de cor. Embora isto possa causar a perda de algumas informações de cores personalizadas, esta solução dá-lhe um ponto de partida razoável quando faz uma alteração dramática nas definições do formato de cor do ecrã.
 
@@ -83,7 +83,7 @@ O GUIX Studio divide a paleta em duas secções: a secção "definido pelo utili
 
 Ao correr neste modo, se pretender editar uma cor definida na vista de recursos, o editor de cores permitir-lhe-á selecionar apenas a partir das entradas de paletas predefinidas que definiu. Isto porque as restantes entradas de paleta são geradas automaticamente pelo GUIX Studio e mudarão à medida que as imagens adicionadas ao seu projeto forem modificadas.
 
-Se necessitar da visualização de tipos de letra anti-aliased ao executar no modo paleta de 8bpp, deve definir uma série de entradas de paleta que criam um gradiente para cada utilização de cor de primeiro plano/fundo para exibir o seu texto anti-aliased. Pode utilizar 8 entradas de paleta para o gradiente para cada combinação de cores, ou 16 entradas de paleta para um gradiente mais suave. Este número de entradas de paletas utilizadas é determinado pela caixa de verificação "Número de Cores de Texto Anti-Aliased Do Modo de Paleta" no diálogo de configuração do projeto. Pode utilizar um gradiente com apenas oito entradas para minimizar as entradas de paleta utilizadas para cada combinação de cores, ou utilizar 16 gradientes de entrada para fornecer a aparência de texto anti-aliased mais suave.
+Se necessitar da visualização de tipos de letra anti-aliased ao executar no modo paleta de 8bpp, deve definir uma série de entradas de paleta que criam um gradiente para cada utilização de cor de primeiro plano/fundo para exibir o seu texto anti-aliased. Pode utilizar 8 entradas de paleta para o gradiente para cada combinação de cores, ou 16 entradas de paleta para um gradiente mais suave. Este número de entradas de paletas utilizadas é determinado pela caixa de verificação "Número de Cores de Texto Anti-Aliased Do Modo de Paleta" no diálogo de configuração Project. Pode utilizar um gradiente com apenas oito entradas para minimizar as entradas de paleta utilizadas para cada combinação de cores, ou utilizar 16 gradientes de entrada para fornecer a aparência de texto anti-aliased mais suave.
 
 Para simplificar a definição de um gradiente de cor para exibir texto anti-aliased, ou para gerar um gradiente de cor para o seu próprio uso, o diálogo de paleta de edição fornece um botão Gerar Gradiente. Para utilizar esta função, deve primeiro atribuir os valores r:g:b das cores de gradiente inicial e final.
 

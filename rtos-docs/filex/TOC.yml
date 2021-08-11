@@ -19,13 +19,13 @@
       href: chapter5.md
     - name: Ch. 6 - Módulo tolerante a falhas filex
       href: chapter6.md
-    - name: 'Aplicação: A - Serviços FileX'
+    - name: Aplicativo. A - Serviços FileX
       href: appendix-a.md
-    - name: 'Aplicação: B - Constantes FileX'
+    - name: Aplicativo. B - Constantes FileX
       href: appendix-b.md
-    - name: 'Aplicação: C - Tipos de dados FileX'
+    - name: Aplicativo. C - Tipos de dados FileX
       href: appendix-c.md
-    - name: 'Aplicação: D - Códigos de caracteres ASCII'
+    - name: Aplicativo. D - Códigos de caracteres ASCII
       href: appendix-d.md
 - name: Repositório FileX
   href: 'https://github.com/azure-rtos/filex'
@@ -33,7 +33,7 @@
   items:
     - name: Defender para IoT - RTOS (pré-visualização)
       href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
-- name: Componentes RTOS microsoft Azure
+- name: Microsoft Azure Componentes RTOS
   items:
     - name: Microsoft Azure RTOS
       href: ../index.yml

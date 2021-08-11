@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 678b9ed77f07d0b526525c740f0fae7adc6d2c95
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: a56f692059cbd3e2a72d64cf80ee90a917b80987add8130d3a1df70b3b0c3a71
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826114"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788478"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-duo-dhcp-server"></a>Capítulo 1 - Introdução ao servidor DHCP Azure RTOS NetX Duo DHCP
 

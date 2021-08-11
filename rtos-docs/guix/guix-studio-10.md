@@ -1,19 +1,19 @@
 ---
-title: Projeto Exemplo Simples
+title: Exemplo simples Project
 description: Este capítulo descreve como criar um projeto de exemplo no GUIX Studio e executar o exemplo no GUIX.
 author: jdeere5220
 ms.author: kemaxwel
 ms.date: 9/30/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 3661396f097e0ed7bd872fae01a7bec9212001b9
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8981bed62d2929703e4233d6a3ee31b692226c26d046875a235bf3aca32a7573
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826426"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116786656"
 ---
-# <a name="chapter-10-example-project"></a>Capítulo 10: Exemplo Projeto
+# <a name="chapter-10-example-project"></a>Capítulo 10: Exemplo Project
 
 Este capítulo descreve como criar um projeto de exemplo no GUIX Studio e executar o exemplo no GUIX.
 
@@ -25,17 +25,17 @@ O primeiro passo é criar um novo projeto e configurar os ecrãs e linguagens qu
 
 **Figura 10.1**
 
-Clique no ***Criar Novo Projeto** _... botão para iniciar um novo projeto. Será apresentado com o _ *_Novo Projeto GUIX_** diálogo, mostrado aqui:
+Clique no ***Criar Nova Project** _... botão para iniciar um novo projeto. Você será apresentado com o diálogo _ *_New GUIX Project_** mostrado aqui:
 
-![Screenshot do estúdio GUIX Criar novo diálogo de projeto.](./media/guix-studio/create_new_project.png)
+![Screenshot do estúdio GUIX Criar novo diálogo de Project.](./media/guix-studio/create_new_project.png)
 
 **Figura 10.2**
 
-Digite o nome "***new_example***" como o nome do projeto. Os nomes do projeto devem usar regras de nomeação variáveis C padrão, ou seja, sem caracteres especiais ou reservados. Digite o caminho para o local onde o projeto deve ser guardado. O caminho deve ser um diretório de sistema de ficheiros válido, ou seja, o GUIX Studio não criará o diretório se não existir. Clique em "OK" para criar o projeto.
+Digite o nome "***new_example***" como o nome do projeto. Project nomes devem usar regras de nomeação variáveis C padrão, isto é, nenhum caracteres especiais ou reservados. Digite o caminho para o local onde o projeto deve ser guardado. O caminho deve ser um diretório de sistema de ficheiros válido, ou seja, o GUIX Studio não criará o diretório se não existir. Clique em "OK" para criar o projeto.
 
-O próximo ecrã mostrado é o ecrã de Configuração do Projeto, mostrado aqui:
+O próximo ecrã mostrado é o ecrã de configuração Project, mostrado aqui:
 
-![Screenshot do diálogo do Guix Studio Configure Project.](./media/guix-studio/config_new_project.png)
+![Screenshot do guix Studio Configure Project diálogo.](./media/guix-studio/config_new_project.png)
 
 **Figura 10.3**
 
@@ -117,7 +117,7 @@ Vamos chamar isto completo para o design de tela de exemplo simples. Os ecrãs d
 
 ## <a name="generate-resource-and-application-code"></a>Gerar Código de Recursos e Aplicação
 
-O próximo passo é gerar o ficheiro de recursos e o ficheiro de especificações que definem a UI embutida do TEMPO DE EXECUÇÃO GUIX. Para gerar os seus ficheiros de saída, necessitará de clicar no nó ***main_display** _ no Visor do Projeto e selecione o comando _ *_Gerar Ficheiros de Recursos_** Observará uma janela de informação que indica que os seus ficheiros de recursos foram gerados, como mostra a figura 10.14:
+O próximo passo é gerar o ficheiro de recursos e o ficheiro de especificações que definem a UI embutida do TEMPO DE EXECUÇÃO GUIX. Para gerar os seus ficheiros de saída, necessitará de clicar no nó ***main_display** _ no Project View e selecionar o comando _ *_Gerar Ficheiros_* de Recursos * . Observará uma janela de informação que indica que os seus ficheiros de recursos foram gerados, como mostra a figura 10.14:
 
 ![Screenshot de um diálogo de notificação.](./media/guix-studio/image83.jpg)
 

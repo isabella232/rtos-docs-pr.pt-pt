@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 68a24f0345a2c4d3e824270699b00a2daab32f8e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 66bffa2dbf52bc458bfaf124aa006a79e810100ac2e926c17444daf090519e66
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826504"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783753"
 ---
 # <a name="chapter-6---azure-rtos-filex-fault-tolerant-module"></a>Capítulo 6 - Módulo tolerante a falhas Azure RTOS FileX
 
@@ -65,7 +65,7 @@ A área do cabeçalho de log é seguida pela área de log de corrente FAT. A fig
 
 **MESA 9. Área de log de cadeia de gordura**
 
-|Campo|Tamanho (in bytes)|Descrição|
+|Campo|Tamanho (in bytes)|Description|
 |-----|--------------|-----------|
 |Cheques de registo de cadeia de gordura|2|Checkum de toda a área de log de corrente fat. A área de Log de corrente FAT é considerada inválida se falhar na verificação da parte de verificação.|
 |Sinalizador|1|Os valores de bandeira válidos são:<br/>cadeia fat 0x01 válida<br />0x02 BITMAP está a ser usado|

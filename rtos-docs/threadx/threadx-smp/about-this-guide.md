@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 2399666b5b4d7c34db50d539e200c90f06f7235f
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6a8758bff2f205b06448905634172c05dd7fe189cce9fbe3977f6080c51eb95d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825447"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784789"
 ---
 # <a name="about-this-guide"></a>Sobre Este Manual
 
@@ -21,7 +21,7 @@ Destina-se ao desenvolvedor de software incorporado em tempo real. O desenvolved
 
 ## <a name="organization"></a>Organização
 
-| Capítulo       | Descrição geral                    |
+| Capítulo       | Descrição Geral                    |
 | ------------- | ---------------------------------------------------------------------------------------------------------- |
 | **Capítulo 1** | Fornece uma visão geral básica da ThreadX SMP e a sua relação com o desenvolvimento incorporado em tempo real.           |
 | **Capítulo 2** | Dá os passos básicos para instalar e utilizar o ThreadX SMP na sua aplicação *logo a partir da caixa.*           |

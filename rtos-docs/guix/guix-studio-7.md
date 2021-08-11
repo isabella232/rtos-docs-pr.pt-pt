@@ -1,33 +1,33 @@
 ---
-title: Definindo o fluxo de tela
+title: Definição de Flow de tela
 description: O GUIX Studio suporta a geração automática e a execução da lógica de transição de ecrã.
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 1c590725281c785181bcb4c5852346bc973c24d1
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 1df90acd86b4446d96a66ab3ee21545afcd9824e28efb40204c2966cb075c501
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826299"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785614"
 ---
-# <a name="chapter-7-defining-screen-flow"></a>Capítulo 7: Definição do fluxo de tela
+# <a name="chapter-7-defining-screen-flow"></a>Capítulo 7: Definição de Flow de tela
 
 O GUIX Studio suporta a geração automática e a execução da lógica de transição de ecrã. O utilizador define a lógica de transição do ecrã criando e editando um diagrama de fluxo de ecrã gráfico. Quando um diagrama de fluxo de ecrã é adicionado ao projeto, permite duas características importantes: 1) A aplicação pode ser executada dentro do ambiente studio e 2) O estúdio gera automaticamente manipuladores de eventos e lógica de transição de ecrã para implementar o fluxo de ecrã designado dentro das especificações geradas.c ficheiro, removendo este fardo do programa de aplicação. 
 
 Executar a aplicação no seu ambiente de desktop a partir do ambiente Studio é uma funcionalidade útil que poupa tempo na qual não é obrigado a passar por um ciclo de compilação/ligação para executar a sua aplicação. Existem, naturalmente, limitações ao que pode ser feito sem compilar a aplicação. As funções de desenho personalizadas, os manipuladores de eventos personalizados e o tratamento complexo de eventos não estão disponíveis quando executam a aplicação dentro do ambiente do ESTÚDIO GUIX. Ainda assim, esta capacidade permite-lhe gerar automaticamente a lógica de transição de ecrã, e as animações de programa a serem executadas para a transição de um ecrã para outro. Estes efeitos e animações podem ser observados diretamente a partir do ambiente do ESTÚDIO GUIX.
 
-Note que quando define o fluxo de ecrã, os gatilhos e as ações que descreveremos nos parágrafos seguintes, não só está a permitir a execução da sua UI dentro do ambiente do Studio, como também está a permitir que o GUIX Studio gere lógica dentro do seu ficheiro de especificações que lidará com eventos e tomará ações com base nesses eventos, como a transição de um ecrã para outro.
+Note que quando define o fluxo de ecrã, os gatilhos e as ações que descreveremos nos parágrafos seguintes, não só está a permitir a execução da sua UI a partir do ambiente studio, como também está a permitir que o GUIX Studio gere lógica dentro do seu ficheiro de especificações que lidará com eventos e tomará ações com base nesses eventos,  como a transição de um ecrã para outro.
 
-## <a name="configuring-screen-flow"></a>Fluxo de tela configurado
+## <a name="configuring-screen-flow"></a>Flow de tela de configuração
 
 Antes de uma aplicação poder ser executada dentro do ambiente studio algumas coisas devem ser definidas. Em primeiro lugar, o ecrã ou ecrãs de nível superior que devem ser exibidos no arranque do programa devem ser indicados selecionando a propriedade "Visível no Arranque" na vista propriedades do Estúdio. Esta bandeira indica que este ecrã deve ser apresentado inicialmente quando o programa começar. Mais de um ecrã pode ter esta designação se desejar.
 
 Depois de definir os ecrãs que são visíveis no arranque, o utilizador pode definir como a aplicação UI fluirá de ecrã para ecrã. O GUIX Studio fornece um diagrama de fluxo de ecrã gráfico para definir a lógica de transição do ecrã. Basta selecionar a seleção do menu ***Configurar, Screen Flow** _ para aumentar o diálogo de edição de fluxo de ecrã, ver o ecrã filmado em _*_Figura 30_**.
 
-![Screenshot do diálogo guix Studio Screen Flow.](./media/guix-studio/config_screen_flow.png)
+![Screenshot do guix Studio Screen Flow diálogo.](./media/guix-studio/config_screen_flow.png)
 
 **Figura 30**
 
@@ -113,6 +113,6 @@ Uma vez criados ecrãs de arranque e um diagrama de fluxo de ecrã, pode executa
 
 ![Screenshot do botão 'Aplicação de execução'.](./media/guix-studio/image68.jpg)
 
-botão na barra de ferramentas, selecionando Editar | Executar Aplicação a partir do menu do projeto, ou selecionando o botão Executar na parte inferior do diálogo Edit Screen Flow.
+botão na barra de ferramentas, selecionando Editar | Executar a aplicação a partir do menu do projeto, ou selecionando o botão Executar na parte inferior do Flow diálogo do ecrã de edição.
 
 Quando executar a aplicação, verá o(s) ecrã(s) que designou como ecrã "Visível no Arranque" dentro de uma nova janela. Os widgets da criança nestes ecrãs estão totalmente operacionais. Pode clicar em botões, operar sliders e rodas de deslocamento, etc.. Se tiver definido funções de desenho personalizado ou manuseamento de eventos do cliente para qualquer um destes widgets, é claro que não o verá ao executar a aplicação neste modo. Mas se definiu um diagrama de fluxo de ecrã com eventos e ações de gatilho, esses gatilhos estarão operacionais e os seus ecrãs irão transitar como definiu, incluindo quaisquer animações que possa ter definido.

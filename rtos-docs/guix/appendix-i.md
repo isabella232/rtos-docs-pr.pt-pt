@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: dc7775cdde8f1aa89ca650561713f54ac6c069eb
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 8730dbfc49ed51716f32c118a25ebffc907b19a54d98d83ede4155f87fbecb7b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550223"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784171"
 ---
 # <a name="appendix-i---guix-information-structures"></a>Apêndice I - ESTRUTURAS DE Informação GUIX 
 
@@ -27,7 +27,7 @@ typedef struct GX_BIDI_TEXT_INFO_STRUCT
     GX_VALUE  gx_bidi_text_info_display_width;
 } GX_BIDI_TEXT_INFO;
 ```
-| Membros | Descrição |
+| Membros | Description |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_bidi_text_info_text**               | Texto para reordenamento |
 | **gx_bidi_text_info_font**               | Fonte usada para exibir texto, defini-lo para GX_NULL se não for necessário quebrar a linha |
@@ -46,7 +46,7 @@ typedef struct GX_BIDI_RESOLVED_TEXT_INFO_STRUCT
 } GX_BIDI_RESOLVED_TEXT_INFO;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_bidi_resolved_text_info_text**             | Ponteiro para a matriz de texto bidi reordenado |
 | **gx_bidi_resolved_text_info_total_lines**      | Linhas totais de texto bidi resolvido para um parágrafo |
@@ -69,7 +69,7 @@ typedef struct GX_CIRCULAR_GAUGE_INFO_STRUCT
 } GX_CIRCULAR_GAUGE_INFO;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | ------------------------------------------------ | -------------------------------------------- |
 | **gx_circular_gauge_info_animation_steps**       | Passos totais que a agulha irá percorrer ao mover-se do ângulo da agulha atual para um ângulo de agulha recém-atribuído |
 | **gx_circular_gauge_info_animation_delay**       | O número de relógio GUIX assinala-se entre etapas de animação |
@@ -106,7 +106,7 @@ typedef struct GX_LINE_CHART_INFO_STRUCT
 } GX_LINE_CHART_INFO;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_line_chart_min_val**          | O valor mínimo de dados, que é usado para calcular a escala
 | **gx_line_chart_max_val**          | O valor máximo dos dados, que é usado para calcular a escala |
@@ -132,7 +132,7 @@ typedef struct GX_MOUSE_CURSOR_INFO_STRUCT
 } GX_MOUSE_CURSOR_INFO;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_mouse_cursor_image_id**       | ID de recurso da imagem do rato |
 | **gx_mouse_cursor_hotspot_x**      | A compensação da esquerda da imagem do rato para o hotspot de imagem do rato |
@@ -150,7 +150,7 @@ typedef struct GX_PEN_CONFIGURATION_STRUCT
 }GX_PEN_CONFIGURATION;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | -------------------------------------------- | ------------------------------------------------ |
 | **gx_pen_configuration_min_drag_dist**       | A distância mínima de arrasto por temporizador GUIX para desencadear um evento FLICK. Ligue GX_FIXED_VAL_MAKE para fazer um valor de tipo de dados de ponto fixo |
 | **gx_pen_configuration_max_pen_speed_ticks** | A velocidade máxima de arrasto no temporizador GUIX assinala-se para desencadear um evento FLICK | 
@@ -168,7 +168,7 @@ typedef struct GX_PIXELMAP_SLIDER_INFO_STRUCT
 } GX_PIXELMAP_SLIDER_INFO;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | ----------------------------------------------------- | ---------------------------------------- |
 | **gx_pixelmap_slider_info_lower_background_pixelmap** | Identificação de recursos do mapa de pixels para encher o fundo antes da agulha. Se o pixelmap de fundo superior não estiver definido, é usado para encher o fundo antes e depois da agulha |
 | **gx_pixelmap_slider_info_upper_background_pixelmap** | ID de recurso do mapa de pixels para o enchimento de fundo após a agulha |
@@ -192,7 +192,7 @@ typedef struct GX_PROGRESS_BAR_INFO_STRUCT
 } GX_PROGRESS_BAR_INFO;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | -------------------------------------------- | ------------------------------------------------ |
 | **gx_progress_bar_info_min_val**             | Valor mínimo reportado |
 | **gx_progress_bar_info_max_val**             | Valor máximo reportado |
@@ -226,7 +226,7 @@ typedef struct GX_RADIAL_PROGRESS_BAR_INFO_STRUCT
 } GX_RADIAL_PROGRESS_BAR_INFO;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | ------------------------------------------------- | -------------------------------------------- |
 | **gx_radial_progress_bar_info_xcenter**           | Posição widget na coordenada x |
 | **gx_radial_progress_bar_info_ycenter**           | Posição widget na coordenada y  |
@@ -263,7 +263,7 @@ typedef struct GX_RADIAL_SLIDER_INFO_STRUCT
 } GX_RADIAL_SLIDER_INFO;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | --------------------------------------------- | ------------------------------------------------ |
 **gx_radial_slider_info_xcenter**               | Distância da esquerda do widget deslizante para o centro de rotação da agulha deslizante |
 | **gx_radial_slider_info_ycenter**             | Distância do topo do widget de slider para o centro de rotação da agulha deslizante |
@@ -291,7 +291,7 @@ typedef struct GX_RECTANGLE_STRUCT
 } GX_RECTANGLE;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | -------------------------------- | ------------------------|
 | **gx_rectangle_left**            | Esquerda do retângulo   |  
 | **gx_rectangle_top**             | Topo do retângulo    | 
@@ -312,7 +312,7 @@ typedef struct GX_RICH_TEXT_FONTS_STRUCT
 } GX_RICH_TEXT_FONTS;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_rich_text_fonts_normal_id**   | ID de recurso de fonte de texto normal |
 | **gx_rich_text_fonts_bold_id**     | ID de recurso de fonte de texto arrojado |
@@ -333,7 +333,7 @@ typedef struct GX_SCROLL_INFO_STRUCT
 } GX_SCROLL_INFO;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | ----------------------- | ----------------------------- |
 | **gx_scroll_value**     | Posição atual do pergaminho       |
 | **gx_scroll_minimum**   | Posição mínima reportada     |
@@ -363,7 +363,7 @@ typedef struct GX_SCROLLBAR_APPEARANCE_STRUCT
 } GX_SCROLLBAR_APPEARANCE;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | ---------------------------------------- | ----------------------------------------------------- |
 | **gx_scroll_width**                      | Largura do widget da barra de deslocação, em pixels |
 | **gx_scroll_thumb_width**                | Largura do botão do polegar que desliza na barra de deslocação, em pixels. Este valor é geralmente um número de pixels menos do que a largura total da barra de deslocação |
@@ -398,7 +398,7 @@ typedef struct GX_SLIDER_INFO_STRUCT
 } GX_SLIDER_INFO;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | --------------------------------------- | ------------------------------------------------------ |
 | **gx_slider_info_min_val**              | Valor mínimo reportado |
 | **gx_slider_info_max_val**              | Valor máximo reportado |
@@ -426,7 +426,7 @@ typedef struct GX_SPRITE_FRAME_STRUCT
 } GX_SPRITE_FRAME;
 ```
 
-| Membros | Descrição |
+| Membros | Description |
 | ---------------------------------------- | ----------------------------------------------------- |
 | **gx_sprite_frame_pixelmap**             | ID de recurso do pixelmap a ser apresentado para esta moldura. A identificação pode ser 0. |
 | **gx_sprite_frame_x_offset**             | Compensado do widget sprite à esquerda para exibir o pixelmap |
