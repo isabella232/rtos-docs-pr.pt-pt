@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/14/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 47816c8a62aed9e2b096b121d1676c66178ad825
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: e1eb96e53f600eac56f8a82f3ca02ccfdaabf5cc12d95989e1e38e87775ff24f
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825862"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797386"
 ---
 # <a name="chapter-2---installation-and-use-of-nat"></a>Capítulo 2 - Instalação e utilização de NAT
 
@@ -39,7 +39,7 @@ Para construir uma aplicação NetX Duo NAT:
 
 ## <a name="small-example-demo-nat-setup"></a>Configuração NAT de demo de exemplo pequeno
 
-Um exemplo de como uma aplicação configura o NetX Duo NAT é mostrado na função *tx_application_define* na Figura 4 abaixo. Ao contrário da maioria dos ficheiros de demonstração da NetX Duo distribuídos no CD de instalação, esta demonstração funciona numa placa de processador real com dois comandos Ethernet, em vez de um PC do Windows utilizando o controlador de rede virtual *_nx_ram_network_driver*(). O dispositivo NAT está ligado ao domínio local através de um interruptor local na sua interface local, e à rede externa através do segundo interruptor na sua interface externa.
+Um exemplo de como uma aplicação configura o NetX Duo NAT é mostrado na função *tx_application_define* na Figura 4 abaixo. Ao contrário da maioria dos ficheiros de demonstração da NetX Duo distribuídos no CD de instalação, esta demo funciona numa placa de processador real com dois controladores Ethernet, em vez de um PC Windows utilizando o *_nx_ram_network_driver* do controlador de rede virtual (). O dispositivo NAT está ligado ao domínio local através de um interruptor local na sua interface local, e à rede externa através do segundo interruptor na sua interface externa.
 
 A configuração básica netXDuo é mostrada em demo_netx_nat.c. A rede privada é definida como 192.168.2.xx e tem dois nós hospedeiros locais. A rede global é definida como 192.168.0.xx e define a sua porta de entrada para fora dos pacotes de rede como 192.168.0.1. As instâncias NetX Duo IP são criadas nas linhas 118-171 e invocam o condutor 'ram'; nat_ip instância anexada duas interfaces funcionam como um router NAT, local_ip instância anexada na interface atuação como hospedeiro local; external_ip instância anexada uma interface atua como hospedeiro externo.
 

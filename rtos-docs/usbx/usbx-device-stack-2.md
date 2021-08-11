@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: dd58f77130fa252be9163bd70c29f7deee400d30
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: abe3e43e090890a5e51700fc2f587c59619fcdad5b71681fd4071c614dab5ce6
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549781"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791413"
 ---
 # <a name="chapter-2---azure-rtos-usbx-device-stack-installation"></a>Capítulo 2 - Instalação de pilha de dispositivos USBX Azure RTOS
 
@@ -19,7 +19,7 @@ ms.locfileid: "106549781"
 
 ### <a name="computer-type"></a>Tipo de computador
 
-O desenvolvimento incorporado é geralmente realizado em computadores anfitriões Windows PC ou Unix. Após a compilação da aplicação, ligada e localizada no anfitrião, é descarregada para o hardware alvo para execução.
+O desenvolvimento incorporado é geralmente realizado em computadores de Windows PC ou unix anfitrião. Após a compilação da aplicação, ligada e localizada no anfitrião, é descarregada para o hardware alvo para execução.
 
 ### <a name="download-interfaces"></a>Baixar Interfaces
 
@@ -27,7 +27,7 @@ Normalmente, o download do alvo é feito através de uma interface de série RS-
 
 ### <a name="debugging-tools"></a>Ferramentas de depurar
 
-Depurar é feito normalmente sobre o mesmo link que o download de imagem do programa. Existe uma variedade de depuradores, desde pequenos programas de monitor que correm no alvo através do Background Debug Monitor (BDM) e In-Circuit ferramentas emuladoras (ICE). A ferramenta ICE fornece a depuragem mais robusta do hardware alvo real.
+Depurar é feito normalmente sobre o mesmo link que o download de imagem do programa. Existe uma variedade de depureiros, desde pequenos programas de monitor que correm no alvo através de ferramentas Background Debug Monitor (BDM) e In-Circuit Emulator (ICE). A ferramenta ICE fornece a depuragem mais robusta do hardware alvo real.
 
 ### <a name="required-hard-disk-space"></a>Espaço de disco rígido necessário
 
@@ -54,13 +54,13 @@ Todos os ficheiros estão em minúsculas. Esta convenção de nomeação facilit
 
 ## <a name="usbx-installation"></a>Instalação USBX
 
-O USBX é instalado através da clonagem do repositório GitHub à sua máquina local. O seguinte é a sintaxe típica para criar um clone do repositório USBX no seu PC:
+O USBX é instalado clonando o repositório GitHub à sua máquina local. O seguinte é a sintaxe típica para criar um clone do repositório USBX no seu PC:
 
 ```c
     git clone https://github.com/azure-rtos/usbx
 ```
 
-Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal do GitHub.
+Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal GitHub.
 
 Também encontrará instruções para a construção da biblioteca USBX na primeira página do repositório online.
 
@@ -80,7 +80,7 @@ Existem várias opções de configuração para a construção da biblioteca USB
 
 A lista abaixo detalha cada opção de configuração.
 
-| Opção de configuração &nbsp; | Descrição |
+| Opção de configuração &nbsp; | Description |
 | --- | --- |
 | **UX_PERIODIC_RATE** | Este valor representa quantos tiques por segundo para uma plataforma de hardware específica. O padrão é 1000 indicando 1 carrapato por milissegundo. |
 | **UX_THREAD_STACK_SIZE** | Este valor é o tamanho da stack in bytes para os fios USBX. Pode ser normalmente 1024 bytes ou bytes de 2048 dependendo do processador utilizado e do controlador anfitrião. |
@@ -185,7 +185,7 @@ UINT ux_dcd_controller_initialize(ULONG dcd_io,
 
 com os seguintes parâmetros:
 
-| Pararmeter               | Descrição                      |
+| Pararmeter               | Description                      |
 | ------------------------ | -------------------------------- |
 | dcd_io ULONG            | Endereço do controlador IO     |
 | dcd_irq ULONG           | Interrupção utilizada pelo controlador |

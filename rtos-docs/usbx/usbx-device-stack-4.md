@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: d4aea7470ba2d9075296164b9d1fb61db4f88523
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 9d88d9bd177a251a00fec6757fc1f1494b56bab9655a55f973481f273f0683ee
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104828136"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797556"
 ---
 # <a name="description-of-usbx-device-services"></a>Descrição dos Serviços de Dispositivos USBX
 
@@ -25,7 +25,7 @@ Obtenha a definição alternativa atual para um valor de interface
 UINT ux_device_stack_alternate_setting_get(ULONG interface_value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada pelo anfitrião USB para obter a definição alternativa atual para um valor de interface específico. É chamado pelo controlador quando um **pedido de GET_INTERFACE** é recebido.
 
@@ -62,7 +62,7 @@ UINT ux_device_stack_alternate_setting_set(
     ULONG alternate_setting_value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada pelo anfitrião USB para definir a definição alternativa atual para um valor de interface específico. É chamado pelo controlador quando um **pedido de SET_INTERFACE** é recebido. Quando o **SET_INTERFACE** estiver concluído, os valores das definições alternativas são aplicados à classe.
 
@@ -108,7 +108,7 @@ UINT ux_device_stack_class_register(
     VOID *parameter);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada pela aplicação para registar uma nova classe de dispositivo USB. Esta inscrição inicia um contentor de classe e não um exemplo da classe. Uma classe deve ter um fio ativo e ser anexada a uma interface específica.
 
@@ -155,7 +155,7 @@ UINT ux_device_stack_class_unregister(
     UINT (*class_entry_function)(struct UX_SLAVE_CLASS_COMMAND_STRUCT*));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada pela aplicação para não registar uma classe de dispositivo USB.
 
@@ -193,13 +193,13 @@ Obtenha a configuração atual
 UINT ux_device_stack_configuration_get(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada pelo anfitrião para obter a configuração atual em execução no dispositivo.
 
 ### <a name="input-parameter"></a>Parâmetro de entrada
 
-Nenhum
+Nenhuma
 
 ### <a name="return-value"></a>Devolver Valor
 
@@ -226,7 +226,7 @@ Definir a configuração atual
 UINT ux_device_stack_configuration_set(ULONG configuration_value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada pelo anfitrião para definir a configuração atual em execução no dispositivo. Após a receção deste comando, a pilha de dispositivo USB ativará a definição alternativa 0 de cada interface ligada a esta configuração.
 
@@ -263,7 +263,7 @@ UINT ux_device_stack_descriptor_send(
     ULONG host_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é utilizada pelo lado do dispositivo para devolver um descritor ao hospedeiro. Este descritor pode ser um descritor de dispositivos, um descritor de configuração ou um descritor de cordas.
 
@@ -307,13 +307,13 @@ Desconexão da pilha de dispositivos
 UINT ux_device_stack_disconnect(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O gestor VBUS chama a esta função quando há uma desconexão do dispositivo. A pilha do dispositivo informará todas as classes registadas neste dispositivo e, posteriormente, libertará todos os recursos do dispositivo.
 
 ### <a name="input-parameter"></a>Parâmetro de entrada
 
-Nenhum
+Nenhuma
 
 ### <a name="return-value"></a>Devolver Valor
 
@@ -340,7 +340,7 @@ Pedido condição de paragem de ponto final
 UINT ux_device_stack_endpoint_stall(UX_SLAVE_ENDPOINT*endpoint);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada pela classe do dispositivo USB quando um ponto final deve devolver uma condição de Paragem ao anfitrião.
 
@@ -374,13 +374,13 @@ Acorde o anfitrião
 UINT ux_device_stack_host_wakeup(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando o dispositivo quer acordar o hospedeiro. Este comando só é válido quando o dispositivo estiver em modo de suspensão. Cabe à aplicação do dispositivo decidir quando pretende acordar o anfitrião USB. Por exemplo, um modem USB pode acordar um hospedeiro quando deteta um sinal RING na linha telefónica.
 
 ### <a name="input-parameter"></a>Parâmetro de entrada
 
-Nenhum
+Nenhuma
 
 ### <a name="return-values"></a>Valores de retorno
 
@@ -417,7 +417,7 @@ UINT ux_device_stack_initialize(
     UINT (*ux_system_slave_change_function)(ULONG)));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada pela aplicação para inicializar a pilha de dispositivo USB. Não inicializa nenhuma aula ou controlador. Isto deve ser feito com chamadas de função separadas. Esta chamada fornece principalmente a pilha com a estrutura do dispositivo para a função USB. Suporta velocidades altas e a toda a velocidade com a possibilidade de ter uma estrutura de dispositivo completamente separada para cada velocidade. A estrutura de cordas e várias línguas são suportadas.
 
@@ -558,7 +558,7 @@ Excluir uma interface de pilha
 UINT ux_device_stack_interface_delete(UX_SLAVE_INTERFACE*interface);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma interface deve ser removida. Uma interface é removida quando um dispositivo é extraído, ou após um reset do autocarro, ou quando há uma nova definição alternativa.
 
@@ -591,7 +591,7 @@ Obtenha o valor atual da interface
 UINT ux_device_stack_interface_get(UINT interface_value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando o anfitrião consulta a interface atual. O dispositivo devolve o valor atual da interface.
 
@@ -633,7 +633,7 @@ UINT ux_device_stack_interface_set(
     ULONG alternate_setting_value);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando o anfitrião solicita uma alteração da definição alternativa para a interface.
 
@@ -673,7 +673,7 @@ Comece a procurar uma classe para possuir uma instância de interface
 UINT ux_device_stack_interface_start(UX_SLAVE_INTERFACE*interface);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma interface foi selecionada pelo anfitrião e a pilha de dispositivos precisa de procurar uma classe de dispositivo para possuir esta instância de interface.
 
@@ -710,7 +710,7 @@ UINT ux_device_stack_transfer_request(
     ULONG host_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma classe ou a stack quer transferir dados para o anfitrião. O anfitrião sempre sonda o dispositivo, mas o dispositivo pode preparar dados com antecedência.
 
@@ -769,7 +769,7 @@ UINT ux_device_stack_transfer_abort(
     ULONG completion_code);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa cancelar um pedido de transferência ou quando a stack precisa abortar um pedido de transferência associado a um ponto final.
 
@@ -804,7 +804,7 @@ Pilha de unitialização
 UINT ux_device_stack_uninitialize();
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando uma aplicação precisa de unitizar a pilha de dispositivos USBX – todos os recursos de pilha de dispositivos são libertados. Isto deve ser chamado depois de todas as aulas não terem sido registadas através de ux_device_stack_class_unregister.
 

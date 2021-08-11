@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 3ab7d3a7e431d7c8f49ef4f5cab9216dc77c8d33
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2e109f5916a9e903aa3341f2855ade085e9d9a22b80ec7cb2e0c310e43ff3eac
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827050"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790246"
 ---
 # <a name="chapter-6---azure-rtos-levelx-nor-apis"></a>Capítulo 6 - Azure RTOS LevelX NOR APIs
 
@@ -37,7 +37,7 @@ Encerrar a instância flash NOR
 UINT lx_nor_flash_close(LX_NOR_FLASH *nor_flash);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço encerra a instância de flash NOR previamente aberta.
 
@@ -84,7 +84,7 @@ Defragment NOR flash instance
 UINT lx_nor_flash_defragment(LX_NOR_FLASH *nor_flash);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desfragmenta a instância de flash NOR previamente aberta. O processo de desfragmentamento maximiza o número de sectores e blocos livres.
 
@@ -134,7 +134,7 @@ UINT lx_nor_flash_extended_cache_enable(
     ULONG size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço implementa uma camada de cache do sector NOR na RAM utilizando a memória fornecida pela aplicação. Cada 512 bytes de memória fornecidos traduz-se num sector NOR que pode ser em cache. Os sectores em cache são aqueles que contêm a informação de controlo de blocos, por exemplo, a contagem de apagamento, o mapa do sector livre e a informação de mapeamento sectorial. Os sectores de dados não são armazenados nesta cache.
 
@@ -185,7 +185,7 @@ Inicializar NOR suporte flash
 UINT lx_nor_flash_initialize(void);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa o suporte de flash LevelX NOR. Deve ser chamado antes de qualquer outro LevelX NOR APIs.
 
@@ -235,7 +235,7 @@ UINT lx_nor_flash_open(
     UINT (*nor_driver_initialize) (LX_NOR_FLASH *));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço abre uma instância de flash NOR com o bloco de controlo de flash NOR especificado e a função de inicialização do controlador. Note que a função de inicialização do controlador é responsável pela instalação de vários ponteiros de função para a leitura, escrita e apagamento de blocos do hardware NOR associados a esta instância de flash NOR.
 
@@ -288,7 +288,7 @@ UINT lx_nor_flash_partial_defragment(
     UINT max_blocks);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desfragmenta a instância de flash NOR previamente aberta até ao número máximo de blocos especificados. O processo de desfragmentamento maximiza o número de sectores e blocos livres.
 
@@ -339,7 +339,7 @@ UINT lx_nor_flash_sector_read(
     VOID *buffer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço lê o sector lógico a partir da instância de flash NOR e se for bem-sucedido devolve o conteúdo no tampão fornecido. Note que o tamanho do sector NOR é sempre de 512 bytes.
 
@@ -390,7 +390,7 @@ UINT lx_nor_flash_sector_release(
     ULONG logical_sector);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta o mapeamento do sector lógico na instância de flash NOR. Libertar um sector lógico quando não utilizado torna o nível de desgaste LevelX mais eficiente.
 
@@ -441,7 +441,7 @@ UINT lx_nor_flash_sector_write(
     VOID *buffer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço escreve o sector lógico especificado na instância de flash NOR.
 

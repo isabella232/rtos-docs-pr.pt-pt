@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/14/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 1d56b20b1c7d719d1b7d9c8c5b2fe234d5577da3
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: a36357ce486d5ba8a68b23c829de6c4b821dfb3cc62f47b0958ff32deaa2f7a7
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825987"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791300"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-duo-ftp"></a>Capítulo 1 - Introdução ao Azure RTOS NetX Duo FTP
 
@@ -31,7 +31,7 @@ A parte ftp server do pacote NetX FTP tem vários requisitos adicionais. Em prim
 
 A norma FTP tem muitas opções no que diz respeito à representação de dados de ficheiros. O NetX FTP não implementa opções de comutação, por exemplo, ls (al). O NetX FTP Server espera receber pedidos e os seus argumentos num único pacote em vez de pacotes consecutivos.
 
-À semelhança das implementações da UNIX, a NetX FTP assume as seguintes restrições ao formato de ficheiro:
+À semelhança das implementações UNIX, a NetX FTP assume as seguintes restrições ao formato de ficheiro:
 
 - Tipo de ficheiro: **Binário**
 - Formato de ficheiro: **Apenas impressão**

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 67bdb9076272fa3671ec9321baec609b291c04b8
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 9b9fb7b08691930abcf57df77fff27e619bb7a554a6235d4e234889b7c80945e
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826570"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116802255"
 ---
 # <a name="chapter-1-introduction-to-azure-rtos-threadx-smp"></a>Capítulo 1: Introdução ao Azure RTOS ThreadX SMP
 

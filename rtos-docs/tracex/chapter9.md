@@ -6,12 +6,12 @@ ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: 98561fe1d131e1d1b0893b7d89eb720881a82ac8
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 015e5feedd1d5e90c6491e156c2d0d57a9abaa47518868d375a34e618770d4aa
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104828351"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116793971"
 ---
 # <a name="chapter-9---azure-rtos-usbx-trace-events"></a>Capítulo 9 - Azure RTOS USBX trace eventos
 
@@ -53,8 +53,8 @@ Segue-se uma lista de eventos USBX apresentados pela TraceX.
 | ![Número de objetos de classe de dispositivo Pima Enviar ícone](./media/user-guide/usbx-events/image28.png)    | **Número de objetos classe de dispositivo Pima Enviar** *(ux_device_class_pima_objects_number_send)* |
 | ![Classe de dispositivo Pima Objeto Parcial Objeto Dados Obter ícone](./media/user-guide/usbx-events/image29.png)    | **Dados de objetos parciais da classe do dispositivo Pima obtêm** *(ux_device_class_pima_partial_object_data_get)* |
 | ![Ícone de resposta pima classe de dispositivo](./media/user-guide/usbx-events/image30.png)    | **Envio de resposta classe de dispositivo Pima** *(ux_device_class_pima_response_send)*|
-| ![Classe de dispositivo Pima Armazenamento I D Enviar ícone](./media/user-guide/usbx-events/image31.png)    | **Envio de Id de armazenamento classe de dispositivo Pima** *(ux_device_class_pima_storage_id_send)* |
-| ![Classe de dispositivo Pima Storage Info Enviar ícone](./media/user-guide/usbx-events/image32.png)    | **Informações de armazenamento classe de dispositivo Pima Enviar** *(ux_device_class_pima_storage_info_send)* |
+| ![Classe de dispositivo Pima Armazenamento I D Enviar ícone](./media/user-guide/usbx-events/image31.png)    | **Classe de dispositivo Pima Armazenamento Id Enviar** *(ux_device_class_pima_storage_id_send)* |
+| ![Classe de dispositivo Pima Armazenamento Informação Enviar](./media/user-guide/usbx-events/image32.png)    | **Classe de dispositivo Pima Armazenamento Info Enviar** *(ux_device_class_pima_storage_info_send)* |
 | ![Ícone ativar classe de dispositivo R N D I S](./media/user-guide/usbx-events/image33.png)    | **Dispositivo Classe Rndis Ativar** *(ux_device_class_rndis_activate)* |
 | ![Ícone de desativado classe de dispositivo R N D I S](./media/user-guide/usbx-events/image34.png)    | **Classe dispositivo Rndis Desativado** *(ux_device_class_rndis_deactivate)* |
 | ![Classe de dispositivo R N D I S Mensagem Manter Aliveicon](./media/user-guide/usbx-events/image35.png)    | **Mensagem Rndis classe dispositivo Manter vivo** *(ux_device_class_rndis_msg_keep_alive)* |
@@ -63,29 +63,29 @@ Segue-se uma lista de eventos USBX apresentados pela TraceX.
 | ![Ícone de conjunto de mensagem classe de dispositivo R N D I S](./media/user-guide/usbx-events/image38.png)    | **Conjunto de mensagens Rndis classe de dispositivo** *(ux_device_class_rndis_msg_set)* |
 | ![Ícone de receção de pacote classe de dispositivo R N D I S](./media/user-guide/usbx-events/image39.png)    | **Pacote classe de dispositivo Rndis** *(ux_device_class_rndis_packet_receive)* |
 | ![Ícone de transmissão de pacote de pacote classe R N D I I S](./media/user-guide/usbx-events/image40.png)    | **Dispositivo Classe Rndis Packet Transmit** *(ux_device_class_rndis_packet_transmit)* |
-| ![Ícone ativar o armazenamento da classe do dispositivo](./media/user-guide/usbx-events/image41.png)    | **Ativar o armazenamento da classe do dispositivo** *(ux_device_class_storage_activate)* |
-| ![Ícone de desativação de classe de dispositivo](./media/user-guide/usbx-events/image42.png)    | **Desativação do armazenamento da classe do dispositivo** *(ux_device_class_storage_deactivate)* |
-| ![Ícone de formato de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image43.png)    | **Formato de armazenamento de classe de dispositivo** *(ux_device_class_storage_format)* |
-| ![Ícone de inquérito de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image44.png)    | **Inquérito de armazenamento da classe do dispositivo** *(ux_device_class_storage_inquiry)* |
-| ![Modo de armazenamento de classe de dispositivo Selecionar ícone](./media/user-guide/usbx-events/image45.png)    | **Selecione o modo de armazenamento da classe do dispositivo** *(ux_device_class_storage_mode_select)* |
-| ![Ícone de sentido de modo de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image46.png)    | **Sentido do modo de armazenamento da classe do dispositivo** *(ux_device_class_storage_mode_sense)* |
-| ![Armazenamento de classe de dispositivo Previne permitir ícone de remoção de mídia](./media/user-guide/usbx-events/image47.png)    | **Armazenamento da classe do dispositivo Previne a remoção dos meios** de comunicação *(ux_device_class_storage_prevent_allow_media_removal)* |
-| ![Ícone de leitura de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image48.png)    | **Leitura de armazenamento da classe do dispositivo** *(ux_device_class_storage_read)* |
-| ![Ícone de capacidade de leitura de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image49.png)    | **Capacidade de leitura de armazenamento de classe do dispositivo** *(ux_device_class_storage_read_capacity)* |
-| ![Ícone de capacidade de leitura de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image50.png)    | **Capacidade de leitura do formato de leitura da classe do dispositivo** *(ux_device_class_storage_read_format_capacity)* |
-| ![Armazenamento de classe de dispositivo Leia o ícone TOC](./media/user-guide/usbx-events/image51.png)    | **Armazenamento da classe do dispositivo Leia TOC** *(ux_device_class_storage_read_toc)* |
-| ![Ícone de pedido de pedido de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image52.png)    | **Sentido do pedido de armazenamento da classe do dispositivo** *(ux_device_class_storage_request_sense)* |
-| ![Ícone de início de paragem de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image53.png)    | **Paragem de início de armazenamento da classe do dispositivo** *(ux_device_class_storage_start_stop)* |
-| ![Ícone de teste de armazenamento de classe de dispositivo pronto](./media/user-guide/usbx-events/image54.png)    | **Teste de armazenamento da classe do dispositivo pronto** *(ux_device_class_storage_test_ready)* |
-| ![Ícone de verificação de classe de dispositivo](./media/user-guide/usbx-events/image55.png)    | **Verificação da classe do dispositivo** *(ux_device_class_storage_verify)* |
-| ![Ícone de escrita de classe de dispositivo](./media/user-guide/usbx-events/image56.png)    | **Escrita de armazenamento de classe de dispositivo** *(ux_device_class_storage_write)* |
+| ![Ícone de ativação de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image41.png)    | **Classe Armazenamento dispositivo Ativar** *(ux_device_class_storage_activate)* |
+| ![Ícone de desativar classe Armazenamento de dispositivo](./media/user-guide/usbx-events/image42.png)    | **Classe Armazenamento de dispositivos desativam** *(ux_device_class_storage_deactivate)* |
+| ![Ícone de formato de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image43.png)    | **Formato Armazenamento classe do dispositivo** *(ux_device_class_storage_format)* |
+| ![Ícone de Armazenamento de inquérito da classe do dispositivo](./media/user-guide/usbx-events/image44.png)    | **Inquérito de Armazenamento classe de dispositivo** *(ux_device_class_storage_inquiry)* |
+| ![Classe de dispositivo Armazenamento modo Selecionar ícone](./media/user-guide/usbx-events/image45.png)    | **Seleção do modo Armazenamento classe do dispositivo** *(ux_device_class_storage_mode_select)* |
+| ![Ícone de sentido de modo de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image46.png)    | **Sentido do modo Armazenamento classe** do dispositivo *(ux_device_class_storage_mode_sense)* |
+| ![Classe de dispositivo Armazenamento impedir permitir ícone de remoção de mídia](./media/user-guide/usbx-events/image47.png)    | **Classe Armazenamento dispositivo Previne permitir a remoção dos meios** de comunicação *(ux_device_class_storage_prevent_allow_media_removal)* |
+| ![Ícone de leitura de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image48.png)    | **Aula de dispositivo Armazenamento Ler** *(ux_device_class_storage_read)* |
+| ![Ícone de capacidade de leitura de Armazenamento classe do dispositivo](./media/user-guide/usbx-events/image49.png)    | **Capacidade de leitura Armazenamento classe do dispositivo** *(ux_device_class_storage_read_capacity)* |
+| ![Ícone de capacidade de Armazenamento de leitura da classe do dispositivo](./media/user-guide/usbx-events/image50.png)    | **Capacidade do formato de leitura Armazenamento classe do dispositivo** *(ux_device_class_storage_read_format_capacity)* |
+| ![Classe de Armazenamento de dispositivo Leia o ícone TOC](./media/user-guide/usbx-events/image51.png)    | **Classe Armazenamento do dispositivo Leia TOC** *(ux_device_class_storage_read_toc)* |
+| ![Ícone de sentido de pedido de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image52.png)    | **Sentido de pedido de Armazenamento classe do dispositivo** *(ux_device_class_storage_request_sense)* |
+| ![Ícone de paragem de paragem de Armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image53.png)    | **Paragem de início de Armazenamento classe** do dispositivo *(ux_device_class_storage_start_stop)* |
+| ![Ícone pronto de teste de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image54.png)    | **Teste de Armazenamento de classe do dispositivo pronto** *(ux_device_class_storage_test_ready)* |
+| ![Ícone de Armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image55.png)    | **Armazenamento de classe do dispositivo Verificar** *(ux_device_class_storage_verify)* |
+| ![Ícone de escrita de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image56.png)    | **Escrita Armazenamento classe do dispositivo** *(ux_device_class_storage_write)* |
 | ![Configuração alternativa de pilha de dispositivo Obter ícone](./media/user-guide/usbx-events/image57.png)    | **Configuração alternativa de pilha de dispositivo** *(ux_device_stack_alternate_setting_get)* |
 | ![Ícone de definição alternativa de configuração de pilha de dispositivo](./media/user-guide/usbx-events/image58.png)    | **Conjunto de definição alternativa** de pilha de *dispositivo (ux_device_stack_alternate_setting_set)* |
 | ![Ícone de registo de classe de pilha de dispositivo](./media/user-guide/usbx-events/image59.png)    | **Registo de classe de pilha de dispositivos** *(ux_device_stack_class_register)* |
 | ![Ícone de funcionalidade de limpação de pilha de dispositivo](./media/user-guide/usbx-events/image60.png)    | **Recurso de segurança da pilha de dispositivo** *(ux_device_stack_clear_feature)* |
 | ![Configuração de pilha de dispositivo Obter ícone](./media/user-guide/usbx-events/image61.png)    | **Configuração de pilha de dispositivo obter** *(ux_device_stack_configuration_get)* |
 | ![Ícone de conjunto de configuração de pilha de dispositivo](./media/user-guide/usbx-events/image62.png)    | **Conjunto de configuração da pilha de** *dispositivo (ux_device_stack_configuration_set)* |
-| ![Ícone de conexão de pilha de dispositivo](./media/user-guide/usbx-events/image63.png)    | **Ligação da pilha de dispositivos** *(ux_device_stack_connect)* |
+| ![Ícone de pilha de Ligação de dispositivo](./media/user-guide/usbx-events/image63.png)    | **Ligação de pilha de dispositivos** *(ux_device_stack_connect)* |
 | ![Descritor de pilha de dispositivo Enviar ícone](./media/user-guide/usbx-events/image64.png)    | **Envio de descritor de pilha de dispositivo** *(ux_device_stack_descriptor_send)* |
 | ![Ícone de desconexão de pilha de dispositivo](./media/user-guide/usbx-events/image65.png)    | **Desconexão da pilha de dispositivos** *(ux_device_stack_disconnect)* |
 | ![Ícone de ponto final de pilha de dispositivo](./media/user-guide/usbx-events/image66.png)    | **Dispositivo Stack Endpoint Stall** *(ux_device_stack_endpoint_stall)* |
@@ -170,8 +170,8 @@ Segue-se uma lista de eventos USBX apresentados pela TraceX.
 | ![Classe anfitrião Pima Request Cancel ícone](./media/user-guide/usbx-events/image145.png)    | **Cancelamento de pedido de classe de anfitrião Pima** *(ux_host_class_pima_request_cancel)* |
 | ![Ícone de fecho de sessão pima de classe de anfitrião](./media/user-guide/usbx-events/image146.png)    | **Sessão Pima de anfitrião** *(ux_host_class_pima_session_close)* |
 | ![Ícone do open da sessão pima de classe de anfitrião](./media/user-guide/usbx-events/image147.png)    | **Host Class Pima Session Open** *(ux_host_class_pima_session_open)* |
-| ![Classe anfitrião Pima Storage Ids Obter ícone](./media/user-guide/usbx-events/image148.png)    | **Anfitriões Classe Pima Storage Ids Get** *(ux_host_class_pima_storage_ids_get)* |
-| ![Classe anfitrião Pima Storage Info Obter ícone](./media/user-guide/usbx-events/image149.png)    | **Informações de armazenamento Pima da classe anfitriã** *(ux_host_class_pima_storage_info_get)* |
+| ![Classe de anfitrião Pima Armazenamento Ids Obter ícone](./media/user-guide/usbx-events/image148.png)    | **Classe anfitriã Pima Armazenamento Ids Get** *(ux_host_class_pima_storage_ids_get)* |
+| ![Classe de anfitrião Pima Armazenamento Info Obter ícone](./media/user-guide/usbx-events/image149.png)    | **Classe de anfitrião Pima Armazenamento Info Obter** *(ux_host_class_pima_storage_info_get)* |
 | ![Ícone de polegar Pima de classe de anfitrião](./media/user-guide/usbx-events/image150.png)    | **Classe anfitrião Pima Polegar Get** *(ux_host_class_pima_thumb_get)* |
 | ![Ícone de escrita classe de anfitrião Pima](./media/user-guide/usbx-events/image151.png)    | **Classe anfitriã Pima Write** *(ux_host_class_pima_write)* |
 | ![Ícone ativar impressora de classe de anfitrião](./media/user-guide/usbx-events/image152.png)    | **Impressora de classe de anfitrião Ativada** *(ux_host_class_printer_activate)* |
@@ -196,17 +196,17 @@ Segue-se uma lista de eventos USBX apresentados pela TraceX.
 | ![Ícone de início de receção prolific de classe de anfitrião](./media/user-guide/usbx-events/image171.png)    | **Início de receção prolific da classe anfitriã** *(ux_host_class_prolific_reception_start)* |
 | ![Ícone de paragem de receção prolific de classe de anfitrião](./media/user-guide/usbx-events/image172.png)    | **Paragem de receção prolific da classe anfitriã** *(ux_host_class_prolific_reception_stop)* |
 | ![Ícone de escrita prolific classe de anfitrião](./media/user-guide/usbx-events/image173.png)    | **Escrita Prolific classe de anfitrião** *(ux_host_class_prolific_write)* |
-| ![Ícone ativar o armazenamento da classe do anfitrião](./media/user-guide/usbx-events/image174.png)    | **Ativar o armazenamento da classe do anfitrião** *(ux_host_class_storage_activate)* |
-| ![Ícone de desativação de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image175.png)    | **Desativação do armazenamento da classe hospedeira** *(ux_host_class_storage_deactivate)* |
-| ![Classe anfitrião armazenamento capacidade de mídia obter ícone](./media/user-guide/usbx-events/image176.png)    | **Capacidade de mídia de armazenamento de classe de anfitrião obter** *(ux_host_class_storage_media_capacity_get)* |
-| ![Grupo de anfitrião armazenamento de armazenamento de capacidade obter ícone](./media/user-guide/usbx-events/image177.png)    | **Capacidade de formato de mídia de armazenamento de classe de anfitrião obter** *(ux_host_class_storage_media_format_capacity_get)* |
-| ![Ícone de montagem de mídia de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image178.png)    | **Montagem de mídia de armazenamento de classe de anfitrião** (ux_host_class_storage_media_mount)* |
-| ![Ícone de mídia de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image179.png)    | **Classe de anfitrião Armazenamento Media Open** *(ux_host_class_storage_media_open)* |
-| ![Ícone de leitura de mídia de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image180.png)    | **Leitura de mídia de armazenamento de classe de anfitrião** *(ux_host_class_storage_media_read)* |
-| ![Ícone de mídia de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image181.png)    | **Escrita de mídia de armazenamento de classe de anfitrião** *(ux_host_class_storage_media_write)* |
-| ![Ícone de pedido de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image182.png)    | **Sentido do pedido de armazenamento da classe de anfitrião** *(ux_host_class_storage_request_sense)* |
-| ![Ícone de paragem de início de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image183.png)    | **Paragem de início de armazenamento de classe de anfitrião** *(ux_host_class_storage_start_stop)* |
-| ![Ícone de teste pronto da unidade de armazenamento da classe do anfitrião](./media/user-guide/usbx-events/image184.png)    | **Teste pronto da unidade de armazenamento da unidade de armazenamento da classe de anfitrião** *(ux_host_class_storage_activate)* |
+| ![Ícone de ativação de Armazenamento classe de anfitrião](./media/user-guide/usbx-events/image174.png)    | **Classe de anfitrião Armazenamento Ativar** *(ux_host_class_storage_activate)* |
+| ![Ícone de desativar Armazenamento classe de anfitrião](./media/user-guide/usbx-events/image175.png)    | **Classe de anfitrião Armazenamento Desativar** *(ux_host_class_storage_deactivate)* |
+| ![Classe de anfitrião Armazenamento capacidade de mídia obter ícone](./media/user-guide/usbx-events/image176.png)    | **Classe de anfitrião Armazenamento capacidade de mídia obter** *(ux_host_class_storage_media_capacity_get)* |
+| ![Classe de anfitrião Armazenamento capacidade de formato de mídia Obter ícone](./media/user-guide/usbx-events/image177.png)    | **Classe de anfitrião Armazenamento capacidade de formato de mídia obter** *(ux_host_class_storage_media_format_capacity_get)* |
+| ![Classe de anfitrião Armazenamento ícone do monte de mídia](./media/user-guide/usbx-events/image178.png)    | **Classe de anfitrião Armazenamento Media Mount** (ux_host_class_storage_media_mount)* |
+| ![Ícone do Armazenamento Media Open da classe de anfitrião](./media/user-guide/usbx-events/image179.png)    | **Classe anfitriã Armazenamento Media Open** *(ux_host_class_storage_media_open)* |
+| ![Ícone de leitura de Armazenamento mídia de classe de anfitrião](./media/user-guide/usbx-events/image180.png)    | **Classe anfitriã Armazenamento Media Read** *(ux_host_class_storage_media_read)* |
+| ![Ícone de escrita de Armazenamento mídia de classe de anfitrião](./media/user-guide/usbx-events/image181.png)    | **Classe anfitriã Armazenamento Media Write** *(ux_host_class_storage_media_write)* |
+| ![Ícone de Armazenamento de pedido de classe de anfitrião](./media/user-guide/usbx-events/image182.png)    | **Classe anfitriã Armazenamento Request Sense** *(ux_host_class_storage_request_sense)* |
+| ![Ícone de paragem de Armazenamento início da classe de anfitrião](./media/user-guide/usbx-events/image183.png)    | **Paragem de início de Armazenamento classe de anfitrião** *(ux_host_class_storage_start_stop)* |
+| ![Ícone de teste pronto de Armazenamento unidade de classe de anfitrião](./media/user-guide/usbx-events/image184.png)    | **Teste pronto da unidade de Armazenamento da classe de anfitrião** *(ux_host_class_storage_activate)* |
 | ![Série de anfitrião exemplo criar ícone](./media/user-guide/usbx-events/image185.png)    | **Série de anfitrião Classe De Exemplo Criar** *(ux_host_stack_class_instance_create)* |
 | ![Ícone de destruição de classe de classe de pilha de anfitrião](./media/user-guide/usbx-events/image186.png)    | **Exemplo de classe de pilha de anfitrião destruir** *(ux_host_stack_class_instance_destroy)* |
 | ![Ícone de configuração de pilha de anfitrião Eliminar](./media/user-guide/usbx-events/image187.png)    | **Configuração de pilha de anfitrião Eliminar** *(ux_host_stack_configuration_delete)* |
@@ -666,7 +666,7 @@ Este evento representa um evento de envio de objetos de dispositivo USBX Classe 
 **Campos de Informação**
 
 - Info Field 1: Exemplo de classe.
-- Info Field 2: ID de armazenamento.
+- Info Field 2: Armazenamento ID.
 - Info Field 3: Código de formato de objeto.
 - Info Field 4: Associação de objetos.
 
@@ -717,7 +717,7 @@ Este evento representa um evento usbx device Class Pima Object Send.
 **Campos de Informação**
 
 - Info Field 1: Exemplo de classe.
-- Info Field 2: ID de armazenamento.
+- Info Field 2: Armazenamento ID.
 - Info Field 3: Código de formato de objeto.
 - Info Field 4: Associado de objetos.
 
@@ -755,15 +755,15 @@ Este evento representa um evento de envio de resposta Pima classe de dispositivo
 - Info Campo 3: Parâmetro de número.
 - Info Campo 4: Parâmetro Pima 1.
 
-### <a name="device-class-pima-storage-id-send"></a>Envio de armazenamento classe de dispositivo Pima 
+### <a name="device-class-pima-storage-id-send"></a>Classe de dispositivo Pima Armazenamento Id Enviar 
 
 #### <a name="ux_device_class_pima_storage_id_send"></a>ux_device_class_pima_storage_id_send
 
-**Ícone** ![ Id de armazenamento classe de dispositivo Pima Enviar ícone](./media/user-guide/usbx-events/image31.png)
+**Ícone** ![ Ícone de envio de Armazenamento classe de dispositivo Pima Armazenamento](./media/user-guide/usbx-events/image31.png)
 
 **Descrição**
 
-Este evento representa um evento de envio de Id de armazenamento Pima classe de dispositivo USBX.
+Este evento representa um evento de envio de Armazenamento de Id Send da classe USBX.
 
 **Campos de Informação** 
 
@@ -772,15 +772,15 @@ Este evento representa um evento de envio de Id de armazenamento Pima classe de 
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-pima-storage-info-send"></a>Informações de armazenamento classe de dispositivo Pima enviar 
+### <a name="device-class-pima-storage-info-send"></a>Dispositivo Classe Pima Armazenamento Informações Enviar 
 
 #### <a name="ux_device_class_pima_storage_info_send"></a>ux_device_class_pima_storage_info_send
 
-**Ícone** ![ Classe de dispositivo Pima Storage Info Enviar ícone](./media/user-guide/usbx-events/image32.png)
+**Ícone** ![ Classe de dispositivo Pima Armazenamento Informação Enviar](./media/user-guide/usbx-events/image32.png)
 
 **Descrição**
 
-Este evento representa um evento de envio de info de armazenamento Pima classe usbx.
+Este evento representa um evento de envio de info Armazenamento de dispositivo USBX.
 
 **Campos de Informação** 
 
@@ -924,15 +924,15 @@ Este evento representa um evento de transmissão de pacotes de pacotes usbx clas
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-activate"></a>Ativação de armazenamento de classe de dispositivo 
+### <a name="device-class-storage-activate"></a>Classe Armazenamento dispositivo Ativar 
 
 #### <a name="ux_device_class_storage_activate"></a>ux_device_class_storage_activate
 
-**Ícone** ![ Ícone ativar o armazenamento da classe do dispositivo](./media/user-guide/usbx-events/image41.png)
+**Ícone** ![ Ícone de ativação de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image41.png)
 
 **Descrição**
 
-Este evento representa um evento usbx device class storage activate Event.
+Este evento representa um evento Armazenamento Ativação da Classe usbx.
 
 **Campos de Informação**
 
@@ -941,15 +941,15 @@ Este evento representa um evento usbx device class storage activate Event.
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-deactivate"></a>Armazenamento de classe de dispositivo desativado 
+### <a name="device-class-storage-deactivate"></a>Classe Armazenamento de dispositivo desativar 
 
 #### <a name="ux_device_class_storage_deactivate"></a>ux_device_class_storage_deactivate
 
-**Ícone** ![ Ícone de desativação de classe de dispositivo](./media/user-guide/usbx-events/image42.png)
+**Ícone** ![ Ícone de desativar classe Armazenamento de dispositivo](./media/user-guide/usbx-events/image42.png)
 
 **Descrição**
 
-Este evento representa um evento de desativação da classe de dispositivo USBX.
+Este evento representa um evento desativado Armazenamento classe de dispositivo USBX.
 
 **Campos de Informação**
 
@@ -958,15 +958,15 @@ Este evento representa um evento de desativação da classe de dispositivo USBX.
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-format"></a>Formato de armazenamento de classe de dispositivo 
+### <a name="device-class-storage-format"></a>Formato Armazenamento classe do dispositivo 
 
 #### <a name="ux_device_class_storage_format"></a>ux_device_class_storage_format
 
-**Ícone** ![ Ícone de formato de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image43.png)
+**Ícone** ![ Ícone de formato de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image43.png)
 
 **Descrição**
 
-Este evento representa um evento de formato de armazenamento de classe de dispositivo USBX.
+Este evento representa um evento de formato Armazenamento classe de dispositivo USBX.
 
 **Campos de Informação** 
 
@@ -975,15 +975,15 @@ Este evento representa um evento de formato de armazenamento de classe de dispos
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-inquiry"></a>Inquérito de armazenamento de classe de dispositivo 
+### <a name="device-class-storage-inquiry"></a>Inquérito de Armazenamento classe de dispositivo 
 
 #### <a name="ux_device_class_storage_inquiry"></a>ux_device_class_storage_inquiry
 
-**Ícone** ![ Ícone de inquérito de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image44.png)
+**Ícone** ![ Ícone de Armazenamento de inquérito da classe do dispositivo](./media/user-guide/usbx-events/image44.png)
 
 **Descrição**
 
-Este evento representa um evento de investigação de armazenamento de classe de dispositivo USBX.
+Este evento representa um evento de Armazenamento de investigação da classe de dispositivo USBX.
 
 **Campos de Informação**
 
@@ -992,15 +992,15 @@ Este evento representa um evento de investigação de armazenamento de classe de
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-mode-select"></a>Selecione o modo de armazenamento da classe do dispositivo
+### <a name="device-class-storage-mode-select"></a>Selecione de modo de Armazenamento classe de dispositivo
 
 #### <a name="ux_device_class_storage_mode_select"></a>ux_device_class_storage_mode_select
 
-**Ícone** ![ Modo de armazenamento de classe de dispositivo Selecionar ícone](./media/user-guide/usbx-events/image45.png)
+**Ícone** ![ Classe de dispositivo Armazenamento modo Selecionar ícone](./media/user-guide/usbx-events/image45.png)
 
 **Descrição**
 
-Este evento representa um evento de seleção do modo de armazenamento da classe do dispositivo USBX.
+Este evento representa um evento de seleção de modo Armazenamento classe USBX.
 
 **Campos de Informação** 
 
@@ -1009,15 +1009,15 @@ Este evento representa um evento de seleção do modo de armazenamento da classe
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-mode-sense"></a>Sentido do modo de armazenamento da classe do dispositivo 
+### <a name="device-class-storage-mode-sense"></a>Sentido do modo Armazenamento classe do dispositivo 
 
 #### <a name="ux_device_class_storage_mode_sense"></a>ux_device_class_storage_mode_sense
 
-**Ícone** ![ Ícone de sentido de modo de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image46.png)
+**Ícone** ![ Ícone de sentido de modo de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image46.png)
 
 **Descrição**
 
-Este evento representa um evento de modo de armazenamento de classe de dispositivo USBX.
+Este evento representa um evento de sentido de modo Armazenamento classe USBX.
 
 Campos de Informação 
 
@@ -1026,15 +1026,15 @@ Campos de Informação
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-prevent-allow-media-removal"></a>Armazenamento de classe de dispositivo impede a remoção dos meios de comunicação 
+### <a name="device-class-storage-prevent-allow-media-removal"></a>Classe Armazenamento dispositivo impedem a remoção dos meios 
 
 #### <a name="ux_device_class_storage_prevent_allow_media_removal"></a>ux_device_class_storage_prevent_allow_media_removal
 
-**Ícone** ![ Armazenamento de classe de dispositivo Previne permitir ícone de remoção de mídia](./media/user-guide/usbx-events/image47.png)
+**Ícone** ![ Classe de dispositivo Armazenamento impedir permitir ícone de remoção de mídia](./media/user-guide/usbx-events/image47.png)
 
 **Descrição**
 
-Este evento representa um armazenamento da classe do dispositivo USBX Prevent Allow Media Removal Event.
+Este evento representa um Armazenamento de dispositivo USBX de impedir o evento de remoção de mídia.
 
 **Campos de Informação**
 
@@ -1043,15 +1043,15 @@ Este evento representa um armazenamento da classe do dispositivo USBX Prevent Al
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-read"></a>Leitura de armazenamento de classe de dispositivo 
+### <a name="device-class-storage-read"></a>Aula de dispositivo Armazenamento Ler 
 
 #### <a name="ux_device_class_storage_read"></a>ux_device_class_storage_read
 
-**Ícone** ![ Ícone de leitura de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image48.png)
+**Ícone** ![ Ícone de leitura de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image48.png)
 
 **Descrição**
 
-Este evento representa um evento de leitura de armazenamento de classe de dispositivo USBX.
+Este evento representa um evento de Armazenamento de leitura da classe de dispositivo USBX.
 
 **Campos de Informação**
 
@@ -1060,15 +1060,15 @@ Este evento representa um evento de leitura de armazenamento de classe de dispos
 - Campo de Informação 3: Sector.
 - Info Field 4: Sectores numerais.
 
-### <a name="device-class-storage-read-capacity"></a>Capacidade de leitura de armazenamento de classe de dispositivo 
+### <a name="device-class-storage-read-capacity"></a>Capacidade de leitura de Armazenamento classe do dispositivo 
 
 #### <a name="ux_device_class_storage_read_capacity"></a>ux_device_class_storage_read_capacity
 
-**Ícone** ![ Ícone de capacidade de leitura de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image49.png)
+**Ícone** ![ Ícone de capacidade de leitura de Armazenamento classe do dispositivo](./media/user-guide/usbx-events/image49.png)
 
 **Descrição**
 
-Este evento representa um evento de capacidade de leitura de armazenamento de classe de dispositivo USBX.
+Este evento representa um evento de capacidade de Armazenamento de capacidade de leitura USBX.
 
 **Campos de Informação** 
 
@@ -1077,15 +1077,15 @@ Este evento representa um evento de capacidade de leitura de armazenamento de cl
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-read-format-capacity"></a>Capacidade de leitura de formato de leitura de classe de dispositivo 
+### <a name="device-class-storage-read-format-capacity"></a>Capacidade de formato de leitura de Armazenamento classe do dispositivo 
 
 #### <a name="ux_device_class_storage_read_format_capacity"></a>ux_device_class_storage_read_format_capacity
 
-**Ícone** ![ Ícone de capacidade de leitura de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image50.png)
+**Ícone** ![ Ícone de capacidade de Armazenamento de leitura da classe do dispositivo](./media/user-guide/usbx-events/image50.png)
 
 **Descrição**
 
-Este evento representa um evento de capacidade de leitura de armazenamento de classe de dispositivo USBX.
+Este evento representa um evento de capacidade de Armazenamento formato de leitura USBX.
 
 **Campos de Informação** 
 
@@ -1094,15 +1094,15 @@ Este evento representa um evento de capacidade de leitura de armazenamento de cl
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-read-toc"></a>Armazenamento de classe de dispositivo Leia TOC 
+### <a name="device-class-storage-read-toc"></a>Classe Armazenamento de dispositivo leia TOC 
 
 #### <a name="ux_device_class_storage_read_toc"></a>ux_device_class_storage_read_toc
 
-**Ícone** ![ Armazenamento de classe de dispositivo Leia o ícone TOC](./media/user-guide/usbx-events/image51.png)
+**Ícone** ![ Classe de Armazenamento de dispositivo Leia o ícone TOC](./media/user-guide/usbx-events/image51.png)
 
 **Descrição**
 
-Este evento representa um evento DE ARMAZENAMENTO DE CLASSE USBX De Dispositivo Leia O EVENTO TOC.
+Este evento representa um evento Armazenamento TOC da classe de dispositivo USBX.
 
 **Campos de Informação**
 
@@ -1111,15 +1111,15 @@ Este evento representa um evento DE ARMAZENAMENTO DE CLASSE USBX De Dispositivo 
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-request-sense"></a>Sentido do pedido de armazenamento de classe de dispositivo 
+### <a name="device-class-storage-request-sense"></a>Sentido de pedido de Armazenamento classe de dispositivo 
 
 #### <a name="ux_device_class_storage_request_sense"></a>ux_device_class_storage_request_sense
 
-**Ícone** ![ Ícone de pedido de pedido de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image52.png)
+**Ícone** ![ Ícone de sentido de pedido de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image52.png)
 
 **Descrição**
 
-Este evento representa um evento de pedido de armazenamento de classe de dispositivo USBX.
+Este evento representa um evento de Armazenamento de pedido de pedido usbx.
 
 **Campos de Informação** 
 
@@ -1128,15 +1128,15 @@ Este evento representa um evento de pedido de armazenamento de classe de disposi
 - Info Field 3: Chave de sentido.
 - Info Field 4: Código.
 
-### <a name="device-class-storage-start-stop"></a>Paragem de início de armazenamento de classe de dispositivo 
+### <a name="device-class-storage-start-stop"></a>Paragem de início de Armazenamento classe de dispositivo 
 
 #### <a name="ux_device_class_storage_start_stop"></a>ux_device_class_storage_start_stop
 
-**Ícone** ![ Ícone de início de paragem de armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image53.png)
+**Ícone** ![ Ícone de paragem de paragem de Armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image53.png)
 
 **Descrição**
 
-Este evento representa um evento de paragem de início de armazenamento da classe de dispositivo USBX.
+Este evento representa um evento de Armazenamento start stop da classe usbx.
 
 **Campos de Informação**
 
@@ -1145,15 +1145,15 @@ Este evento representa um evento de paragem de início de armazenamento da class
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-test-ready"></a>Teste de armazenamento de classe de dispositivo pronto 
+### <a name="device-class-storage-test-ready"></a>Teste de Armazenamento de classe do dispositivo pronto 
 
 #### <a name="ux_device_class_storage_test_ready"></a>ux_device_class_storage_test_ready
 
-**Ícone** ![ Ícone de teste de armazenamento de classe de dispositivo pronto](./media/user-guide/usbx-events/image54.png)
+**Ícone** ![ Ícone pronto de teste de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image54.png)
 
 **Descrição**
 
-Este evento representa um evento pronto para o teste de armazenamento da classe de dispositivo USBX.
+Este evento representa um evento pronto Armazenamento teste da classe usbx.
 
 **Campos de Informação** 
 
@@ -1162,15 +1162,15 @@ Este evento representa um evento pronto para o teste de armazenamento da classe 
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-verify"></a>Armazenamento de classe de dispositivo Verificar 
+### <a name="device-class-storage-verify"></a>Armazenamento de classe do dispositivo Verificar 
 
 #### <a name="ux_device_class_storage_verify"></a>ux_device_class_storage_verify
 
-**Ícone** ![ Ícone de verificação de classe de dispositivo](./media/user-guide/usbx-events/image55.png)
+**Ícone** ![ Ícone de Armazenamento de classe de dispositivo](./media/user-guide/usbx-events/image55.png)
 
 **Descrição**
 
-Este evento representa um evento de verificação da classe de dispositivo USBX.
+Este evento representa um evento de Armazenamento de verificação da classe de dispositivo USBX.
 
 **Campos de Informação** 
 
@@ -1179,15 +1179,15 @@ Este evento representa um evento de verificação da classe de dispositivo USBX.
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-class-storage-write"></a>Escrita de armazenamento de classe de dispositivo 
+### <a name="device-class-storage-write"></a>Classe de dispositivo Armazenamento escrever 
 
 #### <a name="ux_device_class_storage_write"></a>ux_device_class_storage_write
 
-**Ícone** ![ Ícone de escrita de classe de dispositivo](./media/user-guide/usbx-events/image56.png)
+**Ícone** ![ Ícone de escrita de Armazenamento classe de dispositivo](./media/user-guide/usbx-events/image56.png)
 
 **Descrição**
 
-Este evento representa um evento de escrita de classe de dispositivo USBX.
+Este evento representa um evento de escrita Armazenamento classe de dispositivo USBX.
 
 **Campos de Informação** 
 
@@ -1296,11 +1296,11 @@ Este evento representa um evento de configuração de configuração de pilha de
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="device-stack-connect"></a>Ligação de pilha de dispositivo 
+### <a name="device-stack-connect"></a>Pilha de dispositivos Ligação 
 
 #### <a name="ux_device_stack_connect"></a>ux_device_stack_connect
 
-**Ícone** ![ Ícone de conexão de pilha de dispositivo](./media/user-guide/usbx-events/image63.png)
+**Ícone** ![ Ícone de pilha de Ligação de dispositivo](./media/user-guide/usbx-events/image63.png)
 
 **Descrição**
 
@@ -2730,37 +2730,37 @@ Este evento representa um evento de encerramento de sessão Pima da classe de an
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="host-class-pima-storage-ids-get"></a>Classe anfitrião Pima Storage Ids Obter 
+### <a name="host-class-pima-storage-ids-get"></a>Classe de anfitrião Pima Armazenamento Ids Obter 
 
 #### <a name="ux_host_class_pima_session_ids_get"></a>ux_host_class_pima_session_ids_get
 
-**Ícone** ![ Classe anfitrião Pima Storage Ids Obter ícone](./media/user-guide/usbx-events/image148.png)
+**Ícone** ![ Classe de anfitrião Pima Armazenamento Ids Obter ícone](./media/user-guide/usbx-events/image148.png)
 
 **Descrição**
 
-Este evento representa um evento DE ARMAZENAMENTO Pima Da Classe Pima da Classe USBX.
+Este evento representa um evento de anfitrião USBX Pima Armazenamento Ids Get Event.
 
 **Campos de Informação**
 
 - Info Field 1: Exemplo de classe.
-- nfo Field 2: Array de ID de armazenamento.
-- Info Field 3: Comprimento do ID de armazenamento.
+- nfo Field 2: Armazenamento matriz de ID.
+- Info Field 3: Armazenamento comprimento de identificação.
 Info Field 4: Não utilizado.
 
-### <a name="host-class-pima-storage-info-get"></a>Informações de armazenamento Pima classe anfitrião obter 
+### <a name="host-class-pima-storage-info-get"></a>Classe de anfitrião Pima Armazenamento Informações Obter 
 
 #### <a name="ux_host_class_pima_storage_info_get"></a>ux_host_class_pima_storage_info_get
 
-**Ícone** ![ Classe anfitrião Pima Storage Info Obter ícone](./media/user-guide/usbx-events/image149.png)
+**Ícone** ![ Classe de anfitrião Pima Armazenamento Info Obter ícone](./media/user-guide/usbx-events/image149.png)
 
 **Descrição**
 
-Este evento representa um evento USBX Host Class Pima Storage Info Get.
+Este evento representa um evento Pima Armazenamento Info Get da classe USBX.
 
 **Campos de Informação**
 
 - Info Field 1: Exemplo de classe.
-- Info Field 2: ID de armazenamento.
+- Info Field 2: Armazenamento ID.
 - Info Field 3: Armazenamento.
 - Info Field 4: Não utilizado.
 
@@ -3172,15 +3172,15 @@ Este evento representa um evento de escrita prolific da classe usbx.
 - Info Field 3: Comprimento solicitado.
 - Info Field 4: Não utilizado.
 
-### <a name="host-class-storage-activate"></a>Ativar o armazenamento da classe do anfitrião 
+### <a name="host-class-storage-activate"></a>Classe de anfitrião Armazenamento ativar 
 
 #### <a name="ux_host_class_storage_activate"></a>ux_host_class_storage_activate
 
-**Ícone** ![ Ícone ativar o armazenamento da classe do anfitrião](./media/user-guide/usbx-events/image174.png)
+**Ícone** ![ Ícone de ativação de Armazenamento classe de anfitrião](./media/user-guide/usbx-events/image174.png)
 
 **Descrição**
 
-Este evento representa um evento USBX Host Class Storage Activate.
+Este evento representa um evento Armazenamento Ativação da Classe USBX.
 
 **Campos de Informação**
 
@@ -3189,15 +3189,15 @@ Este evento representa um evento USBX Host Class Storage Activate.
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="host-class-storage-deactivate"></a>Armazenamento de classe de anfitrião desativado 
+### <a name="host-class-storage-deactivate"></a>Classe anfitriã Armazenamento desativar 
 
 #### <a name="ux_host_class_storage_deactivate"></a>ux_host_class_storage_deactivate
 
-**Ícone** ![ Ícone de desativação de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image175.png)
+**Ícone** ![ Ícone de desativar Armazenamento classe de anfitrião](./media/user-guide/usbx-events/image175.png)
 
 **Descrição**
 
-Este evento representa um evento de desativação da classe de anfitrião USBX.
+Este evento representa um evento desativado Armazenamento classe USBX.
 
 **Campos de Informação**
 
@@ -3206,15 +3206,15 @@ Este evento representa um evento de desativação da classe de anfitrião USBX.
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="host-class-storage-media-capacity-get"></a>Capacidade de mídia de armazenamento de classe de anfitrião obter 
+### <a name="host-class-storage-media-capacity-get"></a>Classe de anfitrião Armazenamento capacidade de mídia obter 
 
 #### <a name="ux_host_class_storage_media_capacity_get"></a>ux_host_class_storage_media_capacity_get
 
-**Ícone** ![ Classe anfitrião armazenamento capacidade de mídia obter ícone](./media/user-guide/usbx-events/image176.png)
+**Ícone** ![ Classe de anfitrião Armazenamento capacidade de mídia obter ícone](./media/user-guide/usbx-events/image176.png)
 
 **Descrição**
 
-Este evento representa um evento USBX Host Class Storage Media Capacity Get.
+Este evento representa um evento USBX Host Class Armazenamento Media Capacity Get.
 
 **Campos de Informação**
 
@@ -3223,15 +3223,15 @@ Este evento representa um evento USBX Host Class Storage Media Capacity Get.
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="host-class-storage-media-format-capacity-get"></a>Capacidade de formato de mídia de armazenamento de classe de anfitrião obter
+### <a name="host-class-storage-media-format-capacity-get"></a>Classe de anfitrião Armazenamento capacidade de formato de mídia obter
 
 #### <a name="ux_host_class_storage_media_format_capacity_get"></a>ux_host_class_storage_media_format_capacity_get
 
-**Ícone** ![ Grupo de anfitrião armazenamento de armazenamento de capacidade obter ícone](./media/user-guide/usbx-events/image177.png)
+**Ícone** ![ Classe de anfitrião Armazenamento capacidade de formato de mídia Obter ícone](./media/user-guide/usbx-events/image177.png)
 
 **Descrição**
 
-Este evento representa um evento USBX Host Class Storage Media Formato Capacity Get.
+Este evento representa um evento USBX Host Class Armazenamento Media Format Capacity Get.
 
 **Campos de Informação**
 
@@ -3240,15 +3240,15 @@ Este evento representa um evento USBX Host Class Storage Media Formato Capacity 
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-#### <a name="host-class-storage-media-mount"></a>Montagem de mídia de armazenamento de classe de anfitrião 
+#### <a name="host-class-storage-media-mount"></a>Classe de anfitrião Armazenamento Suporte de Mídia 
 
 #### <a name="ux_host_class_storage_media_mount"></a>ux_host_class_storage_media_mount
 
-**Ícone** ![ Ícone de montagem de mídia de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image178.png)
+**Ícone** ![ Classe de anfitrião Armazenamento ícone do monte de mídia](./media/user-guide/usbx-events/image178.png)
 
 **Descrição**
 
-Este evento representa um evento USBX Host Class Storage Media Mount.
+Este evento representa um evento USBX Host Class Armazenamento Media Mount.
 
 **Campos de Informação**
 
@@ -3257,15 +3257,15 @@ Este evento representa um evento USBX Host Class Storage Media Mount.
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="host-class-storage-media-open"></a>Classe de anfitrião armazenamento mídia aberta 
+### <a name="host-class-storage-media-open"></a>Classe anfitriã Armazenamento Media Open 
 
 #### <a name="ux_host_class_storage_media_open"></a>ux_host_class_storage_media_open
 
-**Ícone** ![ Ícone de mídia de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image179.png)
+**Ícone** ![ Ícone do Armazenamento Media Open da classe de anfitrião](./media/user-guide/usbx-events/image179.png)
 
 **Descrição**
 
-Este evento representa um evento USBX Host Class Storage Media Open.
+Este evento representa um evento USBX Host Class Armazenamento Media Open.
 
 **Campos de Informação**
 
@@ -3274,15 +3274,15 @@ Este evento representa um evento USBX Host Class Storage Media Open.
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="host-class-storage-media-read"></a>Leitura de mídia de armazenamento de classe de anfitrião 
+### <a name="host-class-storage-media-read"></a>Aula de acolhimento Armazenamento Media Read 
 
 #### <a name="ux_host_class_storage_media_read"></a>ux_host_class_storage_media_read
 
-**Ícone** ![ Ícone de leitura de mídia de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image180.png)
+**Ícone** ![ Ícone de leitura de Armazenamento mídia de classe de anfitrião](./media/user-guide/usbx-events/image180.png)
 
 **Descrição**
 
-Este evento representa um evento usbx host Class Storage Media Read.
+Este evento representa um evento de Armazenamento Media Read da classe USBX.
 
 **Campos de Informação**
 
@@ -3291,15 +3291,15 @@ Este evento representa um evento usbx host Class Storage Media Read.
 - Info Field 3: Contagem de sector.
 - Info Field 4: Ponteiro de dados.
 
-### <a name="host-class-storage-media-write"></a>Escrita de mídia de armazenamento de classe de anfitrião 
+### <a name="host-class-storage-media-write"></a>Classe anfitriã Armazenamento Media Write 
 
 #### <a name="ux_host_class_storage_media_write"></a>ux_host_class_storage_media_write
 
-**Ícone** ![ Ícone de mídia de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image181.png)
+**Ícone** ![ Ícone de escrita de Armazenamento mídia de classe de anfitrião](./media/user-guide/usbx-events/image181.png)
 
 **Descrição**
 
-Este evento representa um evento usbx host Class Storage Media Write.
+Este evento representa um evento de Armazenamento Media Write da Classe USBX.
 
 **Campos de Informação**
 
@@ -3308,15 +3308,15 @@ Este evento representa um evento usbx host Class Storage Media Write.
 - Info Field 3: Contagem de sector.
 - Info Field 4: Ponteiro de dados.
 
-### <a name="host-class-storage-request-sense"></a>Sentido do pedido de armazenamento de classe de anfitrião 
+### <a name="host-class-storage-request-sense"></a>Sentido de pedido de Armazenamento de classe de anfitrião 
 
 #### <a name="ux_host_class_storage_request_sense"></a>ux_host_class_storage_request_sense
 
-**Ícone** ![ Ícone de pedido de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image182.png)
+**Ícone** ![ Ícone de Armazenamento de pedido de classe de anfitrião](./media/user-guide/usbx-events/image182.png)
 
 **Descrição**
 
-Este evento representa um evento usbx host Class Storage Sense Event.
+Este evento representa um evento de Armazenamento de pedido de pedido usbx.
 
 **Campos de Informação**
 
@@ -3325,15 +3325,15 @@ Este evento representa um evento usbx host Class Storage Sense Event.
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="host-class-storage-start-stop"></a>Paragem de início de armazenamento de classe de anfitrião 
+### <a name="host-class-storage-start-stop"></a>Paragem de início de Armazenamento de classe de anfitrião 
 
 #### <a name="ux_host_class_storage_start_stop"></a>ux_host_class_storage_start_stop
 
-**Ícone** ![ Ícone de paragem de início de armazenamento de classe de anfitrião](./media/user-guide/usbx-events/image183.png)
+**Ícone** ![ Ícone de paragem de Armazenamento início da classe de anfitrião](./media/user-guide/usbx-events/image183.png)
 
 **Descrição**
 
-Este evento representa um evento de paragem de início de armazenamento de classe usbx.
+Este evento representa um evento de start stop Armazenamento da classe USBX.
 
 **Campos de Informação**
 
@@ -3342,15 +3342,15 @@ Este evento representa um evento de paragem de início de armazenamento de class
 - Info Field 3: Não utilizado.
 - Info Field 4: Não utilizado.
 
-### <a name="host-class-storage-unit-ready-test"></a>Teste pronto da unidade de armazenamento da classe de anfitrião 
+### <a name="host-class-storage-unit-ready-test"></a>Teste pronto da unidade de Armazenamento classe de anfitrião 
 
 #### <a name="ux_host_class_storage_unit_ready_test"></a>ux_host_class_storage_unit_ready_test
 
-**Ícone** ![ Ícone de teste pronto da unidade de armazenamento da classe do anfitrião](./media/user-guide/usbx-events/image184.png)
+**Ícone** ![ Ícone de teste pronto de Armazenamento unidade de classe de anfitrião](./media/user-guide/usbx-events/image184.png)
 
 **Descrição**
 
-Este evento representa um evento de teste pronto da unidade de armazenamento da classe USBX.
+Este evento representa um evento de teste pronto Armazenamento unidade da unidade USBX.
 
 **Campos de Informação**
 

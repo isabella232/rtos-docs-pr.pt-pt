@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 09/11/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: ccc55111d785d84cdb193c387830abbc03a15e7c
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 0770d6beb8b2715a8e5dddf1bdf187c0cd1d5ffd74e7bea9b7ff9bdf1785d088
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826852"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801925"
 ---
 # <a name="chapter-5---netx-network-drivers"></a>Capítulo 5 - Pilotos da Rede NetX
 

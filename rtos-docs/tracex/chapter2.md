@@ -6,12 +6,12 @@ ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: 05d7fe3df38c7e8a3480c8ea0d4922a109de9ede
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 1a375975ef80cfb7b56466f5d91ed9a0ca00a20a38108e1b81f4fe8e5d85278d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827572"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116802204"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-tracex"></a>Capítulo 2 - Instalação e utilização do Azure RTOS TraceX
 
@@ -23,7 +23,7 @@ Pode obter a aplicação TraceX a partir da [Microsoft App Store,](https://micro
 
 1. A partir da página TraceX na App Store, clique no botão **Get** ou **Install** para instalar o TraceX.
 
-1. O seu navegador pode apresentar uma mensagem a perguntar se pretende abrir a Microsoft Store, como mostra a figura abaixo. Se o fizer, escolha o botão **Abrir.**
+1. O seu navegador pode apresentar uma mensagem a perguntar se pretende abrir o Microsoft Store, como mostra a figura abaixo. Se o fizer, escolha o botão **Abrir.**
 ![Escolha Abrir para instalar o TraceX.](../guix/media/guix-studio/open-ms-store.png)
 
 1. Quando a instalação terminar, escolha o botão **Iniciar.** 

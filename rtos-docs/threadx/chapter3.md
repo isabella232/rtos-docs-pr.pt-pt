@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: aa66ad392171958e5d2cc765992fd1a9e41250a6
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 906ccb4fb69925f5244192f06521bf508bd15ced2076fb03031649fea638171c
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827373"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116789983"
 ---
 # <a name="chapter-3---functional-components-of-azure-rtos-threadx"></a>Capítulo 3 - Componentes funcionais do Azure RTOS ThreadX
 

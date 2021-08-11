@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 40fbfa7319ca95af65c92b12582d4bbb05005dc0
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6caf943f990f8fe5cbd2cd6139a1253fcaf47dc207141963e31a9e31864ef839
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826072"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791742"
 ---
 # <a name="chapter-4---azure-rtos-netx-duo-dhcpv6-client-services"></a>Capítulo 4 - Azure RTOS NetX Duo DHCPv6 Serviços de clientes
 
@@ -105,7 +105,7 @@ UINT  nx_dhcpv6_client_create(NX_DHCPV6 *dhcpv6_ptr,
                                  UINT message_type));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância de cliente DHCPv6, incluindo funções de retorno.
 
@@ -167,7 +167,7 @@ Excluir uma instância de cliente DHCPv6
 UINT nx_dhcpv6_client_delete(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância de cliente DHCPv6 previamente criada.
 
@@ -212,7 +212,7 @@ UINT    nx_dhcpv6_client_set_interface(NX_DHCPV6 *dhcpv6_ptr,
                                        UINT *interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a interface de rede do Cliente para comunicar com o(s) Servidor(s) DHCPv6 ao índice de interface de entrada especificado.
 
@@ -263,7 +263,7 @@ UINT nx_dhcpv6_client_set_destination_address(NX_DHCPV6 *dhcpv6_ptr,
                                               NXD_ADDRESS *destination_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o endereço de destino para onde a mensagem DHCPv6 deve ser enviada. Por predefinição está ALL_DHCP_Relay_Agents_and_Servers(FF02:1:2).
 
@@ -314,7 +314,7 @@ UINT nx_dhcpv6_create_client_duid(NX_DHCPV6 *dhcpv6_ptr,
                                   ULONG time);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria o DuID do Cliente com os parâmetros de entrada. Se a entrada de tempo não for fornecida e o tipo duid indicar camada de ligação com o tempo, esta função fornecerá um tempo que inclui um fator de aleatoriedade para a singularidade. Os tipos duid atribuídos pelo fornecedor (empresa) não são suportados.
 
@@ -374,7 +374,7 @@ UINT nx_dhcpv6_create_client_ia(NX_DHCPV6 *dhcpv6_ptr,
                                 ULONG valid_lifetime);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é idêntico ao *serviço nx_dhcpv6_add_client_ia.* Adiciona uma Associação de Identidade de Cliente preenchendo o registo do Cliente com os parâmetros fornecidos. Para solicitar as horas máximas preferenciais e válidas, desa um determinado parâmetro ao infinito. Para adicionar mais de um IA a um Cliente DHCPv6, desempate o NX_DHCPV6_MAX_IA_ADDRESS para um valor superior ao valor padrão de 1.
 
@@ -434,7 +434,7 @@ UINT nx_dhcpv6_create_client_iana(NX_DHCPV6 *dhcpv6_ptr,
                                   UINT IA_ident, ULONG T1, ULONG T2);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma Associação de Identidade Não Temporária (IANA) a partir dos parâmetros fornecidos. Para definir as vezes T1 e T2 no máximo (infinito) nos pedidos do Cliente DHCPv6, desajei estes parâmetros a NX_DHCPV6_INFINITE_LEASE. 
 
@@ -492,7 +492,7 @@ UINT nx_dhcpv6_add_client_ia(NX_DHCPV6 *dhcpv6_ptr,
                              ULONG valid_lifetime);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma Associação de Identidade de Cliente preenchendo o registo do Cliente com os parâmetros fornecidos. Para solicitar as horas máximas preferenciais e válidas, desa um determinado parâmetro ao infinito. Para adicionar mais de um IA a um Cliente DHCPv6, desempate o NX_DHCPV6_MAX_IA_ADDRESS para um valor superior ao valor padrão de 1.
 
@@ -552,7 +552,7 @@ Recupera o tempo ID do Cliente DUID
 UINT nx_dhcpv6_get_client_duid_time_id(NX_DHCPV6 *dhcpv6_ptr, ULONG *time_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o campo de identificação de tempo do Cliente DUID. Se a aplicação tiver de ligar primeiro *nx_dhcpv6_create_client_duid,* para preencher o DUID do Cliente na instância do Cliente DHCPv6 ou terá um valor nulo para este campo. A intenção é que a aplicação guarde estes dados e apresente o mesmo DuID do Cliente ao servidor, incluindo o campo de tempo, através de reboots.
 
@@ -601,7 +601,7 @@ UINT nx_dhcpv6_get_IP_address(NX_DHCPV6 *dhcpv6_ptr,
                               NXD_ADDRESS *ip_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço IPv6 global do Cliente. Se o Cliente não tiver um endereço válido, é devolvido um estado de erro. Se um Cliente tiver mais de um endereço IPv6 global, o endereço IPv6 primário é devolvido.
 
@@ -659,7 +659,7 @@ UINT nx_dhcpv6_get_lease_time_data(NX_DHCPV6 *dhcpv6_ptr, ULONG *T1,
                                    ULONG *valid_lifetime);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera os dados globais do tempo de endereço do Cliente. Se o estado do endereço do Cliente IA for inválido, os dados de tempo são definidos para zero e um estado de conclusão bem-sucedido é devolvido. Se um Cliente tiver mais de um endereço IPv6 global, os dados de endereços ii primários são devolvidos.
 
@@ -716,7 +716,7 @@ UINT nx_dhcpv6_get_iana_lease_time(NX_DHCPV6 *dhcpv6_ptr, ULONG *T1,
                                     ULONG *T2);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera os dados globais do tempo de locação ia-NA do Cliente (T1 e T2). Se nenhum dos endereços IA-NA do Cliente tiver um estado de endereço válido, os dados de tempo são definidos para zero e um estado de conclusão bem-sucedido é devolvido. Se um Cliente tiver mais de um endereço IPv6 global, os dados de endereços ii primários são devolvidos.
 
@@ -768,7 +768,7 @@ UINT nx_dhcpv6_get_valid_ip_address_count(NX_DHCPV6 *dhcpv6_ptr,
                                           UINT *address_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a contagem dos endereços IPv6 válidos do Cliente. Um endereço IPv6 válido está vinculado (atribuído) ao Cliente e registado na instância IP.
 
@@ -815,7 +815,7 @@ UINT nx_dhcpv6_get_valid_ip_address_lease_time(NX_DHCPV6 *dhcpv6_ptr,
                                                ULONG *valid_lifetime);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço ia do Cliente e os dados de locação por índice de endereço. Se for fornecido um índice inválido ou o endereço IPv6 nesse índice não for válido, o serviço devolve um estado de erro NX_DHCPV6_IA_ADDRESS_NOT_VALID.
 
@@ -878,7 +878,7 @@ UINT nx_dhcpv6_get_DNS_server_address(NX_DHCPV6 *dhcpv6_ptr, UINT index,
                                       NXD_ADDRESS *server_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera os dados de endereços do servidor DNS IPv6 no índice especificado na lista de Clientes. Se a lista não contiver um endereço de servidor no índice, um erro é devolvido. O índice não pode exceder o tamanho da lista do Servidor DNS é especificado pela opção configurável do utilizador NX_DHCPV6_NUM_DNS_SERVERS.
 
@@ -933,7 +933,7 @@ UINT  nx_dhcpv6_get_other_option_data(NX_DHCPV6 *dhcpv6_ptr,
                                       UINT option_code, UCHAR *buffer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera os dados de opção DHCPv6 a partir de uma mensagem DHCPv6 para o código de opção especificado.
 
@@ -986,7 +986,7 @@ Recupera tempo acumulado no contrato de arrendamento de endereços IP do Cliente
 UINT nx_dhcpv6_get_time_accrued(NX_DHCPV6 *dhcpv6_ptr, ULONG *time_accrued);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o tempo acumulado no contrato de arrendamento de endereços IPv6 do Cliente. A função verifica todos os endereços IPv6 atribuídos ao Cliente para o primeiro endereço válido. Se não forem encontrados endereços válidos, é devolvido um valor zero pelo tempo acumulado.
 
@@ -1036,7 +1036,7 @@ UINT  nx_dhcpv6_get_time_server_address(NX_DHCPV6 *dhcpv6_ptr, UINT index,
                                         NXD_ADDRESS *server_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera os dados de endereços do servidor Time IPv6 no índice especificado na lista de Clientes. Se a lista não contiver um endereço de servidor no índice, um erro é devolvido. O índice não pode exceder o tamanho da lista de Servidor de Tempo é especificado pela opção configurável do utilizador NX_DHCPV6_NUM_TIME_SERVERS.
 
@@ -1091,7 +1091,7 @@ Remova o endereço IP do Cliente da tabela IP
 UINT nx_dhcpv6_reinitialize(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reinicia o Cliente para reiniciar a máquina estatal DHCPv6 e re-executar o protocolo DHCPv6. Isto não é necessário se o Cliente não tiver iniciado previamente a máquina estatal DHPCv6 ou tiver sido atribuído qualquer endereço IPv6. Os endereços guardados para o Cliente DHCPv6, bem como registados na instância IP, estão ambos limpos.
 
@@ -1140,7 +1140,7 @@ Processar o estado confirma do Cliente
 UINT nx_dhcpv6_request_confirm(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pedido CONFIRMA. Se for recebida uma resposta do Servidor, o Cliente DHCPv6 atualiza os seus parâmetros de locação com os dados recebidos.
 
@@ -1186,7 +1186,7 @@ Processar o estado de PEDIDO INFORM do Cliente
 UINT nx_dhcpv6_request_inform_request(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma mensagem INFORM REQUEST. Se uma resposta for recebida, Quando uma é recebida, a resposta é processada para determinar se é válida e o servidor concedeu o pedido. A instância do Cliente é então atualizada com as informações do servidor, conforme necessário.
 
@@ -1230,7 +1230,7 @@ Adicionar servidor DNS ao pedido de opção DHCPv6
 UINT nx_dhcpv6_request_option_DNS_server(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona a opção de solicitar informações do servidor DNS ao pedido de opção DHCPv6. Se a resposta do Servidor incluir dados do servidor DNS, o Cliente armazenará o servidor DNS se tiver espaço para o fazer. O número de servidores DNS que o Cliente pode armazenar é determinado pela opção configurável NX_DHCPV6_NUM_DNS_SERVERS cujo valor padrão é 2.
 
@@ -1274,7 +1274,7 @@ UINT nx_dhcpv6_request_option_FQDN(NX_DHCPV6 *dhcpv6_ptr, UCHAR *domain_name,
 UINT op);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona a opção de adicionar o Nome de Domínio Totalmente Qualificado ao pedido de opção DHCPv6. Existem três opções para a opção FQDN:
 
@@ -1328,7 +1328,7 @@ Adicione a opção de nome de domínio ao pedido de opção DHCPv6
 UINT nx_dhcpv6_request_option_domain_name(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona a opção nome de domínio ao pedido de opção nas mensagens de pedido do Cliente. Se a resposta do Servidor incluir dados de nome de domínio, o Cliente armazenará as informações sobre o nome de domínio se o tamanho do nome de domínio estiver dentro do tamanho do tampão para manter o nome de domínio. Este tamanho tampão é uma opção configurável (NX_DHCPV6_DOMAIN_NAME_BUFFER_SIZE) com um valor padrão de 30 bytes.
 
@@ -1371,7 +1371,7 @@ Definir dados do servidor de tempo como pedido opcional
 UINT nx_dhcpv6_request_option_time_server(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona a opção de informação do servidor de tempo ao pedido de opção de solicitação de mensagens de pedido do Cliente. Se a resposta do Servidor incluir dados do servidor tim, o Cliente armazenará o servidor de tempo se tiver espaço para o fazer. O número de servidores de tempo que o Cliente pode armazenar é determinado pela opção configurável
 
@@ -1416,7 +1416,7 @@ Definir dados de fuso horário como pedido opcional
 UINT nx_dhcpv6_request_option_timezone(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona a opção de solicitar informações de fuso horário ao pedido de opção Cliente. Se a resposta do Servidor incluir dados de fuso horário, o Cliente armazenará a informação do fuso horário se o tamanho do fuso horário estiver dentro do tamanho do tampão para manter o fuso horário. Este tamanho tampão é uma opção configurável (NX_DHCPV6_ TIME_ZONE _BUFFER_SIZE) com um valor padrão de 10 bytes.
 
@@ -1459,7 +1459,7 @@ Envie uma mensagem DE LIBERTAÇÃO DHCPv6
 UINT nx_dhcpv6_request_release(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma mensagem RELEASE na rede Cliente. Se a mensagem for enviada com sucesso, é devolvido um estado de sucesso. Uma conclusão bem sucedida não significa que o Cliente recebeu uma resposta ou foi-lhe ainda concedido um endereço IPv6. A tarefa de thread do cliente DHCPv6 aguarda uma resposta de um Servidor DHCPv6. Se um for recebido, verifica se a resposta é válida e armazena os dados para o registo do Cliente.
 
@@ -1510,7 +1510,7 @@ Enviar uma mensagem SOLICIT
 UINT nx_dhcpv6_request_solicit(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma mensagem SOLICIT na rede. Se a mensagem for enviada com sucesso, é devolvido um estado de sucesso. Uma conclusão bem sucedida não significa que o Cliente recebeu uma resposta ou foi-lhe ainda concedido um endereço IPv6. A tarefa de thread do cliente DHCPv6 aguarda uma resposta (uma mensagem DE ANÚNCIO) de um Servidor DHCPv6. Se um for recebido, verifica se a resposta é válida, armazena os dados para o registo do Cliente e promove o Cliente ao estado REQUEST.
 
@@ -1552,7 +1552,7 @@ Envie uma mensagem SOLICIT com a opção Rapid Commit
 UINT nx_dhcpv6_request_solicit_rapid(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma mensagem SOLICIT na rede com o conjunto de opções Rapid Commit. Se a mensagem for enviada com sucesso, é devolvido um estado de sucesso. Uma conclusão bem sucedida não significa que o Cliente recebeu uma resposta ou foi-lhe ainda concedido um endereço IPv6. A tarefa de thread do cliente DHCPv6 aguarda uma resposta (uma mensagem DE ANÚNCIO) de um Servidor DHCPv6. Se um for recebido, verifica se a resposta é válida, armazena os dados para o registo do Cliente e promove o Cliente para o estado BOUND.
 
@@ -1598,7 +1598,7 @@ Retomar a tarefa do cliente DHCPv6
 UINT nx_dhcpv6_resume(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço retoma a tarefa de thread do cliente DHCPv6. O estado atual do cliente DHCPv6 será processado (por exemplo, Ligado, Solicit)
 
@@ -1644,7 +1644,7 @@ UINT nx_dhcpv6_set_time_accrued(NX_DHCPV6 *dhcpv6_ptr,
                                 ULONG time_accrued);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o tempo acumulado no endereço IP global do Cliente desde que foi atribuído pelo servidor. Isto só deve ser utilizado se um Cliente estiver atualmente vinculado a um endereço IPv6 atribuído.
 
@@ -1691,7 +1691,7 @@ Inicie a tarefa do Cliente DHCPv6
 UINT nx_dhcpv6_start(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia a tarefa do Cliente DHCPv6 e prepara o Cliente para executar o protocolo DHCPv6. Verifica que a instância do Cliente tem informações suficientes (como um Cliente DUID), cria e liga a tomada UDP para enviar e receber mensagens DHCPv6 e ativa os temporizadores para manter o registo do tempo de sessão e quando o atual contrato de arrendamento IPv6 expirar.
 
@@ -1739,7 +1739,7 @@ Pare a tarefa do Cliente DHCPv6
 UINT nx_dhcpv6_stop(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço interrompe a tarefa do Cliente DHCPv6 e limpa as contagens de retransmissão, intervalos máximos de retransmissão, desativa a sessão e locação dos temporizadores de validade, e desvincula a porta de tomada do Cliente DHCPv6. Para reiniciar o Cliente, é necessário parar primeiro e reinitir opcionalmente o Cliente antes de iniciar outra sessão com qualquer servidor DHCPv6. Consulte a secção Exemplo Pequeno para mais detalhes.
 
@@ -1788,7 +1788,7 @@ Suspender a tarefa do Cliente DHCPv6
 UINT nx_dhcpv6_suspend(NX_DHCPV6 *dhcpv6_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço suspende a tarefa do cliente DHCPv6 e qualquer pedido que tenha sido no meio do processamento. Os temporizadores são desativados e o estado do Cliente está definido para não funcionar.
 

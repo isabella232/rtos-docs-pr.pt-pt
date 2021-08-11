@@ -17,15 +17,15 @@
       href: chapter4.md
     - name: Ch. 5 - Controladores de rede NetX
       href: chapter5.md
-    - name: 'Aplicação: A - Serviços NetX'
+    - name: Aplicativo. A - Serviços NetX
       href: appendix-a.md
-    - name: 'Aplicação: B - Constantes NetX'
+    - name: Aplicativo. B - Constantes NetX
       href: appendix-b.md
-    - name: 'Aplicação: C - Tipos de dados NetX'
+    - name: Aplicativo. C - Tipos de dados NetX
       href: appendix-c.md
-    - name: 'Aplicação: D - API de tomada compatível com BSD'
+    - name: Aplicativo. D - API de tomada compatível com BSD
       href: appendix-d.md
-    - name: 'Aplicação: E - Códigos de caracteres ASCII'
+    - name: Aplicativo. E - Códigos de caracteres ASCII
       href: appendix-e.md
 - name: Addons NetX
   items:
@@ -53,7 +53,7 @@
           href: netx-dhcp-client/chapter2.md
         - name: Ch. 3 - Descrição dos serviços de clientes NetX DHCP
           href: netx-dhcp-client/chapter3.md
-        - name: 'Aplicação: A - Descrição da Funcionalidade de Estado de Restauro'
+        - name: Aplicativo. A - Descrição da Funcionalidade de Estado de Restauro
           href: netx-dhcp-client/appendix-a.md
     - name: Guia de utilizador do servidor NetX DHCP
       items:

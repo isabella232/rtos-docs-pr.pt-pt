@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 703071cd5a1d0677a3e995fccfe35d8b1dbbd9f3
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 09add7bb20a8e104ba41583c0dbf4d574b8e6c9e6b3a3deed71d8fa8c8942ce2
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825969"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116796485"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-http-services"></a>Capítulo 3 - Descrição dos serviços Azure RTOS NetX Duo HTTP
 
@@ -78,7 +78,7 @@ UINT nx_http_client_create(NX_HTTP_CLIENT *client_ptr,
             ULONG window_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância http cliente na instância IP especificada.
 
@@ -119,7 +119,7 @@ Excluir uma instância de cliente HTTP
 UINT nx_http_client_delete(NX_HTTP_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância do cliente HTTP previamente criada.
 
@@ -159,7 +159,7 @@ UINT nx_http_client_get_start(NX_HTTP_CLIENT *client_ptr,
             ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta criar e enviar um pedido GET com o recurso especificado por "recurso" no caso http cliente anteriormente criado. Se esta rotina voltar NX_SUCCESS, a aplicação pode então fazer várias chamadas para *nx_http_client_get_packet* para recuperar pacotes de dados correspondentes ao conteúdo de recursos solicitado.
 
@@ -240,7 +240,7 @@ UINT nx_http_client_get_start_extended(NX_HTTP_CLIENT *client_ptr,
             ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta criar e enviar um pedido GET com o recurso especificado por "recurso" no caso http cliente anteriormente criado. Se esta rotina voltar NX_SUCCESS, a aplicação pode então fazer várias chamadas para *nx_http_client_get_packet* para recuperar pacotes de dados correspondentes ao conteúdo de recursos solicitado.
 
@@ -317,7 +317,7 @@ UINT nxd_http_client_get_start(NX_HTTP_CLIENT *client_ptr,
                 CHAR *input_ptr, UINT input_size, CHAR *username, CHAR *password, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta criar e enviar um pedido GET com o recurso especificado por "recurso" no caso http cliente anteriormente criado. Pode ser utilizado para ligar à rede IPv4 ou IPv6. Se esta rotina voltar NX_SUCCESS, a aplicação pode então fazer várias chamadas para *nx_http_client_get_packet* para recuperar pacotes de dados correspondentes ao conteúdo de recursos solicitado.
 
@@ -401,7 +401,7 @@ UINT nxd_http_client_get_start_extended(NX_HTTP_CLIENT *client_ptr,
                 password_length, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta criar e enviar um pedido GET com o recurso especificado por "recurso" no caso http cliente anteriormente criado. Pode ser utilizado para ligar à rede IPv4 ou IPv6. Se esta rotina voltar NX_SUCCESS, a aplicação pode então fazer várias chamadas para *nx_http_client_get_packet* para recuperar pacotes de dados correspondentes ao conteúdo de recursos solicitado.
 
@@ -484,7 +484,7 @@ UINT nx_http_client_get_packet(NX_HTTP_CLIENT *client_ptr,
                                wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o próximo pacote de conteúdo do recurso solicitado pela *chamada nx_http_client_get_start* anterior. Devem ser feitas sucessivas chamadas para esta rotina até que seja recebida a situação de devolução do NX_HTTP_GET_DONE.
 
@@ -539,7 +539,7 @@ UINT nx_http_client_put_start(NX_HTTP_CLIENT *client_ptr,
                                ULONG total_bytes, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta enviar um pedido PUT com o recurso especificado para o Servidor HTTP no endereço IP fornecido. Se esta rotina for bem sucedida, o código de aplicação deve escoar chamadas sucessivas para a rotina *nx_http_client_put_packet()* para enviar os conteúdos de recursos para o Servidor HTTP.
 
@@ -602,7 +602,7 @@ UINT nx_http_client_put_start_extended(NX_HTTP_CLIENT *client_ptr,
            UINT password_length, ULONG total_bytes, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta enviar um pedido PUT com o recurso especificado para o Servidor HTTP no endereço IP fornecido. Se esta rotina for bem sucedida, o código de aplicação deve escoar chamadas sucessivas para a rotina *nx_http_client_put_packet()* para enviar os conteúdos de recursos para o Servidor HTTP.
 
@@ -668,7 +668,7 @@ UINT nxd_http_client_put_start(NX_HTTP_CLIENT *client_ptr,
                                ULONG total_bytes, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta colocar (enviar) o recurso especificado no servidor HTTP no endereço IP fornecido sobre o IPv6. Se esta rotina for bem sucedida, o código de aplicação deve escoar chamadas sucessivas para a rotina *nx_http_client_put_packet()* para enviar os conteúdos de recursos para o Servidor HTTP.
 
@@ -745,7 +745,7 @@ UINT nxd_http_client_put_start_extended(NX_HTTP_CLIENT *client_ptr,
           UINT password_length, ULONG total_bytes, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta colocar (enviar) o recurso especificado no servidor HTTP no endereço IP fornecido sobre o IPv6. Se esta rotina for bem sucedida, o código de aplicação deve escoar chamadas sucessivas para a rotina *nx_http_client_put_packet()* para enviar os conteúdos de recursos para o Servidor HTTP.
 
@@ -824,7 +824,7 @@ UINT nx_http_client_put_packet(NX_HTTP_CLIENT *client_ptr,
                                ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta enviar o próximo pacote de conteúdo de recursos para o servidor HTTP.
 
@@ -881,7 +881,7 @@ UINT nx_http_client_set_connect_port(NX_HTTP_CLIENT *client_ptr,
                                       UINT port);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço altera a porta de ligação quando se liga ao servidor HTTP à porta especificada em tempo de execução. Caso contrário, a porta de ligação está em padrão para 80. Isto deve ser chamado antes *nx_http_client_get_start()* e *nx_http_client_put_start()* por exemplo, quando o Cliente HTTP se conecta com o Servidor.
 
@@ -925,7 +925,7 @@ UINT nx_http_server_cache_info_callback_set(NX_HTTP_SERVER *server_ptr,
                                                       *date));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o serviço de retorno invocado para obter a idade máxima e última data modificada do recurso especificado.
 
@@ -974,7 +974,7 @@ UINT nx_http_server_callback_data_send(NX_HTTP_SERVER *server_ptr,
                                        ULONG data_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia os dados no pacote fornecido da rotina de chamada da aplicação. Isto é normalmente usado para enviar dados dinâmicos associados a pedidos GET/POST.
 
@@ -1043,7 +1043,7 @@ UINT nx_http_server_callback_generate_response_header(
                         CHAR *content_type, CHAR* additional_header);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liga para a função interna *_nx_http_server_generate_response_header* quando o servidor HTTP responde ao Cliente obter, colocar e apagar pedidos. Destina-se a ser utilizado em funções de chamada do servidor HTTP quando a aplicação do servidor HTTP estiver a desenhar a sua resposta ao Cliente.
 
@@ -1154,7 +1154,7 @@ UINT nx_http_server_callback_generate_response_header_extended(
                         UINT additional_header_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço chama a função interna *_nx_http_server_generate_response_header()* quando o servidor HTTP responde a solicitações de obter, colocar e apagar pedidos. Destina-se a ser utilizado em funções de chamada do servidor HTTP quando a aplicação do servidor HTTP estiver a desenhar a sua resposta ao Cliente.
 
@@ -1263,7 +1263,7 @@ UINT nx_http_server_callback_packet_send(NX_HTTP_SERVER *server_ptr,
                                          NX_PACKET *packet_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma resposta completa do servidor HTTP a partir de uma chamada HTTP. O servidor HTTP enviará o pacote com o NX_HTTP_SERVER _TIMEOUT_SEND. O cabeçalho HTTP e os dados devem ser anexados ao pacote. Se o estado de devolução indicar um erro, a aplicação HTTP deve libertar o pacote.
 
@@ -1315,7 +1315,7 @@ UINT nx_http_server_callback_response_send(NX_HTTP_SERVER *server_ptr,
                                            CHAR additional_info);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia as informações de resposta fornecidas da rotina de retorno da aplicação. Isto é normalmente usado para enviar respostas personalizadas associadas a pedidos GET/POST.
 
@@ -1383,7 +1383,7 @@ UINT nx_http_server_callback_response_send_extended(
                                           UINT additional_info_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia as informações de resposta fornecidas da rotina de retorno da aplicação. Isto é normalmente usado para enviar respostas personalizadas associadas a pedidos GET/POST.
 
@@ -1453,7 +1453,7 @@ UINT nx_http_server_content_get(NX_HTTP_SERVER *server_ptr,
                                 UINT *actual_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta recuperar a quantidade especificada de conteúdo do pedido do CLIENTE POST ou PUT HTTP. Deve ser chamado a partir do pedido da aplicação notificar a chamada especificada durante a criação do SERVIDOR HTTP *(nx_http_server_create).*
 
@@ -1509,7 +1509,7 @@ UINT nx_http_server_content_get_extended(NX_HTTP_SERVER *server_ptr,
                                          UINT *actual_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é quase idêntico ao *nx_http_server_content_get;);* tenta recuperar a quantidade especificada de conteúdo do pedido do POST ou DO CLIENTE PUT HTTP. No entanto, trata os pedidos com contentamento comprimento de valor zero ('pedido vazio') como um pedido válido. Deve ser chamado a partir do pedido da aplicação notificar a chamada especificada durante a criação do SERVIDOR HTTP *(nx_http_server_create()*).
 
@@ -1560,7 +1560,7 @@ Obtenha a duração do conteúdo no pedido
 UINT nx_http_server_content_length_get(NX_PACKET *packet_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta recuperar o comprimento do conteúdo HTTP no pacote fornecido. Se não houver conteúdo HTTP, esta rotina devolve um valor de zero. Deve ser chamado a partir do pedido da aplicação notificar a chamada especificada durante a criação do SERVIDOR HTTP *(nx_http_server_create()*).
 
@@ -1600,7 +1600,7 @@ UINT nx_http_server_content_length_get_extended(NX_PACKET *packet_ptr,
                                                 UINT *content_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é semelhante ao *nx_http_server_content_length_get;* tenta recuperar o comprimento do conteúdo HTTP no pacote fornecido. No entanto, o valor de retorno indica o estado de conclusão bem-sucedido, e o valor real do comprimento é devolvido no ponteiro de entrada ```content_length``` . Se não houver conteúdo/comprimento de conteúdo HTTP = 0, esta rotina ainda devolve um estado de conclusão bem-sucedido e o ponteiro de entrada content_length aponta para um comprimento válido (zero). Deve ser chamado a partir do pedido da aplicação notificar a chamada especificada durante a criação do SERVIDOR HTTP *(nx_http_server_create).*
 
@@ -1651,7 +1651,7 @@ UINT nx_http_server_create(NX_HTTP_SERVER *http_server_ptr,
             UINT request_type, CHAR *resource, NX_PACKET *packet_ptr));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância http server, que funciona no contexto da sua própria linha ThreadX. As rotinas de *chamada de authentication_check* e request_notify de aplicações opcionais dão ao software de aplicação controlo sobre as operações básicas do Servidor HTTP.
 
@@ -1697,7 +1697,7 @@ Excluir uma instância do servidor HTTP
 UINT nx_http_server_delete(NX_HTTP_SERVER *http_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância do servidor HTTP anteriormente criada.
 
@@ -1737,7 +1737,7 @@ UINT nx_http_server_get_entity_content(NX_HTTP_SERVER *server_ptr,
                                        ULONG *available_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço determina a localização do início dos dados dentro da atual entidade multipartidária nas mensagens do Cliente recebidas e o comprimento dos dados que não incluem a cadeia de limites. Internamente, o servidor HTTP atualiza as suas próprias compensações para que esta função possa ser novamente chamada no mesmo datagrama do Cliente para mensagens com várias entidades. O ponteiro do pacote é atualizado para o próximo pacote onde a mensagem cliente é um datagrama de vários pacotes.
 
@@ -1796,7 +1796,7 @@ UINT nx_http_server_get_entity_header(NX_HTTP_SERVER *server_ptr,
                                       ULONG buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o cabeçalho da entidade no tampão especificado. Internamente HTTP Server atualiza os seus próprios ponteiros para localizar a próxima entidade multipartida num datagrama do Cliente com vários cabeçalhos de entidade. O ponteiro do pacote é atualizado para o próximo pacote onde a mensagem cliente é um datagrama de vários pacotes.
 
@@ -1897,7 +1897,7 @@ UINT nx_http_server_gmt_callback_set(NX_HTTP_SERVER *server_ptr,
                      VOID (*gmt_get)(NX_HTTP_SERVER_DATE *date);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a chamada para obter data e hora DE GMT com um servidor HTTP previamente criado. Este serviço é invocado com o servidor HTTP está a criar um cabeçalho em respostas do servidor HTTP ao Cliente.
 
@@ -1948,7 +1948,7 @@ UINT nx_http_server_invalid_userpassword_notify_set(
                         UINT request_type));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a chamada invocada quando um nome de utilizador e palavra-passe inválidos é recebido num Pedido de Cliente obter, colocar ou apagar, seja por digestão ou autenticação básica. O servidor HTTP deve ser previamente criado.
 
@@ -2006,7 +2006,7 @@ UINT nx_http_server_mime_maps_additional_set(
                         UINT mime_maps_num);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite ao desenvolvedor de aplicações HTTP adicionar tipos de MIME adicionais dos tipos de MIME predefinidos fornecidos pelo NetX Duo HTTP Server (ver *nx_http_server_get_type* para lista de tipos definidos).
 
@@ -2061,7 +2061,7 @@ UINT nx_http_server_packet_content_find(NX_HTTP_SERVER *server_ptr,
                                         UINT *content_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço extrai o comprimento do conteúdo do cabeçalho HTTP. Também atualiza o pacote fornecido da seguinte forma: o ponteiro pré-final do pacote (início da localização do tampão do pacote para escrever) é definido para o conteúdo HTTP (dados) acabado de passar o cabeçalho HTTP.
 
@@ -2114,7 +2114,7 @@ UINT nx_http_server_packet_get(NX_HTTP_SERVER *server_ptr,
                               NX_PACKET **packet_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o próximo pacote recebido na tomada do servidor HTTP. A opção de espera para receber um pacote é NX_HTTP_SERVER_TIMEOUT_RECEIVE.
 
@@ -2158,7 +2158,7 @@ UINT nx_http_server_param_get(NX_PACKET *packet_ptr,
                               UINT max_param_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta recuperar o parâmetro HTTP URL especificado no pacote de pedido fornecido. Se o parâmetro HTTP solicitado não estiver presente, esta rotina devolve um estado de NX_HTTP_NOT_FOUND. Esta rotina deve ser chamada a partir do pedido da aplicação notificar a chamada especificada durante a criação do SERVIDOR HTTP *(nx_http_server_create).*
 
@@ -2205,7 +2205,7 @@ UINT nx_http_server_query_get(NX_PACKET *packet_ptr, UINT query_number,
                    CHAR *query_ptr, UINT max_query_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta recuperar a consulta de URL HTTP especificada no pacote de pedido fornecido. Se a consulta HTTP solicitada não estiver presente, esta rotina devolve um estado de NX_HTTP_NOT_FOUND. Esta rotina deve ser chamada a partir do pedido da aplicação notificar a chamada especificada durante a criação do SERVIDOR HTTP *(nx_http_server_create).*
 
@@ -2251,7 +2251,7 @@ Inicie o servidor HTTP
 UINT nx_http_server_start(NX_HTTP_SERVER *http_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia a instância do servidor HTTP anteriormente.
 
@@ -2287,7 +2287,7 @@ Parar o servidor HTTP
 UINT nx_http_server_stop(NX_HTTP_SERVER *http_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço para a instância do servidor HTTP anteriormente criado. Esta rotina deve ser chamada antes de eliminar uma instância do servidor HTTP.
 
@@ -2325,7 +2325,7 @@ UINT nx_http_server_type_get(NX_HTTP_SERVER *http_server_ptr,
                              CHAR *name, CHAR *http_type_string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 > [!NOTE]
 > Este serviço é precotado. Os utilizadores são encorajados a utilizar o serviço *nx_http_server_type_retrieve()*.
@@ -2386,7 +2386,7 @@ UINT nx_http_server_type_get_extended(
                                     UINT http_type_string_max_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço extrai o tipo de pedido HTTP no *http_type_string* tampão e o seu comprimento no valor de retorno a partir do *nome* do tampão de entrada , normalmente o URL. Se não for encontrado nenhum mapa MIME, este desrescume do tipo "texto/planície". Caso contrário, compara o tipo extraído com os mapas MIME padrão do servidor HTTP para uma correspondência. Os mapas MIME padrão no NetX Duo HTTP Server são:
 
@@ -2464,7 +2464,7 @@ UINT nx_http_server_digest_authenticate_notify_set(
                                            ));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a chamada invocada quando a digestão autenticada é realizada.
 
@@ -2528,7 +2528,7 @@ UINT nx_http_server_authentication_check_set(
                                             ));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a função de retorno de chamada da verificação de autenticação.
 

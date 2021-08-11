@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 89bbcd51c22dddef6e420750e8c8805a66344335
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 843106aa67d2a978c7f271954e028b32ba4dd007fe35a36b7c17ba0f5f80e4a9
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826371"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116787035"
 ---
 # <a name="chapter-3-description-of-guix-studio"></a>Capítulo 3: Descrição do ESTÚDIO GUIX
 
@@ -85,9 +85,9 @@ Os botões da barra de ferramentas são definidos da seguinte forma:
 
 ![Sobre o botão](./media/guix-studio/about-button.png) Sobre o ESTÚDIO GUIX
 
-### <a name="project-view"></a>Vista do Projeto
+### <a name="project-view"></a>Project Ver
 
-O ***Project View** _ mostra a lista hierárquica de objetos GUIX que compõem a UI incorporada. Novos objetos GUIX podem ser adicionados clicando no objeto-mãe e, em seguida, selecionando um objeto a partir do menu _*_Inserção_*_ (ou clicando à direita no objeto e selecionando a partir do menu de clique à direita). _*_Figura 4_*_ abaixo mostra o GUIX Studio _*_Project View_**.
+O ***Project View** _ mostra a lista hierárquica de objetos GUIX que compõem a UI incorporada. Novos objetos GUIX podem ser adicionados clicando no objeto-mãe e, em seguida, selecionando um objeto a partir do menu _*_Inserção_*_ (ou clicando à direita no objeto e selecionando a partir do menu de clique à direita). _*_A figura 4_*_ abaixo mostra o GUIX Studio _*_Project View_**.
 
 ![Screenshot do GUIX Studio Project View.](./media/guix-studio/image_35.png)
 
@@ -95,7 +95,7 @@ O ***Project View** _ mostra a lista hierárquica de objetos GUIX que compõem a
 
 ### <a name="properties-view"></a>Vista de propriedades
 
-O ***Properties View** _ mostra informações detalhadas sobre a propriedade do objeto GUIX atualmente selecionado, que podem ser selecionados através do _*_Project View_*_ ou clicando diretamente no objeto na _*_Vista Alvo._*_ _*_A figura 5_*_ abaixo mostra o GUIX Studio _*_Properties View_**.
+O ***Properties View** _ mostra informações detalhadas sobre a propriedade do objeto GUIX atualmente selecionado, que podem ser selecionados através do _*_Project View_*_ ou clicando diretamente no objeto na Vista _*_Alvo_*_. _*_A figura 5_*_ abaixo mostra o GUIX Studio _*_Properties View_**.
 
 ![Screenshot da visão do estúdio GUIX.](./media/guix-studio/image36.jpg)
 
@@ -121,7 +121,7 @@ O título dos grupos de recursos indica o nome temático atual. Se vários temas
 
 Cada grupo de recursos na vista acima pode ser expandido ou colapsado clicando no cabeçalho de grupo. Segue-se uma descrição mais pormenorizada de cada grupo de recursos no capítulo seguinte.
 
-## <a name="the-guix-studio-project"></a>O PROJETO ESTÚDIO GUIX
+## <a name="the-guix-studio-project"></a>O estúdio GUIX Project
 
 Um projeto guix Studio mantém informações sobre o seu design de ecrã de UI e recursos de UI. Os dados do projeto são guardados num ficheiro de formato XML com a extensão ". ***gxp***". Uma vez que o ficheiro do projeto é um ficheiro de esquema XML, pode ser versão controlada e partilhada semelhante a qualquer outro ficheiro de origem.
 
@@ -129,17 +129,17 @@ Quando começar a usar o GUIX Studio, terá de abrir um dos projetos de exemplo 
 
 O GUIX Studio também produz ficheiros de origem ANSI C. Estes ficheiros de origem contêm os seus recursos de aplicação ou estruturas de dados que descrevem os seus ecrãs desenhados. O GUIX Studio também escreve para estes ficheiros de origem gerados funções API que sabem utilizar as estruturas de dados geradas para criar dinamicamente os seus ecrãs de aplicação. O seu software de aplicação irá simplesmente invocar as funções API fornecidas para criar os ecrãs que concebeu no ESTÚDIO GUIX.
 
-À medida que progride na conceção da sua interface de utilizador, irá periodicamente querer utilizar o GUIX Studio para gerar os ficheiros de saída compatíveis com o GUIX que lhe permitirão construir e executar a interface que concebeu. Pode compilar e executar os ficheiros de origem gerados para o hardware do seu alvo ou no seu ambiente de trabalho windows que simula ThreadX e GUIX.
+À medida que progride na conceção da sua interface de utilizador, irá periodicamente querer utilizar o GUIX Studio para gerar os ficheiros de saída compatíveis com o GUIX que lhe permitirão construir e executar a interface que concebeu. Pode compilar e executar os ficheiros de origem gerados para o hardware do seu alvo ou no seu ambiente de trabalho Windows que simula ThreadX e GUIX.
 
-## <a name="guix-studio-project-organization"></a>GUIX Studio Project Organization
+## <a name="guix-studio-project-organization"></a>Guix Studio Project Organização
 
-É útil ter algum conhecimento da organização básica de um projeto do GUIX Studio para entender como usar o GUIX Studio de forma eficaz e compreender a informação apresentada no Project View do GUIX Studio IDE. O Project View é uma representação visual sumária de toda a informação contida no seu projeto.
+É útil ter algum conhecimento da organização básica de um projeto do GUIX Studio para entender como usar o GUIX Studio de forma eficaz e compreender a informação apresentada na Project View do GUIX Studio IDE. O Project View é uma representação visual sumária de toda a informação contida no seu projeto.
 
 Antes de descrever o projeto, é necessário definir poucos termos. Primeiro, usamos o termo **Display** para significar um dispositivo de exibição física. Trata-se, na maioria das vezes, de um dispositivo de exibição LCD, mas pode estar a utilizar outras tecnologias. O próximo termo é **Screen**, que significa um objeto GUIX de alto nível, geralmente uma janela GUIX, e todos os seus elementos infantis associados. Um Ecrã é uma construção de software que pode ser definida e modificada no tempo de execução. Finalmente, um **tema** é uma coleção de recursos. Um tema inclui uma tabela de definições de cores, definições de fontes e definições de pixelmap que são projetadas para trabalhar bem em conjunto e apresentar o seu utilizador final com um aspeto e sensação consistentes.
 
 O projeto inclui primeiro um conjunto de informações globais, como o nome do projeto, o número de ecrãs suportados, a resolução e o formato de cores de cada ecrã, o número de idiomas suportados, o nome de cada idioma apoiada. O nome do projeto é o primeiro nó exibido no Project View.
 
-O projeto em seguida organiza toda a informação necessária para até 4 ecrãs físicos e os ecrãs e recursos disponíveis para cada ecrã. Os nomes do visor são os próximos nós de nível na árvore Project View.
+O projeto em seguida organiza toda a informação necessária para até 4 ecrãs físicos e os ecrãs e recursos disponíveis para cada ecrã. Os nomes do visor são os próximos nós de nível na árvore Project Vista.
 
 Uma característica única da aplicação guix Studio é suporte incorporado para múltiplos ecrãs físicos, cada um com a sua própria resolução x,y, formato de cores, ecrãs e recursos. Embora a grande maioria das aplicações GUIX utilize apenas um ecrã físico, esta capacidade é importante para quem faz um produto que deve suportar múltiplos ecrãs físicos simultâneos.
 

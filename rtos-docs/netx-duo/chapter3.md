@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 31900c7b822c88079e4b9fe28a8a388d20f819aa
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 32af483db1f97b45bfe3d334b8c79d984dedc8470a37ce1d4164331549b6954c
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549849"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116789053"
 ---
 # <a name="chapter-3---functional-components-of-azure-rtos-netx-duo"></a>Capítulo 3 - Componentes funcionais do Azure RTOS NetX Duo
 
@@ -532,7 +532,7 @@ NetX suporta a invalidação de entrada ARP dinâmica automática. ***NX_ARP_EXP
 
 ### <a name="arp-defend"></a>ARP Defender
 
-Quando um pacote de resposta ARP ou ARP é recebido e o remetente tem o mesmo endereço IP, que entra em conflito com o endereço IP deste nó, a NetX Duo envia um pedido ARP para esse endereço como defesa. Se o pacote ARP de conflito for recebido mais de uma vez em 10 segundos, a NetX Duo não envia mais pacotes de defesa. O intervalo padrão de 10 segundos pode ser redefinido por ***NX_ARP_DEFEND_INTERVAL** _. Este comportamento segue a política especificada em 2.4(c) de RFC5227. Uma vez que o Windows XP ignora o anúncio do ARP como resposta para a sua sonda ARP, o utilizador pode definir _ *_NX_ARP_DEFEND_BY_REPLY_** para enviar a resposta ARP como defesa adicional.
+Quando um pacote de resposta ARP ou ARP é recebido e o remetente tem o mesmo endereço IP, que entra em conflito com o endereço IP deste nó, a NetX Duo envia um pedido ARP para esse endereço como defesa. Se o pacote ARP de conflito for recebido mais de uma vez em 10 segundos, a NetX Duo não envia mais pacotes de defesa. O intervalo padrão de 10 segundos pode ser redefinido por ***NX_ARP_DEFEND_INTERVAL** _. Este comportamento segue a política especificada em 2.4(c) de RFC5227. Uma vez que Windows XP ignora o anúncio da ARP como resposta para a sua sonda ARP, o utilizador pode definir _ *_NX_ARP_DEFEND_BY_REPLY_** para enviar a resposta ARP como defesa adicional.
 
 ### <a name="arp-statistics-and-errors"></a>Estatísticas e erros da ARP
 
@@ -759,7 +759,7 @@ Consulte o RFC 2464 (Transmissão de Pacotes IPv6 através da Rede Ethernet) par
 
 Existem alguns endereços multicast especiais para o envio de mensagens multicast para um ou mais anfitriões no IPv6:
 
-| Group  | Endereço   | Descrição  |
+| Group  | Endereço   | Description  |
 |---|---|---|
 |Todos os grupos de nós |**FF02::1** |Todos os anfitriões da rede local|
 |Todos os routers grupo |**FF02::2** |Todos os routers da rede local|
@@ -855,7 +855,7 @@ A figura 9 mostra o formato do cabeçalho IPv6 e a tabela lista os componentes d
 |---|---|
 |Versão |Campo de 4 bits para a versão IP. Para as redes IPv6, o valor neste campo deve ser de 6; Para as redes IPv4 deve ser 4.|
 |Classe de Tráfego |Campo de 8 bits que armazena a informação da classe de tráfego. Este campo não é utilizado pela NetX Duo.|
-|Rótulo de fluxo |Campo de 20 bits para identificar exclusivamente o fluxo, se houver, com o qual um pacote está associado. Um valor de zero indica que o pacote não pertence a um fluxo específico. Este campo substitui o campo *TOS* no IPv4.|
+|Flow Etiqueta |Campo de 20 bits para identificar exclusivamente o fluxo, se houver, com o qual um pacote está associado. Um valor de zero indica que o pacote não pertence a um fluxo específico. Este campo substitui o campo *TOS* no IPv4.|
 |Comprimento da carga útil |Campo de 16 bits indicando a quantidade de dados nos bytes do pacote IPv6 após o cabeçalho de base IPv6. Isto inclui todos os cabeçalhos e dados do protocolo encapsulados.|
 |Próximo Cabeçalho | Campo de 8 bits indicando o tipo do cabeçalho de extensão que segue o cabeçalho base IPv6. Este campo substitui o campo *Protocolo* no IPv4.|
 |Limite de lúpulo |Campo de 8 bits que limita o número de routers que o pacote é permitido passar. Este campo substitui o campo *TTL* no IPv4.|

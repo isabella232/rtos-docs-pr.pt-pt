@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/14/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 3d01aa6f68e21ea82f65a59a19c4f5c7958a6b92
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8639b87decd78f58a34fe6b8033a2427b560c872814abfdbbcb6057166412d0d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825868"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797470"
 ---
 # <a name="chapter-1---an-introduction-to-network-address-translation"></a>Capítulo 1 - Introdução à Tradução de Endereços de Rede
 
@@ -144,6 +144,6 @@ Constrangimentos:
 
 A implementação do NetX Duo NAT baseia-se em informações apresentadas nos seguintes RFCs:
 
-- RFC 2663: Tradutor de Endereço de Rede IP (NAT) Terminologia e Considerações
-- RFC 3022: Tradutor de Endereços IP Netowrk tradicional (NAT tradicional)
+- RFC 2663: Endereço de rede IP Tradutor (NAT) Terminologia e Considerações
+- RFC 3022: Endereço IP Netowrk tradicional Tradutor (NAT Tradicional)
 - RFC 4787: Prescrições comportamentais de tradução de endereços de rede (NAT) para UDP Unicast

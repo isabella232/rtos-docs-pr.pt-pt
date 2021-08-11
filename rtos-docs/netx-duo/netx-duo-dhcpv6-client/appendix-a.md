@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 3e642af158202bb3b2a4e2a37397b47d707b566e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6840f89e66d713b1839ac84427b73273b3f9601d4b6d9d39cd94908ac77a77ca
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826101"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791334"
 ---
 # <a name="appendix-a---description-of-the-restore-state-feature-for-azure-rtos-netx-duo-dhcpv6-client"></a>Apêndice A - Descrição da Funcionalidade de Estado de Restauro para Cliente Azure RTOS NetX Duo DHCPv6
 
@@ -106,7 +106,7 @@ ULONG nx_dhcpv6_client_get_record(NX_DHCPV6 *dhcpv6_ptr,
                                   NX_DHCPV6_CLIENT_RECORD *record_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço guarda o Cliente DHCPv6 para o registo apontado por record_ptr. Isto permite que a aplicação do Cliente DHCPv6 restaure o seu estado de Cliente DHCPv6 depois, por exemplo, de uma energia para baixo e reiniciar.
 
@@ -158,7 +158,7 @@ ULONG nx_dhcpv6_client_restore_record(NX_DHCPV6 *dhcpv6_ptr,
                                       *record_ptr, ULONG time_elapsed);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite que uma aplicação DHCPv6 recrie o seu estado de Cliente DHCPv6 de uma sessão anterior, atualizando o Cliente DHCPv6 com o registo do Cliente DHCPv6 apontado por record_ptr, e atualiza o tempo que resta no contrato de cliente DHCPv6 com a entrada time_elapsed. Isto permite que a aplicação do Cliente DHCPv6 recrie o seu Cliente DHCPv6, por exemplo, depois de desligar. Isto requer que a aplicação do Cliente DHCPv6 tenha criado um registo do Cliente DHCPv6 antes de desligar, e guardou esse registo para memória não volátil.
 

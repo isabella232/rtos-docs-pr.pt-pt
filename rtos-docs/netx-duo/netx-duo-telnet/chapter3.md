@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 991ec53aaba052b4f42da6e5a541151953121e76
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 70bf4016793572d7327d12be182750316659c3c4260d2f7db8acddbba00c5601
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825712"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791997"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-telnet-services"></a>Capítulo 3 - Descrição dos serviços Azure RTOS NetX Duo Telnet
 
@@ -19,8 +19,8 @@ Este capítulo contém uma descrição de todos os Serviços Telnet Azure RTOS N
 
 Na secção "Valores de Retorno" nas seguintes descrições da API, os valores em **BOLD** não são afetados pelo **NX_DISABLE_ERROR_CHECKING** definem que é utilizado para desativar a verificação de erros de API, enquanto os valores não arrojados são completamente desactivos.
 
-- **nx_telnet_client_connect**: *Ligue um cliente Telnet com o endereço IPv4*
-- **nxd_telnet_client_connect**: *Ligue um cliente Telnet IPv6 com o endereço IPv6*
+- **nx_telnet_client_connect**: *Ligação um Cliente Telnet com endereço IPv4*
+- **nxd_telnet_client_connect**: *Ligação um Cliente Telnet IPv6 com endereço IPv6*
 - **nx_telnet_client_create**: *Criar um cliente Telnet*
 - **nx_telnet_client_delete**: *Eliminar um Cliente Telnet*
 - **nx_telnet_client_disconnect**: *Desconecte um Cliente Telnet*
@@ -37,7 +37,7 @@ Na secção "Valores de Retorno" nas seguintes descrições da API, os valores e
 
 ## <a name="nx_telnet_client_connect"></a>nx_telnet_client_connect
 
-Ligue um cliente Telnet com endereço IPv4
+Ligação um Cliente Telnet com endereço IPv4
 
 ### <a name="prototype"></a>Prototype
 
@@ -47,7 +47,7 @@ UINT nx_telnet_client_connect(NX_TELNET_CLIENT *client_ptr,
                               ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta ligar a instância do Cliente Telnet anteriormente criada ao Servidor no IP e na porta especificados utilizando um endereço IPv4 para o Servidor Telnet. Este serviço insere efetivamente o endereço IP do servidor ULONG num NXD_ADDRESS bloco de controlo e define a versão IP para 4 antes de ligar para o serviço *nxd_telnet_client_connect* descrito abaixo.
 
@@ -86,7 +86,7 @@ status =  nx_telnet_client_connect(&my_client, IP_ADDRESS(1,2,3,4), 23, 100);
 
 ## <a name="nxd_telnet_client_connect"></a>nxd_telnet_client_connect
 
-Ligue um Cliente Telnet com endereço IPv6 ou IPv4
+Ligação um Cliente Telnet com endereço IPv6 ou IPv4
 
 ### <a name="prototype"></a>Prototype
 
@@ -97,7 +97,7 @@ UINT nxd_telnet_client_connect(NX_TELNET_CLIENT *client_ptr,
                                ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta ligar a instância do Cliente Telnet anteriormente criada ao Servidor no IP especificado e na porta utilizando o endereço IPv6 do Telnet Server. Este serviço pode ter um endereço IPv4 ou IPv6, mas deve ser contido na NXD_ADDRESS server_ip_address *variável.*
 
@@ -147,7 +147,7 @@ UINT nx_telnet_client_create(NX_TELNET_CLIENT *client_ptr,
                              ULONG window_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância do Cliente Telnet.
 
@@ -187,7 +187,7 @@ Excluir um Cliente Telnet
 UINT nx_telnet_client_delete(NX_TELNET_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância do Cliente Telnet anteriormente criada.
 
@@ -226,7 +226,7 @@ Desligar um Cliente Telnet
 UINT nx_telnet_client_disconnect(NX_TELNET_CLIENT *client_ptr, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desliga uma instância do Cliente Telnet anteriormente ligada.
 
@@ -273,7 +273,7 @@ UINT nx_telnet_client_packet_receive(NX_TELNET_CLIENT *client_ptr,
                                      ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recebe um pacote da instância do Cliente Telnet anteriormente ligada.
 
@@ -317,7 +317,7 @@ UINT nx_telnet_client_packet_send(NX_TELNET_CLIENT *client_ptr,
                                   ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pacote através da instância do Cliente Telnet anteriormente ligada.
 
@@ -367,7 +367,7 @@ UINT nx_telnet_server_create(NX_TELNET_SERVER *server_ptr, CHAR *server_name, NX
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância do Telnet Server na instância IP especificada.
 
@@ -412,7 +412,7 @@ Excluir um Servidor Telnet
 UINT nx_telnet_server_delete(NX_TELNET_SERVER *server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância telnet server previamente criada.
 
@@ -449,7 +449,7 @@ Desligar um Cliente Telnet
 UINT nx_telnet_server_disconnect(NX_TELNET_SERVER *server_ptr, UINT logical_connection);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desliga um Cliente previamente ligado nesta instância do Telnet Server. Esta rotina é normalmente chamada da função de retorno de dados de receção da aplicação em resposta a uma condição detetada nos dados recebidos.
 
@@ -492,7 +492,7 @@ Número de devolução de ligações atualmente abertas
 UINT nx_telnet_server_get_open_connection_count(NX_TELNET_SERVER *server_ptr, UINT *connection_count);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o número de Clientes Telnet atualmente ligados.
 
@@ -535,7 +535,7 @@ UINT nx_telnet_server_packet_send(NX_TELNET_SERVER *server_ptr,
                                   ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pacote para a ligação ao Cliente nesta instância do Telnet Server. Esta rotina é normalmente chamada da função de retorno de dados de receção da aplicação em resposta a uma condição detetada nos dados recebidos.
 
@@ -582,7 +582,7 @@ UINT nx_telnet_server_packet_pool_set(NX_TELNET_SERVER *server_ptr, NX_PACKET_PO
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define um conjunto de pacotes previamente criado como o pool de pacotes telnet Server se NX_TELNET_SERVER_USER_CREATE_PACKET_POOL for definida. Também requer que não NX_TELNET_SERVER_OPTION_DISABLE ser definido de modo a que o Telnet Server precise de um pacote de piscina para transmitir opções telnet aos clientes telnet.
 
@@ -625,7 +625,7 @@ UINT nx_telnet_server_start(NX_TELNET_SERVER *server_ptr);
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma instância telnet server previamente criada.
 
@@ -662,7 +662,7 @@ Parar um Servidor Telnet
 UINT nx_telnet_server_stop(NX_TELNET_SERVER *server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço para uma instância do Telnet Server previamente criada e iniciou.
 

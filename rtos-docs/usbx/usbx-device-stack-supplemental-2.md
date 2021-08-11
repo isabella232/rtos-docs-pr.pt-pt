@@ -1,23 +1,23 @@
 ---
 title: Capítulo 2 - Considerações da classe do dispositivo USBX
-description: A classe RNDIS do dispositivo USB permite que um sistema de anfitriões USB comunique com o dispositivo como um dispositivo ethernet. Esta classe baseia-se na implementação proprietária da Microsoft e é específica para as plataformas do Windows.
+description: A classe RNDIS do dispositivo USB permite que um sistema de anfitriões USB comunique com o dispositivo como um dispositivo ethernet. Esta classe baseia-se na implementação proprietária da Microsoft e é específica para Windows plataformas.
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 035492644a911eba3b1c62a79572bc7d4c55f6dd
-ms.sourcegitcommit: 1aeca2f91960856d8cc24fef65f909639e527599
+ms.openlocfilehash: 2a28196c8f0e29ad94ef9f2d65b143459bf0214f48c345e6bb0d4ea71d520dfd
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106082222"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116802636"
 ---
 # <a name="chapter-2---usbx-device-class-considerations"></a>Capítulo 2 - Considerações da classe do dispositivo USBX
 
 ## <a name="usb-device-rndis-class"></a>Classe RNDIS de dispositivo USB
 
-A classe RNDIS do dispositivo USB permite que um sistema de anfitriões USB comunique com o dispositivo como um dispositivo ethernet. Esta classe baseia-se na implementação proprietária da Microsoft e é específica para as plataformas do Windows.
+A classe RNDIS do dispositivo USB permite que um sistema de anfitriões USB comunique com o dispositivo como um dispositivo ethernet. Esta classe baseia-se na implementação proprietária da Microsoft e é específica para Windows plataformas.
 
 Uma estrutura do dispositivo compatível com RNDIS tem de ser declarada pela pilha do dispositivo. Um exemplo é encontrado abaixo.
 
@@ -170,7 +170,7 @@ ux_network_driver_init();
 
 A pilha de rede USB precisa de ser ativada apenas uma vez e não é específica para o RNDIS, mas é exigida por qualquer classe USB que exija serviços NetX.
 
-A classe RNDIS não será reconhecida pelos anfitriões MAC OS e Linux, uma vez que é específica dos sistemas operativos da Microsoft. Nas plataformas do Windows, um ficheiro .inf tem de estar presente no anfitrião que corresponda ao descritor do dispositivo. A Microsoft fornece um modelo para a classe RNDIS e pode ser encontrado no diretório usbx_windows_host_files. Para a versão mais recente do Windows, o ficheiro RNDIS_Template.inf deve ser utilizado. Este ficheiro precisa de ser modificado para refletir o PID/VID utilizado pelo dispositivo. O PID/VID será específico para o cliente final quando a empresa e o produto estiverem registados no USB-IF. No ficheiro inf, os campos a modificar estão localizados aqui.
+A classe RNDIS não será reconhecida pelos anfitriões MAC OS e Linux, uma vez que é específica dos sistemas operativos da Microsoft. Nas plataformas do Windows, um ficheiro .inf tem de estar presente no anfitrião que corresponda ao descritor do dispositivo. A Microsoft fornece um modelo para a classe RNDIS e pode ser encontrado no diretório usbx_windows_host_files. Para uma versão mais recente de Windows o ficheiro RNDIS_Template.inf deve ser utilizado. Este ficheiro precisa de ser modificado para refletir o PID/VID utilizado pelo dispositivo. O PID/VID será específico para o cliente final quando a empresa e o produto estiverem registados no USB-IF. No ficheiro inf, os campos a modificar estão localizados aqui.
 
 ```Inf
 [DeviceList]
@@ -270,11 +270,11 @@ Segue-se a descrição de um fluxo típico de aplicação DFU.
 
 ![Fluxo de aplicação DFU](./media/usbx-device-stack-supplemental/dfu-application-flow.png)
 
-O grande desafio da classe DFU é obter a aplicação certa no anfitrião para realizar o download do firmware. Não existe nenhuma aplicação fornecida pela Microsoft ou pelo USB-IF. Existem alguns shareware e funcionam razoavelmente bem no Linux e em menor medida no Windows.
+O grande desafio da classe DFU é obter a aplicação certa no anfitrião para realizar o download do firmware. Não existe nenhuma aplicação fornecida pela Microsoft ou pelo USB-IF. Existem alguns shareware e funcionam razoavelmente bem no Linux e, em menor medida, em Windows.
 
 No Linux, pode-se usar du-utils para ser encontrado aqui: [https://wiki.openmoko.org/wiki/Dfu-util](https://wiki.openmoko.org/wiki/Dfu-util) Muita informação sobre os usos dfu também pode ser encontrada neste link: [https://www.libusb.org/wiki/windows_backend](https://www.libusb.org/wiki/windows_backend)
 
-A implementação do Linux da DFU executa corretamente a sequência de reset entre o hospedeiro e o dispositivo e, portanto, o dispositivo não necessita de o fazer. Linux pode aceitar que os bmAttributes *bitWillDetach* sejam 0. As janelas do outro lado requerem que o dispositivo execute o reset.
+A implementação do Linux da DFU executa corretamente a sequência de reset entre o hospedeiro e o dispositivo e, portanto, o dispositivo não necessita de o fazer. Linux pode aceitar que os bmAttributes *bitWillDetach* sejam 0. Windows do outro lado requer que o dispositivo efetue o reset.
 
 No Windows, o registo USB deve ser capaz de associar o dispositivo USB ao seu PID/VID e à biblioteca USB que, por sua vez, será utilizado pela aplicação DFU. Isto pode ser feito facilmente com a utilidade gratuita Zadig que pode ser encontrada aqui: [https://sourceforge.net/projects/libwdi/files/zadig/](https://sourceforge.net/projects/libwdi/files/zadig/) .
 
@@ -282,7 +282,7 @@ Running Zadig pela primeira vez mostrará este ecrã:
 
 ![Correr Zadig pela primeira vez](./media/usbx-device-stack-supplemental/zadig.png)
 
-A partir da lista de dispositivos, encontre o seu dispositivo e associe-o ao controlador de janelas libusb. Isto ligará o PID/VID do dispositivo à biblioteca USB do Windows utilizada pelos utilitários DFU.
+A partir da lista de dispositivos, encontre o seu dispositivo e associe-o ao controlador de janelas libusb. Isto ligará o PID/VID do dispositivo à Windows biblioteca USB utilizada pelos utilitários DFU.
 
 Para operar o comando DFU, basta desempacotar os utilitários dfu zipped em um diretório, certificando-se de que o libusb dll também está presente no mesmo diretório. Os utilitários DFU devem ser executados a partir de uma caixa DOS na linha de comando.
 
@@ -346,7 +346,7 @@ O lado do dispositivo USBX PIMA suporta as seguintes operações.
 | UX_DEVICE_CLASS_PIMA_EC_REQUEST_OBJECT_TRANSFER | 0x4009  | O dispositivo solicita a transferência de um objeto do anfitrião                     |
 | UX_DEVICE_CLASS_PIMA_EC_STORE_FULL               | 0x400A  | O dispositivo informa que os meios de comunicação estão cheios                                                |
 | UX_DEVICE_CLASS_PIMA_EC_DEVICE_RESET             | 0x400B  | O dispositivo informa que foi reposto                                                     |
-| UX_DEVICE_CLASS_PIMA_EC_STORAGE_INFO_CHANGED    | 0x400C  | A informação de armazenamento mudou no dispositivo                                   |
+| UX_DEVICE_CLASS_PIMA_EC_STORAGE_INFO_CHANGED    | 0x400C  | Armazenamento informação mudou no dispositivo                                   |
 | UX_DEVICE_CLASS_PIMA_EC_CAPTURE_COMPLETE         | 0x400D  | A captura está concluída                                                            |
 
 A classe de dispositivo USBX PIMA utiliza um Fio TX para ouvir comandos PIMA do anfitrião.

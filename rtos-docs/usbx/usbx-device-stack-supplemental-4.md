@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 4fdf1e46a7123c10d17e11d09c1b16c2f68f4a31
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 5a1bab2cb60ce5df6c0662eb1a31f542a3b1d7a87d4584d485cbd621e3342abc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550240"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791124"
 ---
 # <a name="chapter-4---usbx-pictbridge-implementation"></a>Capítulo 4 - Implementação USBX Pictbridge
 
@@ -208,7 +208,7 @@ UINT ux_pictbridge_jobinfo_object_data_read(
     ULONG *actual_length)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando o cliente DPS precisa de recuperar um bloco de dados para imprimir na impressora Pictbridge alvo.
 
@@ -347,7 +347,7 @@ UINT ux_pictbridge_application_object_data_write(
     ULONG length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função é chamada quando o servidor DPS precisa de recuperar um bloco de dados do cliente DPS para imprimir na impressora local.
 

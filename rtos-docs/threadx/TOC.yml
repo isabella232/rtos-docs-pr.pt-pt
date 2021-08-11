@@ -19,13 +19,13 @@
       href: chapter5.md
     - name: Ch. 6 - Sistema de demonstração da ThreadX
       href: chapter6.md
-    - name: 'Aplicação: A - Serviços API da ThreadX'
+    - name: Aplicativo. A - Serviços API da ThreadX
       href: appendix-a.md
-    - name: 'Aplicação: B - ThreadX constantes'
+    - name: Aplicativo. B - ThreadX constantes
       href: appendix-b.md
-    - name: 'Aplicação: C - Tipos de dados ThreadX'
+    - name: Aplicativo. C - Tipos de dados ThreadX
       href: appendix-c.md
-    - name: 'Aplicação: D - Códigos de caracteres ASCII'
+    - name: Aplicativo. D - Códigos de caracteres ASCII
       href: appendix-d.md
 - name: Adenda do Guia do Utilizador ThreadX para ARMv8-M
   items:
@@ -51,13 +51,13 @@
       href: ./threadx-smp/chapter5.md
     - name: Ch. 6 - Sistema de Demonstração para ThreadX SMP
       href: ./threadx-smp/chapter6.md
-    - name: 'Aplicação: A - ThreadX SMP API Services'
+    - name: Aplicativo. A - ThreadX SMP API Services
       href: ./threadx-smp/appendix-a.md
-    - name: 'Aplicação: B - ThreadX SMP Constants'
+    - name: Aplicativo. B - ThreadX SMP Constants
       href: ./threadx-smp/appendix-b.md
-    - name: 'Aplicação: C - ThreadX SMP Data Types'
+    - name: Aplicativo. C - ThreadX SMP Data Types
       href: ./threadx-smp/appendix-c.md
-    - name: 'Aplicação: D - Códigos de Caracteres ASCII'
+    - name: Aplicativo. D - Códigos de Caracteres ASCII
       href: ./threadx-smp/appendix-d.md
 - name: Repositório ThreadX
   href: 'https://github.com/azure-rtos/threadx'
@@ -65,7 +65,7 @@
   items:
     - name: Defender para IoT - RTOS (pré-visualização)
       href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
-- name: Componentes RTOS microsoft Azure
+- name: Microsoft Azure Componentes RTOS
   items:
     - name: Microsoft Azure RTOS
       href: ../index.yml

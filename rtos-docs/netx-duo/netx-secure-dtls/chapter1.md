@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: dbd81082524f50787765dfacf494248dda740fd6
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: a7fe51fd1e141c0c525a98986ca3058732b61843f8bd79bf24fc5ac986147501
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826977"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797046"
 ---
 # <a name="chapter-1-introduction-to-azure-rtos-netx-secure-dtls"></a>Capítulo 1: Introdução ao Azure RTOS NetX Secure DTLS
 
@@ -26,7 +26,7 @@ Ao contrário da maioria das outras implementações TLS/DTLS, o NetX Secure foi
 O NetX Secure suporta os seguintes protocolos relacionados com TLS e DTLS. A lista não é necessariamente abrangente, uma vez que existem numerosos RFCs relativos a TLS/DTLS e criptografia. O NetX Secure segue todas as recomendações gerais e requisitos básicos dentro dos limites de um sistema operativo em tempo real com pequena pegada de memória e execução eficiente.
 
 
-| RFC | Descrição |
+| RFC | Description |
 | --- | ----------- |
 | RFC 6347 | Versão de segurança da camada de transporte de datagram 1.2. |
 | RFC 2246 | O Protocolo TLS Versão 1.0|

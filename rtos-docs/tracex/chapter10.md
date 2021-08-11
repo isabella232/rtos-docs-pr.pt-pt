@@ -6,12 +6,12 @@ ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: 635c2d79922de9d5649bab841ae946cac862056c
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: b287436fb7f61df846bb0c84d910f5c095bc1f8f6635305e97c9e8b7aab64655
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827607"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790434"
 ---
 # <a name="chapter-10---customer-user-events"></a>Capítulo 10 - Eventos de utilizador de clientes
 
@@ -57,7 +57,7 @@ O ficheiro de configuração de evento personalizado ***tracex_custom.trxc*** é
 [custom event definition(s)] **End **
 ```
 
-Cada linha entre Início e Fim é usada para definir um único evento personalizado. A TraceX fornece uma versão de modelo deste ficheiro sem eventos personalizados definidos (nada entre as etiquetas "Iniciar" e "Fim"). O formato de uma definição de evento personalizado é o seguinte:
+Cada linha entre Início e Fim é usada para definir um único evento personalizado. A TraceX fornece uma versão de modelo deste ficheiro sem eventos personalizados definidos (nada entre as etiquetas "Iniciar&quot; e &quot;Fim"). O formato de uma definição de evento personalizado é o seguinte:
 
 **número, nome, abreviatura, top_color, bottom_color, label1, label2, label2, label2, label4**
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 442149536ac6847808fbba183b96ac78832a82c0
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 45f35f2c1bec142e10d29eedb6e5a88a8eb74771e5d4adf1d85b04a87ad59ab7
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825970"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116796213"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-duo-http"></a>Capítulo 1 - Introdução ao Azure RTOS NetX Duo HTTP HTTP
 
@@ -73,7 +73,7 @@ O Servidor HTTP utiliza a mesma *conhecida porta TCP 80* para enviar respostas d
 | ------------- | ------- |
 | *200* | *O pedido foi bem sucedido* |
 | *400* |   *Pedido não foi formado corretamente* |
-| *401* | *Pedido não autorizado, o cliente precisa enviar autenticação* |
+| *Anos 60* | *Pedido não autorizado, o cliente precisa enviar autenticação* |
 | *404* | *Não foi encontrado recurso especificado a pedido* |
 | *500* | *Erro interno do servidor HTTP* |
 | *501* | *Pedido não implementado pelo SERVIDOR HTTP* |

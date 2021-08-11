@@ -17,15 +17,15 @@
       href: chapter4.md
     - name: Ch. 5 - Controladores de rede NetX Duo
       href: chapter5.md
-    - name: 'Aplicação: A - Serviços NetX Duo'
+    - name: Aplicativo. A - Serviços NetX Duo
       href: appendix-a.md
-    - name: 'Aplicação: B - NetX Duo constantes'
+    - name: Aplicativo. B - NetX Duo constantes
       href: appendix-b.md
-    - name: 'Aplicação: C - Tipos de dados NetX Duo'
+    - name: Aplicativo. C - Tipos de dados NetX Duo
       href: appendix-c.md
-    - name: 'Aplicação: D - API de tomada compatível com BSD'
+    - name: Aplicativo. D - API de tomada compatível com BSD
       href: appendix-d.md
-    - name: 'Aplicação: E - Códigos de caracteres ASCII'
+    - name: Aplicativo. E - Códigos de caracteres ASCII
       href: appendix-e.md
 - name: Addons NetX Duo
   items:
@@ -63,7 +63,7 @@
           href: netx-duo-dhcp-client/chapter2.md
         - name: Ch. 3 - Descrição dos serviços de clientes NetX Duo DHCP
           href: netx-duo-dhcp-client/chapter3.md
-        - name: 'Aplicação: R - Descrição da funcionalidade de estado de restauro para os serviços de clientes NetX Duo DHCP'
+        - name: Aplicativo. R - Descrição da funcionalidade de estado de restauro para os serviços de clientes NetX Duo DHCP
           href: netx-duo-dhcp-client/appendixA.md
     - name: Guia de utilizador do servidor DHCP da NetX Duo
       items:
@@ -83,7 +83,7 @@
           href: netx-duo-dhcpv6-client/chapter3.md
         - name: Ch. 4 - Serviços de clientes NetX Duo DHCPv6
           href: netx-duo-dhcpv6-client/chapter4.md
-        - name: 'Aplicação: A - Descrição da Funcionalidade de Estado de Restauro'
+        - name: Aplicativo. A - Descrição da Funcionalidade de Estado de Restauro
           href: netx-duo-dhcpv6-client/appendix-a.md
     - name: Guia de utilizador do servidor NetX Duo DHCPv6
       items:
@@ -95,13 +95,13 @@
           href: netx-duo-dhcpv6-server/chapter3.md
         - name: Ch. 4 - Serviços de servidores NetX Duo DHCPv6
           href: netx-duo-dhcpv6-server/chapter4.md
-        - name: 'Aplicação: A - Códigos de opção NetX Duo DHCPv6'
+        - name: Aplicativo. A - Códigos de opção NetX Duo DHCPv6
           href: netx-duo-dhcpv6-server/appendix-a.md
-        - name: 'Aplicação: Código de estado do servidor B-NetX Duo DHCPv6'
+        - name: Aplicativo. Código de estado do servidor B-NetX Duo DHCPv6
           href: netx-duo-dhcpv6-server/appendix-b.md
-        - name: 'Aplicação: C - Identificadores exclusivos NetX Duo DHCPv6 (DUIDs)'
+        - name: Aplicativo. C - Identificadores exclusivos NetX Duo DHCPv6 (DUIDs)
           href: netx-duo-dhcpv6-server/appendix-c.md
-        - name: 'Aplicação: D - Avançado NetX Duo DHCPv6 exemplo'
+        - name: Aplicativo. D - Avançado NetX Duo DHCPv6 exemplo
           href: netx-duo-dhcpv6-server/appendix-d.md
     - name: Guia de clientes NetX Duo DNS
       items:
@@ -213,7 +213,7 @@
           href: netx-duo-sntp-client/chapter2.md
         - name: Ch. 3 - Descrição dos serviços de clientes NetX Duo SNTP
           href: netx-duo-sntp-client/chapter3.md
-        - name: 'Aplicação: A - NetX Duo SNTP Códigos de Erro Fatais'
+        - name: Aplicativo. A - NetX Duo SNTP Códigos de Erro Fatais
           href: netx-duo-sntp-client/appendix-a.md
     - name: Guia de utilizador NetX Duo Telnet
       items:
@@ -249,7 +249,7 @@
           href: netx-secure-dtls/chapter3.md
         - name: Ch. 4 - Descrição dos serviços NetX Secure DTLS
           href: netx-secure-dtls/chapter4.md
-        - name: 'Aplicação: A - NetX Secure DTLS códigos de devolução/erro'
+        - name: Aplicativo. A - NetX Secure DTLS códigos de devolução/erro
           href: netx-secure-dtls/appendix-a.md
     - name: Guia de utilizador NetX Secure TLS
       items:
@@ -261,7 +261,7 @@
           href: netx-secure-tls/chapter3.md
         - name: Ch. 4 - Descrição dos serviços NetX Secure
           href: netx-secure-tls/chapter4.md
-        - name: 'Aplicação: A - NetX Códigos de devolução/erro seguros'
+        - name: Aplicativo. A - NetX Códigos de devolução/erro seguros
           href: netx-secure-tls/appendix-a.md
 - name: Repositório NetX Duo
   href: 'https://github.com/azure-rtos/netxduo'
@@ -269,7 +269,7 @@
   items:
     - name: Defender para IoT - RTOS (pré-visualização)
       href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
-- name: Componentes RTOS microsoft Azure
+- name: Microsoft Azure Componentes RTOS
   items:
     - name: Microsoft Azure RTOS
       href: ../index.yml

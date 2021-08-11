@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/09/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: d721d8bd3e08d8cccdc13011807b4c5017c84173
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: d08d3c07f7be016ece68ff2f58b9ac5ba93ded780105bce362674ed36b5b885d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825981"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116792371"
 ---
 # <a name="chapter-3---description-of-ftp-services"></a>Capítulo 3 - Descrição dos serviços FTP
 
@@ -22,7 +22,7 @@ Este capítulo contém uma descrição de todos os serviços NetX FTP (listados 
 
 ## <a name="nx_ftp_client_connect"></a>nx_ftp_client_connect
 
-Ligue-se a um servidor FTP sobre o IPv4
+Ligação a um servidor FTP sobre o IPv4
 
 ### <a name="prototype"></a>Prototype
 
@@ -32,7 +32,7 @@ UINT nx_ftp_client_connect(NX_FTP_CLIENT *ftp_client_ptr,
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liga a instância do Cliente NetX FTP previamente criada ao Servidor FTP no endereço IP fornecido.
 
@@ -80,7 +80,7 @@ nx_ftp_client_create, nx_ftp_client_delete, nx_ftp_client_directory_create, nx_f
 
 ## <a name="nxd_ftp_client_connect"></a>nxd_ftp_client_connect
 
-Ligue-se a um servidor FTP com suporte IPv6
+Ligação a um servidor FTP com suporte IPv6
 
 ### <a name="prototype"></a>Prototype
 
@@ -90,7 +90,7 @@ UINT nxd_ftp_client_connect(NX_FTP_CLIENT *ftp_client_ptr,
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liga a instância do cliente NetX Duo FTP previamente criada ao Servidor FTP no endereço IP fornecido. As redes IPv4 e IPv6 são suportadas.
 
@@ -155,7 +155,7 @@ UINT nx_ftp_client_create(NX_FTP_CLIENT *ftp_client_ptr,
     NX_PACKET_POOL *pool_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância de cliente FTP.
 
@@ -195,7 +195,7 @@ Excluir uma instância de cliente FTP
 UINT nx_ftp_client_delete(NX_FTP_CLIENT *ftp_client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância do Cliente FTP.
 
@@ -236,7 +236,7 @@ UINT nx_ftp_client_directory_create(NX_FTP_CLIENT *ftp_client_ptr,
     CHAR *directory_name, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria o diretório especificado no Servidor FTP que está ligado ao Cliente FTP especificado.
 
@@ -282,7 +282,7 @@ UINT nx_ftp_client_directory_default_set(NX_FTP_CLIENT *ftp_client_ptr,
     CHAR *directory_path, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o diretório predefinido no Servidor FTP que está ligado ao Cliente FTP especificado. Este diretório predefinido aplica-se apenas à ligação deste cliente.
 
@@ -328,7 +328,7 @@ UINT nx_ftp_client_directory_delete(NX_FTP_CLIENT *ftp_client_ptr,
     CHAR *directory_name, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o diretório especificado no Servidor FTP que está ligado ao Cliente FTP especificado.
 
@@ -375,7 +375,7 @@ UINT nx_ftp_client_directory_listing_get(NX_FTP_CLIENT *ftp_client_ptr,
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém o conteúdo do diretório especificado no Servidor FTP que está ligado ao Cliente FTP especificado. O ponteiro do pacote fornecido conterá uma ou mais entradas de diretório. Cada entrada é separada por uma \<cr/lf\> combinação. O ***nx_ftp_client_directory_listing_continue*** deve ser chamado para concluir a operação do diretório.
 
@@ -426,7 +426,7 @@ UINT nx_ftp_client_directory_listing_continue(NX_FTP_CLIENT *ftp_client_ptr,
     NX_PACKET **packet_ptr, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço continua a obter o conteúdo do diretório especificado no Servidor FTP que está ligado ao Cliente FTP especificado. Deveria ter sido imediatamente precedido por uma chamada para ***nx_ftp_client_directory_listing_get***. Se for bem sucedido, o ponteiro do pacote fornecido conterá uma ou mais entradas de diretório. Esta rotina deve ser chamada até que um estado de NX_FTP_END_OF_LISTING seja recebido.
 
@@ -475,7 +475,7 @@ UINT nx_ftp_client_disconnect(NX_FTP_CLIENT *ftp_client_ptr,
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desliga uma ligação ftp server previamente estabelecida com o cliente FTP especificado.
 
@@ -519,7 +519,7 @@ UINT nx_ftp_client_file_close(NX_FTP_CLIENT *ftp_client_ptr,
     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço fecha um ficheiro previamente aberto no Servidor FTP.
 
@@ -565,7 +565,7 @@ UINT nx_ftp_client_file_delete(NX_FTP_CLIENT *ftp_client_ptr,
     CHAR *file_name, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o ficheiro especificado no Servidor FTP.
 
@@ -612,7 +612,7 @@ UINT nx_ftp_client_file_open(NX_FTP_CLIENT *ftp_client_ptr,
     CHAR *file_name, UINT open_type, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço abre o ficheiro especificado – para leitura ou escrita – no Servidor FTP anteriormente ligado à instância de Cliente especificada.
 
@@ -663,7 +663,7 @@ UINT nx_ftp_client_file_read(NX_FTP_CLIENT *ftp_client_ptr,
     NX_PACKET **packet_ptr, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço lê um pacote de um ficheiro previamente aberto. Deve ser chamado repetidamente até que um estatuto de NX_FTP_END_OF_FILE seja recebido.
 
@@ -728,7 +728,7 @@ UINT nx_ftp_client_file_rename(NX_FTP_CLIENT *ftp_ptr, CHAR *filename,
     CHAR *new_filename, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço renomea um ficheiro no Servidor FTP.
 
@@ -777,7 +777,7 @@ UINT nx_ftp_client_file_write(NX_FTP_CLIENT *ftp_client_ptr,
     NX_PACKET *packet_ptr, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço escreve um pacote de dados para o ficheiro previamente aberto no Servidor FTP.
 
@@ -822,7 +822,7 @@ UINT nx_ftp_client_passive_mode_set(NX_FTP_CLIENT *ftp_client_ptr,
     UINT passive_mode_enabled);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite o modo de transferência passiva se a entrada passive_mode_enabled estiver definida para NX_TRUE numa instância ftp do Cliente previamente criada, de modo a que as chamadas subsequentes para ler ou escrever ficheiros (RETR, STOR) ou descarregue uma lista de diretórios (NLST) sejam feitas em modo de transferência. Para desativar a transferência do modo passivo e voltar ao comportamento predefinido do modo de transferência ativo, ligue para esta função com o passive_mode_enabled conjunto de entrada para NX_FALSE.
 
@@ -871,7 +871,7 @@ UINT nx_ftp_server_create(NX_FTP_SERVER *ftp_server_ptr,
          CHAR *name, CHAR *password, CHAR *extra_info));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância FTP Server na instância IP do NetX especificada e previamente criada. Note que o Servidor FTP precisa de ser iniciado com uma chamada para ***nx_ftp_server_start*** para que comece a funcionar.
 
@@ -928,7 +928,7 @@ UINT nxd_ftp_server_create(NX_FTP_SERVER *ftp_server_ptr,
         CHAR *password, CHAR *extra_info));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância FTP Server na instância IP do NetX especificada e previamente criada. Note que o Servidor FTP ainda precisa de ser iniciado com uma chamada para ***nx_ftp_server_start*** para que comece a funcionar após a criação do Servidor.
 
@@ -977,7 +977,7 @@ Excluir servidor FTP
 UINT nx_ftp_server_delete(NX_FTP_SERVER *ftp_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância ftp server previamente criada.
 
@@ -1015,7 +1015,7 @@ Iniciar servidor FTP
 UINT nx_ftp_server_start(NX_FTP_SERVER *ftp_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma instância ftp server previamente criada.
 
@@ -1052,7 +1052,7 @@ Parar o servidor FTP
 UINT nx_ftp_server_stop(NX_FTP_SERVER *ftp_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço para uma instância ftp server previamente criada e iniciada.
 

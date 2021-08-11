@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 80d6ba18f47ad2b017dfa32260c83ba074a6dbac
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 942250cf864fca3c35b97ae731549c070ac2f2f2ef3ef8897e5cbf1e705e7c6a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825639"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801809"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx"></a>Capítulo 2 - Instalação e Utilização do Azure RTOS NetX
 
@@ -19,7 +19,7 @@ Este capítulo contém uma descrição de vários problemas relacionados com a i
 
 ## <a name="host-considerations"></a>Considerações de Anfitrião
 
-O desenvolvimento incorporado é geralmente realizado em computadores anfitriões Windows ou Linux (Unix). Após a compilação da aplicação, ligada e o executável é gerado no anfitrião, é descarregado para o hardware alvo para execução.
+O desenvolvimento incorporado é geralmente realizado em computadores de Windows ou Linux (Unix). Após a compilação da aplicação, ligada e o executável é gerado no anfitrião, é descarregado para o hardware alvo para execução.
 
 Normalmente, o download do alvo é feito a partir do depurar da ferramenta de desenvolvimento. Após o download, o depurante é responsável por fornecer controlo de execução de alvos (ir, parar, quebrar, etc.) bem como aceder aos registos de memória e processador.
 
@@ -52,7 +52,7 @@ Pode instalar o NetX clonando o repositório GitHub à sua máquina local. Segue
     git clone https://github.com/azure-rtos/netx
 ```
 
-Em alternativa, pode descarregar uma cópia do repositório utilizando o botão **Descarregar** na página principal do GitHub.
+Em alternativa, pode descarregar uma cópia do repositório utilizando o botão **Descarregar** na página principal GitHub.
 
 Também encontrará instruções para a construção da biblioteca NetX na primeira página do repositório online.
 

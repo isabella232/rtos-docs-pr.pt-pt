@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 17b8d884dd2c71d60e91f5fcec40c360060f4fe8
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: a3cbbb2e26d66d3db26144a47a1b6cbb11387c7b5b2ba5e19d35df026e5e3598
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104828369"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790893"
 ---
 # <a name="chapter-3---functional-components-of-usbx-host-stack"></a>Capítulo 3 - Componentes funcionais da pilha de anfitriões USBX
 
@@ -276,7 +276,7 @@ Quando o anfitrião emite um pedido GET_DESCRIPTOR para o descritor de configura
 | 4      | bNumInterfaces      | 1    | Número   | Número de interfaces suportadas por esta configuração. |
 | 5      | bConfigurationValue | 1    | Número   | Valor a usar como argumento para definir<br/>Configuração para selecionar esta configuração. |
 | 6      | iConfiguration      | 1    | Índice    | Índice de descritor de cordas descrevendo esta configuração. |
-| 7      | bMAttributes        | 1    | Bitmap   | Características de configuração D7 Bus Powered<br />D6 Autoalimentado<br />Despertar Remoto D5<br />D4. 0 Reservado (reset a 0)<br />Uma configuração do dispositivo que utiliza energia do autocarro e uma fonte local define tanto D7 como D6. A fonte de energia real no tempo de execução pode ser determinada usando o pedido do dispositivo Get Status.<br />Se uma configuração do dispositivo suportar o despertar remoto, o D5 está definido para 1. |
+| 7      | bMAttributes        | 1    | Bitmap   | Características de configuração D7 Bus Powered<br />D6 autoalimentado<br />Despertar Remoto D5<br />D4. 0 Reservado (reset a 0)<br />Uma configuração do dispositivo que utiliza energia do autocarro e uma fonte local define tanto D7 como D6. A fonte de energia real no tempo de execução pode ser determinada usando o pedido do dispositivo Get Status.<br />Se uma configuração do dispositivo suportar o despertar remoto, o D5 está definido para 1. |
 | 8      | MaxPower            | 1    | mA       | Consumo máximo de energia do dispositivo USB a partir do autocarro nesta configuração específica quando o dispositivo estiver totalmente operacional.<br />Expresso em 2 unidades mA (por exemplo, 50 = 100 mA).<br />Nota: Uma configuração do dispositivo informa se a configuração é alimentada por autocarro ou autoalimentada.<br />O estado do dispositivo informa se o dispositivo está atualmente autoalimentado. Se um dispositivo for desligado da sua fonte de alimentação externa, atualiza o estado do dispositivo para indicar que já não é alimentado por si próprio. |
 
 USBX define um descritor de configuração USB da seguinte forma.

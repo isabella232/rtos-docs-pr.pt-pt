@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 4432001b773b4ef4f99b1b34193e90863966aad4
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 71b964963968b0ec6fa3c8cc70cc46576e8ff33e2cfad0315182afe1f1afcc5b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104828022"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116802163"
 ---
 # <a name="chapter-4---description-of-azure-rtos-threadx-smp-services"></a>Capítulo 4 - Descrição dos Serviços Azure RTOS ThreadX SMP
 
@@ -114,7 +114,7 @@ Alocar bloco de memória de tamanho fixo
 UINT tx_block_allocate(TX_BLOCK_POOL *pool_ptr, VOID **block_ptr,
                           ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço aloca um bloco de memória de tamanho fixo a partir do conjunto de memória especificado. O tamanho real do bloco de memória é determinado durante a criação do pool de memória.
 
@@ -152,7 +152,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -191,7 +191,7 @@ UINT tx_block_pool_create(TX_BLOCK_POOL *pool_ptr,
                           CHAR *name_ptr, ULONG block_size,
                           VOID *pool_start, ULONG pool_size);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma piscina de blocos de memória de tamanho fixo. A área de memória especificada é dividida em tantos blocos de memória de tamanho fixo quanto possível utilizando a fórmula:    
 **blocos totais** =**(bytes totais)**/**(tamanho do bloco** + tamanho (vazio *))
@@ -260,7 +260,7 @@ Apagar o conjunto de blocos de memória
 ```C
 UINT tx_block_pool_delete(TX_BLOCK_POOL *pool_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o conjunto de memória de bloco especificado. Todos os fios suspensos à espera de um bloco de memória desta piscina são retomados e dado um estado de retorno TX_DELETED.
 
@@ -283,7 +283,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -322,7 +322,7 @@ UINT tx_block_pool_info_get(TX_BLOCK_POOL *pool_ptr, CHAR **name,
                           ULONG *suspended_count,
                           TX_BLOCK_POOL **next_pool);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre o conjunto de memórias de bloco especificado.
 
@@ -393,7 +393,7 @@ UINT tx_block_pool_performance_info_get(TX_BLOCK_POOL *pool_ptr,
        ULONG *suspensions, ULONG *timeouts));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações de desempenho sobre o conjunto de blocos de memória especificados.
 
@@ -460,7 +460,7 @@ Obtenha informações de desempenho do sistema de piscina de blocos
 UINT tx_block_pool_performance_system_info_get(ULONG *allocates,
        ULONG *releases, ULONG *suspensions, ULONG *timeouts);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações de desempenho sobre todos os conjuntos de blocos de memória na aplicação.
 
@@ -521,7 +521,7 @@ Priorizar lista de suspensão de piscina de bloco
 ```C
 UINT tx_block_pool_prioritize(TX_BLOCK_POOL *pool_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço coloca o fio de prioridade mais elevado suspenso por um bloco de memória nesta piscina na parte da frente da lista de suspensão. Todos os outros fios permanecem na mesma ordem FIFO em que foram suspensos.
 
@@ -575,7 +575,7 @@ Liberte o bloco de memória de tamanho fixo
 ```C
 UINT tx_block_release(VOID *block_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta um bloco previamente atribuído de volta ao seu pool de memória associado. Se houver um ou mais fios suspensos à espera de blocos de memória desta piscina, o primeiro fio suspenso é dado a este bloco de memória e retomado.
 
@@ -597,7 +597,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -635,7 +635,7 @@ UINT tx_byte_allocate(TX_BYTE_POOL *pool_ptr,
                           VOID **memory_ptr, ULONG memory_size,
                           ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui o número especificado de bytes da piscina de bytes de memória especificada.
 
@@ -679,7 +679,7 @@ Inicialização e fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -718,7 +718,7 @@ UINT tx_byte_pool_create(TX_BYTE_POOL *pool_ptr,
                           CHAR *name_ptr, VOID *pool_start,
                           ULONG pool_size);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma piscina de byte de memória na área especificada. Inicialmente, a piscina é composta por basicamente um bloco livre muito grande. No entanto, a piscina é dividida em blocos menores à medida que as dotações são feitas.
 
@@ -778,7 +778,7 @@ Apagar piscina de byte de memória
 ```C
 UINT tx_byte_pool_delete(TX_BYTE_POOL *pool_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o conjunto de bytes de memória especificado. Todos os fios suspensos à espera de memória desta piscina são retomados e dado um estado de retorno TX_DELETED.
 
@@ -801,7 +801,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -838,7 +838,7 @@ UINT tx_byte_pool_info_get(TX_BYTE_POOL *pool_ptr, CHAR **name,
                           ULONG *suspended_count,
                           TX_BYTE_POOL **next_pool);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre o byte de memória especificado.
 
@@ -912,7 +912,7 @@ UINT tx_byte_pool_performance_info_get(TX_BYTE_POOL *pool_ptr,
         ULONG *fragments_searched, ULONG *merges, ULONG *splits,
         ULONG *suspensions, ULONG *timeouts);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações de desempenho sobre a piscina de byte de memória especificada.
 
@@ -987,7 +987,7 @@ UINT  tx_byte_pool_performance_system_info_get(ULONG *allocates,
         ULONG *releases, ULONG *fragments_searched, ULONG *merges,
         ULONG *splits, ULONG *suspensions, ULONG *timeouts);;
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações de desempenho sobre todas as piscinas de byte de memória no sistema.
 
@@ -1056,7 +1056,7 @@ Lista de suspensão de piscina de byte priorize
 ```c
 UINT tx_byte_pool_prioritize(TX_BYTE_POOL *pool_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço coloca o fio de prioridade mais elevado suspenso para memória nesta piscina na parte da frente da lista de suspensão. Todos os outros fios permanecem na mesma ordem FIFO em que foram suspensos.
 
@@ -1111,7 +1111,7 @@ Liberte bytes de volta à piscina de memória
 ```C
 UINT tx_byte_release(VOID *memory_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta uma área de memória previamente atribuída à sua piscina associada. Se houver um ou mais fios suspensos à espera da memória desta piscina, cada fio suspenso é dado memória e retomado até que a memória esteja esgotada ou até que não haja mais fios suspensos. Este processo de atribuição de memória a fios suspensos começa sempre com o primeiro fio suspenso.
 
@@ -1134,7 +1134,7 @@ Inicialização e fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -1169,7 +1169,7 @@ Criar grupo de bandeiras de eventos
 UINT tx_event_flags_create(TX_EVENT_FLAGS_GROUP *group_ptr,
                           CHAR *name_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um grupo de 32 bandeiras de eventos. Todas as 32 bandeiras do grupo estão inicializadas a zero. Cada bandeira do evento é representada por um único pedaço.
 
@@ -1224,7 +1224,7 @@ Apagar grupo de bandeiras de eventos
 ```c
 UINT tx_event_flags_delete(TX_EVENT_FLAGS_GROUP *group_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o grupo de bandeiras de eventos especificado. Todos os fios suspensos à espera de eventos deste grupo são retomados e dado um TX_DELETED estatuto de devolução.
 
@@ -1247,7 +1247,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -1284,7 +1284,7 @@ UINT tx_event_flags_get(TX_EVENT_FLAGS_GROUP *group_ptr,
                           ULONG requested_flags, UINT get_option,
                           ULONG *actual_flags_ptr, ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera bandeiras de eventos do grupo de bandeiras de eventos especificado. Cada grupo de bandeiras de evento contém 32 bandeiras de eventos. Cada bandeira é representada por um único pedaço. Este serviço pode recuperar uma variedade de combinações de bandeira de evento, como selecionado pelos parâmetros de entrada.
 
@@ -1329,7 +1329,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -1371,7 +1371,7 @@ UINT tx_event_flags_info_get(TX_EVENT_FLAGS_GROUP *group_ptr,
                          ULONG *suspended_count,
                          TX_EVENT_FLAGS_GROUP **next_group);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre o grupo de bandeiras de eventos especificado.
 
@@ -1442,7 +1442,7 @@ UINT tx_event_flags_performance_info_get(TX_EVENT_FLAGS_GROUP
                         *group_ptr, ULONG *sets, ULONG *gets,
                         ULONG *suspensions, ULONG *timeouts);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações de desempenho sobre o grupo de bandeiras de eventos especificado.
 
@@ -1508,7 +1508,7 @@ Recuperar informações do sistema de desempenho
 UINT  tx_event_flags_performance_system_info_get(ULONG *sets,
         ULONG *gets,ULONG *suspensions, ULONG *timeouts);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações de desempenho sobre todos os grupos de bandeiras de eventos no sistema.
 
@@ -1570,7 +1570,7 @@ Definir bandeiras de evento em um grupo de bandeiras de evento
 UINT tx_event_flags_set(TX_EVENT_FLAGS_GROUP *group_ptr,
                           ULONG  flags_to_set,UINT set_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define ou limpa bandeiras de eventos num grupo de bandeiras de eventos, dependendo da opção definida especificada. Todos os fios suspensos cujo pedido de bandeiras de evento é agora preenchido são retomados.
 
@@ -1594,7 +1594,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -1630,7 +1630,7 @@ Notifique a aplicação quando as bandeiras do evento forem definidas
 UINT tx_event_flags_set_notify(TX_EVENT_FLAGS_GROUP *group_ptr,
        VOID (*events_set_notify)(TX_EVENT_FLAGS_GROUP *));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma função de chamada de chamada de notificação que é chamada sempre que uma ou mais bandeiras de eventos são definidas no grupo de bandeiras de eventos especificado. O processamento da chamada de notificação é definido pela aplicação.
 
@@ -1686,7 +1686,7 @@ Ativar e desativar interrupções
 ```C
 UINT tx_interrupt_control(UINT new_posture);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite ou desativa as interrupções conforme especificado pelo parâmetro de entrada **new_posture**.
 
@@ -1728,7 +1728,7 @@ tx_interrupt_control(my_old_posture);
 ```
 ### <a name="see-also"></a>Consulte também
 
-Nenhum
+Nenhuma
 
 ## <a name="tx_mutex_create"></a>tx_mutex_create
 
@@ -1740,7 +1740,7 @@ Criar mutex de exclusão mútua
 UINT tx_mutex_create(TX_MUTEX *mutex_ptr,
                           CHAR *name_ptr, UINT priority_inherit);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
     
 Este serviço cria um mutex para exclusão mútua inter-roscada para proteção de recursos.
 
@@ -1798,7 +1798,7 @@ Eliminar o mutex de exclusão mútua
 ```C
 UINT tx_mutex_delete(TX_MUTEX *mutex_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o mutex especificado. Todos os fios suspensos à espera do mutex são retomados e dado um TX_DELETED estatuto de devolução.
 
@@ -1821,7 +1821,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -1855,7 +1855,7 @@ Obter a propriedade do mutex
 ```C
 UINT tx_mutex_get(TX_MUTEX *mutex_ptr, ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta obter a propriedade exclusiva do mutex especificado. Se o fio de chamamento já possuir o mutex, um contador interno é incrementado e um estado de sucesso é devolvido.
 
@@ -1894,7 +1894,7 @@ Inicialização e fios e temporizadores
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -1929,7 +1929,7 @@ UINT tx_mutex_info_get(TX_MUTEX *mutex_ptr, CHAR **name,
                           TX_THREAD **first_suspended,
                           ULONG *suspended_count, TX_MUTEX **next_mutex);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações do mutex especificado.
 
@@ -2002,7 +2002,7 @@ UINT tx_mutex_performance_info_get(TX_MUTEX *mutex_ptr, ULONG *puts,
        ULONG *gets, ULONG *suspensions, ULONG *timeouts,
        ULONG *inversions, ULONG *inheritances);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera informações de desempenho sobre o mutex especificado.
 
@@ -2073,7 +2073,7 @@ UINT  tx_mutex_performance_system_info_get(ULONG *puts, ULONG *gets,
         ULONG *suspensions, ULONG *timeouts,
         ULONG *inversions, ULONG *inheritances);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações de desempenho sobre todos os mutaxos do sistema.
 
@@ -2139,7 +2139,7 @@ Priorizar lista de suspensão de mutex
 ```C
 UINT tx_mutex_prioritize(TX_MUTEX *mutex_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço coloca o fio de prioridade mais elevado suspenso para a propriedade do mutex na parte da frente da lista de suspensão. Todos os outros fios permanecem na mesma ordem FIFO em que foram suspensos.
 
@@ -2195,7 +2195,7 @@ Libertar a propriedade do mutex
 ```C
 UINT tx_mutex_put(TX_MUTEX *mutex_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desvaloriza a contagem de propriedade do mutex especificado. Se a contagem de propriedade for zero, o mutex é disponibilizado.
 
@@ -2219,7 +2219,7 @@ Inicialização e fios e temporizadores
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -2253,7 +2253,7 @@ UINT tx_queue_create(TX_QUEUE *queue_ptr, CHAR *name_ptr,
                           UINT message_size,
                           VOID *queue_start, ULONG queue_size);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma fila de mensagens que é normalmente usada para comunicação interligada. O número total de mensagens é calculado a partir do tamanho da mensagem especificada e do número total de bytes na fila.
 
@@ -2322,7 +2322,7 @@ Apagar fila de mensagens
 ```C
 UINT tx_queue_delete(TX_QUEUE *queue_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina a fila de mensagens especificada. Todos os fios suspensos à espera de uma mensagem desta fila são retomados e dado um estado de devolução TX_DELETED.
 
@@ -2347,7 +2347,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -2385,7 +2385,7 @@ Mensagens vazias na fila da mensagem
 ```C
 UINT tx_queue_flush(TX_QUEUE *queue_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina todas as mensagens armazenadas na fila de mensagens especificada. Se a fila estiver cheia, as mensagens de todos os fios suspensos são descartadas. Cada fio suspenso é então retomado com um estado de retorno que indica que o envio da mensagem foi bem sucedido. Se a fila estiver vazia, este serviço não faz nada.
 
@@ -2404,7 +2404,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -2443,7 +2443,7 @@ Enviar mensagem para a frente da fila
 UINT tx_queue_front_send(TX_QUEUE *queue_ptr,
                            VOID *source_ptr, ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma mensagem para a localização frontal da fila de mensagens especificada. A mensagem é **copiada** para a frente da fila a partir da área de memória especificada pelo ponteiro de origem.
 
@@ -2478,7 +2478,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -2522,7 +2522,7 @@ UINT tx_queue_info_get(TX_QUEUE *queue_ptr, CHAR **name,
         TX_THREAD **first_suspended, ULONG *suspended_count,
         TX_QUEUE **next_queue);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre a fila de mensagens especificadas.
 
@@ -2599,7 +2599,7 @@ UINT  tx_queue_performance_info_get(TX_QUEUE *queue_ptr,
         ULONG *empty_suspensions, ULONG *full_suspensions,
         ULONG *full_errors, ULONG *timeouts);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera informações de desempenho sobre a fila especificada.
 
@@ -2674,7 +2674,7 @@ UINT  tx_queue_performance_system_info_get(ULONG *messages_sent,
         ULONG *full_suspensions, ULONG *full_errors,
         ULONG *timeouts);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações de desempenho sobre todas as filas do sistema.
 
@@ -2744,7 +2744,7 @@ Priorizar lista de suspensão de filas
 UINT tx_queue_prioritize(TX_QUEUE *queue_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço coloca o fio de prioridade mais elevado suspenso para uma mensagem (ou para colocar uma mensagem) nesta fila na parte da frente da lista de suspensão. Todos os outros fios permanecem na mesma ordem FIFO em que foram suspensos.
 
@@ -2803,7 +2803,7 @@ Receba mensagem da fila da mensagem
 UINT tx_queue_receive(TX_QUEUE *queue_ptr,
                           VOID *destination_ptr, ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera uma mensagem da fila de mensagens especificada. A mensagem recuperada é **copiada** da fila para a área de memória especificada pelo ponteiro de destino. Essa mensagem é então removida da fila.
 
@@ -2841,7 +2841,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -2883,7 +2883,7 @@ Enviar mensagem para a fila de mensagens
 UINT tx_queue_send(TX_QUEUE *queue_ptr,
                           VOID *source_ptr, ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma mensagem para a fila de mensagens especificada. A mensagem enviada é **copiada** para a fila a partir da área de memória especificada pelo ponteiro de origem.
 
@@ -2918,7 +2918,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -2958,7 +2958,7 @@ Notifique o pedido quando a mensagem é enviada para a fila
 UINT  tx_queue_send_notify(TX_QUEUE *queue_ptr,
         VOID (*queue_send_notify)(TX_QUEUE *));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma função de chamada de notificação que é chamada sempre que uma mensagem é enviada para a fila especificada. O processamento da chamada de notificação é definido pela aplicação.
 
@@ -3019,7 +3019,7 @@ Coloque um caso na contagem de semáforos com teto
 UINT  tx_semaphore_ceiling_put(TX_SEMAPHORE *semaphore_ptr,
         ULONG ceiling);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço coloca uma instância no semáforo de contagem especificado, que na realidade incrementa o semáforo de contagem por um. Se o valor atual do semáforo de contagem for superior ou igual ao teto especificado, o caso não será colocado e será devolvido um erro de TX_CEILING_EXCEEDED.
 
@@ -3072,7 +3072,7 @@ Criar semáforo de contagem
 UINT tx_semaphore_create(TX_SEMAPHORE *semaphore_ptr,
                            CHAR *name_ptr, ULONG initial_count);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um semáforo de contagem para sincronização inter-thread. A contagem inicial de semáforos é especificada como um parâmetro de entrada.
 
@@ -3133,7 +3133,7 @@ Eliminar semáforo de contagem
 ```C
 UINT tx_semaphore_delete(TX_SEMAPHORE *semaphore_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o semáforo de contagem especificado. Todos os fios suspensos à espera de uma instância de semáforo são retomados e dado um estado de retorno TX_DELETED.
 
@@ -3156,7 +3156,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -3193,7 +3193,7 @@ Obtenha o exemplo da contagem de semáforos
 UINT tx_semaphore_get(TX_SEMAPHORE *semaphore_ptr,
                           ULONG wait_option)
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera uma instância (uma contagem única) do semáforo de contagem especificado. Como resultado, a contagem de semáforos especificados é diminuída por um.
 
@@ -3226,7 +3226,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -3268,7 +3268,7 @@ UINT tx_semaphore_info_get(TX_SEMAPHORE *semaphore_ptr,
                           ULONG *suspended_count,
                           TX_SEMAPHORE **next_semaphore)
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre o semáforo especificado.
 
@@ -3341,7 +3341,7 @@ UINT  tx_semaphore_performance_info_get(TX_SEMAPHORE *semaphore_ptr,
         ULONG *puts, ULONG *gets,
         ULONG *suspensions, ULONG *timeouts);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera informações de desempenho sobre o semáforo especificado.
 
@@ -3408,7 +3408,7 @@ Obtenha informações sobre desempenho do sistema de semáforos
 UINT tx_semaphore_performance_system_info_get(ULONG *puts,
        ULONG *gets, ULONG *suspensions, ULONG *timeouts);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações de desempenho sobre todos os semáforos do sistema.
 
@@ -3471,7 +3471,7 @@ Priorizar lista de suspensão de semáforos
 ```C
 UINT tx_semaphore_prioritize(TX_SEMAPHORE *semaphore_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço coloca o fio de prioridade mais elevado suspenso por uma instância do semáforo na parte da frente da lista de suspensão. Todos os outros fios permanecem na mesma ordem FIFO em que foram suspensos.
 
@@ -3524,7 +3524,7 @@ Coloque um caso na contagem de semáforos
 ```C
 UINT tx_semaphore_put(TX_SEMAPHORE *semaphore_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço coloca uma instância no semáforo de contagem especificado, que na realidade incrementa o semáforo de contagem por um.
 
@@ -3546,7 +3546,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -3583,7 +3583,7 @@ Notificar o pedido quando o semáforo for colocado
 UINT  tx_semaphore_put_notify(TX_SEMAPHORE *semaphore_ptr,
         VOID (*semaphore_put_notify)(TX_SEMAPHORE *));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma função de chamada de notificação que é chamada sempre que o semáforo especificado é colocado. O processamento da chamada de notificação é definido pela aplicação.
 
@@ -3649,7 +3649,7 @@ UINT tx_thread_create(TX_THREAD *thread_ptr,
                           UINT preempt_threshold, ULONG time_slice,
                           UINT auto_start);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um fio de aplicação que inicia a execução na função de entrada de tarefa especificada. A pilha, prioridade, limiar de pré-escamação e corte de tempo estão entre os atributos especificados pelos parâmetros de entrada. Além disso, o estado de execução inicial do fio também é especificado.
 
@@ -3687,7 +3687,7 @@ Inicialização e fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -3758,7 +3758,7 @@ Eliminar o fio da aplicação
 ```C
 UINT tx_thread_delete(TX_THREAD *thread_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o fio de aplicação especificado. Uma vez que o fio especificado deve estar num estado encerrado ou concluído, este serviço não pode ser chamado de um fio que tenta apagar-se.
 
@@ -3828,7 +3828,7 @@ Notificar o pedido após a entrada e saída do fio
 UINT  tx_thread_entry_exit_notify(TX_THREAD *thread_ptr,
         VOID (*entry_exit_notify)(TX_THREAD *, UINT));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma função de chamada de notificação que é chamada sempre que o fio especificado é introduzido ou sai. O processamento da chamada de notificação é definido pela aplicação.
 
@@ -3903,7 +3903,7 @@ Recupera o ponteiro para a atual execução do fio
 ```C
 TX_THREAD* tx_thread_identify(VOID);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve um ponteiro ao fio atualmente executado. Se não houver fio, este serviço devolve um ponteiro nulo.
 
@@ -3975,7 +3975,7 @@ UINT tx_thread_info_get(TX_THREAD *thread_ptr, CHAR **name,
                           TX_THREAD **next_thread,
                           TX_THREAD **suspended_thread);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera informações sobre o fio especificado.
 
@@ -4076,7 +4076,7 @@ UINT  tx_thread_performance_info_get(TX_THREAD *thread_ptr,
         ULONG *relinquishes, ULONG *timeouts, ULONG *wait_aborts,
         TX_THREAD **last_preempted_by);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera informações de desempenho sobre o fio especificado.
 
@@ -4171,7 +4171,7 @@ UINT tx_thread_performance_system_info_get(ULONG *resumptions,
        ULONG *wait_aborts, ULONG *non_idle_returns,
        ULONG *idle_returns);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações de desempenho sobre todos os fios do sistema.
 
@@ -4261,7 +4261,7 @@ Alterar limiar de preempção do fio de aplicação
 UINT tx_thread_preemption_change(TX_THREAD *thread_ptr,
                           UINT new_threshold, UINT *old_threshold);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço altera o limiar de pré-substituição do fio especificado. O limiar de prevenção previne a preempção do fio especificado por roscas iguais ou inferiores ao valor do limiar de prevenção.
 
@@ -4288,7 +4288,7 @@ Fios e temporizadores
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -4338,7 +4338,7 @@ Alterar prioridade do fio de aplicação
 UINT tx_thread_priority_change(TX_THREAD *thread_ptr,
                           UINT new_priority, UINT *old_priority);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço altera a prioridade do fio especificado. As prioridades válidas variam entre 0 e TX_MAX_PRIORITES-1, onde 0 representa o nível de maior prioridade.
 
@@ -4365,7 +4365,7 @@ Fios e temporizadores
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -4411,7 +4411,7 @@ Renunciar ao controlo a outros fios de aplicação
 ```C
 VOID tx_thread_relinquish(VOID);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço renuncia ao controlo do processador a outras linhas prontas a executar na mesma prioridade ou maior.
 
@@ -4424,7 +4424,7 @@ Nenhum
 
 ### <a name="return-values"></a>Valores de devolução
 
-Nenhum
+Nenhuma
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -4432,7 +4432,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -4502,7 +4502,7 @@ Linha de reset
 ```C
 UINT tx_thread_reset(TX_THREAD *thread_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reinicia o fio especificado para executar no ponto de entrada definido na criação do fio. O fio deve estar em um **estado TX_COMPLETED** ou **TX_TERMINATED** para que seja reposto
 
@@ -4563,7 +4563,7 @@ Retomar linha de aplicação suspensa
 ```C
 UINT tx_thread_resume(TX_THREAD *thread_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço retoma ou prepara para a execução um fio que foi previamente suspenso por uma ***chamada tx_thread_suspend.*** Além disso, este serviço retoma os fios que foram criados sem um arranque automático.
 
@@ -4584,7 +4584,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -4627,7 +4627,7 @@ Suspender o fio de corrente por tempo especificado
 ```C
 UINT tx_thread_sleep(ULONG timer_ticks);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço faz com que o fio de chamada suspenda o número especificado de carraças temporais. A quantidade de tempo físico associado a um tique-taque do temporizador é específica da aplicação. Este serviço só pode ser chamado a partir de um fio de aplicação.
 
@@ -4647,7 +4647,7 @@ Fios
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -4692,7 +4692,7 @@ Exclua a execução de fios num conjunto de núcleos
 UINT  tx_thread_smp_core_exclude(TX_THREAD *thread_ptr,
                           ULONG exclusion_map);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função exclui a linha especificada de execução no núcleo(s) especificado no mapa de bits chamado "*exclusion_map*." Cada bit em "*exclusion_map*" representa um núcleo (bit 0 representa núcleo 0, etc.). Se a broca estiver definida, o núcleo correspondente é excluído da execução do fio especificado.
 
@@ -4735,7 +4735,7 @@ Obtém a exclusão atual do núcleo do fio
 UINT tx_thread_smp_core_exclude_get(TX_THREAD *thread_ptr,
                          ULONG *exclusion_map_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função devolve a lista de exclusão do núcleo atual.
 
@@ -4776,7 +4776,7 @@ Recupere atualmente o núcleo de execução do chamador
 ```C
 UINT  tx_thread_smp_core_get(void);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função devolve o ID central do núcleo que executa este serviço.
 
@@ -4815,7 +4815,7 @@ Registar chamada de notificação de erro de pilha de fio
 ```C
 UINT tx_thread_stack_error_notify(VOID (*error_handler)(TX_THREAD *));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma função de chamada de notificação para lidar com erros de pilha de fios. Quando a ThreadX SMP detetar um erro de pilha de fio durante a execução, chamará esta função de notificação para processar o erro. O processamento do erro é completamente definido pela aplicação. Qualquer coisa desde suspender o fio de violação até reiniciar todo o sistema pode ser feito.
 
@@ -4875,7 +4875,7 @@ Suspender o fio de aplicação
 ```C
 UINT tx_thread_suspend(TX_THREAD *thread_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço suspende o fio de aplicação especificado. Um fio pode chamar este serviço para se suspender.
 
@@ -4901,7 +4901,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -4944,7 +4944,7 @@ Termina linha de aplicação
 ```C
 UINT tx_thread_terminate(TX_THREAD *thread_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço termina o fio de aplicação especificado, independentemente de o fio estar suspenso ou não. Um fio pode chamar este serviço para terminar sozinho.
 
@@ -4970,7 +4970,7 @@ Fios e temporizadores
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -5014,7 +5014,7 @@ Altera a fatia de tempo do fio de aplicação
 UINT tx_thread_time_slice_change(TX_THREAD *thread_ptr,
                           ULONG new_time_slice, ULONG *old_time_slice);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço altera a fatia de tempo do fio de aplicação especificado. Selecionar uma fatia de tempo para um fio assegura que não executará mais do que o número especificado de carraças de temporizador antes que outros fios das mesmas prioridades ou mais altas tenham a oportunidade de executar.
 
@@ -5091,7 +5091,7 @@ Abortar suspensão do fio especificado
 UINT tx_thread_wait_abort(TX_THREAD *thread_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço aborta o sono ou qualquer outro objeto suspenso do fio especificado. Se a espera for abortada, um valor TX_WAIT_ABORTED é devolvido do serviço que o fio estava à espera.
 
@@ -5114,7 +5114,7 @@ Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
-Sim
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -5158,7 +5158,7 @@ Recupera o tempo atual
 ```C
 ULONG tx_time_get(VOID);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o conteúdo do relógio interno do sistema. Cada timertick aumenta o relógio do sistema interno por um. O relógio do sistema está definido para zero durante a inicialização e pode ser alterado para um valor específico pelo ***serviço tx_time_set***.
 
@@ -5205,7 +5205,7 @@ Define a hora atual
 ```C
 VOID tx_time_set(ULONG new_time);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o relógio do sistema interno ao valor especificado. Cada temporizador aumenta o relógio do sistema interno por um.
 
@@ -5218,7 +5218,7 @@ Este serviço define o relógio do sistema interno ao valor especificado. Cada t
 
 ### <a name="return-values"></a>Valores de devolução
 
-Nenhum
+Nenhuma
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -5250,7 +5250,7 @@ Ativar o temporizador de aplicações
 ```C
 UINT tx_timer_activate(TX_TIMER *timer_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço ativa o temporizador de aplicação especificado. As rotinas de expiração dos temporizadores que expiram ao mesmo tempo são executadas na ordem em que foram ativados.
 
@@ -5308,7 +5308,7 @@ Alterar temporizador de aplicação
 UINT tx_timer_change(TX_TIMER *timer_ptr,
                           ULONG initial_ticks, ULONG reschedule_ticks);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço altera as características de expiração do temporizador de aplicação especificado. O temporizador deve ser desativado antes de ligar para este serviço.
 
@@ -5378,7 +5378,7 @@ UINT tx_timer_create(TX_TIMER *timer_ptr, CHAR *name_ptr,
                           ULONG expiration_input, ULONG initial_ticks,
                           ULONG reschedule_ticks, UINT auto_activate)
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um temporizador de aplicação com a função de expiração especificada e periódico.
 
@@ -5451,7 +5451,7 @@ Temporizador de aplicação desativado
 UINT tx_timer_deactivate(TX_TIMER *timer_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa o temporizador de aplicação especificado. Se o temporizador já estiver desativado, este serviço não tem efeito.
 
@@ -5504,7 +5504,7 @@ Eliminar temporizador de aplicações
 ```C
 UINT tx_timer_delete(TX_TIMER *timer_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o temporizador de aplicação especificado.
 
@@ -5564,7 +5564,7 @@ UINT tx_timer_info_get(TX_TIMER *timer_ptr, CHAR **name,
                           ULONG *reschedule_ticks,
                           TX_TIMER **next_timer)
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre o temporizador de aplicação especificado.
 
@@ -5637,7 +5637,7 @@ UINT  tx_timer_performance_info_get(TX_TIMER *timer_ptr,
         ULONG *deactivates, ULONG *expirations,
         ULONG *expiration_adjusts);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera informações de desempenho sobre o temporizador de aplicação especificado.
 
@@ -5706,7 +5706,7 @@ UINT  tx_timer_performance_system_info_get(ULONG *activates,
         ULONG *reactivates, ULONG *deactivates,
         ULONG *expirations, ULONG *expiration_adjusts);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém informações de desempenho sobre todos os temporizadores de aplicação no sistema.
 
@@ -5769,7 +5769,7 @@ Excluir a execução do temporizador num conjunto de núcleos
 ```C
 UINT  tx_timer_smp_core_exclude(TX_TIMER *timer_ptr, ULONG exclusion_map);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função exclui o temporizador especificado de executar no núcleo(s) especificado no mapa de bits chamado "*exclusion_map*." Cada bit em "*exclusion_map*" representa um núcleo (bit 0 representa núcleo 0, etc.). Se a broca estiver definida, o núcleo correspondente é excluído da execução do temporizador especificado.
 
@@ -5811,7 +5811,7 @@ Obtém a exclusão atual do núcleo do temporizador
 UINT tx_timer_smp_core_exclude_get(TX_TIMER *timer_ptr,
                          ULONG *exclusion_map_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função devolve a lista de exclusão do núcleo atual.
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: f143a443221ae08848316a458a630a0790108198
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 9c678772b6e6160dba9929af41e76c2580c06fb163bfccfdb6fcc46fa42ade82
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826119"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790348"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-dhcp-client-services"></a>Capítulo 3 - Descrição dos serviços de clientes Azure RTOS NetX Duo DHCP
 
@@ -78,7 +78,7 @@ Criar uma instância DHCP
 UINT nx_dhcp_create(NX_DHCP *dhcp_ptr, NX_IP *ip_ptr, CHAR *name_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância DHCP para a instância IP previamente criada. Por predefinição, a interface primária está ativada para executar o DHCP. A entrada de nomes, embora não utilizada na implementação do NetX Duo do Cliente DHCP, deve seguir os critérios RFC 1035 para os nomes dos anfitriões. O comprimento total não deve exceder 255 caracteres, as etiquetas separadas por pontos devem começar com uma letra, e terminar com uma letra ou número, e podem conter hífens, mas nenhum outro carácter não alfanumérico.
 
@@ -123,7 +123,7 @@ Permitir que a interface especificada execute o DHCP
 UINT nx_dhcp_interface_enable(NX_DHCP *dhcp_ptr, UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite a interface especificada para a execução do DHCP. Por predefinição, a interface primária está ativada para o Cliente DHCP. Neste momento, o DHCP pode ser iniciado nesta interface, quer chamando *nx_dhcp_interface_start,* quer para iniciar o DHCP em todas as interfaces ativadas *nx_dhcp_start*.
 
@@ -181,7 +181,7 @@ UINT nx_dhcp_interface_disable(NX_DHCP *dhcp_ptr,
                                UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa a interface especificada para a execução do DHCP. Reinicia o Cliente DHCP nesta interface.
 
@@ -222,7 +222,7 @@ Definir a bandeira de transmissão DHCP
 UINT nx_dhcp_clear_broadcast_flag(NX_DHCP *dhcp_ptr, UINT clear_flag);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define ou limpa a bandeira de transmissão o cabeçalho de mensagem DHCP para todas as interfaces ativadas para DHCP. Para algumas mensagens DHCP (por exemplo, DISCOVER) a bandeira de transmissão está definida para ser transmitida porque o Cliente não tem um endereço IP.
 
@@ -269,7 +269,7 @@ UINT nx_dhcp_interface_clear_broadcast_flag(NX_DHCP *dhcp_ptr,
                                             UINT clear_flag);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite que a aplicação do anfitrião do cliente DHCP desempecifique ou limpe a bandeira de transmissão nas mensagens do Cliente DHCP para o Servidor DHCP na interface especificada. Para mais detalhes, **consulte nx_dhcp_clear_broadcast_flag.**
 
@@ -313,7 +313,7 @@ Eliminar uma instância DHCP
 UINT nx_dhcp_delete(NX_DHCP *dhcp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância DHCP previamente criada.
 
@@ -350,7 +350,7 @@ Enviar uma mensagem de renovação de força
 UINT nx_dhcp force_renew(NX_DHCP *dhcp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite que a aplicação do anfitrião envie uma mensagem de renovação de força em todas as interfaces ativadas para DHCP. O Cliente DHCP deve estar num estado vinculado. Esta função define o estado para RENOVAR de modo a que o Cliente DHCP tente renovar antes que o tempo limite T1 expire.
 
@@ -392,7 +392,7 @@ UINT nx_dhcp_interface_force_renew(NX_DHCP *dhcp_ptr,
                                    UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite que a aplicação anfitriã envie uma mensagem de renovação de força na interface de entrada, desde que essa interface tenha sido ativada para DHCP (ver *nx_dhcp_interface_enable).* O Cliente DHCP na interface especificada deve estar num estado VINculado. Esta função define o estado para RENOVAR de modo a que o Cliente DHCP tente renovar antes que o tempo limite T1 expire.
 
@@ -432,7 +432,7 @@ Desa estaladiço do cliente DHCP
 UINT nx_dhcp_packet_pool_set(NX_DHCP *dhcp_ptr, NX_PACKET_POOL *packet_pool_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite que a aplicação crie o pool de pacotes do Cliente DHCP, passando um ponteiro para um pacote de pacotes previamente criado nesta chamada de serviço. Para utilizar esta funcionalidade, a aplicação do anfitrião deve definir NX_DHCP_CLIENT_USER_CREATE_PACKET_POOL. Quando definido, o serviço *nx_dhcp_create* não criará a piscina de pacotes do Cliente. 
 
@@ -484,7 +484,7 @@ UINT nx_dhcp_request_client_ip(NX_DHCP *dhcp_ptr,
                                UINT skip_discover_message);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o endereço IP para o Cliente DHCP solicitar a partir do Servidor DHCP na primeira interface ativada para DHCP no registo do Cliente DHCP. Se a bandeira *skip_discover_message* estiver definida, o Cliente DHCP ignora a mensagem Discover e envia uma mensagem De pedido.
 
@@ -530,7 +530,7 @@ UINT nx_dhcp_interface_request_client_ip(NX_DHCP *dhcp_ptr, UINT  interface_inde
                                          ULONG client_ip_address, UINT skip_discover_message);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o endereço IP para o Cliente DHCP solicitar a partir do Servidor DHCP na interface especificada, se essa interface estiver ativada para DHCP (ver *nx_dhcp_interface_enable*). Se a bandeira *skip_discover_message* estiver definida, o Cliente DHCP ignora a mensagem Discover e envia uma mensagem De pedido.
 
@@ -572,7 +572,7 @@ Limpe os parâmetros da rede de clientes DHCP
 UINT nx_dhcp_reinitialize(NX_DHCP *dhcp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço limpa os parâmetros da rede de aplicações do anfitrião (endereço IP, endereço de rede e máscara de rede) e limpa o estado do Cliente DHCP em todas as interfaces ativadas para DHCP. É utilizado em combinação com *nx_dhcp_stop* e *nx_dhcp_start* para "reiniciar" a máquina estatal DHCP:
 
@@ -617,7 +617,7 @@ UINT nx_dhcp_interface_reinitialize(NX_DHCP *dhcp_ptr,
                                      UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço limpa os parâmetros de rede (endereço IP, endereço de rede e máscara de rede) na interface especificada se essa interface estiver ativada para DHCP (ver *nx_dhcp_interface_enable*). Consulte *nx_dhcp_reinitialize* para mais detalhes.
 
@@ -657,7 +657,7 @@ Liberação de endereço IP alugado
 UINT nx_dhcp_release(NX_DHCP *dhcp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta o endereço IP obtido a partir de um servidor DHCP enviando a mensagem RELEASE para esse servidor. Em seguida, reinicia o cliente DHCP. Este serviço é aplicado a todas as interfaces ativadas para DHCP.
 
@@ -699,7 +699,7 @@ Liberar endereço IP na interface especificada
 UINT nx_dhcp_interface_release(NX_DHCP *dhcp_ptr, UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta o endereço IP obtido a partir de um servidor DHCP na interface especificada e reinicia o Cliente DHCP. O Cliente DHCP pode ser reiniciado chamando *nx_dhcp_start*.
 
@@ -739,7 +739,7 @@ Recuse o endereço IP do Servidor DHCP
 UINT nx_dhcp_decline(NX_DHCP *dhcp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço declina um endereço IP alugado a partir do servidor DHCP em todas as interfaces ativadas para DHCP. Se NX_DHCP_CLIENT_ SEND_ ARP_PROBE estiver definido, o Cliente DHCP enviará uma mensagem DECLINE se detetar que o endereço IP já está a ser utilizado. Consulte **as sondas ARP** no Capítulo Um para obter mais informações sobre a configuração da sonda ARP no Cliente DHCP da NetX Duo.
 
@@ -783,7 +783,7 @@ UINT nx_dhcp_interface_decline(NX_DHCP *dhcp_ptr,
                                UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia a mensagem DECLINar para o servidor para recusar um endereço IP atribuído pelo servidor DHCP. Também reinicia o Cliente DHCP. Consulte *nx_dhcp_decline* para mais detalhes.
 
@@ -824,7 +824,7 @@ UINT nx_dhcp_send_request(NX_DHCP *dhcp_ptr, UINT dhcp_message_type);
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia a mensagem DHCP especificada para o servidor DHCP na primeira interface ativada para DHCP encontrada no registo do Cliente DHCP. Para enviar uma mensagem RELEASE ou DECLINar, a aplicação deve utilizar os serviços *nx_dhcp[_interface]_release*() ou *nx_dhcp_interface_decline()* respectivamente.
 
@@ -870,7 +870,7 @@ UINT nx_dhcp_interface_send_request(NX_DHCP *dhcp_ptr,
                                     UINT dhcp_message_type);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma mensagem para o servidor DHCP na interface especificada se essa interface estiver ativada para DHCP. Para enviar uma mensagem RELEASE ou DECLINar, a aplicação deve utilizar os serviços *nx_dhcp[_interface]_release*() ou *nx_dhcp_interface_decline()* respectivamente.
 
@@ -918,7 +918,7 @@ UINT nx_dhcp_server_address_get(NX_DHCP *dhcp_ptr,
                                 ULONG server_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço IP do servidor DHCP do cliente DHCP dhCP na primeira interface ativada para DHCP encontrado no registo do Cliente DHCP. O chamador só pode utilizar este serviço depois de o Cliente DHCP estar ligado a um endereço IP atribuído pelo Servidor DHCP. A aplicação de anfitrião pode usar o serviço *nx_ip_status_check* para verificar se o endereço IP está definido, ou pode usar o *nx _dhcp_state_change_notify* e consultar o estado do Cliente DHCP é NX_DHCP_STATE_BOUND. Consulte *nx_dhcp_state_change_notify* para obter mais detalhes sobre a definição da função de retorno de mudança de estado.
 
@@ -973,7 +973,7 @@ UINT nx_dhcp_interface_server_address_get(NX_DHCP *dhcp_ptr,
                                           ULONG server_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço IP do servidor DHCP do cliente DHCP dhCP na interface especificada se essa interface estiver ativada para DHCP. O Cliente DHCP deve estar no estado de Bound. Depois de iniciar o Cliente DHCP nessa interface, a aplicação anfitriã pode utilizar o serviço *nx_ip_status_check* para verificar se o endereço IP está definido, ou pode usar a chamada de alteração do estado do cliente DHCP e consultar o estado do Cliente DHCP é NX_DHCP_STATE_BOUND. Consulte *nx_dhcp_state_change_notify* para obter mais detalhes sobre a definição da função de retorno de mudança de estado.
 
@@ -1030,7 +1030,7 @@ Definir interface de rede para a instância DHCP
 UINT nx_dhcp_set_interface_index(NX_DHCP *dhcp_ptr, UINT index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a interface de rede para a instância DHCP ligar ao Servidor DHCP quando executa o Cliente DHCP configurado para uma única interface de rede.
 
@@ -1074,7 +1074,7 @@ Iniciar o processamento do DHCP
 UINT nx_dhcp_start(NX_DHCP *dhcp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia o processamento de DHCP em todas as interfaces ativadas para DHCP. Por predefinição, a interface primária é ativada para DHCP quando a aplicação *nx_dhcp_create.*
 
@@ -1118,7 +1118,7 @@ Iniciar o processamento do DHCP na interface especificada
 UINT nx_dhcp_interface_start(NX_DHCP *dhcp_ptr, UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia o processamento de DHCP na interface especificada se essa interface estiver ativada para DHCP. Consulte *nx_dhcp_interface_enable*() para obter mais detalhes sobre como ativar uma interface para DHCP. Por predefinição, a interface primária é ativada para DHCP quando a aplicação *nx_dhcp_create.*
 
@@ -1163,7 +1163,7 @@ UINT nx_dhcp_state_change_notify(NX_DHCP *dhcp_ptr,
                                  VOID (*dhcp_state_change_notify)(NX_DHCP *dhcp_ptr, UCHAR new_state));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista a função de retorno especificado dhcp_state_change_notify para notificar uma aplicação de alterações do estado dhcp. A função de retorno fornece o estado em que o Cliente DHCP se transferiu.
 
@@ -1217,7 +1217,7 @@ UINT nx_dhcp_interface_state_change_notify(NX_DHCP *dhcp_ptr, UINT interface_ind
                                                                             UCHAR new_state));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista a função de retorno especificado para notificar uma aplicação de alterações do estado dhcp. Os argumentos de entrada funciton de retorno são o índice de interface e o estado para o quais o Cliente DHCP passou a essa interface.
 
@@ -1264,7 +1264,7 @@ Para o processamento do DHCP
 UINT nx_dhcp_stop(NX_DHCP *dhcp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço impede o processamento de DHCP em todas as interfaces que iniciaram o processamento do DHCP. Se não houver interfaces a processar o DHCP, este serviço suspenderá a linha do Cliente DHCP e inativará o temporizador do Cliente DHCP.
 
@@ -1304,7 +1304,7 @@ Parar o processamento do DHCP na interface especificada
 UINT nx_dhcp_interface_stop(NX_DHCP *dhcp_ptr, UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço impede o processamento de DHCP na interface especificada se o DHCP já estiver iniciado. Se não houver outras interfaces a funcionar dhCP, o fio e o temporizador DHCP estão suspensos.
 
@@ -1345,7 +1345,7 @@ UINT nx_dhcp_user_option_retrieve(NX_DHCP *dhcp_ptr, UINT request_option,
                                   UCHAR *destination_ptr, UINT *destination_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a opção DHCP especificada a partir do tampão de opções DHCP na primeira interface ativada para DHCP encontrada no registo do Cliente DHCP. Se for bem sucedido, os dados de opção são copiados para o tampão especificado.
 
@@ -1397,7 +1397,7 @@ UINT nx_dhcp_interface_user_option_retrieve(NX_DHCP *dhcp_ptr,
                                             UINT *destination_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a opção DHCP especificada a partir do tampão de opções DHCP na interface especificada, se essa interface estiver ativada para DHCP. Se for bem sucedido, os dados de opção são copiados para o tampão especificado.
 
@@ -1447,7 +1447,7 @@ Converter quatro bytes para ULONG
 ULONG nx_dhcp_user_option_convert(UCHAR *option_string_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço converte os quatro caracteres apontados por "option_string_ptr" num valor longo não assinado. É especialmente útil quando os endereços IP são  
 presente.
@@ -1492,7 +1492,7 @@ ULONG nx_dhcp_user_option_add_callbcak_set(NX_DHCP *dhcp_ptr,
                                                                         UINT *user_option_length));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista a função de retorno especificado para adicionar opções fornecidas pelo utilizador.
 

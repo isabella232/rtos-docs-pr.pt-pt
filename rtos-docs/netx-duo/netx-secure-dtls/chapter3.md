@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 347bd83fa8c72ced2e8678a92ec5c5f8393c136d
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 7db319e45c6d1f4a2030734fc01fefc4f3907aebeec1b3f47a5bde57dd5bfcc4
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550206"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797096"
 ---
 # <a name="chapter-3-functional-description-of-azure-rtos-netx-secure-dtls"></a>Capítulo 3: Descrição funcional do Azure RTOS NetX Secure DTLS
 
@@ -115,7 +115,7 @@ Além do bloco de controlo do Servidor DTLS, cifrasuites TLS e tampão de scratc
 
 Além dos amortecedores de sessão, os Servidores DTLS requerem um *Certificado Digital*, que é um documento utilizado para identificar o servidor TLS ao cliente TLS de ligação, e os certificados correspondentes *Private Key*, normalmente para o algoritmo de encriptação RSA. A norma International Telecommunications Union X.509 especifica o formato de certificado utilizado pela TLS/DTLS e existem inúmeros utilitários para a criação de certificados digitais X.509.
 
-Para o NetX Secure DTLS, o certificado X.509 deve ser codificado bináriamente utilizando o formato de Regras de Codificação (DER) distintos de ASN.1. DER é o formato binário padrão TLS over-the-wire para certificados.
+Para o NetX Secure DTLS, o certificado X.509 deve ser codificado bináriamente utilizando o formato Distinguished Encoding Rules (DER) de ASN.1. DER é o formato binário padrão TLS over-the-wire para certificados.
 
 A chave privada associada ao certificado fornecido deve estar em DER-Encoded formato PKCS#1. A chave privada é utilizada apenas no dispositivo e nunca será transmitida através do fio. Mantenha as chaves privadas seguras, pois fornecem a segurança das comunicações TLS/DTLS!
 
@@ -232,7 +232,7 @@ Existem vários mecanismos que podem fornecer esta camada extra de autenticaçã
 
 Os certificados digitais são o método mais comum para autenticar um hospedeiro remoto em TLS. Essencialmente, um certificado digital é um documento com formatação específica que fornece informações de identidade para um dispositivo numa rede de computador.
 
-O TLS normalmente usa um formato chamado X.509, uma norma desenvolvida pela União Internacional de Telecomunicações, embora outros formatos de certificados possam ser usados se os anfitriões TLS puderem concordar com o formato que está a ser utilizado. X.509 define um formato específico para certificados e várias codificações que podem ser usadas para produzir um documento digital. A maioria dos certificados X.509 utilizados com TLS são codificados usando uma variante de ASN.1, outra norma de telecomunicações. Dentro da ASN.1 existem várias codificações digitais, mas a codificação mais comum para certificados TLS é a norma de codificação distinguida (DER). O DER é um subconjunto simplificado das Regras Básicas de Codificação (BER) as ASN.1 que são concebidas para ser inequívocas, facilitando a análise. Por cima do fio, os certificados TLS são geralmente codificados em DER binário, e este é o formato que o NetX Secure espera para os certificados X.509.
+O TLS normalmente usa um formato chamado X.509, uma norma desenvolvida pela União Internacional de Telecomunicações, embora outros formatos de certificados possam ser usados se os anfitriões TLS puderem concordar com o formato que está a ser utilizado. X.509 define um formato específico para certificados e várias codificações que podem ser usadas para produzir um documento digital. A maioria dos certificados X.509 utilizados com TLS são codificados usando uma variante de ASN.1, outra norma de telecomunicações. Dentro da ASN.1 existem várias codificações digitais, mas a codificação mais comum para certificados TLS é a norma Distinguished Encoding Rules (DER). O DER é um subconjunto simplificado das Regras Básicas de Codificação (BER) as ASN.1 que são concebidas para ser inequívocas, facilitando a análise. Por cima do fio, os certificados TLS são geralmente codificados em DER binário, e este é o formato que o NetX Secure espera para os certificados X.509.
 
 Embora os certificados binários formatados pelo DER sejam utilizados no protocolo TLS real, podem ser gerados e armazenados em várias codificações diferentes, com extensões de ficheiros tais como .pem, .crt e .p12. As diferentes variantes são usadas por diferentes aplicações de diferentes fabricantes, mas geralmente todas podem ser convertidas em DER usando ferramentas amplamente disponíveis.
 

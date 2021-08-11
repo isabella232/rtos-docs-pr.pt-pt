@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 32288d78ceffb74ab088a1d720dbac657f6d3ed4
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 24b814e7c2b510093b809b70b02d9a11ed39996d114f2306e0993893799453cc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825495"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791963"
 ---
 # <a name="chapter-2---module-requirements"></a>Capítulo 2 - Requisitos do módulo
 
@@ -139,7 +139,7 @@ Algumas aplicações podem definir opcionalmente um fio de paragem, que é execu
 
 A tabela abaixo mostra um exemplo do mapa de bits de propriedades. Os bitmaps de propriedades específicas do porto estão no [apêndice.](appendix.md)
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |

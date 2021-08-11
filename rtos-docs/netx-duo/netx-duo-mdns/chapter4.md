@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/09/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 89df0ab5f09be8ad50a27d23bae8b20d71caa0b4
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6e37698ac6023b4cff6cb4fc05330a73b678ef3d2a813a706c9b821381e123db
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825916"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797573"
 ---
 # <a name="chapter-4---description-of-mdns-services"></a>Capítulo 4 - Descrição dos serviços mDNS
 
@@ -39,7 +39,7 @@ UINT nx_mdns_create(NX_MDNS *mdns_ptr, NX_IP *ip_ptr,
         UCHAR *name, UINT probing_state));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância mDNS sobre a instância IP específica e recursos associados. Um fio também é criado para lidar com mensagens mDNS recebidas, para responder a consultas e para transmitir periodicamente mensagens de consulta.
 
@@ -52,9 +52,9 @@ Este serviço cria uma instância mDNS sobre a instância IP específica e recur
 - **stack_ptr** Ponteiro para a área da pilha para o fio mDNS
 - **stack_size** Tamanho da área da pilha.
 - **host_name** Nome de anfitrião atribuído a este nó.
-- **local_service_cache** Espaço de armazenamento para serviços registados locais.
+- **local_service_cache** Armazenamento espaço para serviços registados locais.
 - **local_service_cache_size** Tamanho da cache de serviço local.
-- **peer_service_cache** Espaço de armazenamento para informações de serviço recebidas
+- **peer_service_cache** Armazenamento espaço para informação de serviço recebida
 - **peer_service_cache_size** Tamanho da cache de serviço de pares
 - **probing_notify** Função de retorno opcional invocada no final da operação de sondagem. Notifica a aplicação se o nome de anfitrião (ao ativar o mDNS numa interface local), ou o nome de serviço (após registar um serviço) é único.
 
@@ -94,7 +94,7 @@ Eliminar uma instância mDNS
 UINT nx_mdns_delete(NX_MDNS *mdns_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina a instância mDNS e liberta os seus recursos.
 
@@ -130,7 +130,7 @@ Inicie o serviço mDNS
 UINT nx_mdns_enable(NX_MDNS *mdns_ptr, UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API permite o serviço mDNS em interface física específica. Uma vez que o serviço está ativado, o módulo mDNS sonda primeiro todos os seus nomes de serviço únicos na rede antes de responder às consultas recebidas na interface.
 
@@ -167,7 +167,7 @@ Desativar o serviço mDNS
 UINT nx_mdns_disable(NX_MDNS *mdns_ptr, UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API desativa o serviço mDNS na interface física específica. Uma vez desativado o serviço, o mDNS envia mensagens de "adeus" para cada serviço local para a rede que está ligada à interface, para que os nós vizinhos sejam notificados.
 
@@ -206,7 +206,7 @@ UINT nx_mdns_cache_notify_set(NX_MDNS *mdns_ptr,
         UINT state, UINT cache_type));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço instala uma função de retorno fornecida pelo utilizador, que é invocada quando a cache de serviço local ou a cache de serviço de pares ficam cheias. Quando a cache de serviço estiver cheia, não pode ser adicionado mais mDNS Resource Record. Note que a cache de serviço pode ficar cheia em resultado de fragmentação interna, quando os serviços com vários comprimentos de corda são adicionados e removidos. Ao receber uma notificação completa de cache na cache de serviço de pares, a aplicação pode usar o serviço "*nx_mdns_service_cache_clear"* para apagar todas as entradas na cache de serviço de pares.
 
@@ -242,7 +242,7 @@ Limpe a cache de serviço mDNS na função de notificação completa
 UINT nx_mdns_cache_notify_clear(NX_MDNS *mdns_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço limpa uma cache de serviço fornecida pelo utilizador para notificar a função de retorno de chamada.
 
@@ -278,7 +278,7 @@ Define o nome de domínio
 UINT nx_mdns_domain_name_set(NX_MDNS *mdns_ptr, CHAR *domain_name);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura o nome de domínio local padrão. Quando a instância mDNS é criada, o nome de domínio local predefinido é definido como ".local". Esta API permite que uma aplicação substitua o nome de domínio local predefinido.
 
@@ -317,7 +317,7 @@ UINT nx_mdns_service_announcement_timing_set(NX_MDNS *mdns_ptr,
     UINT period_interval, UINT max_time);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reconfigura os parâmetros de tempo utilizados pelo mDNS ao enviar os anúncios de serviço. O período de publicação começa a partir de *t* ticks e pode ser expandido telescopicamente com 2 para o poder do fator *k.* O número de repetições por anúncio é *p,* o intervalo entre cada anúncio repetido é de tiques *de intervalo,* e o número de período de anúncio é max_time. Por predefinição, o período inicial é definido para 1 segundo, com k = 1 (o período duplica cada vez), *p = 1* (sem repetição), retrans_interval = 0 (sem intervalo de tempo), period_interval = 0xFFFFFFFF (intervalo do período máximo) e max_time = 3 (número de publicidade).
 
@@ -363,7 +363,7 @@ UINT nx_mdns_service_add(NX_MDNS *mdns_ptr, CHAR *instance,
     UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API regista um serviço oferecido pela aplicação. Se a *bandeira is_unique* estiver definida, o mDNS sonda o nome de serviço para se certificar de que é único na rede local antes de começar a anunciar o serviço na rede. *Exemplo* é a parte do caso do nome de serviço. O *serviço* é a parte de serviço do nome de serviço. Por exemplo, "_http._tcp" é um serviço. Para descrever um serviço com subtipo, o chamador deve utilizar o parâmetro do *subtipo.* Por exemplo, se o serviço pretendido for "_printer._sub._http._tcp", o campo de serviço é "_http._tcp:, e o campo de subtipo é "_printer".
 
@@ -412,7 +412,7 @@ UINT nx_mdns_service_delete(NX_MDNS *mdns_ptr,
     CHAR *subtype);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API elimina um serviço registado anterior. À medida que o serviço é apagado, as mensagens de "adeus" são enviadas para a rede local para que os nós vizinhos sejam notificados.
 
@@ -455,7 +455,7 @@ UINT nx_mdns_service_one_shot_query(NX_MDNS *mdns_ptr,
     NX_MDNS_SERVICE *service_ptr, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa uma consulta mDNS de uma só vez. Se o serviço especificado for encontrado na cache de serviço por pares, a primeira instância é devolvida. Se não forem encontrados serviços na cache de serviço de pares local, o módulo mDNS emite um comando de consulta e aguarda a resposta. O serviço está bloqueado até que a primeira resposta seja recebida ou os tempos de consulta esgotados.
 
@@ -501,7 +501,7 @@ UINT nx_mdns_service_continous_query(NX_MDNS *mdns_ptr,
     CHAR *instance, CHAR *service, CHAR *subtype);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma consulta contínua. Note que o serviço regressa imediatamente. Após a emissão de uma consulta contínua, a aplicação pode recuperar o registo de serviço utilizando o *nx_mdns_service_lookup* da API . Para parar a consulta contínua, a aplicação pode utilizar a API *nx_mdns_service_query_stop*
 
@@ -545,7 +545,7 @@ UINT nx_mdns_service_query_stop(NX_MDNS *mdns_ptr,
     CHAR *instance, CHAR *service, CHAR *subtype);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API encerra uma descoberta de serviço contínuo emitida anteriormente.
 
@@ -589,7 +589,7 @@ UINT nx_mdns_service_lookup(NXD_MDNS *mdns_ptr,
     NXD_MDNS_SERVICE *service_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço procura serviços que correspondam ao nome da instância (se fornecido) e ao tipo de serviço na cache de serviço de pares local. A aplicação iniciará a procura de serviço com *instance_index* definido para zero para o primeiro serviço na cache que corresponda à descrição. A aplicação continuará a utilizar este serviço com um valor *instance_index* crescente para serviços adicionais encontrados na cache, até que o serviço *NX_NO_MORE_ENTRIES,* o que indica o fim da cache.
 
@@ -633,7 +633,7 @@ Configura um conjunto de ignoram o serviço
 UINT nx_mdns_service_ignore_set(NX_MDNS *mdns_ptr, ULONG service_mask);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API configura uma máscara para ignorar os serviços especificados pela *service_mask* bitmask. O utilizador pode utilizar opcionalmente o service_mask para selecionar tipos de serviço que não deseja estar em cache. Uma lista de serviços é definida na *tabela nx_mdns_service_types* em *nxd_mdns.c.* A máscara correspondente do primeiro tipo de serviço em nx_mdns_service_types[] é 0x00000001, a máscara do segundo tipo de serviço é 0x00000002, e assim por diante.
 
@@ -673,7 +673,7 @@ UINT nx_mdns_service_notify_set(NX_MDNS *mdns_ptr, ULONG service_mask,
     NX_MDNS_SERVICE *service_ptr, UINT state));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API configura uma alteração de serviço notificando a função de retorno. Esta função de retorno é invocada quando um serviço oferecido por outros nós na rede é adicionado, alterado ou já não está disponível. O utilizador pode utilizar opcionalmente o service_mask para selecionar os tipos de serviço que pretende monitorizar. Uma lista de serviços que estão a ser monitorizados está codificada na *tabela nx_mdns_service_types* em *nxd_mdns.c.*
 
@@ -714,7 +714,7 @@ Limpar a alteração de serviço notificar a função de retorno
 UINT nx_mdns_service_notify_clear(NX_MDNS *mdns_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta API limpa a alteração de serviço notificando a função de retorno e a .
 
@@ -752,7 +752,7 @@ UINT nx_mdns_host_address_get(NX_MDNS *mdns_ptr,
     ULONG *ipv6_address, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço realiza uma consulta mDNS nos endereços IPv4 e IPv6 do anfitrião. Se o endereço do nome de anfitrião especificado for encontrado na cache de serviço de pares, o endereço é devolvido. Se não for encontrado nenhum endereço na cache de serviço de pares, o módulo mDNS emite consultas de tipo A e AAAA e aguarda a resposta. Esta API bloqueia até que uma resposta seja recebida ou os tempos de consulta saem.
 
@@ -794,7 +794,7 @@ Apagar todos os serviços locais
 UINT nx_mdns_local_cache_clear(NX_MDNS *mdns_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço limpa todas as entradas na cache de serviço local após o envio da mensagem de Adeus.
 
@@ -830,7 +830,7 @@ Apagar todos os serviços descobertos
 UINT nx_mdns_peer_cache_clear(NX_MDNS *mdns_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço limpa todas as entradas na cache de serviço de pares.
 

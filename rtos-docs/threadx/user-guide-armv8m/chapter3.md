@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 14bdfab3d56476d52ba91f859cec4af4ab7f4bef
-ms.sourcegitcommit: d8edbb3207fe99f8afb431597dac063e73383e68
+ms.openlocfilehash: 99633db55a5d93eb32ce4fb5429f3fe2f9ab5137cffc30b27982f702cece1ca5
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106377629"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791504"
 ---
 # <a name="chapter-3--threadx-apis-for-armv8-m"></a>ApIs do Capítulo 3 ThreadX para ARMv8-M
 
@@ -32,7 +32,7 @@ UINT tx_thread_secure_stack_allocate(
     ULONG stack_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço aloca uma pilha de tamanho stack_size bytes em memória segura. Esta função deve ser chamada para cada fio que chama funções seguras.
 
@@ -86,7 +86,7 @@ Liberte uma pilha de fios em memória segura.
 UINT tx_thread_secure_stack_free(TX_THREAD *thread_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta a pilha segura de um fio em memória segura. Esta função deve ser chamada se um fio tiver uma pilha segura e quando o fio já não precisar de chamar funções seguras ou se o fio for eliminado.
 

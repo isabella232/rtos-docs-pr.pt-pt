@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c58d0e3d7eca86816a9d656bf2b92a896ffb96fc
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: eabb455b6e21b4fe51db944a0da12afa85ee390a78db633ee670de5aadcde07b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826713"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791521"
 ---
 # <a name="chapter-3---description-of-netx-http-services"></a>Capítulo 3 - Descrição dos serviços NetX HTTP
 
@@ -66,7 +66,7 @@ Na secção "Valores de Retorno" nas seguintes descrições da API, os valores e
 
 ### <a name="create-an-http-client-instance"></a>Criar uma instância de cliente HTTP
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_client_create(NX_HTTP_CLIENT *client_ptr,
@@ -110,7 +110,7 @@ status = nx_http_client_create(&my_client, “my client”, &ip_0, &pool_0, 100)
 
 ### <a name="delete-an-http-client-instance"></a>Excluir uma instância de cliente HTTP
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_client_delete(NX_HTTP_CLIENT *client_ptr);
@@ -147,7 +147,7 @@ status = nx_http_client_delete(&my_client);
 
 ### <a name="start-an-http-get-request"></a>Inicie um pedido HTTP GET
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_client_get_start(NX_HTTP_CLIENT *client_ptr,
@@ -218,7 +218,7 @@ request for TEST.HTM and successfully sent. */
 
 ### <a name="start-an-http-get-request"></a>Inicie um pedido HTTP GET
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_client_get_start_extended(NX_HTTP_CLIENT *client_ptr,
@@ -295,7 +295,7 @@ request for TEST.HTM and successfully sent. */
 
 ### <a name="get-next-resource-data-packet"></a>Obtenha o próximo pacote de dados de recursos
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_client_get_packet(NX_HTTP_CLIENT *client_ptr,
@@ -344,7 +344,7 @@ status = nx_http_client_get_packet(&my_client, &next_packet, 1000);
 
 ### <a name="start-an-http-put-request"></a>Inicie um pedido HTTP PUT 
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_client_put_start(NX_HTTP_CLIENT *client_ptr,
@@ -404,7 +404,7 @@ been started. */
 
 ### <a name="start-an-http-put-request"></a>Inicie um pedido HTTP PUT
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_client_put_start_extended(NX_HTTP_CLIENT *client_ptr,
@@ -467,7 +467,7 @@ been started. */
 
 ### <a name="send-next-resource-data-packet"></a>Enviar o próximo pacote de dados de recursos
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_client_put_packet(NX_HTTP_CLIENT *client_ptr,
@@ -519,7 +519,7 @@ has successfully been sent. */
 
 ### <a name="set-the-connection-port-to-the-server"></a>Definir a porta de ligação para o Servidor
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_client_set_connect_port(NX_HTTP_CLIENT *client_ptr,
@@ -560,7 +560,7 @@ status = nx_http_client_set_connect_port(client_ptr, 114);
 
 ### <a name="set-the-callback-to-retrieve-url-max-age-and-date"></a>Desa esta hora de chamada para recuperar a idade máxima e a data do URL
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_cache_info_callback_set(NX_HTTP_SERVER *server_ptr,
@@ -607,7 +607,7 @@ status = nx_http_server_cache_info_callback_set(&my_server, cache_info_get);
 
 ### <a name="send-data-from-callback-function"></a>Enviar dados da função de retorno
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_callback_data_send(NX_HTTP_SERVER *server_ptr,
@@ -667,7 +667,7 @@ UINT my_request_notify(NX_HTTP_SERVER *server_ptr, UINT request_type,
 
 ### <a name="create-a-response-header-in-a-callback-function"></a>Criar um cabeçalho de resposta numa função de retorno
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_callback_generate_response_header(NX_HTTP_SERVER *server_ptr,
@@ -765,7 +765,7 @@ UINT my_request_notify(NX_HTTP_SERVER *server_ptr, UINT request_type,
 
 ### <a name="create-a-response-header-in-a-callback-function"></a>Criar um cabeçalho de resposta numa função de retorno
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_callback_generate_response_header_extended(
@@ -873,7 +873,7 @@ Fios
 
 ### <a name="send-an-http-packet-from-callback-function"></a>Envie um pacote HTTP da função de retorno
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_callback_packet_send(NX_HTTP_SERVER *server_ptr,
@@ -921,7 +921,7 @@ Client directly. */
 
 ### <a name="send-response-from-callback-function"></a>Enviar resposta da função de retorno
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_callback_response_send(NX_HTTP_SERVER *server_ptr,
@@ -978,7 +978,7 @@ UINT my_request_notify(NX_HTTP_SERVER *server_ptr, UINT request_type,
 
 ### <a name="send-response-from-callback-function"></a>Enviar resposta da função de retorno
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_callback_response_send_extended(
@@ -1040,7 +1040,7 @@ UINT my_request_notify(NX_HTTP_SERVER *server_ptr, UINT request_type,
 
 ### <a name="get-content-from-the-request"></a>Obtenha conteúdo do pedido
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_content_get(NX_HTTP_SERVER *server_ptr,
@@ -1095,7 +1095,7 @@ request content. */
 
 ### <a name="get-content-from-the-requestsupports-zero-length-content-length"></a>Obtenha conteúdo a partir do pedido/suporta comprimento de conteúdo zero comprimento
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_content_get_extended(NX_HTTP_SERVER *server_ptr,
@@ -1150,7 +1150,7 @@ request content. */
 
 ### <a name="get-length-of-content-in-the-request"></a>Obtenha a duração do conteúdo no pedido
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_content_length_get(NX_PACKET *packet_ptr);
@@ -1188,7 +1188,7 @@ request content area. */
 
 ### <a name="get-length-of-content-in-the-requestsupports-content-length-of-zero-value"></a>Obtenha o comprimento do conteúdo no pedido/suporta o comprimento do conteúdo de valor zero
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_content_length_get_extended(NX_PACKET *packet_ptr,
@@ -1233,7 +1233,7 @@ contains the length of the HTTP Client request content area. */
 
 ### <a name="create-an-http-server-instance"></a>Criar uma instância do servidor HTTP
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_create(NX_HTTP_SERVER *http_server_ptr,
@@ -1286,7 +1286,7 @@ status = nx_http_server_create(&my_server, “my server”, &ip_0, &ram_disk,
 
 ### <a name="delete-an-http-server-instance"></a>Excluir uma instância do servidor HTTP
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_delete(NX_HTTP_SERVER *http_server_ptr);
@@ -1323,7 +1323,7 @@ status = nx_http_server_delete(&my_server);
 
 ### <a name="retrieve-the-location-and-length-of-entity-data"></a>Recuperar a localização e a duração dos dados da entidade
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_get_entity_content(NX_HTTP_SERVER *server_ptr,
@@ -1380,7 +1380,7 @@ entity data. */
 
 ### <a name="retrieve-the-contents-of-entity-header"></a>Recuperar o conteúdo do cabeçalho da entidade
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_get_entity_header(NX_HTTP_SERVER *server_ptr,
@@ -1480,7 +1480,7 @@ return(NX_HTTP_CALLBACK_COMPLETED);
 
 ### <a name="set-the-callback-to-obtain-gmt-date-and-time"></a>Desa esta hora de chamada para obter a data e hora de GMT
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_gmt_callback_set(NX_HTTP_SERVER *server_ptr,
@@ -1527,7 +1527,7 @@ response header date. */
 
 ### <a name="set-the-callback-to-to-handle-invalid-userpassword"></a>Desloque a chamada para lidar com o utilizador/senha inválido
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_invalid_userpassword_notify_set(
@@ -1585,7 +1585,7 @@ will be called when the HTTP server receives an invalid username/password. */
 
 ### <a name="set-additional-mime-maps-for-html"></a>Definir mapas MIME adicionais para HTML 
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_mime_maps_additional_set(
@@ -1641,7 +1641,7 @@ server MIME map set.” */
 
 ### <a name="extract-content-length-and-set-pointer-to-start-of-data"></a>Extrair o comprimento do conteúdo e definir o ponteiro para o início dos dados
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_packet_content_find(NX_HTTP_SERVER *server_ptr,
@@ -1694,7 +1694,7 @@ and the packet pointer prepend pointer is set to the HTTP content (data). */
 
 ### <a name="receive-the-next-http-packet"></a>Receba o próximo pacote HTTP
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_packet_get(NX_HTTP_SERVER *server_ptr,
@@ -1737,7 +1737,7 @@ status = nx_http_server_packet_get(server_ptr, &recv_packet_ptr);
 
 ### <a name="get-parameter-from-the-request"></a>Obtenha o parâmetro do pedido
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_param_get(NX_PACKET *packet_ptr,
@@ -1784,7 +1784,7 @@ in “param_destination.” */
 
 ### <a name="get-query-from-the-request"></a>Obtenha consulta a partir do pedido
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_query_get(NX_PACKET *packet_ptr, UINT query_number,
@@ -1831,7 +1831,7 @@ nx_http_server_start
 
 ### <a name="start-the-http-server"></a>Inicie o servidor HTTP
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_start(NX_HTTP_SERVER *http_server_ptr);
@@ -1867,7 +1867,7 @@ status = nx_http_server_start(&my_server);
 
 ### <a name="stop-the-http-server"></a>Parar o servidor HTTP
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_stop(NX_HTTP_SERVER *http_server_ptr);
@@ -1905,7 +1905,7 @@ status = nx_http_server_stop(&my_server);
 
 ### <a name="extract-file-type-from-client-http-request"></a>Extrair o tipo de ficheiro do pedido do Cliente HTTP
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_type_get(NX_HTTP_SERVER *http_server_ptr,
@@ -1966,7 +1966,7 @@ Para um exemplo mais detalhado, consulte a descrição para
 
 ### <a name="extract-file-type-from-client-http-request"></a>Extrair o tipo de ficheiro do pedido do Cliente HTTP
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_type_get_extended(
@@ -2040,7 +2040,7 @@ Para um exemplo mais detalhado, consulte a descrição para
 
 ### <a name="set-digest-authenticate-callback-function"></a>Detenda a função de retorno autenticado da digestão
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_digest_authenticate_notify_set(
@@ -2104,7 +2104,7 @@ will be called when the HTTP server performs digest authenticate. */
 
 ### <a name="set-authentication-checking-callback-function"></a>Definir função de verificação de autenticação
 
-**Prototype**
+**Protótipo**
 
 ```c
 UINT nx_http_server_authentication_check_set(

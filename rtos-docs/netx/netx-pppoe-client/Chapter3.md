@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/13/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 246115fc97d7597246f7fd5b4fb88cb615baab33
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8310006b7c188fa63402c931459ffd84ebb776c207dc520959208449862fe27f
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825591"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790212"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-pppoe-client-services"></a>Capítulo 3 - Descrição dos Serviços de Clientes Azure RTOS NetX PPPoE
 
@@ -25,7 +25,7 @@ Na secção "Valores de Retorno" nas seguintes descrições da API, os valores e
 - **nx_pppoe_client_host_uniq_set_extended** *Definir o anfitrião único para cliente PPPoE*
 - **nx_pppoe_client_service_name_set** *Definir o nome de serviço para ppPoe Cliente*
 - **nx_pppoe_client_service_name_set_extended** *Definir o nome de serviço para cliente PPPoE*
-- **nx_pppoe_client_session_connect** *Conecte a sessão de clientes PPPoE ao PPPoE Server*
+- **nx_pppoe_client_session_connect** *Ligação sessão de clientes PPPoE para o PPPoE Server*
 - **nx_pppoe_client_session_packet_send** *Enviar pacote de sessão PPPoE*
 - **nx_pppoe_client_session_terminate** *encerrar a sessão do PPPoE*
 - **nx_pppoe_client_session_get** *Obtenha a sessão PPPoE especificada inf*
@@ -49,7 +49,7 @@ UINT  nx_pppoe_client_create(NX_PPPOE_CLIENT *pppoe_client_ptr,
                             (NX_PACKET *packet_ptr));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância ppPoE Client com o controlador de ligação fornecido pelo utilizador para a instância IP NetX especificada. Se o controlador de ligação não tiver sido inicializado e ativado, o software ppPoE Client é responsável por rubricar o controlador de ligação.
 
@@ -105,7 +105,7 @@ Excluir uma instância do cliente PPPoE
 UINT nx_pppoe_client_delete(NX_PPPOE_CLIENT *pppoe_client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina a instância do Cliente PPPoE anteriormente criada.
 
@@ -143,7 +143,7 @@ UINT nx_pppoe_client_host_uniq_set(
                         UCHAR *host_uniq);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o anfitrião ppPoE Client único. Host-Uniq é usado por um anfitrião para associar exclusivamente um Concentrador de Acesso a um determinado pedido de anfitrião.
 Podem ser dados binários de qualquer valor e comprimento que o Anfitrião escolha.
@@ -190,7 +190,7 @@ UINT nx_pppoe_client_host_uniq_set_extended(
                         UCHAR *host_uniq,UINT host_uniq_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o anfitrião ppPoE Client único. Host-Uniq é usado por um anfitrião para associar exclusivamente um Concentrador de Acesso a um determinado pedido de anfitrião.
 Podem ser dados binários de qualquer valor e comprimento que o Anfitrião escolha.
@@ -239,7 +239,7 @@ UINT nx_pppoe_client_service_name_set(
                         UCHAR *service_name);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o nome de serviço ppPoE Cliente. O Service-Name indicando o serviço que o Anfitrião está a solicitar. Se Service-Name não estiver definido, indicando que o Host aceitará qualquer número de serviços.
 
@@ -285,7 +285,7 @@ UINT nx_pppoe_client_service_name_set_extended(
                         UCHAR *service_name,UINT service_name_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o nome de serviço ppPoE Cliente. O Service-Name indicando o serviço que o Anfitrião está a solicitar. Se Service-Name não estiver definido, indicando que o Host aceitará qualquer número de serviços.
 
@@ -323,7 +323,7 @@ status =  nx_pppoe_client_service_name_set_extended(&my_pppoe_client,
 
 ## <a name="nx_pppoe_client_session_connect"></a>nx_pppoe_client_session_connect
 
-Conecte a sessão do cliente PPPoE
+Ligação Sessão de clientes PPPoE
 
 ### <a name="prototype"></a>Prototype
 
@@ -332,7 +332,7 @@ UINT nx_pppoe_client_session_connect(NX_PPPOE_CLIENT *pppoe_client_ptr,
                                     ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço faz a ligação de sessão PPPoE utilizando um Cliente PPPoE previamente criado para o Servidor PPPoE especificado.
 
@@ -374,7 +374,7 @@ UINT nx_pppoe_client_session_packet_send(
                                     NX_PACKET *packet_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia o pacote PPPoE utilizando o ID de sessão especificado.
 
@@ -414,7 +414,7 @@ UINT nx_pppoe_client_session_terminate(
                                     NX_PPPOE_CLIENT *pppoe_client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço termina a sessão PPPoE especificada.
 
@@ -453,7 +453,7 @@ UINT nx_pppoe_client_session_get(NX_PPPOE_CLIENT *pppoe_client_ptr,
                                 ULONG *session_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém as informações de sessão PPPoE especificadas, endereço físico do servidor e id de sessão.
 

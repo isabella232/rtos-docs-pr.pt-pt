@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/14/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 8bdbdfcb2da6425fb99cadc7b2f6815dedc12953
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: dbe2cb25607162b62b048251927bdc7671c5884d2a3b45b6b24bae539e08d24a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825850"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797300"
 ---
 # <a name="chapter-4---description-of-nat-services"></a>Capítulo 4 - Descrição dos serviços NAT
 
@@ -33,7 +33,7 @@ UINT nx_nat_create(NX_NAT_DEVICE *nat_ptr, NX_IP *ip_ptr,
     UINT dynamic_cache_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância do servidor NAT.
 
@@ -82,7 +82,7 @@ Excluir um servidor NAT
 UINT nx_nat_delete(NX_NAT_DEVICE *nat_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina um SERVIDOR NAT previamente criado.
 
@@ -118,7 +118,7 @@ Ativar a instância IP para NAT
 UINT nx_nat_enable(NX_NAT_DEVICE *nat_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite a instância IP para NAT (por exemplo, pacotes recebidos para o servidor NAT).
 
@@ -154,7 +154,7 @@ Desative a instância IP para NAT
 UINT nx_nat_disable(NX_NAT_DEVICE *nat_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa o NAT na instância IP.
 
@@ -192,7 +192,7 @@ UINT nx_nat_cache_notify_set(NX_NAT_DEVICE *nat_ptr,
     (NX_NAT_DEVICE *nat_ptr)));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista a chamada completa da cache com o ponteiro da função de entrada cache_full_notify_cb que aponta para uma função de notificação completa de cache definida pelo utilizador.
 
@@ -234,7 +234,7 @@ UINT nx_nat_inbound_entry_create(NX_NAT_DEVICE *nat_ptr,
     USHORT local_port, UCHAR protocol);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma entrada de entrada como estática (entrada permanente, nunca expira) e adiciona-a à tabela de tradução NAT. Estas entradas são geralmente criadas para servidores anfitriões locais onde uma ligação é iniciada a partir de um anfitrião na rede externa. O servidor NAT verifica se a porta externa ainda não está a ser utilizada na tabela de tradução ou vinculada por uma tomada NetX Duo anteriormente existente do mesmo protocolo.
 
@@ -280,7 +280,7 @@ UINT nx_nat_inbound_entry_delete(NX_NAT_DEVICE *nat_ptr,
     NX_NAT_TRANSLATION_ENTRY *delete_entry_ptr)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina a entrada especificada da tabela de tradução.
 

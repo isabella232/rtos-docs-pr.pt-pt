@@ -6,12 +6,12 @@ ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: f296137d23b9f3c1c4fd115947bb50a32b768123
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 7d5c90675728fc7e374d625f5a9ae27340268ca8398200c68fb7113a84aa2983
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827523"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801789"
 ---
 # <a name="chapter-5---generating-trace-buffers"></a>Capítulo 5 - Criação de tampões de vestígios
 
@@ -87,7 +87,7 @@ UINT tx_trace_enable (VOID *trace_buffer_start,
      ULONG trace_buffer_size, ULONG registry_entries);
 ```
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 Este serviço permite rastrear o rastreio de eventos dentro da ThreadX. A aplicação fornece o tampão de vestígios e o número máximo de objetos ThreadX.
 
 > [!IMPORTANT]
@@ -135,7 +135,7 @@ Filtrar eventos especificados
 UINT tx_trace_event_filter (ULONG  vent_filter_bits);
 ```
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 Este serviço filtra o(s) evento especificado de ser inserido no tampão de traço ativo. Note que, por padrão, nenhum evento é filtrado após *tx_trace_enable* é chamado.
 
@@ -217,7 +217,7 @@ Eventos especificados não filtrados
 UINT tx_trace_event_unfilter (ULONG event_unfilter_bits);
 ```
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 Este serviço não filtra os eventos especificados de modo a que sejam inseridos no tampão de rastreio ativo.
 
@@ -299,7 +299,7 @@ tx_trace_enable, tx_trace_event_filter, tx_trace_disable, tx_trace_isr_enter_ins
 UINT tx_trace_disable (VOID);
 ```
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 Este serviço desativa o rastreio de eventos dentro da ThreadX. Isto pode ser útil se a aplicação quiser congelar o atual amortecedor de rastreio de eventos e possivelmente transportá-lo externamente durante o tempo de funcionamento. Uma vez desativado, o **tx_trace_enable** pode ser chamado para recomeçar a rastrear.
 
@@ -343,7 +343,7 @@ tx_trace_enable, tx_trace_event_filter, tx_trace_event_unfilter, tx_trace_isr_en
 VOID tx_trace_isr_enter_insert (ULONG isr_id);
 ```
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 Este serviço insere o evento de entrada ISR no tampão de vestígios de evento. Deve ser chamado pelo pedido no início do processamento da ISR. O parâmetro fornecido deve identificar o ISR específico para a aplicação.
 
@@ -385,7 +385,7 @@ tx_trace_enable, tx_trace_event_filter, tx_trace_event_unfilter, tx_trace_disabl
 VOID tx_trace_isr_exit_insert (ULONG isr_id);
 ```
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 Este serviço insere o evento de entrada ISR no tampão de rastreio de eventos. Deve ser chamado pelo pedido no início do processamento da ISR. O parâmetro fornecido deve identificar o ISR na aplicação.
 
@@ -428,7 +428,7 @@ tx_trace_enable, tx_trace_event_filter, tx_trace_event_unfilter, tx_trace_disabl
 VOID tx_trace_buffer_full_notify (VOID (*full_buffer_callback)(VOID *));
 ```
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 Este serviço regista uma função de chamada de chamada de aplicação que é chamada pela ThreadX quando o tampão de rastreio fica cheio. A aplicação pode então optar por desativar o rastreio e/ou, possivelmente, configurar um novo tampão de traço.
 
@@ -481,7 +481,7 @@ UINT tx_trace_user_event_insert (ULONG event_id,
    ULONG info_field_3, ULONG info_field_4);
 ```
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 Este serviço insere o evento do utilizador no tampão de vestígios. Os IDs de eventos do utilizador devem ser maiores do que os **TX_TRACE_USER_EVENT_START** constantes, que é definido como 4096. O evento máximo de utilizador é definido pela **TX_TRACE_USER_EVENT_END** constante, que é definida como 65535. Todos os eventos dentro desta gama estão disponíveis para a aplicação. Os campos de informação são específicos da aplicação.
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 1d45139031b5a687baacf86c7a2e0a53c90533be
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: cf6b43f70a7159af6c24496ec2ae2276d5e271af2ad3af99687181df3bf6be6c
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826029"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116792031"
 ---
 # <a name="chapter-4---azure-rtos-netx-duo-dhcpv6-server-services"></a>Capítulo 4 - Serviços de servidores Azure RTOS NetX Duo DHCPv6
 
@@ -40,7 +40,7 @@ Na secção "Valores de Retorno" nas seguintes descrições da API, os valores e
 
 ### <a name="set-the-network-dns-server"></a>Definir o servidor DNS da rede
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT nx_dhcpv6_create_dns_address(
@@ -79,7 +79,7 @@ status = nx_dhcpv6_create__dns_address(&dhcp_server_0, &dns_ipv6_address);
 
 ### <a name="create-the-server-ip-address-list"></a>Criar a lista de endereços IP do Servidor
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_create_ip_address_range(
@@ -122,7 +122,7 @@ status = nx_dhcpv6_create_ip_address_range(&dhcp_server_0,
 
 ### <a name="reserve-specified-range-of-ip-addresses"></a>Reserva especificada gama de endereços IP
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_reserve_ip_address_range(
@@ -169,7 +169,7 @@ status = nx_dhcpv6_reserve_ip_address_range(&dhcp_server_0,
 
 ### <a name="create-the-dhcpv6-server-instance"></a>Criar a instância do Servidor DHCPv6 
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT nx_dhcpv6_server_create(NX_DHCPV6_SERVER *dhcpv6_server_ptr, 
@@ -226,7 +226,7 @@ status = nx_dhcpv6_server_create(&dhcp_server_0, &ip_0, "DHCPv6 Server",
 
 ### <a name="delete-the-dhcpv6-server"></a>Eliminar o Servidor DHCPv6
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_server_delee(NX_DHCPV6_SERVER *dhcpv6_server_ptr)
@@ -261,7 +261,7 @@ status = nx_dhcpv6_server_delete(&dhcp_server_0);
 
 ### <a name="resume-dhcpv6-server-task"></a>Retomar a tarefa do servidor DHCPv6 
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_server_resume(NX_DHCPV6_SERVER *dhcpv6_server_ptr)
@@ -298,7 +298,7 @@ status = nx_dhcpv6_server_resume(&dhcp_server_0);
 
 ### <a name="suspend-dhcpv6-server-task"></a>Suspender a tarefa do servidor DHCPv6 
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_server_suspend(NX_DHCPV6_SERVER *dhcpv6_server_ptr)
@@ -336,7 +336,7 @@ status = nx_dhcpv6_server_suspend(&dhcp_server_0);
 
 ### <a name="start-the-dhcpv6-server-task"></a>Inicie a tarefa do Servidor DHCPv6 
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_server_start(NX_DHCPV6_SERVER *dhcpv6_server_ptr)
@@ -379,7 +379,7 @@ status = nx_dhcpv6_server_start(&dhcp_server_0);
 
 ### <a name="get-an-ip-address-lease-from-the-server-table"></a>Obtenha um arrendamento de endereço IP na tabela Do Servidor
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_retrieve_ip_address_lease(
@@ -435,7 +435,7 @@ For (I = 0; I < NX_DHCPV6_MAX_LEASES; i++)
 
 ### <a name="add-an-ip-address-lease-to-the-server-table"></a>Adicione um aluguer de endereço IP à tabela Do Servidor
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_add_ip_address_lease(
@@ -496,7 +496,7 @@ for each lease. */
 
 ### <a name="add-a-client-record-to-the-server-table"></a>Adicione um registo de Cliente à tabela do Servidor
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_add_client_record(NX_DHCPV6_SERVER *dhcpv6_server_ptr, 
@@ -581,7 +581,7 @@ it is ok to start the DHCPv6 server now. */
 
 ### <a name="retrieve-a-client-record-from-the-server-table"></a>Recupere um registo de Cliente da tabela do Servidor
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_retrieve_client_record(
@@ -647,7 +647,7 @@ For (i = 0; i< NX_MAX_DHCPV6_CLIENTS; i++)
 
 ### <a name="setthe-interface-index-for-server-dhcpv6-interface"></a>Definir o índice de interface para a interface do Servidor DHCPv6
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_server_interface_set(
@@ -691,7 +691,7 @@ status = nx_dhcpv6_server_interface_set(&dhcp_server_0, 0, 1);
 
 ### <a name="set-the-server-duid-for-dhcpv6-packets"></a>Desaprova o Servidor DUID para pacotes DHCPv6
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT _nx_dhcpv6_set_server_duid(NX_DHCPV6_SERVER *dhcpv6_server_ptr,
@@ -743,7 +743,7 @@ status = nx_dhcpv6_set_server_duid(&dhcp_server_0,1, 0x6,
 
 ### <a name="set-the-option-request-handler-for-dhcpv6-server-instance"></a>Desajei o manipulador de pedido de opção para a instância do servidor DHCPv6 
 
-**Prototype**
+**Protótipo**
 
 ```
 UINT nx_dhcpv6_server_option_request_handler_set(

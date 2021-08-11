@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/09/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 1f7681c8f3fe161db8a37a82574ab7d5e9bf348e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: c8608f3894eba4db557f0c67b1042f2c88362cb0ca4bf6034bff9ae591fe26bc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825843"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797182"
 ---
 # <a name="chapter-3---description-of-pop3-client-services"></a>Capítulo 3 - Descrição dos Serviços de Clientes POP3
 
@@ -34,7 +34,7 @@ UINT nx_pop3_client_create(NX_POP3_CLIENT *client_ptr,
     CHAR *client_name, CHAR *client_password);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância do Cliente POP3. Suporta apenas endereços de servidor IPv4 POP3.
 
@@ -100,7 +100,7 @@ UINT nxd_pop3_client_create(NX_POP3_CLIENT *client_ptr,
     CHAR *client_name, CHAR *client_password);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância do Cliente POP3. Suporta os endereços de servidor IPv4 e IPv6 POP3. Consulte o serviço *de nx_pop3_client_create* previamente descrito para obter mais detalhes sobre o processo de criação do Cliente POP3.
 
@@ -167,7 +167,7 @@ Excluir uma instância de cliente POP3
 UINT nx_pop3_client_delete(NX_POP3_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina um Cliente POP3 previamente criado. Não que este serviço não apague a piscina de pacotes do Cliente POP3. A aplicação do dispositivo deve eliminar este recurso separadamente se deixar de ter a sua utilização para o conjunto de pacotes.
 
@@ -204,7 +204,7 @@ UINT nx_pop3_client_mail_items_delete(NX_POP3_CLIENT *client_ptr,
     UINT mail_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina o item de correio especificado da gota de correio do Cliente. Destina-se a depois de descarregar o item de correio, embora alguns servidores POP3 possam apagar automaticamente os itens de correio depois de terem sido solicitados pelo Cliente.
 
@@ -249,7 +249,7 @@ UINT nx_pop3_client_mail_item_get(NX_POP3_CLIENT *client_ptr,
     UINT mail_item, ULONG *item_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço faz um pedido DEMÁ para recuperar um item de correio da gota de correio do Cliente especificada pelo índice mail_item. Depois de estivar um pedido DEMS, e receber uma resposta positiva do Servidor, o Cliente pode começar a descarregar a mensagem de correio utilizando o serviço *nx_pop3_client_mail_item_message_get.* Note que o serviço também fornece o tamanho do item de correio solicitado extraído da resposta do Servidor.
 
@@ -295,7 +295,7 @@ UINT nx_pop3_client_mail_items_get(NX_POP3_CLIENT *client_ptr,
     ULONG *maildrop_total_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço faz um pedido de STAT para recuperar o número de itens de correio e o tamanho total dos dados de mensagens de correio da gota de correio do Cliente.
 
@@ -346,7 +346,7 @@ UINT nx_pop3_client_mail_item_message_get(
     UINT *final_packet);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a mensagem de envio de correio, o tamanho da mensagem de correio e se for o último pacote na mensagem de correio. Se final_packet for NX_TRUE o pacote apontado por recv_packet_ptr é o pacote final na mensagem do envio de correio.
 
@@ -396,7 +396,7 @@ UINT nx_pop3_client_mail_item_size_get(
     UINT mail_item, ULONG *size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço faz um pedido LIST para obter o tamanho do item de correio especificado.
 

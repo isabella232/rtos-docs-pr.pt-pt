@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: d730658c07f3cd7cec8c75a47818314bdc63f35a
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6cbeff83d8e3812f13aa3f8f66d4013b70490d556911939186b4b43840aac50d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104828454"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790688"
 ---
 # <a name="chapter-4---description-of-usbx-host-services"></a>Capítulo 4 - Descrição dos serviços de anfitrião USBX
 
@@ -27,7 +27,7 @@ UINT ux_host_stack_initialize(
     (ULONG, UX_HOST_CLASS *));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função irá inicializar a pilha de anfitriões USB. A área de memória fornecida será configurada para utilização interna USBX. Se UX_SUCCESS for devolvido, o USBX está pronto para o controlador de anfitrião e para o registo da classe.
 
@@ -61,7 +61,7 @@ Abortar todas as transações anexas a um pedido de transferência para um ponto
 UINT ux_host_stack_endpoint_transfer_abort(UX_ENDPOINT *endpoint);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função irá cancelar todas as transações ativas ou pendentes para um pedido de transferência específico anexado a um ponto final. O pedido de transferência tem uma função de retorno anexada, a função de retorno será chamada com o estado de UX_TRANSACTION_ABORTED.
 
@@ -107,7 +107,7 @@ UINT ux_host_stack_class_get(
     UX_HOST_CLASS **class);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função devolve um ponteiro ao recipiente de classe. Uma classe precisa de obter o seu recipiente a partir da pilha USB para procurar casos em que uma classe ou uma aplicação quer abrir um dispositivo.
 
@@ -148,7 +148,7 @@ UINT ux_host_stack_class_register(
     UINT (*class_entry_address) (struct UX_HOST_CLASS_COMMAND_STRUCT *));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função regista uma classe USB para a pilha USB. A classe deve especificar um ponto de entrada para a pilha USB enviar comandos como o seguinte.
 
@@ -193,7 +193,7 @@ UINT ux_host_stack_class_instance_create(
     VOID *class_instance);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função cria uma nova instância de classe para um recipiente de classe. O caso de uma classe não está contido no código de classe para reduzir a complexidade da classe. Em vez disso, cada instância de classe é anexada ao recipiente de classe localizado na pilha principal.
 
@@ -241,7 +241,7 @@ UINT ux_host_stack_class_instance_destroy(
     VOID *class_instance);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função destrói uma instância de classe para um recipiente de classe.
 
@@ -286,7 +286,7 @@ UINT ux_host_stack_class_instance_get(
     VOID **class_instance);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função devolve um ponteiro de instância de classe para uma classe específica. O caso de uma classe não está contido no código de classe para reduzir a complexidade da classe. Pelo contrário, cada instância de classe é anexada ao recipiente de classe. Esta função é utilizada para procurar casos de classe dentro de um recipiente de classe.
 
@@ -333,7 +333,7 @@ UINT ux_host_stack_device_configuration_get(
     UX_CONFIGURATION *configuration);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função devolve um recipiente de configuração com base numa pega do dispositivo e num índice de configuração.
 
@@ -380,7 +380,7 @@ Selecione uma configuração específica para um dispositivo.
 UINT ux_host_stack_device_configuration_select (UX_CONFIGURATION *configuration);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função seleciona uma configuração específica para um dispositivo. Quando esta configuração é definida para o dispositivo, por padrão, cada interface do dispositivo e a sua configuração alternativa associada 0 são ativadas no dispositivo. Se a classe dispositivo/interface pretende alterar a configuração de uma determinada interface, tem de emitir uma chamada de serviço **ux_host_stack_interface_setting_select.**
 
@@ -428,7 +428,7 @@ UINT ux_host_stack_device_get(
     UX_DEVICE *device);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função devolve um recipiente do dispositivo com base no seu índice. O índice do dispositivo começa com 0. Note que o índice é um ULONG porque poderíamos ter vários controladores e um índice byte pode não ser suficiente. O índice do dispositivo não deve ser confundido com o endereço do dispositivo específico para o autocarro.
 
@@ -466,7 +466,7 @@ UINT ux_host_stack_interface_endpoint_get(
     UX_ENDPOINT *endpoint);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função devolve um recipiente de ponto final baseado no manípulo da interface e num índice de ponto final. Presume-se que a definição alternativa para a interface foi selecionada ou que a definição predefinida está a ser utilizada antes do ponto final ser pesquisado.
 
@@ -521,7 +521,7 @@ UINT ux_host_stack_hcd_register(
     ULONG hcd_param1, ULONG hcd_param2);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função regista um controlador USB na pilha USB. Aloca principalmente a memória utilizada por este controlador e passa o comando de inicialização para o controlador.
 
@@ -570,7 +570,7 @@ UINT ux_host_stack_configuration_interface_get (
     UX_INTERFACE **interface);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função devolve um recipiente de interface com base num cabo de configuração, num índice de interface e num índice de definição alternativo.
 
@@ -609,7 +609,7 @@ Selecione uma definição alternativa para uma interface.
 UINT ux_host_stack_interface_setting_select(UX_INTERFACE *interface);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função seleciona uma definição alternativa específica para uma determinada interface pertencente à configuração selecionada. Esta função é utilizada para alterar da definição alternativa predefinida para uma nova definição ou para voltar à definição alternativa predefinida. Quando uma nova definição alternativa é selecionada, as características do ponto final anterior são inválidas e devem ser recarregadas.
 
@@ -643,7 +643,7 @@ Abortar um pedido de transferência pendente.
 UINT ux_host_stack_transfer_request_abort(UX_TRANSFER REQUEST *transfer request);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função aborta um pedido de transferência pendente que foi previamente apresentado. Esta função apenas cancela um pedido de transferência específico. A chamada de volta para a função terá o estado de UX_TRANSFER REQUEST_STATUS_ABORT.
 
@@ -676,7 +676,7 @@ Solicite uma transferência USB.
 UINT ux_host_stack_transfer_request(UX_TRANSFER REQUEST *transfer request);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa uma transação USB. À entrada, o pedido de transferência dá o tubo de ponto final selecionado para esta transação e os parâmetros associados à transferência (carga útil de dados, duração da transação). Para o tubo de controlo, a transação está bloqueada e só regressará quando as três fases da transferência de controlo estiverem concluídas ou se houver um erro anterior. Para outros tubos, a pilha USB irá agendar a transação na USB, mas não esperará pela sua conclusão. Cada pedido de transferência de tubos não bloqueados tem de especificar um manipulador de rotina de conclusão.
 

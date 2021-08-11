@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 39f3a71c28dd14e0093f72d1a3b1ff6837c6f1f7
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 28e733e37b06da7053f238e23e2b8b8046df2dd9940e50cd0321ccf15c27ec47
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104828112"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116802112"
 ---
 # <a name="chapter-2-usbx-host-classes-api"></a>Capítulo 2: Aulas de anfitrião USBX API
 
@@ -38,7 +38,7 @@ UINT ux_host_class_printer_read(
     ULONG *actual_length)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função lê-se a partir da interface da impressora. A chamada está a bloquear e só regressa quando há um erro ou quando a transferência está completa. Uma leitura só é permitida em impressoras bidis.
 
@@ -80,7 +80,7 @@ UINT ux_host_class_printer_write(
     ULONG *actual_length)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função escreve para a interface da impressora. A chamada está a bloquear e só regressa quando há um erro ou quando a transferência está completa.
 
@@ -117,7 +117,7 @@ Execute um reset suave à impressora.
 UINT ux_host_class_printer_soft_reset(UX_HOST_CLASS_PRINTER *printer)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa um reset suave à impressora.
 
@@ -153,7 +153,7 @@ UINT ux_host_class_printer_status_get(
     ULONG *printer_status)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função obtém o estado da impressora. O estado da impressora é semelhante ao estado LPT (padrão 1284).
 
@@ -192,7 +192,7 @@ UINT ux_host_class_printer_device_id_get(
     ULONG length)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função obtém a cadeia de ID do dispositivo ID do dispositivo IEEE 1284 (incluindo o comprimento nos dois primeiros bytes em grande formato endiano).
 
@@ -237,7 +237,7 @@ UINT ux_host_class_audio_read(
     *audio_transfer_request)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função lê a partir da interface de áudio. A chamada não está a bloquear. A aplicação deve garantir que a definição alternativa adequada foi selecionada para a interface de streaming de áudio.
 
@@ -280,7 +280,7 @@ UINT ux_host_class_audio_write(
     UX_HOST_CLASS_AUDIO_TRANSFER_REQUEST *audio_transfer_request)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função escreve para a interface de áudio. A chamada não está a bloquear. A aplicação deve garantir que a definição alternativa adequada foi selecionada para a interface de streaming de áudio.
 
@@ -325,7 +325,7 @@ UINT ux_host_class_audio_control_get(
     UX_HOST_CLASS_AUDIO_CONTROL *audio_control)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função lê um controlo específico da interface de controlo de áudio.
 
@@ -428,7 +428,7 @@ UINT ux_host_class_audio_streaming_sampling_set
     UX_HOST_CLASS_AUDIO_SAMPLING *audio_sampling)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função define a interface de regulação alternativa adequada da interface de streaming de áudio de acordo com uma estrutura de amostragem específica.
 
@@ -473,7 +473,7 @@ UINT ux_host_class_audio_streaming_sampling_get(
     UX_HOST_CLASS_AUDIO_SAMPLING_CHARACTERISTICS *audio_sampling)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função obtém, uma a uma, todas as definições de amostragem possíveis disponíveis em cada uma das definições alternativas da interface de streaming de áudio. Na primeira vez que a função for utilizada, todos os campos do ponteiro da estrutura de chamada devem ser reiniciados. A função retornará um conjunto específico de valores de streaming após a devolução, a menos que tenha sido atingido o fim das definições alternativas. Quando esta função for reutilizada, os valores de amostragem anteriores serão utilizados para encontrar os valores de amostragem seguintes.
 
@@ -528,7 +528,7 @@ UINT ux_host_class_asix_read(
     ULONG *actual_length)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função lê-se a partir da interface asix. A chamada está a bloquear e só regressa quando há um erro ou quando a transferência está completa.
 
@@ -568,7 +568,7 @@ UINT ux_host_class_asix_write(
     NX_PACKET *packet)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função escreve para a interface asix. A chamada não está a bloquear.
 
@@ -606,7 +606,7 @@ UINT ux_host_class_pima_session_open(
     UX_HOST_CLASS_PIMA_SESSION *pima_session)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função abre uma sessão entre um Iniciador PIMA e um PIMA Responder. Uma vez aberta uma sessão com sucesso, a maioria dos comandos PIMA podem ser executados.
 
@@ -643,7 +643,7 @@ UINT ux_host_class_pima_session_close(
     UX_HOST_CLASS_PIMA_SESSION *pima_session)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função encerra uma sessão que foi previamente aberta entre um Iniciador PIMA e um PIMA Responder. Uma vez que uma sessão é fechada, a maioria dos comandos PIMA não podem mais ser executados.
 
@@ -679,7 +679,7 @@ UINT ux_host_class_pima_storage_ids_get(
     ULONG storage_id_length)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função obtém a matriz de identificação de armazenamento do respondente.
 
@@ -726,7 +726,7 @@ UINT ux_host_class_pima_storage_info_get(
     UX_HOST_CLASS_PIMA_STORAGE *storage)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função obtém a informação de armazenamento de um recipiente de armazenamento de valor *storage_id*.
 
@@ -774,7 +774,7 @@ UINT ux_host_class_pima_num_objects_get(
     ULONG object_format_code)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função obtém o número de objetos armazenados num recipiente de armazenamento específico de valor storage_id que correspondem a um código de formato específico. O número de objetos é devolvido no campo: ux_host_class_pima_session_nb_objects da estrutura pima_session.
 
@@ -787,7 +787,7 @@ Esta função obtém o número de objetos armazenados num recipiente de armazena
 
 Os Códigos de Formato de Objeto podem ter um dos seguintes valores.
 
-| Código de formato de objeto               | Descrição   |     Código USBX                          |
+| Código de formato de objeto               | Description   |     Código USBX                          |
 |----------------------------------|---------------|------------------------------------------|
 | 0x3000                           | Objeto indefinido não-imagem indefinida | UX_HOST_CLASS_PIMA_OFC_UNDEFINED   |
 | 0x3001                           | Associação associação (por exemplo, pasta) | UX_HOST_CLASS_PIMA_OFC_ASSOCIATION |
@@ -805,8 +805,8 @@ Os Códigos de Formato de Objeto podem ter um dos seguintes valores.
 | 0x3800                           | Objeto de imagem desconhecido indefinido | UX_HOST_CLASS_PIMA_OFC_QT          |
 | 0x3801                           | Formato de ficheiro permutável EXIF/JPEG, padrão JEIDA | UX_HOST_CLASS_PIMA_OFC_EXIF_JPEG   |
 | 0x3802                           | TIFF/EP Tag Formato de ficheiro de imagem para fotografia eletrónica | UX_HOST_CLASS_PIMA_OFC_TIFF_EP     |
-| 0x3803                           | Formato de imagem de armazenamento estruturado FlashPix | UX_HOST_CLASS_PIMA_OFC_FLASHPIX    |
-| 0x3804                           | Ficheiro Bitmap BMP Microsoft Windows | UX_HOST_CLASS_PIMA_OFC_BMP         |
+| 0x3803                           | Formato de imagem de Armazenamento estruturado FlashPix | UX_HOST_CLASS_PIMA_OFC_FLASHPIX    |
+| 0x3804                           | BMP Microsoft Windows ficheiro Bitmap | UX_HOST_CLASS_PIMA_OFC_BMP         |
 | 0x3805                           | Formato de ficheiro de imagem da câmera cânone CIFF | UX_HOST_CLASS_PIMA_OFC_CIFF        |
 | 0x3806                           | Reservado indefinido |  |
 | 0x3807                           | Formato de troca de gráficos GIF | UX_HOST_CLASS_PIMA_OFC_GIF         |
@@ -862,7 +862,7 @@ UINT ux_host_class_pima_object_handles_get(
     ULONG object_handle_association)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Devolve uma matriz de pegas de objeto presentes no recipiente de armazenamento indicado pelo parâmetro storage_id. Se for desejada uma lista agregada em todas as lojas, este valor será definido para 0xFFFFFFFF.
 
@@ -929,7 +929,7 @@ UINT ux_host_class_pima_object_info_get(
     UX_HOST_CLASS_PIMA_OBJECT *object)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função obtém a informação do objeto para uma pega de objeto.
 
@@ -984,7 +984,7 @@ UINT ux_host_class_pima_object_info_send(
     UX_HOST_CLASS_PIMA_OBJECT *object)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função envia as informações de armazenamento para um recipiente de armazenamento de valor storage_id. O Iniciador deve utilizar este comando antes de enviar um objeto ao socorrista.
 
@@ -1032,7 +1032,7 @@ UINT ux_host_class_pima_object_open(
     UX_HOST_CLASS_PIMA_OBJECT *object)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função abre um objeto no respondente antes de ler ou escrever.
 
@@ -1080,7 +1080,7 @@ UINT ux_host_class_pima_object_get(
     ULONG *object_actual_length)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função recebe um objeto no respondente.
 
@@ -1176,7 +1176,7 @@ UINT ux_host_class_pima_object_send(
     UCHAR *object_buffer, ULONG object_buffer_length)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função envia um objeto para o socorrista.
 
@@ -1263,7 +1263,7 @@ UINT ux_host_class_pima_thumb_get(
     ULONG *thumb_actual_length)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função recebe um objeto de polegar no socorrista.
 
@@ -1318,7 +1318,7 @@ UINT ux_host_class_pima_object_delete(
     ULONG object_handle)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função elimina um objeto no respondente
 
@@ -1359,7 +1359,7 @@ UINT ux_host_class_pima_object_close(
     ULONG object_handle, UX_HOST_CLASS_PIMA_OBJECT *object)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função fecha um objeto no respondente.
 
@@ -1399,7 +1399,7 @@ UINT ux_host_class_gser_read(
     ULONG *actual_length)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função lê-se a partir da interface de série genérica. A chamada está a bloquear e só regressa quando há um erro ou quando a transferência está completa.
 
@@ -1442,7 +1442,7 @@ UINT ux_host_class_gser_write(
     ULONG *actual_length)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função escreve para a interface de série genérica. A chamada está a bloquear e só regressa quando há um erro ou quando a transferência está completa.
 
@@ -1483,7 +1483,7 @@ UINT ux_host_class_gser_ioctl(
     VOID *parameter)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função desempenha uma função de coitl específica para a interface gser. A chamada está a bloquear e só retorna quando há um erro ou quando o comando está concluído.
 
@@ -1537,7 +1537,7 @@ UINT ux_host_class_gser_reception_start(
     UX_HOST_CLASS_GSER_RECEPTION *gser_reception)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicia a receção na interface genérica de classe em série. Esta função permite a receção não bloqueada. Quando um tampão é recebido, uma chamada de volta invocada para o pedido.
 
@@ -1582,7 +1582,7 @@ UINT ux_host_class_gser_reception_stop(
     UX_HOST_CLASS_GSER_RECEPTION *gser_reception)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função impede a receção na interface genérica de classe em série.
 

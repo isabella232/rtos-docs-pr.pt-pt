@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.date: 01/22/2021
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 536225de30f54356157c222917fc904c6aa039fe
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f804ae59dd639ca05d1b8f5251cf8b878e78bb9ad2575e08c21d43b14e727a19
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825951"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116796519"
 ---
 # <a name="chapter-2--installation-and-use-of-lwm2m-client"></a>Capítulo 2 Instalação e Utilização do Cliente LWM2M
 
@@ -29,7 +29,7 @@ Cliente Azure RTOS LWM2M pode ser obtido a partir do nosso repositório de códi
 
 ## <a name="lwm2m-client-installation"></a>Instalação do cliente LWM2M
 
-O Cliente LWM2M faz parte da NetX Duo. Assim, após a clonagem do NetX Duo do repositório GitHub, a fonte de cliente LWM2M pode ser encontrada em ***netxduo/addons/lwm2m***.
+O Cliente LWM2M faz parte da NetX Duo. Assim, após a clonagem da NetX Duo do repositório GitHub, a fonte de cliente LWM2M pode ser encontrada em ***netxduo/addons/lwm2m***.
 
 ## <a name="using-lwm2m_client"></a>Utilização de Cliente LWM2M \_
 
@@ -39,7 +39,7 @@ A utilização do Cliente LWM2M é simples. Basicamente, o código de aplicaçã
 
 Existem várias opções de configuração ao construir a biblioteca LWM2M Client e a aplicação utilizando o Cliente LWM2M. As opções de configuração podem ser definidas na fonte de aplicação, na linha de comando, salvo especificação em contrário.
 
-| Opção de configuração &nbsp; | Descrição |
+| Opção de configuração &nbsp; | Description |
 | --- | --- |
 | **CLIENTE NX \_ LWM2M \_ \_ MTU** | Especifica o tamanho máximo de uma mensagem CoAP, incluindo cabeçalhos IP e UDP. O valor predefinido é de 1280. |
 | **TOS DE TOMADA DE CLIENTE NX \_ LWM2M \_ \_ \_** | Tipo de serviço necessário para o UDP LwM2M. Por predefinição, este valor é definido como NX \_ IP NORMAL para indicar o serviço normal de \_ pacotes IP. |

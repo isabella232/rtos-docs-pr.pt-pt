@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 4c33f95b8ac268c557fd947a1303ec3af315a37e
-ms.sourcegitcommit: d8edbb3207fe99f8afb431597dac063e73383e68
+ms.openlocfilehash: 77df2c4e4bf4ef38403fe78eb98f18820de4325aadb941fc69275e4c77754212
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106377089"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790971"
 ---
 # <a name="chapter-2---azure-rtos-usbx-host-stack-installation"></a>Capítulo 2 - Instalação de pilha de anfitriões USBX Azure RTOS
 
@@ -19,7 +19,7 @@ ms.locfileid: "106377089"
 
 ### <a name="computer-type"></a>Tipo de computador
 
-O desenvolvimento incorporado é geralmente realizado em computadores anfitriões Windows PC ou Unix. Após a compilação da aplicação, ligada e localizada no anfitrião, é descarregada para o hardware alvo para execução.
+O desenvolvimento incorporado é geralmente realizado em computadores de Windows PC ou unix anfitrião. Após a compilação da aplicação, ligada e localizada no anfitrião, é descarregada para o hardware alvo para execução.
 
 ### <a name="download-interfaces"></a>Baixar Interfaces
 
@@ -27,7 +27,7 @@ Normalmente, o download do alvo é feito através de uma interface de série RS-
 
 ### <a name="debugging-tools"></a>Ferramentas de depurar
 
-Depurar é feito normalmente sobre o mesmo link que o download de imagem do programa. Existe uma variedade de depuradores, desde pequenos programas de monitor que correm no alvo através do Background Debug Monitor (BDM) e In-Circuit ferramentas emuladoras (ICE). A ferramenta ICE fornece a depuragem mais robusta do hardware alvo real.
+Depurar é feito normalmente sobre o mesmo link que o download de imagem do programa. Existe uma variedade de depureiros, desde pequenos programas de monitor que correm no alvo através de ferramentas Background Debug Monitor (BDM) e In-Circuit Emulator (ICE). A ferramenta ICE fornece a depuragem mais robusta do hardware alvo real.
 
 ### <a name="required-hard-disk-space"></a>Espaço de disco rígido necessário
 
@@ -54,13 +54,13 @@ Todos os ficheiros estão em minúsculas. Esta convenção de nomeação facilit
 
 ## <a name="usbx-installation"></a>Instalação USBX
 
-O USBX é instalado através da clonagem do repositório GitHub à sua máquina local. O seguinte é a sintaxe típica para criar um clone do repositório USBX no seu PC:
+O USBX é instalado clonando o repositório GitHub à sua máquina local. O seguinte é a sintaxe típica para criar um clone do repositório USBX no seu PC:
 
 ```powershell
     git clone https://github.com/azure-rtos/usbx
 ```
 
-Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal do GitHub.
+Em alternativa, pode descarregar uma cópia do repositório utilizando o botão de descarregamento na página principal GitHub.
 
 Também encontrará instruções para a construção da biblioteca USBX na primeira página do repositório online.
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 73bb94768396b4b8461791a164a102d1f8ef159f
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: d92b6c10921b4d04345610e139101e93c7a439ff695a89a79245894ad9ef1fec
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827062"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790288"
 ---
 # <a name="chapter-4---azure-rtos-levelx-nand-apis"></a>Capítulo 4 - Azure RTOS LevelX NAND APIs
 
@@ -39,7 +39,7 @@ Encerrar a flash instance NAND
 UINT lx_nand_flash_close(LX_NAND_FLASH *nand_flash);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço encerra a flash instance NAND previamente aberta.
 
@@ -88,7 +88,7 @@ Defragment NAND flash instance
 UINT lx_nand_flash_defragment(LX_NAND_FLASH *nand_flash);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desfragmenta a flash instance NAND previamente aberta. O processo de desfragmentamento maximiza o número de páginas e blocos gratuitos.
 
@@ -141,7 +141,7 @@ UINT lx_nand_flash_extended_cache_enable(
     ULONG size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço implementa uma camada de cache em RAM utilizando a memória fornecida pela aplicação. A quantidade total de memória necessária para o funcionamento total da cache pode ser calculada da seguinte forma:
 
@@ -203,7 +203,7 @@ Inicialize o suporte flash NAND
 UINT lx_nand_flash_initialize(void);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa o suporte de flash LEVELX NAND. Deve ser chamado antes de qualquer outra NID LEVELX.
 
@@ -255,7 +255,7 @@ UINT lx_nand_flash_open(
     UINT (*nand_driver_initialize) (LX_NAND_FLASH *));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço abre uma instância de flash NAND com o bloco de controlo de flash NAND especificado e a função de inicialização do controlador. Note que a função de inicialização do controlador é responsável pela instalação de vários ponteiros de função para leitura, escrita e apagamento de blocos/páginas do hardware NAND associado a esta instância flash NAND.
 
@@ -311,7 +311,7 @@ UINT lx_nand_flash_page_ecc_check(
     UCHAR *ecc_buffer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço verifica a integridade do tampão de página NAND fornecido com o ECC fornecido. O tamanho da página (definido no ponteiro de instância flash NAND) é assumido como um múltiplo de 256 bytes e o código ECC fornecido é capaz de corrigir um erro de 1 bit em cada parte de 256 bytes da página.
 
@@ -366,7 +366,7 @@ UINT lx_nand_flash_page_ecc_compute(
     UCHAR *ecc_buffer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço calcula o ECC do tampão de página NAND fornecido e devolve o ECC no tampão ECC fornecido. O tamanho da página é presumindo-se ser um múltiplo de 256 bytes (definido no ponteiro de flash nand). O código ECC é utilizado para verificar a integridade da página quando é lido posteriormente.
 
@@ -419,7 +419,7 @@ UINT lx_nand_flash_partial_defragment(
     UINT max_blocks);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desfragmenta a instância flash NAND previamente aberta até ao número máximo de blocos especificados. O processo de desfragmentamento maximiza o número de páginas e blocos gratuitos.
 
@@ -472,7 +472,7 @@ UINT lx_nand_flash_sector_read(
     VOID *buffer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço lê o sector lógico a partir da flash instance NAND e se for bem-sucedido devolve o conteúdo no tampão fornecido. Note que o tamanho do sector NAND é sempre o tamanho da página do hardware NAND subjacente.
 
@@ -525,7 +525,7 @@ UINT lx_nand_flash_sector_release(
     ULONG logical_sector);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta o mapeamento do sector lógico na instância flash NAND. Libertar um sector lógico quando não utilizado torna o nível de desgaste LevelX mais eficiente.
 
@@ -578,7 +578,7 @@ UINT lx_nand_flash_sector_write(
     VOID *buffer);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço escreve o sector lógico especificado na instância flash NAND.
 

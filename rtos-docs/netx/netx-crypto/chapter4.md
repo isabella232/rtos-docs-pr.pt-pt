@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 04e732bc1fd6012636aab3a57391829f529724cf
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 5bd4cdae28a293ec9ef259bbd29fdb8f8d6dc43f964cbc184290b82ee8f590a3
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826810"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788809"
 ---
 # <a name="chapter-4---azure-rtos-netx-crypto-api-description"></a>Capítulo 4 - Azure RTOS NetX Crypto API descrição
 
@@ -25,7 +25,7 @@ Inicializa a Biblioteca Segura NetX
 UINT nx_crypto_initialize(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o módulo de biblioteca Azure RTOS NetX Crypto. Antes de utilizar qualquer outra função criptográfica, a aplicação deve chamar esta função para executar a inicialização e validar a integridade da biblioteca. A não utilização desta função antes de utilizar outros serviços NetX Crypto resultará na devolvição de erros.
 
@@ -52,7 +52,7 @@ Recuperar o estado atual do módulo ativado pelo FIPS
 UINT nx_crypto_module_state_get(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço só está disponível na biblioteca de construção FIPS. Devolve o estado atual da biblioteca NetX Crypto.
 
@@ -90,7 +90,7 @@ UINT _nx_crypto_method_aes_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo AES com a chave dada. Uma vez iniciado o bloco de controlo AES, a operação AES subsequente utilizará a mesma chave e tamanho da chave.
 
@@ -149,7 +149,7 @@ UINT _nx_crypto_method_aes_operation(UINT op,
     VOID (*nx_crypto_hw_process_callback)(VOID *packet_ptr, UINT status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa a encriptação ou operação de desencriptação AES. O bloco de controlo AES deve ter sido inicializado com _ *nx_crypto_method_aes_init()*. O algoritmo AES a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -196,7 +196,7 @@ Limpe o bloco de controlo AES.
 UINT _nx_crypto_method_aes_cleanup(VOID* crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama a esta função para limpar o bloco de controlo AES depois de determinar que esta sessão AES já não é necessária.
 
@@ -225,7 +225,7 @@ UINT _nx_crypto_method_3des_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo Triple DES (3DES) com as três cordas de teclas. As cordas das chaves devem ser de 8 bytes cada. As três teclas DES devem ser concatenadas na memória contígua do tampão de 24 byte. Para a construção compatível com o FIPS, as três teclas devem ser diferentes de cada uma ou a função retornará o erro NX_CRYPTO_INVALID_KEY. Uma vez inicializado o bloco de controlo 3DES, as operações subsequentes em 3DES utilizarão as mesmas teclas.
 
@@ -273,7 +273,7 @@ UINT _nx_crypto_method_3des_operation(UINT op,
     status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa a encriptação ou operação de desencriptação 3DES. O bloco de controlo 3DES deve ter sido inicializado com _ *nx_crypto_method_3des_init()*. O algoritmo 3DES a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -300,7 +300,7 @@ Não existem restrições ao tampão de entrada.
 - **packet_ptr** Este campo não é utilizado na implementação de software da biblioteca NetX Crypto. Todos os valores passados são silenciosamente ignorados.
 - **nx_crypto_hw_process_callback** Este campo não é utilizado na implementação de software da biblioteca NetX Crypto. Todos os valores passados são silenciosamente ignorados.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa encriptação 3DES. O bloco de controlo 3DES deve ter sido inicializado com _ *nx_crypto_moethod_3des_init()*. Esta operação não guarda informações estatais e não altera o material chave no bloco de controlo 3DES. Note que o estofamento não é adicionado por esta função, pelo que o chamador terá de manusear o estofamento antes de invocar a operação de encriptação.
 
@@ -320,7 +320,7 @@ Limpe o bloco de controlo 3DES.
 UINT _nx_crypto_method_3des_cleanup(VOID *crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama esta função para limpar o bloco de controlo 3DES depois de determinar que esta sessão 3DES já não é necessária.
 
@@ -349,7 +349,7 @@ UINT _nx_crypto_method_drbg_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo DRBG com a chave dada. Uma vez iniciado o bloco de controlo DRBG, a operação DRBG subsequente deve utilizar o mesmo bloco de controlo.
 
@@ -395,7 +395,7 @@ UINT __nx_crypto_method_drbg_operation(UINT op,
     status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa o funcionamento drbg. O bloco de controlo DRBG deve ter sido inicializado com _ *nx_crypto_method_drbg_init()*. O algoritmo DRBG a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.* Por predefinição, o AES-128 é utilizado para a DRBG.
 
@@ -439,7 +439,7 @@ Limpe o bloco de controlo DRBG.
 UINT _nx_crypto_method_drbg_cleanup(VOID* crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama a esta função para limpar o bloco de controlo DRBG depois de determinar que esta sessão de DRBG já não é necessária.
 
@@ -468,7 +468,7 @@ UINT _nx_crypto_method_ecdh_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo ECDH com a corda de chave dada. Uma vez iniciada a inicial do bloco de controlo do ECDH, a operação subsequente do ECDH deve utilizar o mesmo bloco de controlo.
 
@@ -514,7 +514,7 @@ UINT _nx_crypto_method_ecdh_operation(UINT op,
     status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa a operação ECDH. O bloco de controlo do ECDH deve ter sido inicializado com _ *nx_crypto_method_ecdh_init()*. O algoritmo ECDH a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -561,7 +561,7 @@ Limpe o bloco de controlo do ECDH.
 UINT _nx_crypto_method_ecdh_cleanup(VOID* crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama a esta função para limpar o bloco de controlo do ECDH depois de determinar que esta sessão do ECDH já não é necessária.
 
@@ -590,7 +590,7 @@ UINT _nx_crypto_method_ecdsa_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo ECDSA com a corda de chave dada. Uma vez iniciada a inicial do bloco de controlo ECDSA, a operação subsequente do ECDSA deve utilizar o mesmo bloco de controlo.
 
@@ -636,7 +636,7 @@ UINT _nx_crypto_method_ecdsa_operation(UINT op,
     status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa a operação ECDSA. O bloco de controlo ECDSA deve ter sido inicializado com _ *nx_crypto_method_ecdsa_init()*. O algoritmo ECDSA a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -680,7 +680,7 @@ Limpe o bloco de controlo do ECDSA.
 UINT _nx_crypto_method_ecdsa_cleanup(VOID* crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama a esta função para limpar o bloco de controlo ECDSA depois de determinar que esta sessão do ECDSA já não é necessária.
 
@@ -709,7 +709,7 @@ UINT _nx_crypto_method_hmac_md5_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo HMAC MD5 com a chave dada. Uma vez iniciada a inicialidade do bloco de controlo HMAC MD5, a operação subsequente do HMAC MD5 deve utilizar o mesmo bloco de comando.
 
@@ -756,7 +756,7 @@ UINT _nx_crypto_method_hmac_md5_operation(UINT op,
     status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa o funcionamento do hash HMAC MD5. O bloco de controlo HMAC MD5 deve ter sido inicializado com _ *nx_crypto_method_hmac_md5_init()*. O algoritmo HMAC MD5 a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -809,7 +809,7 @@ UINT _nx_crypto_method_hmac_sha1_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo HMAC SHA1 com a chave dada. Uma vez iniciada a inicialidade do bloco de comandoS HMAC SHA1, a operação subsequente do HMAC SHA1 deve utilizar o mesmo bloco de comando.
 
@@ -855,7 +855,7 @@ UINT _nx_crypto_method_hmac_sha1_operation(UINT op,
     status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa o funcionamento do hash HMAC SHA1. O bloco de controlo HMAC SHA1 deve ter sido inicializado com _ *nx_crypto_method_hmac_sha1_init()*. O algoritmo HMAC SHA1 a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -900,7 +900,7 @@ Limpe o bloco de controlo HMAC SHA1.
 UINT _nx_crypto_method_hmac_sha1_cleanup(VOID* crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama a esta função para limpar o bloco de controlo HMAC SHA1 depois de determinar que esta sessão HMAC SHA1 já não é necessária.
 
@@ -929,7 +929,7 @@ UINT _nx_crypto_method_hmac_sha256_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo HMAC SHA256 com a chave dada. Uma vez iniciada a inicialidade do bloco de comando HMAC SHA256, a operação subsequente do HMAC SHA256 deve utilizar o mesmo bloco de comando.
 
@@ -976,7 +976,7 @@ UINT _nx_crypto_method_hmac_sha256_operation(UINT op,
     status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa o funcionamento do hash HMAC SHA256. O bloco de controlo HMAC SHA256 deve ter sido inicializado com _ *nx_crypto_method_hmac_sha256_init()*. O algoritmo HMAC SHA256 a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -1021,7 +1021,7 @@ Limpe o bloco de controlo HMAC SHA256.
 UINT _nx_crypto_method_hmac_sha256_cleanup(VOID* crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama a esta função para limpar o bloco de controlo HMAC SHA256 depois de determinar que esta sessão HMAC SHA256 já não é necessária.
 
@@ -1050,7 +1050,7 @@ UINT _nx_crypto_method_hmac_sha512_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo HMAC SHA512 com a chave dada. Uma vez iniciada a inicialidade do bloco de comandoS HMAC SHA512, a operação subsequente do HMAC SHA512 deve utilizar o mesmo bloco de comando.
 
@@ -1097,7 +1097,7 @@ UINT _nx_crypto_method_hmac_sha512_operation(UINT op,
     status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa o funcionamento do hash HMAC SHA512. O bloco de controlo HMAC SHA512 deve ter sido inicializado com _ *nx_crypto_method_hmac_sha512_init()*. O algoritmo HMAC SHA512 a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -1142,7 +1142,7 @@ Limpe o bloco de controlo HMAC SHA512.
 UINT _nx_crypto_method_hmac_sha512_cleanup(VOID* crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama a esta função para limpar o bloco de controlo HMAC SHA512 depois de determinar que esta sessão HMAC SHA512 já não é necessária.
 
@@ -1173,7 +1173,7 @@ UINT _nx_crypto_method_md5_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo MD5 com a chave dada. Uma vez iniciada a inicial do bloco de controlo MD5, a operação MD5 subsequente deve utilizar o mesmo bloco de comando.
 
@@ -1221,7 +1221,7 @@ UINT _nx_crypto_method_md5_operation(UINT op,
     status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa o funcionamento do hash MD5. O bloco de controlo MD5 deve ter sido inicializado com _ *nx_crypto_method_md5_init()*. O algoritmo MD5 a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -1266,7 +1266,7 @@ Limpe o bloco de controlo MD5.
 UINT _nx_crypto_method_md5_cleanup(VOID* crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama esta função para limpar o bloco de controlo MD5 depois de determinar que esta sessão MD5 já não é necessária.
 
@@ -1295,7 +1295,7 @@ UINT _nx_crypto_method_sha1_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo SHA1 com a chave dada. Uma vez iniciada a inicial do bloco de controlo SHA1, a operação SUBSEQUENTE SHA1 deve utilizar o mesmo bloco de comando.
 
@@ -1341,7 +1341,7 @@ UINT _nx_crypto_method_sha1_operation(UINT op,
     status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa a operação de haxixe SHA1. O bloco de controlo SHA1 deve ter sido inicializado com _ *nx_crypto_method_sha1_init()*. O algoritmo SHA1 a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -1386,7 +1386,7 @@ Limpe o bloco de controlo SHA1.
 UINT _nx_crypto_method_sha1_cleanup(VOID* crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama a esta função para limpar o bloco de controlo SHA1 depois de determinar que esta sessão SHA1 já não é necessária.
 
@@ -1415,7 +1415,7 @@ UINT _nx_crypto_method_sha256_init(
     ULONG crypto_metadata_size)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo SHA256 com a chave dada. Uma vez iniciada a inicial do bloco de controlo SHA256, a operação subsequente do SHA256 deve utilizar o mesmo bloco de comando.
 
@@ -1462,7 +1462,7 @@ UINT _nx_crypto_method_sha256_operation(UINT op,
     status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa a operação hash SHA256. O bloco de controlo SHA256 deve ter sido inicializado com _ ***nx_crypto_method_sha256_init()***. O algoritmo SHA256 a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -1505,7 +1505,7 @@ Limpe o bloco de controlo SHA256.
 UINT _nx_crypto_method_sha256_cleanup(VOID* crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama a esta função para limpar o bloco de controlo SHA256 depois de determinar que esta sessão SHA256 já não é necessária.
 
@@ -1534,7 +1534,7 @@ UINT _nx_crypto_method_sha512_init(
     ULONG crypto_metadata_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função inicializa o bloco de controlo SHA512 com a chave dada. Uma vez iniciada a inicial do bloco de controlo SHA512, a operação subsequente do SHA512 deve utilizar o mesmo bloco de comando.
 
@@ -1580,7 +1580,7 @@ UINT _nx_crypto_method_sha512_operation(UINT op,
     VOID (*nx_crypto_hw_process_callback)(VOID *packet_ptr, UINT status));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Esta função executa a operação de haxixe SHA512. O bloco de controlo SHA512 deve ter sido inicializado com _ *nx_crypto_method_sha512_init()*. O algoritmo SHA512 a ser realizado baseia-se no algoritmo especificado no bloco de controlo do *método.*
 
@@ -1623,7 +1623,7 @@ Limpe o bloco de controlo SHA512.
 UINT _nx_crypto_method_sha512_cleanup(VOID* crypto_metadata);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 A aplicação chama a esta função para limpar o bloco de controlo SHA512 depois de determinar que esta sessão SHA512 já não é necessária.
 

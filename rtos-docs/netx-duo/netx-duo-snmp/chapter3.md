@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: cf4c4cb0edb7deb7bd0f257f48949b5c7355426b
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: b24776c2eb25a53195ea4eb452497b23b933e4ab3f9f0a379ea64d8469c1c971
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825766"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790127"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-snmp-agent-services"></a>Capítulo 3 - Descrição dos serviços de agente SNMP da Azure RTOS NetX Duo
 
@@ -151,7 +151,7 @@ Especificar a chave de autenticação para mensagens de armadilha
 UINT nx_snmp_agent_auth_trap_key_use(NX_SNMP_AGENT *agent_ptr, 
                                      NX_SNMP_SECURITY_KEY *key);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço especifica a chave a utilizar para definir parâmetros de autenticação no cabeçalho de segurança SNMPv3 em mensagens de armadilha. Fornecer um valor NX_NULL para a autenticação desativar a chave.
 
@@ -193,7 +193,7 @@ Especificar a chave de autenticação para mensagens de resposta
 UINT nx_snmp_agent_authenticate_key_use(NX_SNMP_AGENT *agent_ptr, 
                                         NX_SNMP_SECURITY_KEY *key);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço especifica a chave a utilizar para parâmetros de autenticação no parâmetro de segurança SNMPv3 para todos os pedidos feitos após a sua fixação. Fornecer um valor NX_NULL para a autenticação desativar a chave.
 
@@ -236,7 +236,7 @@ UINT nx_snmp_agent_community_get(NX_SNMP_AGENT *agent_ptr,
                                  UCHAR **community_string_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o nome da comunidade a partir do mais recente pedido do SNMP recebido pelo Agente SNMP.
 
@@ -277,7 +277,7 @@ UINT nx_snmp_agent_request_get_type_test(NX_SNMP_AGENT *agent_ptr,
                                          UINT *is_get_type);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço indica se o pedido mais recente do SNMP Manager é um tipo GET (GET, GETNEXT ou GETBULK) ou SET. Destina-se a ser utilizado com o nome de utilizador onde a aplicação SNMPv1 ou SNMPv2 irá querer comparar a cadeia comunitária recebida com a cadeia pública do Agente SNMP se o pedido for um tipo GET, ou ao cordão privado do Agente SNMP se o pedido for um tipo SET.
 
@@ -319,7 +319,7 @@ UINT nx_snmp_agent_context_engine_set(NX_SNMP_AGENT *agent_ptr,
                                       UCHAR *context_engine, 
                                       UINT context_engine_size);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o motor de contexto do Agente SNMP. Só é aplicável ao processamento do SNMPv3. Isto deve ser chamado antes de criar chaves de segurança se a aplicação estiver a usar autenticação e encriptação, uma vez que o ID do motor de contexto é usado no processo de criação chave. Caso contrário, o NetX Duo SNMP fornece um id de motor de contexto predefinido no topo da *nxd_snmp.c:*
 
@@ -368,7 +368,7 @@ UINT nx_snmp_agent_context_name_set(NX_SNMP_AGENT *agent_ptr,
                                     UINT context_name_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o nome de contexto do Agente SNMP. Só é aplicável ao processamento do SNMPv3. Se não for chamado, o Agente SNMP da NetX Duo deixará o nome de contexto em branco.
 
@@ -419,7 +419,7 @@ UINT nx_snmp_agent_create(NX_SNMP_AGENT *agent_ptr,
                   *agent_ptr, UCHAR *object_requested, 
                   NX_SNMP_OBJECT_DATA *object_data));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um Agente SNMP na instância IP especificada.
 
@@ -470,7 +470,7 @@ UINT nx_snmp_agent_current_version_get(NX_SNMP_AGENT *agent_ptr,
                                        UINT *version);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a versão SNMP analisada a partir do mais recente pacote SNMP recebido.
 
@@ -513,7 +513,7 @@ UINT nx_snmp_agent_private_string_test(NX_SNMP_AGENT *agent_ptr,
                                        UINT *is_private);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço compara a cadeia comunitária de entrada terminada com a cadeia privada do agente SNMP e indica se coincidem.
 
@@ -560,7 +560,7 @@ UINT nx_snmp_agent_public_string_test(NX_SNMP_AGENT *agent_ptr,
                                       UCHAR *community_string,          
                                       UINT *is_public);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço compara uma cadeia comunitária de entrada terminada com a cadeia pública do agente SNMP e indica se correspondem.
 
@@ -609,7 +609,7 @@ UINT nx_snmp_agent_version_set(NX_SNMP_AGENT *agent_ptr,
                                UINT enable_v3);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o estado (ativado/desativado) para cada uma das versões SNMP, V1, V2 e V3 no agente SNMP. Note que as opções configuráveis do utilizador, NX_SNMP_DISABLE_V1, NX_SNMP_DISABLE_V2 e NX_SNMP_DISABLE_V3, irão anular estas definições de tempo de execução. Por predefinição, o agente SNMP está ativado para as três versões.
 
@@ -656,7 +656,7 @@ UINT nx_snmp_agent_private_string_set(NX_SNMP_AGENT *agent_ptr,
                                       UCHAR *community_string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cadeia comunitária privada do agente SNMP com a corda terminada nulo de entrada. O valor predefinido é NU (nenhum conjunto de cordas privada), de modo que qualquer pacote SNMP recebido com uma cadeia comunitária "privada" não será aceite pelo agente SNMP para acesso de leitura/escrita. O fio de entrada deve ser inferior ou igual ao tamanho configurável do utilizador NX_SNMP_MAX_USER_NAME-1 (para permitir a interrupção do tamanho).
 
@@ -697,7 +697,7 @@ UINT nx_snmp_agent_public_string_set(NX_SNMP_AGENT *agent_ptr,
                                      UCHAR *community_string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cadeia da comunidade pública do agente SNMP com a corda terminada nulo de entrada. O fio comunitário deve ser inferior ou igual ao tamanho configurável do utilizador NX_SNMP_MAX_USER_NAME-1 (para permitir espaço para rescisão nulo).
 
@@ -736,7 +736,7 @@ Eliminar agente SNMP
 ```C
 UINT nx_snmp_agent_delete(NX_SNMP_AGENT *agent_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina um Agente SNMP previamente criado.
 
@@ -773,7 +773,7 @@ UINT nx_snmp_agent_set_interface(NX_SNMP_AGENT *agent_ptr,
                                  UINT if_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a interface de rede SNMP para o Agente SNMP, conforme especificado pelo índice de interface de entrada. Isto só é útil para aplicações de anfitriões SNMP com NetX Duo 5.6 ou superior que suportam múltiplas interfaces de rede. O valor predefinido se não especificado pelo hospedeiro é zero, para a interface primária.
 
@@ -813,7 +813,7 @@ UINT nx_snmp_agent_md5_key_create(NX_SNMP_AGENT *agent_ptr,
                                   NX_SNMP_SECURITY_KEY 
                                        *destination_key);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma chave MD5 que pode ser usada para autenticação e encriptação.
 
@@ -859,7 +859,7 @@ UINT nx_snmp_agent_md5_key_create_extended(NX_SNMP_AGENT *agent_ptr,
                                            NX_SNMP_SECURITY_KEY 
                                            *destination_key);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma chave MD5 que pode ser usada para autenticação e encriptação.
 
@@ -905,7 +905,7 @@ UINT nx_snmp_agent_priv_trap_key_use(NX_SNMP_AGENT *agent_ptr,
                                      NX_SNMP_SECURITY_KEY *key);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço especifica que uma chave de privacidade previamente criada deve ser usada para encriptação e desencriptação de mensagens de armadilha SNMPv3.
 
@@ -946,7 +946,7 @@ Especifique a chave de encriptação para mensagens de resposta
 UINT nx_snmp_agent_privacy_key_use(NX_SNMP_AGENT *agent_ptr, 
                                    NX_SNMP_SECURITY_KEY *key);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço especifica que a chave previamente criada deve ser usada para encriptação e desencriptação de mensagens de resposta SNMPv3.
 
@@ -989,7 +989,7 @@ UINT nx_snmp_agent_sha_key_create(NX_SNMP_AGENT *agent_ptr,
                                   NX_SNMP_SECURITY_KEY  
                                   *destination_key);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma chave SHA que pode ser usada para autenticação e encriptação.
 
@@ -1035,7 +1035,7 @@ UINT nx_snmp_agent_sha_key_create_extended(NX_SNMP_AGENT *agent_ptr,
                                            NX_SNMP_SECURITY_KEY  
                                            *destination_key);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma chave SHA que pode ser usada para autenticação e encriptação.
 
@@ -1079,7 +1079,7 @@ Iniciar agente SNMP
 ```c
 UINT nx_snmp_agent_start(NX_SNMP_AGENT *agent_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liga a tomada UDP à porta SNMP 161 e inicia a tarefa de thread do Agente SNMP.
 
@@ -1114,7 +1114,7 @@ Parar o agente SNMP
 ```c
 UINT nx_snmp_agent_stop(NX_SNMP_AGENT *agent_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço para a tarefa de thread do Agente SNMP e desvinga a tomada UDP para a porta SNMP.
 
@@ -1153,7 +1153,7 @@ UINT nx_snmp_agent_trap_send(NX_SNMP_AGENT *agent_ptr,
                              NX_SNMP_TRAP_OBJECT *object_list_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma armadilha SNMP ao Gerente SNMP no endereço IPv4 especificado. O método preferido para o envio de uma armadilha SNMP na NetX Duo é utilizar o serviço *nxd_snmp_agent_trap_send.* *nx_snmp_agent_trap_send* está incluído no NetX Duo para suportar as aplicações existentes do Agente SNMP netX.
 
@@ -1219,7 +1219,7 @@ UINT nxd_snmp_agent_trap_send(NX_SNMP_AGENT *agent_ptr,
             UINT trap_code, ULONG elapsed_time, 
             NX_SNMP_TRAP_OBJECT *object_list_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma armadilha SNMP ao Gestor SNMP no endereço IP especificado. O método equivalente para o envio de uma armadilha SNMP na NetX é o serviço *nxd_snmp_agent_trap_send.*
 
@@ -1291,7 +1291,7 @@ UINT nx_snmp_agent_trapv2_send(NX_SNMP_AGENT *agent_ptr,
             NXD_ADDRESS *ip_address, UCHAR *community, UINT trap_type, 
             ULONG elapsed_time, NX_SNMP_TRAP_OBJECT *object_list_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma armadilha SNMPv2 ao Gerente SNMP no endereço IPv4 especificado. O método preferido para o envio de uma armadilha SNMP na NetX Duo é utilizar o serviço *nxd_snmp_agent_trapv2_send.* *nx_snmp_agent_trapv2_send* está incluído no NetX Duo para suportar as aplicações existentes do Agente SNMP netX.
 
@@ -1355,7 +1355,7 @@ UINT nx_snmp_agent_trapv2_oid_send(NX_SNMP_AGENT *agent_ptr,
                                    NX_SNMP_TRAP_OBJECT 
                                             *object_list_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma armadilha SNMPv2 para o Gestor SNMP no endereço IP especificado (apenas IPv4) e permite que o chamador especifique o OID diretamente. O método preferido para o envio de uma armadilha SNMP com OID especificado na NetX Duo é utilizar o serviço *nxd_snmp_agent_trapv2_oid_send.* *nx_snmp_agent_trapv2_oid_ envio* está incluído no NetX Duo para suportar as aplicações existentes do Agente SNMP netX.
 
@@ -1408,7 +1408,7 @@ UINT nxd_snmp_agent_trapv2_send(NX_SNMP_AGENT *agent_ptr,
                                 ULONG elapsed_time, 
                                 NX_SNMP_TRAP_OBJECT *object_list_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma armadilha SNMP V2 para o Gestor SNMP no endereço IP especificado.
 
@@ -1482,7 +1482,7 @@ UINT nxd_snmp_agent_trapv2_oid_send(NX_SNMP_AGENT *agent_ptr,
                                     NX_SNMP_TRAP_OBJECT 
                                     *object_list_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma armadilha de V2 SNMP para o Gestor SNMP no endereço IP especificado (IPv4/IPv6) e permite que o chamador especifique o OID diretamente.
 
@@ -1538,7 +1538,7 @@ UINT nx_snmp_agent_trapv3_send(NX_SNMP_AGENT *agent_ptr,
             ULONG elapsed_time, NX_SNMP_TRAP_OBJECT *object_list_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma armadilha SNMPv3 para o Gerente SNMP no endereço IPv4 especificado. O método preferido para o envio de uma armadilha SNMP na NetX Duo é utilizar o serviço *nxd_snmp_agent_trapv3_send.* *nx_snmp_agent_trapv3_send* está incluído no NetX Duo para suportar as aplicações existentes do Agente SNMP netX.
 
@@ -1602,7 +1602,7 @@ UINT nx_snmp_agent_trapv3_oid_send(NX_SNMP_AGENT *agent_ptr,
                                    NX_SNMP_TRAP_OBJECT 
                                    *object_list_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma armadilha SNMPv3 para o Gestor SNMP no endereço IP especificado (apenas IPv4) e permite que o chamador especifique o OID diretamente. O método preferido para o envio de uma armadilha SNMP com OID especificado na NetX Duo é utilizar o serviço *nxd_snmp_agent_trapv3_oid_send.* *nx_snmp_agent_trapv3_oid_ envio* está incluído no NetX Duo para suportar as aplicações existentes do Agente SNMP netX.
 
@@ -1654,7 +1654,7 @@ UINT nxd_snmp_agent_trapv3_send(NX_SNMP_AGENT *agent_ptr,
                                 ULONG elapsed_time, 
                                 NX_SNMP_TRAP_OBJECT *object_list_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma armadilha SNMP ao Gestor SNMP no endereço IP especificado. Esta armadilha é basicamente a mesma que a armadilha V2 do SNMP, exceto que o formato de mensagem de armadilha está contido no PDU SNMP v3.
 
@@ -1726,7 +1726,7 @@ UINT nxd_snmp_agent_trapv3_oid_send(NX_SNMP_AGENT *agent_ptr,
                                     NX_SNMP_TRAP_OBJECT 
                                             *object_list_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma armadilha SNMPv3 para o Gestor SNMP no endereço IP especificado (IPv4/IPv6) e permite que o chamador especifique o OID diretamente.
 
@@ -1779,7 +1779,7 @@ UINT nx_snmp_agent_v3_context_boots_set(NX_SNMP_AGENT *agent_ptr,
                                         UINT boots);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o número de reinicializações registadas pelo agente SNMP. Este serviço só está disponível se o SNMPv3 estiver habilitado para o agente SNMP, uma vez que a contagem de botas só é utilizada no protocolo SNMPv3.
 
@@ -1821,7 +1821,7 @@ Comparar dois objetos
 UINT nx_snmp_object_compare(UCHAR *object, UCHAR *reference_object);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço compara o ID do objeto fornecido com o ID do objeto de referência. Ambos os IDs de objeto estão na notação ASCII SMI, por exemplo, ambos os objetos devem começar com a cadeia ASCII "1.3.6".
 
@@ -1867,7 +1867,7 @@ UINT nx_snmp_object_compare_extended(UCHAR *request_object,
                                      UCHAR *reference_object
                                      UINT reference_object_length);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço compara o ID do objeto fornecido com o ID do objeto de referência. Ambos os IDs de objeto estão na notação ASCII SMI, por exemplo, ambos os objetos devem começar com a cadeia ASCII "1.3.6".
 
@@ -1914,7 +1914,7 @@ Copiar um objeto
 UINT  nx_snmp_object_copy(UCHAR *source_object_name, 
                           UCHAR *destination_object_name);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço copia o objeto de origem na notação ASCII SIM para o objeto de destino.
 
@@ -1954,7 +1954,7 @@ UINT  nx_snmp_object_copy_extended(UCHAR *source_object_name,
                              UINT destination_object_name_buffer_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço copia o objeto de origem na notação ASCII SIM para o objeto de destino.
 
@@ -1997,7 +1997,7 @@ Obtenha objeto de contador
 UINT  nx_snmp_object_counter_get(VOID *source_ptr, 
                                  NX_SNMP_OBJECT_DATA *object_data);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o objeto de contador no endereço especificado pelo ponteiro de origem e coloca-o na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2035,7 +2035,7 @@ UINT  nx_snmp_object_counter_set(VOID *destination_ptr,
                                  NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o contador no endereço especificado pelo ponteiro de destino com o valor de contador na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação SET.
 
@@ -2075,7 +2075,7 @@ UINT  nx_snmp_object_counter64_get(VOID *source_ptr,
                                    NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o objeto de contador de 64 bits no endereço especificado pelo ponteiro de origem e coloca-o na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2113,7 +2113,7 @@ Definir objeto de contador de 64 bits
 UINT  nx_snmp_object_counter64_set(VOID *destination_ptr, 
                                    NX_SNMP_OBJECT_DATA *object_data);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o contador de 64 bits no endereço especificado pelo ponteiro de destino com o valor de contador na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação SET.
 
@@ -2152,7 +2152,7 @@ UINT  nx_snmp_object_end_of_mib(VOID *not_used_ptr,
                               NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um objeto que assinala o fim do MIB e é normalmente chamado da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2189,7 +2189,7 @@ UINT  nx_snmp_object_gauge_get(VOID *source_ptr,
                                NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o objeto de bitola no endereço especificado pelo ponteiro de origem e coloca-o na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2227,7 +2227,7 @@ UINT  nx_snmp_object_gauge_set(VOID *destination_ptr,
                                      NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o bitola no endereço especificado pelo ponteiro de destino com o valor de bitola na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação SET.
 
@@ -2265,7 +2265,7 @@ UINT  nx_snmp_object_id_get(VOID *source_ptr,
                             NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o ID do objeto (na notação SIM ASCII) no endereço especificado pelo ponteiro de origem e coloca-o na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2304,7 +2304,7 @@ UINT  nx_snmp_object_id_set(VOID *destination_ptr,
                              NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o ID do objeto (na notação SIM ASCII) no endereço especificado pelo ponteiro de destino com o ID do objeto na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação SET.
 
@@ -2343,7 +2343,7 @@ UINT  nx_snmp_object_integer_get(VOID *source_ptr,
                                   NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o objeto inteiro no endereço especificado pelo ponteiro de origem e coloca-o na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2381,7 +2381,7 @@ UINT  nx_snmp_object_integer_set(VOID *destination_ptr,
                                       NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o número inteiro no endereço especificado pelo ponteiro de destino com o valor inteiro na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação SET.
 
@@ -2419,7 +2419,7 @@ UINT  nx_snmp_object_ip_address_get(VOID *source_ptr,
                                           NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o objeto de endereço IP no endereço especificado pelo ponteiro de origem e coloca-o na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2458,7 +2458,7 @@ UINT  nx_snmp_object_ipv6_address_get(VOID *source_ptr,
                                       *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o objeto de endereço IPv6 no endereço especificado pelo ponteiro de origem e coloca-o na estrutura de dados do objeto NetX.
 Esta rotina é normalmente chamada da rotina de chamada de aplicação GET ou GETNEXT.
@@ -2499,7 +2499,7 @@ UINT  nx_snmp_object_ip_address_set(VOID *destination_ptr,
                                     NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o endereço IPv4 no endereço especificado pelo ponteiro de destino com o endereço IP na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação SET.
 
@@ -2538,7 +2538,7 @@ UINT  nx_snmp_object_ipv6_address_set(VOID *destination_ptr,
                                       *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o endereço IPv6 no endereço especificado pelo ponteiro de destino com o endereço IP na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação SET.
 
@@ -2577,7 +2577,7 @@ UINT  nx_snmp_object_no_instance(VOID *not_used_ptr,
                                  NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um objeto sinalizando que não havia nenhuma instância do objeto especificado e é tipicamente chamado a partir da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2614,7 +2614,7 @@ UINT  nx_snmp_object_not_found(VOID *not_used_ptr,
                                NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um objeto que sinaliza que o objeto não foi encontrado e é normalmente chamado da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2651,7 +2651,7 @@ UINT  nx_snmp_object_octet_string_get(VOID *source_ptr,
                                             NX_SNMP_OBJECT_DATA *object_data, 
                                       UINT length);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a cadeia de octeto no endereço especificado pelo ponteiro de origem e coloca-o na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2690,7 +2690,7 @@ UINT  nx_snmp_object_octet_string_set(VOID *destination_ptr,
                                       NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cadeia de octeto no endereço especificado pelo ponteiro de destino com a cadeia de octeto na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação SET.
 
@@ -2729,7 +2729,7 @@ UINT  nx_snmp_object_string_get(VOID *source_ptr,
                                 NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera a cadeia ASCII no endereço especificado pelo ponteiro de origem e coloca-a na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2768,7 +2768,7 @@ UINT  nx_snmp_object_string_set(VOID *destination_ptr,
                                 NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a cadeia ASCII no endereço especificado pelo ponteiro de destino com a cadeia ASCII na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação SET.
 
@@ -2809,7 +2809,7 @@ UINT  nx_snmp_object_timetics_get(VOID *source_ptr,
                                   NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera os relógios no endereço especificado pelo ponteiro de origem e coloca-o na estrutura de dados do objeto NetX. Esta rotina é normalmente chamada da rotina de chamada de aplicação GET ou GETNEXT.
 
@@ -2847,7 +2847,7 @@ UINT  nx_snmp_object_timetics_set(VOID *destination_ptr,
                                   NX_SNMP_OBJECT_DATA *object_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a variável timetics no endereço especificado pelo ponteiro de destino com os timetics na estrutura de dados do objeto NetX.
 Esta rotina é normalmente chamada da rotina de chamada de aplicação SET.

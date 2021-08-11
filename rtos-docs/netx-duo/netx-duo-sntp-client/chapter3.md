@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 75b2b878cd084ca1c1cdd1eed4333d303fe32ad6
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 7aee18642e480ec61488515164c8a6816753dca86eb8f6d146ea22d4956e037a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825747"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791674"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-sntp-client-services"></a>Capítulo 3 - Descrição dos Serviços de ClienteS SNTP SNTP da Azure RTOS NetX Duo SNTP
 
@@ -59,7 +59,7 @@ VOID (random_number_generator)(struct NX_SNTP_CLIENT_STRUCT
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância do Cliente SNTP.
 
@@ -119,7 +119,7 @@ Excluir um Cliente SNTP
 UINT nx_sntp_client_delete(NX_SNTP_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância do Cliente SNTP.
 
@@ -164,7 +164,7 @@ UINT nx_sntp_client_get_local_time(NX_SNTP_CLIENT *client_ptr ,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém a hora local do Cliente SNTP com uma entrada de chaveiro de opção para receber os dados em formato de mensagem de cadeia.
 
@@ -226,7 +226,7 @@ UINT nx_sntp_client_get_local_time_extended(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém o tempo sNTP cliente estendido local com uma entrada de chaveiro de opção para receber os dados em formato de mensagem de cadeia.
 
@@ -293,7 +293,7 @@ UINT nx_sntp_client_initialize_broadcast(NX_SNTP_CLIENT *client_ptr,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa o Cliente para a operação de transmissão, definindo o endereço IP do Servidor SNTP e rubricando parâmetros e intervalos de arranque SNTP. Se os endereços multicast e de transmissão não forem nulos, o endereço multicast é selecionado. Se ambos os endereços forem nulos, um erro é devolvido. Note que isto suporta apenas endereços de servidor IPv4.
 
@@ -344,7 +344,7 @@ UINT nxd_sntp_client_initialize_broadcast(NX_SNTP_CLIENT *client_ptr,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa o Cliente para a operação de transmissão, configurando o endereço IP do Servidor SNTP e rubricando parâmetros e intervalos de arranque SNTP. Se os ponteiros de endereços de difusão e multicast não forem nulos, o endereço multicast é selecionado. Se ambos os ponteiros de endereço forem nulos, um erro é devolvido. Isto suporta os tipos de endereços IPv4 e IPv6. Note que o IPv6 não suporta a transmissão, pelo que o ponteiro do endereço de transmissão está definido para IPv6, um erro é devolvido.
 
@@ -403,7 +403,7 @@ UINT nx_sntp_client_initialize_unicast(NX_SNTP_CLIENT * client_ptr,
                                         ULONG unicast_time_server);
 
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa o Cliente para a operação unicast, definindo o endereço IP do Servidor SNTP e rubricando parâmetros e intervalos de arranque SNTP. Note que isto suporta apenas endereços de servidor IPv4.
 
@@ -453,7 +453,7 @@ UINT nxd_sntp_client_initialize_unicast(NX_SNTP_CLIENT * client_ptr,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa o Cliente para a operação unicast, configurando o endereço IP do SNTP Server e rubricando os parâmetros e intervalos de arranque SNTP. Isto suporta os tipos de endereços IPv4 e IPv6.
 
@@ -510,7 +510,7 @@ UINT nx_sntp_client_receiving_updates(NX_SNTP_CLIENT *client_ptr,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço indica se o Cliente está a receber atualizações SNTP válidas. Se o lapso de tempo máximo sem uma atualização válida ou limite de atualizações inválidas consecutivas for ultrapassado, o estado de receção é devolvido como falso. Note que o Cliente SNTP ainda está em execução e se a aplicação pretende reiniciar o Cliente SNTP com outro servidor unicast ou de difusão/multicast deve parar o Cliente SNTP utilizando o serviço *nx_sntp_client_stop,* reinitializar o Cliente utilizando um dos serviços de inicialização com outro servidor.
 
@@ -556,7 +556,7 @@ UINT nx_sntp_client_request_unicast_time(NX_SNTP_CLIENT *client_ptr,
                                                   UINT wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite que a aplicação envie diretamente um pedido unicast para o servidor NTP assíncronamente a partir da tarefa de thread do Cliente SNTP. A opção de espera especifica quanto tempo esperar por uma resposta. Se for bem sucedido, a aplicação pode utilizar outros serviços do Cliente SNTP para obter a última hora. Consulte a secção **SNTP Asynchronous Unicast Requests** para mais detalhes.
 
@@ -603,7 +603,7 @@ Executar o Cliente em modo de transmissão
 UINT nx_sntp_client_run_broadcast(NX_SNTP_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia o Cliente no modo de transmissão onde aguardará para receber transmissões do servidor SNTP. Se for recebida uma mensagem SNTP de transmissão válida, o tempo limite de tempo do cliente SNTP para o lapso máximo sem uma atualização e contagem de mensagens inválidas consecutivas recebidas são reiniciadas. Se um destes limites for ultrapassado, o Cliente SNTP define o estado do servidor para inválido, embora ainda espere receber atualizações. A aplicação pode sondar a tarefa do Cliente SNTP para o estado do servidor, e se inválida parar o Cliente SNTP e reinitilizá-lo com outro endereço de transmissão SNTP. Também pode mudar para um servidor SNTP unicast.
 
@@ -647,7 +647,7 @@ Executar o Cliente em modo unicast
 UINT nx_sntp_client_run_unicast(NX_SNTP_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia o Cliente no modo unicast onde envia periodicamente um pedido unicast para o seu SNTP Server para uma atualização de tempo. Se for recebida uma mensagem SNTP válida, o tempo limite de tempo do cliente SNTP para o lapso máximo sem atualização, o intervalo inicial de votação e a contagem de mensagens inválidas consecutivas recebidas são reiniciados. Se um destes limites for ultrapassado, o Cliente SNTP define o estado do Servidor para inválido, embora ainda faça sondagem e aguarde para receber atualizações. A aplicação pode sondar a tarefa do Cliente SNTP para o estado do servidor, e se inválida parar o Cliente SNTP e reinitilizá-lo com outro endereço unicast SNTP. Também pode mudar para um servidor SNTP de transmissão.
 
@@ -696,7 +696,7 @@ UINT nx_sntp_client_set_local_time(NX_SNTP_CLIENT *client_ptr ,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o cliente SNTP local com o tempo de entrada, em formato SNTP, por exemplo, segundos e "fração" que é o formato para colocar frações de segundo em formato hexadecimal. Destina-se a atualizar o cliente SNTP local a partir de um cronometreiro independente, por exemplo, um relógio em tempo real. O protocolo SNTP destina-se a atualizações de tempo SNTP para evitar que o tempo do relógio local se "deslove". As atualizações de tempo do servidor SNTP podem ser, mas não se destinam a ser a única entrada para o cliente SNTP local se não houver um time keeper independente no dispositivo de aplicação.
 
@@ -749,7 +749,7 @@ UINT nx_sntp_client_set_time_update_notify(NX_SNTP_CLIENT *client_ptr,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura a chamada para notificar a aplicação quando o Cliente SNTP recebe uma atualização de tempo válida. Fornece a mensagem SNTP real e a hora local do Cliente SNTP (geralmente a mesma) em formato NTP. A aplicação pode utilizar os dados NTP diretamente ou ligar para o *serviço nx_sntp_client_utility_display_date_time* para converter o tempo em formato legível humano.
 
@@ -797,7 +797,7 @@ Pare o fio do cliente SNTP
 UINT nx_sntp_client_stop(NX_SNTP_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço para a linha do Cliente SNTP. As tarefas de thread do Cliente SNTP, que funciona em loop infinito, fazem uma pausa em cada iteração para libertar o controlo do estado do Cliente SNTP e permitem que as aplicações façam chamadas API no Cliente SNTP.
 
@@ -840,7 +840,7 @@ UINT nx_sntp_client_utility_display_date_time (NX_SNTP_CLIENT
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço converte o cliente SNTP local para um formato de data de um ano e devolve a data no tampão fornecido. O NX_SNTP_CURRENT_YEAR não precisa de ser o mesmo ano que o tempo atual do Cliente, mas deve ser definido.
 
@@ -890,7 +890,7 @@ UINT nx_sntp_client_utility_msecs_to_fraction (ULONG milliseconds,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço converte os milissegundos de entrada para o componente da fração NTP. Destina-se a ser utilizado com aplicações que tenham um tempo base inicial para o Cliente SNTP, mas não em formato NTP segundos/fração. O número de milissegundos deve ser inferior a 1000 para fazer uma fração válida.
 
@@ -937,7 +937,7 @@ UINT nx_sntp_client_utility_usecs_to_fraction (ULONG microseconds,
                                                  ULONG *fraction);
 
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço converte os microsegundos de entrada para o componente da fração NTP. Destina-se a ser utilizado com aplicações que tenham um tempo base inicial para o Cliente SNTP, mas não em formato NTP segundos/fração. O número de microsegundos deve ser inferior a 1000000 para fazer uma fração válida.
 
@@ -984,7 +984,7 @@ UINT nx_sntp_client_utility_fraction_to_usecs (ULONG fraction,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço converte o componente de fração NTP de entrada em microsegundos.
 

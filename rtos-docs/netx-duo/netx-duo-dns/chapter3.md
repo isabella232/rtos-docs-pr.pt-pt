@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 9634adab3944c29f64d26dd688b5053dc1bd9bcb
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 10368edf3cdf15d32bddbd5bd943681b3ff3dd1aa1a7042d1b9bb2bf0e71699f
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826017"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791911"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-dns-client-services"></a>Capítulo 3 - Descrição dos Serviços de Clientes Azure RTOS NetX Duo DNS
 
@@ -85,7 +85,7 @@ UINT nx_dns_authority_zone_start_get (NX_DNS *dns_ptr, UCHAR *host_name,
                                       UINT *record_count, 
                                       ULONG wait_option);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Se NX_DNS_ENABLE_EXTENDED_RR_TYPES for definido, este serviço envia uma consulta do tipo SOA com o nome de domínio especificado para obter o início da zona de autoridade para o nome de domínio de entrada. O Cliente DNS copia os registos SOA devolvidos na resposta do DNS Server para o local de memória *record_buffer.*
 
@@ -208,7 +208,7 @@ UINT nx_dns_cache_initialize(NX_DNS *dns_ptr,
                             VOID *cache_ptr, UINT cache_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria e inicializa uma Cache DNS.
 
@@ -247,7 +247,7 @@ Limpe a função de notificação completa da Cache DNS
 UINT nx_dns_cache_notify_clear(NX_DNS *dns_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço limpa a função de notificação completa da cache.
 
@@ -283,7 +283,7 @@ UINT nx_dns_cache_notify_set(NX_DNS *dns_ptr,
                             VOID (*cache_full_notify_cb)(NX_DNS *dns_ptr));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a função de notificação completa da cache.
 
@@ -321,7 +321,7 @@ UINT nx_dns_cname_get(NX_DNS *dns_ptr, UCHAR *host_name,
                      ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Se NX_DNS_ENABLE_EXTENDED_RR_TYPES for definida em *nxd_dns.h,* este serviço envia uma consulta do tipo CNAME com o nome de domínio especificado para obter o nome de domínio canónico. O Cliente DNS copia a cadeia CNAME devolvida na resposta do DNS Server para o local de memória *record_buffer.*
 
@@ -381,7 +381,7 @@ Criar uma instância de cliente DNS
 ```C
 UINT nx_dns_create(NX_DNS *dns_ptr, NX_IP *ip_ptr, CHAR *domain_name);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância do Cliente DNS para a instância IP previamente criada.
 
@@ -424,7 +424,7 @@ Excluir uma instância do cliente DNS
 ```C
 UINT nx_dns_delete(NX_DNS *dns_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância do Cliente DNS previamente criada e liberta os seus recursos. 
 
@@ -465,7 +465,7 @@ UINT nx_dns_domain_name_server_get(NX_DNS *dns_ptr, UCHAR *host_name,
                                    UINT *record_count, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Se NX_DNS_ENABLE_EXTENDED_RR_TYPES for definido, este serviço envia uma consulta do tipo NS com o nome de domínio especificado para obter os servidores de nome para o nome de domínio de entrada. O Cliente DNS copia os registos NS devolvidos na resposta do DNS Server para o local de memória *record_buffer.*
 
@@ -582,7 +582,7 @@ UINT nx_dns_domain_mail_exchange_get(NX_DNS *dns_ptr, UCHAR *host_name,
                                      ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Se NX_DNS_ENABLE_EXTENDED_RR_TYPES for definido, este serviço envia uma consulta do tipo MX com o nome de domínio especificado para obter a troca de correio para o nome de domínio de entrada. O Cliente DNS copia os registos(s) MX devolvidos na resposta do DNS Server para o local de memória *record_buffer.* 
 
@@ -710,7 +710,7 @@ UINT nx_dns_domain_service_get (NX_DNS *dns_ptr, UCHAR *host_name,
                                 UINT *record_count, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Se NX_DNS_ENABLE_EXTENDED_RR_TYPES for definido, este serviço envia uma consulta do tipo SRV com o nome de domínio especificado para procurar o(s) serviço(s) e o número de porta associado ao domínio especificado. O Cliente DNS copia os registos SRV devolvidos na resposta do DNS Server para o local de memória *record_buffer.* 
 
@@ -840,7 +840,7 @@ Devolva o tamanho da lista de servidores do cliente DNS
 ```C
 UINT nx_dns_get_serverlist_size (NX_DNS *dns_ptr, UINT *size);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o número de Servidores DNS válidos (tanto IPv4 como IPv6) na lista de Clientes.
 
@@ -881,7 +881,7 @@ UINT nx_dns_info_by_name_get(NX_DNS *dns_ptr, UCHAR *host_name,
                              USHORT *host_port_ptr, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o IP do Servidor e a porta (registo de serviço) com base no nome do anfitrião de entrada por consulta DNS. Se não for encontrado um registo de serviço, esta rotina devolve um endereço IP zero no ponteiro do endereço de entrada e um estado de erro não zero volta a sinalizar um erro.
 
@@ -930,7 +930,7 @@ UINT nx_ dns_ipv4_address_by_name_get (NX_DNS *dns_ptr,
                                       ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma consulta do tipo A com o nome de anfitrião especificado para obter os endereços IP para o nome do anfitrião de entrada. O Cliente DNS copia o endereço IPv4 a partir dos registos A devolvidos na resposta do DNS Server para o local de memória *record_buffer.*
 
@@ -1034,7 +1034,7 @@ UINT nxd_ dns_ipv6_address_by_name_get(NX_DNS *dns_ptr,
                                       ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma consulta do tipo AAAA com o nome de domínio especificado para obter os endereços IP para o nome de domínio de entrada. O Cliente DNS copia o endereço IPv6 a partir dos registos(s) AAAA devolvidos na resposta do DNS Server para o local de memória *record_buffer.* 
 
@@ -1137,7 +1137,7 @@ UINT nx_dns_host_by_address_get(NX_DNS *dns_ptr, ULONG ip_address,
                                 ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço solicita a resolução de nome do endereço IP fornecido a partir de um ou mais Servidores DNS previamente especificados pela aplicação. Se for bem sucedido, o nome do anfitrião rescindido por NU É devolvido na cadeia especificada por *host_name_ptr*. Esta é uma função de invólucro para *nxd_dns_host_by_address_get* serviço e não aceita endereços IPv6.
 
@@ -1199,7 +1199,7 @@ UINT nxd_dns_host_by_address_get(NX_DNS *dns_ptr,
                                  ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço solicita a resolução de nome do endereço IPv6 ou IPv4 no *ip_address* argumento de entrada de um ou mais Servidores DNS previamente especificados pela aplicação. Se for bem sucedido, o nome do anfitrião rescindido por NU É devolvido na cadeia especificada por *host_name_ptr*.
 
@@ -1279,7 +1279,7 @@ UINT nx_dns_host_by_name_get(NX_DNS *dns_ptr, UCHAR *host_name,
                              ULONG *host_address_ptr, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço solicita a resolução de nome do nome fornecido a partir de um ou mais Servidores DNS previamente especificados pela aplicação. Se for bem sucedido, o endereço IP associado é devolvido no destino apontado por host_address_ptr. Esta é uma função de invólucro para o serviço *nxd_dns_host_by_name_get,* e está limitada à entrada de endereço IPv4.
 
@@ -1354,7 +1354,7 @@ UINT nxd_dns_host_by_name_get(NX_DNS *dns_ptr, ULONG *host_name,
                               ULONG wait_option, UINT lookup_type);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço solicita a resolução de nome do endereço IP fornecido a partir de um ou mais Servidores DNS previamente especificados pela aplicação. Se for bem sucedido, o endereço IP associado é devolvido num NXD_ADDRESS apontado por *host_address_ptr*. Se o chamador definir especificamente a entrada lookup_type para NX_IP_VERSION_V6, este serviço enviará consulta para um endereço IPv6 anfitrião (registo AAAA). Se o chamador definir especificamente a entrada lookup_type para NX_IP_VERSION_V4, este serviço enviará consulta para um endereço IPv4 anfitrião (Registo).
 
@@ -1470,7 +1470,7 @@ UINT nx_dns_host_text_get(NX_DNS *dns_ptr, UCHAR *host_name,
                           UINT buffer_size, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma consulta do tipo TXT com o nome de domínio especificado e tampão para obter os dados de cadeia arbitrários.
 
@@ -1541,7 +1541,7 @@ Desa estaladiço do pacote do cliente DNS
 ```C
 UINT nx_dns_packet_pool_set(NX_DNS *dns_ptr, NX_PACKET_POOL *pool_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define um pacote de pacotes previamente criado como o pacote de pacotes DNS Client. O Cliente DNS utilizará este pacote para enviar consultas de DNS, pelo que a carga útil do pacote não deve ser inferior a NX_DNS_PACKET_PAYLOAD que inclui os cabeçalhos Ethernet, IP e UDP e é definido em *nxd_dns.h.* 
 
@@ -1595,7 +1595,7 @@ Adicionar endereço IP do servidor DNS
 ```C
 UINT nx_dns_server_add(NX_DNS *dns_ptr, ULONG server_address);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona um Servidor DNS IPv4 à lista de servidores.
 
@@ -1635,7 +1635,7 @@ Adicionar servidor DNS à lista de clientes
 ```C
 UINT nxd_dns_server_add(NX_DNS *dns_ptr, NXD_ADDRESS *server_address);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona o endereço IP de um servidor DNS à lista de servidores do DNS Client. O server_address pode ser um endereço IPv4 ou IPv6. Se o Cliente pretender aceder ao mesmo servidor através do seu endereço IPv4 ou do endereço IPv6, deverá adicionar ambos os endereços IP como entradas na lista de servidores.
 
@@ -1687,7 +1687,7 @@ UINT nx_dns_server_get(NX_DNS *dns_ptr, UINT index,
                         ULONG *dns_server_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o endereço IPv4 DNS Server da lista de servidores no índice especificado. 
 
@@ -1737,7 +1737,7 @@ UINT nxd_dns_server_get(NX_DNS *dns_ptr, UINT index,
                         NXD_ADDRESS *dns_server_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o endereço IP do SERVIDOR DNS da lista de servidores no índice especificado. 
 
@@ -1785,7 +1785,7 @@ Remova um Servidor DNS IPv4 da lista de clientes
 ```C
 UINT nx_dns_server_remove(NX_DNS *dns_ptr, ULONG server_address);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove um Servidor DNS IPv4 da lista de Clientes. É uma função de invólucro para *nxd_dns_server_remove*.
 
@@ -1824,7 +1824,7 @@ Remova um Servidor DNS da lista de clientes
 ```C
 UINT nxd_dns_server_remove(NX_DNS *dns_ptr, NXD_ADDRESS *server_address);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove um Servidor DNS do endereço IP especificado da lista de Clientes. O endereço IP de entrada aceita endereços IPv4 e IPv6. Após a remoção do servidor, os restantes servidores descem um índice da lista para preencher a ranhura desocupada.
 
@@ -1872,7 +1872,7 @@ Remova todos os Servidores DNS da lista de clientes
 ```C
 UINT nx_dns_server_remove_all(NX_DNS *dns_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove todos os Servidores DNS da lista de Clientes.
 

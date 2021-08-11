@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 0935295ef9f7255c0851e1f64013884dce4c52f1
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 82a186505104983dbe6964f92e89c8e775d545eedb6495e27f21542d7660bf42
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826167"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791198"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-autoip-services"></a>Capítulo 3 - Descrição dos serviços Azure RTOS NetX Duo AutoIP
 
@@ -38,7 +38,7 @@ UINT nx_auto_ip_create(NX_AUTO_IP *auto_ip_ptr, CHAR *name,
                     UINT priority);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância AutoIP na instância IP especificada.
 
@@ -88,7 +88,7 @@ Apagar a instância AutoIP
 UINT nx_auto_ip_delete(NX_AUTO_IP *auto_ip_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância AutoIP previamente criada na instância IP especificada.
 
@@ -131,7 +131,7 @@ UINT nx_auto_ip_get_address(NX_AUTO_IP *auto_ip_ptr,
                             ULONG *local_ip_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço AutoIP atualmente configurado. Se não houver um, é devolvido um endereço IP de 0.0.0.0.
 
@@ -177,7 +177,7 @@ UINT nx_auto_ip_set_interface(NX_AUTO_IP *auto_ip_ptr,
                             UINT interface_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o índice para a interface de rede AutoIP irá sondar para um endereço IP de rede. O padrão é zero (a interface de rede primária). Apenas aplicável a dispositivos multihomed.
 
@@ -222,7 +222,7 @@ UINT nx_auto_ip_start(NX_AUTO_IP *auto_ip_ptr,
                     ULONG starting_local_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia o protocolo AutoIP numa instância AutoIP previamente criada.
 
@@ -265,7 +265,7 @@ Parar o processamento de AutoIP
 UINT nx_auto_ip_stop(NX_AUTO_IP *auto_ip_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço para o protocolo AutoIP numa instância autoIP previamente criada e iniciada. Este serviço é normalmente utilizado quando o endereço IP é alterado via DHCP ou manualmente para um endereço não AutoIP.
 

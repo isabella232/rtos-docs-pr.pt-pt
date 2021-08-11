@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 9cbb65946c45bfbc476091f7c604346e839a42fc
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: cc08f7c0dceb84d5843e25384275557d2871e3546d90579aab006119a2d9980c
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825897"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797522"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-mqtt-client-services"></a>Capítulo 3 - Descrição dos serviços de clientes Azure RTOS NetX Duo MQTT
 
@@ -22,8 +22,8 @@ Na secção "Valores de Retorno" nas seguintes descrições da API, os valores e
 - **nxd_mqtt_client_create Criar** *caso de cliente MQTT*
 - **nxd_mqtt_client_will_message_set** *Definir a mensagem de testamento*
 - **nxd_mqtt_client_client_login_set** *Definir nome de utilizador e palavra-passe do cliente MQTT*
-- **nxd_mqtt_client_connect** *Ligue o Cliente MQTT ao corretor*
-- **nxd_mqtt_client_secure_connect** *Ligue o cliente MQTT ao corretor com segurança TLS*
+- **nxd_mqtt_client_connect** *Ligação cliente MQTT ao corretor*
+- **nxd_mqtt_client_secure_connect** *Ligação cliente MQTT ao corretor com segurança TLS*
 - **nxd_mqtt_client_publish** *publicar uma mensagem através do corretor.*
 - **nxd_mqtt_client_subscribe** *Subscreva um tópico*
 - **nxd_mqtt_client_unsubscribe** *Desubscreva-se de um tópico*
@@ -48,7 +48,7 @@ UINT nxd_mqtt_client_create(NXD_MQTT_CLIENT *client_ptr,
     VOID *memory_ptr, ULONG memory_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância do Cliente MQTT na instância IP especificada. A cadeia *client_id* é transmitida para o servidor durante a fase de ligação MQTT como o Identificador de *Cliente (ClientId)*. Também cria os recursos necessários da ThreadX (linha de tarefa do Cliente MQTT, mutex, grupo de bandeira de evento e tomada TCP).
 
@@ -115,7 +115,7 @@ UINT nxd_mqtt_client_will_message_set(NXD_MQTT_CLIENT
     UINT will_QoS);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o tópico de testamento opcional e enviará mensagem antes que o cliente se conecte ao servidor. O tópico deve ser a cadeia codificada UTF-8.
 
@@ -174,7 +174,7 @@ UINT nxd_mqtt_client_login_set(NXD_MQTT_CLIENT *client_ptr,
     UINT password_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o nome de utilizador e a palavra-passe, que é utilizado durante a fase de ligação MQTT para iniciar sessão com efeitos de autenticação.
 
@@ -216,7 +216,7 @@ transmitted to the server during MQTT connection. */
 
 ## <a name="nxd_mqtt_client_connect"></a>nxd_mqtt_client_connect
 
-Ligue o Cliente MQTT ao corretor
+Ligação Cliente MQTT ao corretor
 
 ### <a name="prototype"></a>Prototype
 
@@ -226,7 +226,7 @@ UINT nxd_mqtt_client_connect(NXD_MQTT_CLIENT *client_ptr,
     UINT keepalive, UINT clean_session, ULONG wait_option));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma ligação com o corretor. Primeiro liga uma tomada TCP e depois faz uma ligação TCP. Assumindo que é bem sucedido, cria um temporizador se a funcionalidade MQTT manter viva estiver ativada. Em seguida, conecta-se com o servidor MQTT (corretor).
 
@@ -284,7 +284,7 @@ status = nxd_mqtt_client_connect(&my_client, &broker_address,
 
 ## <a name="nxd_mqtt_client_secure_connect"></a>nxd_mqtt_client_secure_connect
 
-Ligue o cliente MQTT ao corretor com a segurança TLS
+Ligação Cliente MQTT para o corretor com segurança TLS
 
 ### <a name="prototype"></a>Prototype
 
@@ -300,7 +300,7 @@ UINT nxd_mqtt_client_secure_connect(NXD_MQTT_CLIENT
     UINT clean_session, ULONG wait_option));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é idêntico ao ***nxd_mqtt_client_connect*** exceto que a ligação passa pela camada TLS em vez de TCP. Portanto, a comunicação entre o cliente e o corretor está assegurada.
 
@@ -397,7 +397,7 @@ UINT nxd_mqtt_client_publish(NXD_MQTT_CLIENT *client_ptr,
     UINT retain, UINT QoS, ULONG timeout);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço publica uma mensagem através do corretor. A publicação de mensagens QoS de nível 2 ainda não é suportada.
 
@@ -456,7 +456,7 @@ UINT nxd_mqtt_client_subscribe(NXD_MQTT_CLIENT
     UINT topic_name_length, UINT QoS);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço subscreve um tópico específico. A subscrição de mensagens QoS de nível 2 ainda não está suportada.
 
@@ -509,7 +509,7 @@ UINT nxd_mqtt_client_unsubscribe(NXD_MQTT_CLIENT
     UINT topic_name_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço não se subscreve de um tópico.
 
@@ -559,7 +559,7 @@ UINT nxd_mqtt_client_receive_notify_set(NXD_MQTT_CLIENT
     UINT message_count));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma função de retorno com o cliente MQTT. Ao receber uma mensagem publicada pelo corretor, o cliente MQTT armazena a mensagem na fila de receção. Se a função de retorno estiver definida, a função de retorno é invocada para notificar a aplicação de que uma mensagem está pronta para ser recuperada. A função de notificação de receção leva um ponteiro para o bloco de controlo do cliente MQTT, e uma *message_count* indicando o número de mensagens disponíveis na fila de receção. Note que o número pode alterar-se entre a notificação recebida e quando a aplicação recupera estas mensagens, uma vez que novas mensagens podem ter chegado no intervalo.
 
@@ -617,7 +617,7 @@ UINT nxd_mqtt_client_message_get(NXD_MQTT_CLIENT
     UINT message_buffer_size, UINT *actual_message_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera uma mensagem publicada pelo corretor. Todas as mensagens recebidas são armazenadas na fila de receção. A aplicação utiliza este serviço para recuperar estas mensagens. Esta chamada não está a bloquear. Se a fila de receção estiver vazia, este serviço retorna ***NXD_MQTT_NO_MESSAGE** _. Uma aplicação que deseje ser notificada da mensagem recebida pode ligar para o serviço _ *_nxd_mqtt_client_receive_notify_set_** para registar uma função de retorno de receção.
 
@@ -688,7 +688,7 @@ UINT nxd_mqtt_client_disconnect_notify_set(
     VOID(*disconnect_notify)(NXD_MQTT_CLIENT* client_ptr));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista uma função de retorno com o cliente MQTT. Quando o MQTT deteta a ligação ao corretor, chama esta função de notificação para alertar a aplicação. Portanto, a aplicação pode usar esta função de retorno para detetar uma ligação perdida, e para ser capaz de restabelecer a ligação com o corretor.
 
@@ -732,7 +732,7 @@ Desconecte o cliente MQTT do corretor
 UINT nxd_mqtt_client_disconnect(NXD_MQTT_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desliga o cliente do corretor. Note que as mensagens na fila de receção são libertadas. As mensagens com QoS 1 na fila de transmissão não são divulgadas. Após a reconectação do cliente ao servidor, as mensagens QoS 1 podem ser processadas, a menos que o cliente se conecte ao servidor com *clean_session* bandeira definida para ***NX_TRUE***.
 
@@ -774,7 +774,7 @@ Eliminar a instância do cliente MQTT
 UINT nxd_mqtt_client_delete(NXD_MQTT_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina a instância do cliente MQTT e liberta recursos internos. Este serviço desliga automaticamente o cliente do corretor se ainda estiver ligado. As mensagens ainda não transmitidas ou não foram reconhecidas são libertadas. As mensagens recebidas mas não recuperadas pela aplicação também são divulgadas.
 

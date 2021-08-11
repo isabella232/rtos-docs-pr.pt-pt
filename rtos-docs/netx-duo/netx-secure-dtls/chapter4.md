@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: e795a5fa35a4590e508c7fe2eec53f5494809657
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 45966e7c8ea9be18bf294e8a7540e7226e803f29ae4f3ad3faaa29e4939c2ed8
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825688"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801852"
 ---
 # <a name="chapter-4-description-of-azure-rtos-netx-secure-dtls-services"></a>Capítulo 4: Descrição dos serviços Azure RTOS NetX Secure DTLS
 
@@ -64,7 +64,7 @@ UINT nx_secure_dtls_client_session_start(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma sessão de Cliente DTLS, conectando-se ao servidor no endereço IP fornecido e na porta UDP, utilizando a tomada UDP fornecida para comunicações de rede.
 
@@ -220,7 +220,7 @@ UINT  nx_secure_dtls_packet_allocate(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui uma NX_PACKET para a sessão DTLS ativa especificada a partir do NX_PACKET_POOL especificado. Este serviço deve ser chamado pela aplicação para atribuir pacotes de dados a serem enviados através de uma ligação DTLS. A sessão DTLS deve ser inicializada antes de ligar para este serviço.
 
@@ -279,7 +279,7 @@ UINT  nx_secure_dtls_psk_add(NX_SECURE_DTLS_SESSION *session_ptr,
                             hint_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma chave pré-partilhada (PSK), a sua cadeia de identidade e uma dica de identidade para um bloco de controlo DTLS Session. O PSK é utilizado em vez de um certificado digital quando as cifrasuites PSK são ativadas e utilizadas.
 
@@ -347,7 +347,7 @@ UINT  nx_secure_dtls_server_create(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância de um servidor DTLS para lidar com pedidos DTLS de entrada numa determinada porta UDP. Devido ao facto de a UDP ser apátrida, os pedidos do DTLS de vários clientes podem entrar numa única porta enquanto outras sessões de DTLS estão ativas. Assim, o servidor é necessário para manter sessões ativas e encaminhar corretamente as mensagens recebidas para o manipulador adequado.
 
@@ -546,7 +546,7 @@ Liberte os recursos utilizados por um Servidor DTLS Seguro NetX
 UINT  nx_secure_dtls_server_delete(NX_SECURE_DTLS_SERVER *server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço liberta os recursos atribuídos a uma instância do Servidor DTLS, incluindo a tomada interna do UDP utilizada pelo servidor.
 
@@ -724,7 +724,7 @@ UINT  nx_secure_dtls_server_local_certificate_add(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona um certificado de identidade do servidor local a uma instância do Servidor DTLS. Pelo menos um certificado de identidade é necessário para que os clientes se conectem a um servidor DTLS a menos que seja utilizado um mecanismo de autenticação alternativo (por exemplo, Chaves Pré-Partilhadas).
 
@@ -829,7 +829,7 @@ UINT  nx_secure_dtls_server_local_certificate_remove(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove um certificado de identidade do servidor local de uma instância do Servidor DTLS. Pelo menos um certificado de identidade é necessário para que os clientes se conectem a um servidor DTLS a menos que seja utilizado um mecanismo de autenticação alternativo (por exemplo, Chaves Pré-Partilhadas).
 
@@ -939,7 +939,7 @@ UINT  nx_secure_dtls_server_notify_set(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço pode ser utilizado para adicionar rotinas de chamada de notificação opcionais a um servidor DTLS. Qualquer um dos parâmetros de retorno pode ser passado como NX_NULL se apenas uma chamada for desejada.
 
@@ -1057,7 +1057,7 @@ UINT  nx_secure_dtls_server_psk_add(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma chave pré-partilhada (PSK), a sua cadeia de identidade e uma sugestão de identidade para um bloco de controlo do Servidor DTLS. O PSK é utilizado em vez de um certificado digital quando as cifrasuites PSK são ativadas e utilizadas.
 
@@ -1115,7 +1115,7 @@ UINT  nx_secure_dtls_server_session_send(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pacote de dados sobre uma sessão estabelecida do DTLS Server para um anfitrião remoto do Cliente DTLS. A sessão utilizada é obtida na rotina de chamada receive_notify fornecida a nx_secure_dtls_session_create.
 
@@ -1281,7 +1281,7 @@ UINT  nx_secure_dtls_server_session_start(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma sessão do DTLS Server executando o aperto de mão DTLS do lado do servidor quando um Cliente DTLS remoto se ligou ao servidor e solicitou uma ligação DTLS.
 
@@ -1474,7 +1474,7 @@ UINT  nx_secure_dtls_server_start(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia um Servidor DTLS. Após a revolução da chamada, o servidor está ativo e começará a processar pedidos de entrada de clientes DTLS. A instância do servidor deve ter sido configurada com o *serviço nx_secure_dtls_server_create*.
 
@@ -1655,7 +1655,7 @@ Pare uma instância ativa do Servidor DTLS do NetX Secure
 UINT  nx_secure_dtls_server_stop(NX_SECURE_DTLS_SERVER *server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço impede que um Servidor DTLS ouça na porta UDP configurante e reinicie todas as sessões DTLS associadas, interrompendo quaisquer comunicações DTLS em curso.
 
@@ -1841,7 +1841,7 @@ UINT  nx_secure_dtls_server_trusted_certificate_add(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona um certificado ca ou CA intermédio fidedigno a uma instância do Servidor DTLS e atribuído a todas as sessões internas do servidor DTLS. Isto só é necessário se a autenticação do certificado do cliente X.509 for ativada utilizando *nx_secure_dtls_server_x509_client_verify_configure*. O certificado adicional será usado para verificar os certificados do Cliente X.509.
 
@@ -1944,7 +1944,7 @@ UINT  nx_secure_dtls_server_trusted_certificate_remove(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove um certificado de CA fidedigno de uma instância do DTLS Server. Os certificados de CA fidedignos só são necessários para um Servidor DTLS para o qual a verificação do certificado de cliente X.509 foi ativada através da chamada *nx_secure_dtls_server_x509_client_verify_configure*.
 
@@ -2054,7 +2054,7 @@ UINT nx_secure_dtls_server_x509_client_verify_configure(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura um Servidor DTLS para solicitar e verificar certificados de cliente DTLS. Esta função opcional é utilizada quando são desejados certificados X.509 para a autenticação do cliente em vez de outros mecanismos (por exemplo, uma Chave Pré-Partilhada).
 
@@ -2184,7 +2184,7 @@ UINT nx_secure_dtls_server_x509_client_verify_disable(
                            NX_SECURE_DTLS_SERVER *server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desativa a verificação do certificado de cliente X.509 num Servidor DTLS. O serviço não tem efeito se a verificação do certificado do Cliente X.509 não estiver ativada.
 
@@ -2301,7 +2301,7 @@ UINT  nx_secure_dtls_session_client_info_get(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve a informação de rede sobre um Cliente DTLS que está ligado a uma sessão particular do DTLS Server. A informação devolvida consiste no endereço IP do cliente remoto e na porta UDP, bem como na porta do servidor local à qual o cliente está ligado.
 
@@ -2502,7 +2502,7 @@ UINT nx_secure_dtls_session_create(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria e configura uma sessão DTLS. Geralmente, isto será usado para criar sessões de Cliente DTLS, uma vez que as sessões do DTLS Server são geridas com o mecanismo DTLS Server (ver *nx_secure_dtls_server_create),* mas pode haver casos em que uma aplicação precisa de criar uma única instância de sessão de Sessão DTLS Server autónoma, caso em que este serviço pode ser utilizado <sup>7</sup>.
 
@@ -2659,7 +2659,7 @@ UINT nx_secure_dtls_session_delete(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma sessão DTLS, libertando todos os recursos que foram atribuídos quando foi criado.
 
@@ -2791,7 +2791,7 @@ UINT nx_secure_dtls_session_end(NX_SECURE_DTLS_SESSION *dtls_session,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço termina uma sessão DTLS ativa enviando um alerta TLS/DTLS CloseNotify para o anfitrião remoto. O endereço IP e a porta utilizados são os utilizados na chamada anterior para nx_secure_dtls_session_send.
 
@@ -2933,7 +2933,7 @@ UINT  nx_secure_dtls_session_local_certificate_add(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona um certificado de identidade local a uma instância de Sessão DTLS. Em geral, este serviço será utilizado quando uma sessão do Cliente DTLS necessitar de fornecer um certificado de identidade a um servidor remoto. Esta é uma configuração opcional para DTLS, pelo que um certificado não é geralmente necessário para clientes DTLS. Um certificado de identidade requer uma chave privada associada.
 
@@ -3057,7 +3057,7 @@ UINT  nx_secure_dtls_session_local_certificate_remove(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove um certificado de identidade local de uma instância de Sessão DTLS utilizando um número de identificação de certificado (atribuído quando o certificado foi adicionado com nx_secure_dtls_session_local_certificate_add) ou o campo X.509 CommonName.
 
@@ -3190,7 +3190,7 @@ UINT nx_secure_dtls_session_receive(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve os dados da aplicação recebidos por uma Sessão DTLS ativa. A Sessão DTLS pode ser uma sessão de Servidor DTLS (gerida por uma instância do DTLS Server) ou uma sessão de Cliente DTLS. O pacote devolvido pode ser processado utilizando qualquer um dos serviços NX_PACKET API (consulte a documentação NetX para obter mais informações).
 
@@ -3329,7 +3329,7 @@ Dados claros numa instância de Sessão DTLS Segura netX
 UINT nx_secure_dtls_session_reset(NX_SECURE_DTLS_SESSION *dtls_session);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reinicia uma sessão de DTLS, limpando todos os dados criptográficos efémeros e permitindo que a estrutura seja reutilizada para uma nova sessão. Os dados persistentes (por exemplo, lojas de certificados) são mantidos de modo a que nx_secure_dtls_session_create não seja chamado repetidamente.
 
@@ -3465,7 +3465,7 @@ UINT  nx_secure_dtls_session_send(NX_SECURE_DTLS_SESSION *session_ptr,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pacote de dados sobre uma Sessão DTLS estabelecida para um anfitrião DTLS remoto no endereço IP e porta dado. A sessão utilizada é uma sessão ativa do Cliente DTLS. Note que o endereço IP e a porta são fornecidos devido à natureza apátrida da UDP, mas geralmente devem corresponder ao endereço e porto utilizados para iniciar a sessão em nx_secure_dtls_session_start.
 
@@ -3604,7 +3604,7 @@ UINT  nx_secure_dtls_session_trusted_certificate_add(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona um certificado CA ou CA X.509 intermédio fidedigno a uma instância de Sessão DTLS. Um Cliente DTLS requer pelo menos um certificado fidedigno para validar certificados de servidor remoto, a menos que seja utilizado um mecanismo alternativo de autenticação (por exemplo, Chaves Pré-Partilhadas). Um certificado de confiança não costuma ter uma chave privada.
 
@@ -3726,7 +3726,7 @@ UINT  nx_secure_dtls_session_trusted_certificate_remove(
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço remove um certificado de CA fidedigno de uma instância DTLS Session utilizando um número de identificação de certificado (atribuído quando o certificado foi adicionado com nx_secure_dtls_session_trusted_certificate_add) ou o campo X.509 CommonName.
 

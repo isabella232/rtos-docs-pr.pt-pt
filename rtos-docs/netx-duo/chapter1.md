@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 91dfd0e62cb565f677faa7d52fe22abc1f0e19a1
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: c9b5e0ea82319bd369318cca753cf1db222ca29b0b4db3da150642ca007f1191
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826222"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116789870"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-duo"></a>Capítulo 1 - Introdução ao Azure RTOS NetX Duo
 

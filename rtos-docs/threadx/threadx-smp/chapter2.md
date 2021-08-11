@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: cc352ebd7965c84c341d25dfa7bff2671dfb5e66
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: d0a63f3798adbc634a43cdda7e9d44941de655d9333f9ae0fb4181f1a6c0566e
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550257"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801908"
 ---
 # <a name="chapter-2---installation--use-of-azure-rtos-threadx-smp"></a>Capítulo 2 - Instalação & Utilização do SMP Azure RTOS ThreadX
 
@@ -19,7 +19,7 @@ Este capítulo contém uma descrição de várias questões relacionadas com a i
 
 ## <a name="host-considerations"></a>Considerações de Anfitrião
 
-O software incorporado é geralmente desenvolvido em computadores anfitriões Windows ou Linux (Unix). Após a compilação da aplicação, ligada e localizada no anfitrião, é descarregada para o hardware alvo para execução.
+O software incorporado é geralmente desenvolvido em computadores de Windows ou Linux (Unix). Após a compilação da aplicação, ligada e localizada no anfitrião, é descarregada para o hardware alvo para execução.
 
 Normalmente, o download do alvo é feito a partir do depurar da ferramenta de desenvolvimento. Após o download, o depurante é responsável por fornecer controlo de execução de alvos (ir, parar, quebrar, etc.) bem como aceder aos registos de memória e processador.
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: cde19a0e84f369f1199ea4027fa09e6bd038e837
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: faf9d84b8b2bce12a99a72198a396b121055a8eef975349f53833a180092e0a3
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825909"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797539"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo-mqtt-client"></a>Capítulo 2 - Instalação e utilização do cliente Azure RTOS NetX Duo MQTT
 
@@ -47,6 +47,7 @@ Existem várias opções de configuração para a construção do cliente MQTT p
 A definição deste símbolo requer a instalação do módulo NetX Secure TLS.
 *NX_SECURE_ENABLE* não é ativado por defeito.**
 - **NXD_MQTT_REQUIRE_TLS**: Definida, a aplicação deve utilizar OTS para ligar ao corretor MQTT. Esta funcionalidade requer *NX_SECURE_ENABLE* definidos. Por padrão, este símbolo não está definido.
+- **NXD_MQTT_MAXIMUM_TRANSMIT_QUEUE_DEPTH**: Ativada, ativada a profundidade da fila de transmissão MQTT. Deve ser inteiro positivo.
 - **NXD_MQTT_MAX_TOPIC_NAME_LENGTH:** Depreciado.
 - **NXD_MQTT_MAX_MESSAGE_LENGTH:** Depreciado.
 - **NXD_MQTT_KEEPALIVE_TIMER_RATE**: Define a taxa de temporizador MQTT, em carraças temporais ThreadX. Este temporizador é usado para acompanhar o tempo desde que a última mensagem de controlo MQTT foi enviada, e envia uma mensagem MQTT PINGREQ antes que o tempo de vida expire. Este temporizador é ativado se o cliente ligar ao corretor com um conjunto de valor do temporizador vivo. O valor predefinido é TX_TIMER_TICKS_PER_SECOND, que é um temporizador de um segundo.

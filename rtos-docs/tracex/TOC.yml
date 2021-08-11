@@ -29,13 +29,13 @@
       href: chapter10.md
     - name: Ch. 11 - Formato do tampão de vestígios de evento
       href: chapter11.md
-    - name: 'Aplicação: A - Amostra tx_port.h'
+    - name: Aplicativo. A - Amostra tx_port.h
       href: appendix-a.md
-    - name: 'Aplicação: B - O Ficheiro tx_trace.h'
+    - name: Aplicativo. B - O Ficheiro tx_trace.h
       href: appendix-b.md
-    - name: 'Aplicação: C - Utilitários de linha de comando DOS'
+    - name: Aplicativo. C - Utilitários de linha de comando DOS
       href: appendix-c.md
-    - name: 'Aplicação: D - Dumping e tampão de vestígios'
+    - name: Aplicativo. D - Dumping e tampão de vestígios
       href: appendix-d.md
 - name: Baixar TraceX
   href: 'https://aka.ms/azrtos-tracex-installer'
@@ -43,7 +43,7 @@
   items:
     - name: Defender para IoT - RTOS (pré-visualização)
       href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
-- name: Componentes RTOS microsoft Azure
+- name: Microsoft Azure Componentes RTOS
   items:
     - name: Microsoft Azure RTOS
       href: ../index.yml
