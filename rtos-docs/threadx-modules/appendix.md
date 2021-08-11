@@ -6,18 +6,18 @@ ms.author: philmea
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c2324a2057bf2ddb2d255b2ff611d34fc664560a
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: bc4721431810d72a72d5bc69e8382378cb7f95935a8ac755c25a8cff985cd185
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549815"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799375"
 ---
 # <a name="appendix---port-specific-examples"></a>Apêndice - Exemplos específicos do porto
 
 ## <a name="arm11-processor"></a>Processador ARM11
 
-### <a name="arm11-using-gcc"></a>ARM11 usando GCC
+### <a name="arm11-using-gcc"></a>ARM11 utilizando GCC
 
 #### <a name="module-preamble-for-arm11-using-gcc"></a>Preâmbulo do módulo para ARM11 utilizando GCC
 
@@ -67,14 +67,14 @@ _txm_module_preamble:
     .word       0                                               @ Reserved 15
 ```
 
-#### <a name="module-properties-for-arm11-using-gcc"></a>Propriedades do módulo para ARM11 usando GCC
+#### <a name="module-properties-for-arm11-using-gcc"></a>Propriedades do módulo para ARM11 utilizando GCC
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | [23-0] | 0 | Reservado
 | [31-24] | <br />0x00<br />0x01<br />0x02 | **ID do compilador**<br />IAR<br />ARM<br />GNU |
 
-#### <a name="module-linker-for-arm11-using-gcc"></a>Linker do módulo para ARM11 usando GCC
+#### <a name="module-linker-for-arm11-using-gcc"></a>Linker do módulo para ARM11 utilizando GCC
 
 ```c
 MEMORY
@@ -288,9 +288,9 @@ SECTIONS
 }
 ```
 
-#### <a name="building-modules-for-arm11-using-gcc"></a>Módulos de construção para ARM11 usando GCC
+#### <a name="building-modules-for-arm11-using-gcc"></a>Módulos de construção para ARM11 utilizando GCC
 
-Um exemplo simples de linha de comando para a construção de um módulo ARM11 utilizando gCC:
+Um exemplo simples de linha de comando para a construção de um módulo ARM11 utilizando GCC:
 
 ```dos
 arm-none-eabi-gcc -c -g -mcpu=arm1136j-s -msingle-pic-base -fPIC -mpic-register=r9 txm_module_preamble.S
@@ -299,7 +299,7 @@ arm-none-eabi-gcc -c -g -mcpu=arm1136j-s -msingle-pic-base -fPIC -mpic-register=
 arm-none-eabi-ld -A arm1136j-s -T demo_threadx_module.ld txm_module_preamble.o gcc_setup.o demo_threadx_module.o txm.a txm.a -o demo_threadx_module.out -M > demo_threadx_module.map
 ```
 
-#### <a name="thread-extension-definition-for-arm11-using-gcc"></a>Definição de extensão de fio para ARM11 usando GCC
+#### <a name="thread-extension-definition-for-arm11-using-gcc"></a>Definição de extensão de fio para ARM11 utilizando GCC
 
 ```c
 #define TX_THREAD_EXTENSION_2   VOID    *tx_thread_module_instance_ptr;  \
@@ -310,7 +310,7 @@ arm-none-eabi-ld -A arm1136j-s -T demo_threadx_module.ld txm_module_preamble.o g
 
 Não é dado nenhum exemplo.
 
-#### <a name="attributes-for-external-memory-enable-api-for-arm11-using-gcc"></a>Atributos para memória externa permitem a API para ARM11 usando GCC
+#### <a name="attributes-for-external-memory-enable-api-for-arm11-using-gcc"></a>Os atributos para memória externa permitem a API para ARM11 utilizando GCC
 
 Esta funcionalidade não está ativada nesta porta.
 
@@ -379,7 +379,7 @@ __txm_module_preamble
 
 #### <a name="module-properties-for-arm11-using-ac5"></a>Propriedades do módulo para ARM11 usando AC5
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | [23-0] | 0 | Reservado
 | [31-24] | <br />0x00<br />0x01<br />0x02 | **ID do compilador**<br />IAR<br />ARM<br />GNU |
@@ -490,7 +490,7 @@ __txm_module_preamble
 
 #### <a name="module-properties-for-cortex-a7-using-ac5"></a>Propriedades do módulo para Cortex-A7 usando AC5
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | [23-1] | 0 | Reservado
@@ -632,7 +632,7 @@ __txm_module_preamble
 
 #### <a name="module-properties-for-cortex-m3-using-ac5"></a>Propriedades do módulo para Cortex-M3 usando AC5
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -761,7 +761,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-cortex-m3-using-ac6"></a>Propriedades do módulo para Cortex-M3 usando AC6
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -875,7 +875,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-cortex-m3-using-gnu"></a>Propriedades do módulo para Cortex-M3 usando GNU
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -1225,7 +1225,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-cortex-m3-using-iar"></a>Propriedades do módulo para Cortex-M3 usando IAR
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -1402,7 +1402,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-cortex-m33-using-ac6"></a>Propriedades do módulo para Cortex-M33 usando AC6
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -1472,7 +1472,7 @@ Um espaço de trabalho exemplo é fornecido. Construa a biblioteca ThreadX, a bi
 
 #### <a name="module-properties-for-cortex-m33-using-gnu"></a>Propriedades do módulo para Cortex-M33 usando GNU
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -1577,7 +1577,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-cortex-m33-using-iar"></a>Propriedades do módulo para Cortex-M33 usando IAR
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -1756,7 +1756,7 @@ __txm_module_preamble
 
 #### <a name="module-properties-for-cortex-m4-using-ac5"></a>Propriedades do módulo para Cortex-M4 usando AC5
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -1885,7 +1885,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-cortex-m4-using-ac6"></a>Propriedades do módulo para Cortex-M4 usando AC6
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -1998,7 +1998,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-cortex-m4-using-gnu"></a>Propriedades do módulo para o Cortex-M4 utilizando o GNU
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -2349,7 +2349,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-cortex-m4-using-iar"></a>Propriedades do módulo para Cortex-M4 usando IAR
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -2529,7 +2529,7 @@ __txm_module_preamble
 
 #### <a name="module-properties-for-cortex-m7-using-ac5"></a>Propriedades do módulo para Cortex-M7 usando AC5
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -2586,7 +2586,7 @@ armlink -d -o demo_threadx_module_manager.axf --elf --ro 0x00000000 --first tx_i
 
 #### <a name="module-properties-for-cortex-m7-using-ac6"></a>Propriedades do módulo para Cortex-M7 usando AC6
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -2636,7 +2636,7 @@ O módulo sempre leu o acesso à memória partilhada.
 
 #### <a name="module-properties-for-cortex-m7-using-gnu"></a>Propriedades do módulo para Cortex-M7 usando GNU
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -2986,7 +2986,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-cortex-m7-using-iar"></a>Propriedades do módulo para Cortex-M7 usando IAR
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -3148,7 +3148,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-cortex-r4-using-ac6"></a>Propriedades do módulo para Cortex-R4 usando AC6
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | [23-1] | 0 | Reservado
@@ -3277,7 +3277,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-cortex-r4-using-iar"></a>Propriedades do módulo para Cortex-R4 usando IAR
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | [23-1] | 0 | Reservado
@@ -3425,7 +3425,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-mcf544xx-using-ghs"></a>Propriedades de módulos para MCF544xx usando GHS
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MMU<br />Proteção MMU (deve ter o modo de utilizador selecionado) |
@@ -3589,7 +3589,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-rx63-using-iar"></a>Propriedades do módulo para RX63 usando IAR
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |
@@ -3786,7 +3786,7 @@ __txm_module_preamble:
 
 #### <a name="module-properties-for-rx65n-using-iar"></a>Propriedades do módulo para RX65N usando IAR
 
-| Pouco | Valor | Significado |
+| Bit | Valor | Significado |
 |---|---|---|
 | 0 | 0<br />1 | Execução de modo privilegiado<br />Execução do modo de utilizador |
 | 1 | 0<br />1 | Sem proteção MPU<br />Proteção MPU (deve ter o modo de utilizador selecionado) |

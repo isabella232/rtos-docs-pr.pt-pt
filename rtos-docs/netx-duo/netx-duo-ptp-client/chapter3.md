@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b4cdeca81c157934e35a219cd5535ec38f2c0746
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 686db68181e3712f9f6a09a9f471626eff610fd7f45ec5b83ba56f8b7aa378cc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825802"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798015"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-ptp-client-services"></a>Capítulo 3 - Descrição dos Serviços de Clientes Azure RTOS NetX Duo PTP
 
@@ -38,7 +38,7 @@ UINT nx_ptp_client_create(
     VOID *clock_callback_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância do cliente PTP.
 
@@ -86,7 +86,7 @@ Elimina uma instância de cliente PTP.
 UINT nx_ptp_client_delete(NX_PTP_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância do cliente PTP.
 
@@ -130,7 +130,7 @@ UINT nx_ptp_client_master_info_get(
     UCHAR *time_source);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 Este serviço obtém informações do relógio principal. O bloco de controlo principal é passado para a aplicação do utilizador através da função de retorno do evento.
 
 ### <a name="input-parameters"></a>Parâmetros de Entrada
@@ -205,7 +205,7 @@ VOID nx_ptp_client_packet_timestamp_notify(
     NX_PTP_TIME *timestamp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 Este serviço notifica o cliente PTP de que o pacote é transmitido com a hora de jogo. Este serviço foi concebido para o controlador de rede e invocado quando o pacote é transmitido. A estamp de tempo é geralmente gerada por hardware.
 
 ### <a name="input-parameters"></a>Parâmetros de Entrada
@@ -214,7 +214,7 @@ Este serviço notifica o cliente PTP de que o pacote é transmitido com a hora d
 * **timestamp_ptr** Ponteiro para o tempotamp do pacote PTP
 
 ### <a name="return-values"></a>Valores de devolução
-Nenhum
+Nenhuma
 
 ### <a name="allowed-from"></a>Permitido a partir de
 Fios
@@ -240,7 +240,7 @@ UINT nx_ptp_client_soft_clock_callback(
     VOID *callback_data);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 Esta função de retorno serve como uma fonte de relógio de baixa resolução simulada para PTP. Esta rotina é fornecida como referência e não pode ser utilizada para a produção.
 
 ### <a name="input-parameters"></a>Parâmetros de Entrada
@@ -290,7 +290,7 @@ UINT nx_ptp_client_start(
     VOID *event_callback_data)
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 Este serviço inicia uma instância de cliente PTP previamente criada.
 
 ### <a name="input-parameters"></a>Parâmetros de Entrada
@@ -328,7 +328,7 @@ Pare o cliente PTP.  Depois de o cliente PTP ser parado, não processa pacotes d
 UINT nx_ptp_client_stop(NX_PTP_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 Este serviço para uma instância de cliente ptp previamente criada e iniciada.
 
 ### <a name="input-parameters"></a>Parâmetros de Entrada
@@ -362,7 +362,7 @@ UINT nx_ptp_client_sync_info_get(
     SHORT *utc_offset);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 Este serviço obtém informações da mensagem Sync. O bloco de controlo Sync é passado para a aplicação do utilizador através da função de retorno do evento.
 
 ### <a name="input-parameters"></a>Parâmetros de Entrada
@@ -410,7 +410,7 @@ UINT nx_ptp_client_time_get(
     NX_PTP_TIME *time_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 Este serviço obtém o valor atual do relógio PTP. Está disponível independentemente do cliente PTP estar sincronizado com o relógio principal ou não.
 
 ### <a name="input-parameters"></a>Parâmetros de Entrada
@@ -442,7 +442,7 @@ UINT nx_ptp_client_time_set(
     NX_PTP_TIME *time_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 Este serviço define o valor atual do relógio PTP. Deve ser invocado antes do início do cliente PTP.
 
 ### <a name="input-parameters"></a>Parâmetros de Entrada
@@ -476,7 +476,7 @@ UINT nx_ptp_client_utility_convert_time_to_date(
     NX_PTP_DATE_TIME *date_time_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 Este serviço converte a hora ptp para uma data e hora UTC.
 
 ### <a name="input-parameters"></a>Parâmetros de Entrada
@@ -513,7 +513,7 @@ UINT nx_ptp_client_utility_time_diff(
     NX_PTP_TIME *result_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 Este serviço calcula a diferença entre duas vezes PTP.
 
 ### <a name="input-parameters"></a>Parâmetros de Entrada

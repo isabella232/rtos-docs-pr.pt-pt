@@ -6,16 +6,16 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 135530f11f8f54acd6d093a05332056dbdc32be3
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6abaa778da6203d0df367894165cb29ca629ab5e24403a35af1995f032cf0d4c
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826671"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798814"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-pop3-client"></a>Capítulo 1 - Introdução ao Cliente Azure RTOS NetX POP3
 
-O Protocolo dos Correios Versão 3 (POP3) é um protocolo projetado para fornecer um sistema de transporte de correio para pequenas estações de trabalho para aceder a gotas de correio do Cliente em Servidores POP3 para recuperar o correio do Cliente. POP3 utiliza serviços de Protocolo de Controlo de Transmissão (TCP) para realizar transferência de correio. Por causa disso, pop3 é um protocolo de transferência de conteúdo altamente confiável.
+O Post Office Protocol Version 3 (POP3) é um protocolo concebido para fornecer um sistema de transporte de correio eletrónico para pequenas estações de trabalho para aceder a gotas de correio do Cliente em Servidores POP3 para recuperar o correio do Cliente. POP3 utiliza serviços de Protocolo de Controlo de Transmissão (TCP) para realizar transferência de correio. Por causa disso, pop3 é um protocolo de transferência de conteúdo altamente confiável.
 
 No entanto, o POP3 não fornece operações extensivas no manuseamento de correio. Normalmente, o correio é descarregado pelo Cliente e depois eliminado da gota de correio do Servidor.
 

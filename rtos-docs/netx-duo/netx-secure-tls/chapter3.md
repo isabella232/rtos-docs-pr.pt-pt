@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c28ad0255f99986a4ddfe5faefad81e70840e5e0
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 711195e60771ebd467c69df49ef7665f32e13a17c21ca839404e829449cf1401
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825687"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797980"
 ---
 # <a name="chapter-3---functional-description-of-azure-rtos-netx-secure"></a>Capítulo 3 - Descrição funcional do Azure RTOS NetX Secure
 
@@ -147,7 +147,7 @@ Em ambos os modos, o NetX Secure TLS requer a criação e configuração de uma 
 
 Além de uma tomada TCP, o modo NetX Secure TLS Server requer um *Certificado Digital*, que é um documento utilizado para identificar o servidor TLS ao cliente TLS de ligação, e os certificados correspondentes *Private Key*, normalmente para o algoritmo de encriptação RSA. A norma International Telecommunications Union X.509 especifica o formato de certificado utilizado pela TLS e existem inúmeros utilitários para a criação de certificados digitais X.509.
 
-Para o NetX Secure TLS, o certificado X.509 deve ser codificado bináriamente utilizando o formato de Regras de Codificação (DER) distintos de ASN.1. DER é o formato binário padrão TLS over-the-wire para certificados.
+Para o NetX Secure TLS, o certificado X.509 deve ser codificado bináriamente utilizando o formato Distinguished Encoding Rules (DER) de ASN.1. DER é o formato binário padrão TLS over-the-wire para certificados.
 
 A chave privada associada ao certificado fornecido deve estar em DER-Encoded formato PKCS#1. A chave privada é utilizada apenas no dispositivo e nunca será transmitida através do fio. Mantenha as chaves privadas seguras, pois fornecem a segurança das comunicações TLS!
 
@@ -400,7 +400,7 @@ Existem vários mecanismos que podem fornecer esta camada extra de autenticaçã
 
 Os certificados digitais são o método mais comum para autenticar um hospedeiro remoto em TLS. Essencialmente, um certificado digital é um documento com formatação específica que fornece informações de identidade para um dispositivo numa rede de computador.
 
-O TLS normalmente usa um formato chamado X.509, uma norma desenvolvida pela União Internacional de Telecomunicações, embora outros formatos de certificados possam ser usados se os anfitriões TLS puderem concordar com o formato que está a ser utilizado. X.509 define um formato específico para certificados e várias codificações que podem ser usadas para produzir um documento digital. A maioria dos certificados X.509 utilizados com TLS são codificados usando uma variante de ASN.1, outra norma de telecomunicações. Dentro da ASN.1 existem várias codificações digitais, mas a codificação mais comum para certificados TLS é a norma de codificação distinguida (DER). O DER é um subconjunto simplificado das Regras Básicas de Codificação (BER) as ASN.1 que são concebidas para ser inequívocas, facilitando a análise. Por cima do fio, os certificados TLS são geralmente codificados em DER binário, e este é o formato que o NetX Secure espera para os certificados X.509.
+O TLS normalmente usa um formato chamado X.509, uma norma desenvolvida pela União Internacional de Telecomunicações, embora outros formatos de certificados possam ser usados se os anfitriões TLS puderem concordar com o formato que está a ser utilizado. X.509 define um formato específico para certificados e várias codificações que podem ser usadas para produzir um documento digital. A maioria dos certificados X.509 utilizados com TLS são codificados usando uma variante de ASN.1, outra norma de telecomunicações. Dentro da ASN.1 existem várias codificações digitais, mas a codificação mais comum para certificados TLS é a norma Distinguished Encoding Rules (DER). O DER é um subconjunto simplificado das Regras Básicas de Codificação (BER) as ASN.1 que são concebidas para ser inequívocas, facilitando a análise. Por cima do fio, os certificados TLS são geralmente codificados em DER binário, e este é o formato que o NetX Secure espera para os certificados X.509.
 
 Embora os certificados binários formatados pelo DER sejam utilizados no protocolo TLS real, podem ser gerados e armazenados em várias codificações diferentes, com extensões de ficheiros tais como .pem, .crt e .p12. As diferentes variantes são usadas por diferentes aplicações de diferentes fabricantes, mas geralmente todas podem ser convertidas em DER usando ferramentas amplamente disponíveis.
 
@@ -503,7 +503,7 @@ Os "certificados Root CA" são certificados de assinatura que fornecem a base de
 
 Os certificados digitais são simplesmente ficheiros que contêm dados estruturados codificados utilizando a sintaxe ASN.1. No entanto, existem vários formatos em que os certificados podem ser armazenados e é importante ter o formato certo antes de carregar um certificado numa aplicação NetX Secure.
 
-Os formatos mais comuns para certificados são DER e PEM. DER (para *Regras de Codificação Distintas*, um formato ASN.1) é o formato binário utilizado pela TLS na realização do aperto de mão inicial. PEM (do *Privacy Enhanced Mail)* é uma versão codificada base-64 do formato DER que é adequada para enviar e-mail ou enviar HTTP na web. Diferentes fornecedores utilizam diferentes extensões de nome de ficheiros para certificados, tais como ".pem" ou ".crt" para certificados PEM, e ".der" para certificados DER. Se tiver um certificado e não for claro qual o formato utilizado, a abertura do ficheiro num editor de texto permitir-lhe-á determinar o tipo uma vez que os ficheiros DER são binários codificados, e os ficheiros PEM são texto ASCII regular que começam com o cabeçalho "-----BEGIN CERTIFICATE-----".
+Os formatos mais comuns para certificados são DER e PEM. DER (para *Distinguished Encoding Rules*, um formato ASN.1) é o formato binário utilizado pela TLS na realização do aperto de mão inicial. PEM (do *Privacy Enhanced Mail)* é uma versão codificada base-64 do formato DER que é adequada para enviar e-mail ou enviar HTTP na web. Diferentes fornecedores utilizam diferentes extensões de nome de ficheiros para certificados, tais como ".pem" ou ".crt" para certificados PEM, e ".der" para certificados DER. Se tiver um certificado e não for claro qual o formato utilizado, a abertura do ficheiro num editor de texto permitir-lhe-á determinar o tipo uma vez que os ficheiros DER são binários codificados, e os ficheiros PEM são texto ASCII regular que começam com o cabeçalho "-----BEGIN CERTIFICATE-----".
 
 O NetX Secure requer que o seu certificado esteja em formato DER binário, pelo que terá de converter o seu certificado em formato DER antes de importar. Isto pode ser feito com ferramentas prontamente disponíveis, como o OpenSSL.
 
@@ -518,7 +518,7 @@ openssl rsa -inform PEM -in <private key> -outform DER -out private.key
 ```
 ### <a name="private-keys-and-certificates"></a>Chaves e Certificados Privados
 
-Para os certificados que identifiquem um dispositivo, a chave privada associada deve ser carregada juntamente com o certificado. A chave privada (que pode ser para um dos algoritmos de chave pública como RSA, Diffie-Hellman ou Elliptic-Curve Cryptography) é usada por um servidor TLS para desencriptar o material chave de entrada (o "segredo pré-mestre") de um cliente TLS, autenticando-se assim ao cliente. Para um Cliente TLS, se for fornecido um certificado de identidade (um certificado com a sua chave privada associada) e um servidor solicitar um certificado de cliente, a chave privada é utilizada para autenticar o cliente – no caso da RSA o cliente encripta um símbolo utilizando a chave privada que o servidor então desencripta utilizando a chave pública do cliente, fornecida no certificado de cliente (Diffie-Hellman e ECC
+Para os certificados que identifiquem um dispositivo, a chave privada associada deve ser carregada juntamente com o certificado. A chave privada (que pode ser para um dos algoritmos de chave pública como RSA, Diffie-Hellman ou Elliptic-Curve Cryptography) é usada por um servidor TLS para desencriptar o material chave de entrada (o "segredo pré-mestre") de um cliente TLS, autenticando-se assim ao cliente. Para um Cliente TLS, se for fornecido um certificado de identidade (um certificado com a sua chave privada associada) e um servidor solicitar um certificado de cliente, a chave privada é utilizada para autenticar o cliente – no caso da RSA o cliente encripta um símbolo utilizando a chave privada que o servidor então desencripta utilizando a chave pública do cliente,  fornecida no certificado de cliente (a autenticação Diffie-Hellman e ECC acontece de forma semelhante, mas os detalhes são um pouco diferentes).
 
 Na Segurança NetX, o *nx_secure_x509_certificate_initialize* de serviço é utilizado para rubricar um certificado X.509 (ver secção "Carregar certificados no seu dispositivo" para obter mais informações) e associar opcionalmente uma chave privada a esse certificado.
 
@@ -528,7 +528,7 @@ A tabela seguinte mostra os tipos-chave conhecidos pelo NetX Secure e o identifi
 
 | Identificador                              | Algoritmo | Formato   | Encoding | Valor |
 | --------------------------------------- | --------- | -------- | -------- | ----- |
-| NX_SECURE_X509_KEY_TYPE_NONE            | Nenhum      | N/D      | N/D      | 0x0   |
+| NX_SECURE_X509_KEY_TYPE_NONE            | Nenhuma      | N/D      | N/D      | 0x0   |
 | NX_SECURE_X509_KEY_TYPE_RSA_PKCS1_DER   | RSA       | PKCs #1   | DER      | 0x1   |
 | NX_SECURE_X509_KEY_TYPE_EC_DER          | ECDSA     | RFC 5915 | DER      | 0x2   |
 
@@ -624,7 +624,7 @@ A especificação X.509 descreve uma série de "extensões" que podem ser usadas
 
 As extensões atualmente suportadas estão listadas no quadro seguinte:
 
-| Nome de extensão           | Descrição                                                                   | API relevante                                             |
+| Nome de extensão           | Description                                                                   | API relevante                                             |
 | ------------------------ | ----------------------------------------------------------------------------- | -------------------------------------------------------- |
 | Utilização de Chaves                | Fornece usos aceitáveis para a chave pública de um certificado em um campo de bits         | nx_secure_x509_key_usage_extension_parse           |
 | Utilização Alargada da Chave       | Fornece utilizações aceitáveis adicionais para a chave pública de um certificado utilizando OIDs | nx_secure_x509_extended_key_usage_extension_parse |

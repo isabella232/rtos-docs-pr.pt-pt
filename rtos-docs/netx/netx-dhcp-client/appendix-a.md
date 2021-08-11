@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: be8b5dc4885951bee3dba38af6fe5e21b81aa767
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 4b7286726eb6bfc666ba7a4b9983847da442fe212a45f4b28e184f70cf46e2b4
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826809"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801245"
 ---
 # <a name="appendix-a---description-of-the-restore-state-feature"></a>Apêndice A - Descrição da Funcionalidade de Estado de Restauro
 
@@ -178,7 +178,7 @@ ULONG nx_dhcp_ client_get_record(NX_DHCP *dhcp_ptr,
                                  NX_DHCP_CLIENT_RECORD *record_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço salva o Cliente DHCP em execução na primeira interface ativada para DHCP encontrada na instância do Cliente DHCP para o registo apontado por record_ptr. Isto permite que a aplicação do Cliente DHCP restaure o seu estado de Cliente DHCP depois, por exemplo, de uma energia para baixo e reiniciar.
 
@@ -227,7 +227,7 @@ ULONG nx_dhcp_interface_client_get_record(NX_DHCP *dhcp_ptr,
                                  UINT interface_index,
                                  NX_DHCP_CLIENT_RECORD *record_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço salva o Cliente DHCP em execução na interface especificada para o registo apontado por record_ptr. Isto permite que a aplicação do Cliente DHCP restaure o seu estado de Cliente DHCP depois, por exemplo, de uma energia para baixo e reiniciar.
 
@@ -278,7 +278,7 @@ ULONG nx_dhcp_client_restore_record(NX_DHCP *dhcp_ptr,
                                     NX_DHCP_CLIENT_RECORD       
                                     *record_ptr, ULONG time_elapsed);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite que uma aplicação restabeleça o seu Cliente DHCP de uma sessão anterior utilizando o registo do Cliente DHCP apontado por record_ptr. A entrada time_elapsed é aplicada ao tempo restante no arrendamento do Cliente DHCP.
 
@@ -333,7 +333,7 @@ ULONG nx_dhcp_interface_client_restore_record(NX_DHCP *dhcp_ptr,
                                               NX_DHCP_CLIENT_RECORD       
                                               *record_ptr, ULONG time_elapsed);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite que uma aplicação restabeleça o seu Cliente DHCP na interface especificada utilizando o registo do Cliente DHCP apontado por record_ptr. A entrada time_elapsed é aplicada ao tempo restante no arrendamento do Cliente DHCP.
 
@@ -392,7 +392,7 @@ Atualize o tempo restante no contrato de arrendamento do Cliente DHCP
 ULONG nx_dhcp_client_update_time_remaining(NX_DHCP *dhcp_ptr
                                            ULONG time_elapsed);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atualiza o tempo restante no aluguer de endereço IP do cliente DHCP com a entrada time_elapsed na primeira interface ativada para DHCP encontrada na instância do Cliente DHCP. A aplicação deve suspender a linha do Cliente DHCP antes de utilizar este serviço utilizando *nx_dhcp_suspend*. Depois de ligar para este serviço, a aplicação pode retomar a linha do Cliente DHCP chamando *nx_dhcp_resume*.
 
@@ -446,7 +446,7 @@ ULONG nx_dhcp_interface_client_update_time_remaining(NX_DHCP *dhcp_ptr,
                                                      UINT interface_index,
                                                      ULONG time_elapsed);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atualiza o tempo restante no aluguer de endereços IP do Cliente DHCP com a entrada time_elapsed na interface especificada se essa interface estiver ativada para DHCP. A aplicação deve suspender a linha do Cliente DHCP antes de utilizar este serviço utilizando *nx_dhcp_suspend*. Depois de ligar para este serviço, a aplicação pode retomar a linha do Cliente DHCP chamando *nx_dhcp_resume*. Note que suspender e retomar a linha do Cliente DHCP se aplica a todas as interfaces ativadas para DHCP.
 
@@ -502,7 +502,7 @@ Suspender a linha do cliente DHCP
 ```C
 ULONG nx_dhcp_suspend(NX_DHCP *dhcp_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço suspende a atual linha do Cliente DHCP. Note que, ao contrário *nx_dhcp_stop,* não há qualquer alteração ao estado do Cliente DHCP quando este serviço é chamado.
 
@@ -543,7 +543,7 @@ Retomar uma linha de cliente DHCP suspensa
 ```C
 ULONG nx_dhcp_resume(NX_DHCP *dhcp_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço retoma uma linha de cliente DHCP suspensa. Note que não há qualquer alteração ao estado real do Cliente DHCP depois de retomar a linha cliente. Para atualizar o tempo restante no contrato de endereço IP do cliente DHCP com o tempo decorrido antes de ligar *nx_dhcp_resume*, consulte o *nx_dhcp_client_update_time_remaining* descrito anteriormente.
 

@@ -6,12 +6,12 @@ description: Este artigo é um resumo das APIs adicionais disponíveis para um m
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b5804e2dbb8d08a272abc85a583576f43b7204c1
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 1c7590d0ccddc606a6cacdfeb3b3a99631e125554b524c4ce65c8154e65a20ee
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825489"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799137"
 ---
 # <a name="chapter-4---module-apis"></a>Capítulo 4 - APIs do módulo
 
@@ -49,7 +49,7 @@ UINT txm_module_application_request(
     ULONG param_3);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço faz o pedido especificado à parte residente do pedido. Presume-se que a estrutura do pedido é preparada antes da chamada. O processamento efetivo do pedido ocorre no código residente na função ***_txm_module_manager_application_request***. Por predefinição, esta função é deixada vazia e foi concebida para que o desenvolvedor de aplicações residentes se modifique.
 
@@ -93,7 +93,7 @@ UINT txm_module_object_allocate(
    ULONG object_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui a memória a um objeto de módulo da memória fora do módulo, o que ajuda a prevenir a corrupção do bloco de controlo de objetos pelo código do módulo. Nos sistemas protegidos pela memória, todos os blocos de controlo de objetos devem ser atribuídos com esta API antes de poderem ser criados.
 
@@ -142,7 +142,7 @@ Deallocate memória de objeto previamente atribuída
 UINT txm_module_object_deallocate(VOID *object_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 ***Este serviço foi depreciado porque já não é necessário.***
 
@@ -191,7 +191,7 @@ UINT txm_module_object_pointer_get(
    VOID **object_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o ponteiro de objetos de um tipo específico com um nome específico. Se o objeto não for encontrado, é devolvido um erro. Caso contrário, se o objeto for encontrado, o endereço desse objeto é colocado em "object_ptr". Este ponteiro pode então ser utilizado para fazer chamadas de serviço do sistema, para interagir com o código residente e/ou outros módulos carregados no sistema.
 
@@ -259,7 +259,7 @@ UINT txm_module_object_pointer_get_extended(UINT object_type,
                                             VOID **object_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o ponteiro de objetos de um tipo específico com um nome específico. Se o objeto não for encontrado, é devolvido um erro. Caso contrário, se o objeto for encontrado, o endereço desse objeto é colocado em "object_ptr". Este ponteiro pode então ser utilizado para fazer chamadas de serviço do sistema, para interagir com o código residente e/ou outros módulos carregados no sistema.
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: d24c69cf6b8c2bb84b7155e49a54e8296ee662f0
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 702499184b12484fa5862ba83ff3fadb8fccea31089b6bf8b71daf267e8c84a3
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826785"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799528"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-dhcp-server-services"></a>Capítulo 3 - Descrição dos serviços do Servidor Azure RTOS NetX DHCP
 
@@ -40,7 +40,7 @@ UINT nx_dhcp_server_create(NX_DHCP_SERVER *dhcp_ptr, NX_IP *ip_ptr,
                         NX_PACKET_POOL *packet_pool_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância do Servidor DHCP com uma instância IP previamente criada.
 
@@ -93,7 +93,7 @@ UINT nx_dhcp_create_server_ip_address_list(NX_DHCP_SERVER *dhcp_ptr,
                             ULONG end_ip_address, UINT *addresses_added);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um conjunto específico de endereços IP disponíveis para o servidor DHCP especificado para atribuir. Os endereços IP de início e fim devem corresponder à interface de rede especificada. O número real de endereços IP adicionados pode ser inferior ao total dos endereços se a lista de endereços IP não for suficientemente grande (que é definida no parâmetro *NX_DHCP_IP_ADDRESS_MAX_LIST_SIZE* configurável do utilizador).
 
@@ -139,7 +139,7 @@ UINT nx_dhcp_clear_client_record (NX_DHCP_SERVER *dhcp_ptr,
                                 NX_DHCP_CLIENT *dhcp_client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço limpa o registo do Cliente da base de dados do Servidor.
 
@@ -180,7 +180,7 @@ UINT nx_dhcp_set_interface_network_parameters(NX_DHCP_SERVER *dhcp_ptr,
                                     ULONG dns_server_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define valores predefinidos para parâmetros críticos de rede para a interface especificada. O servidor DHCP incluirá estas opções na sua OFERTA e respostas ACK ao Cliente DHCP. Se os parâmetros de interface definidos pelo anfitrião em que um servidor DHCP está em funcionamento, os parâmetros ficarão incumpridos da seguinte forma: o router definido para o gateway de interface principal para o próprio servidor DHCP, o endereço do servidor DNS para o próprio servidor DHCP e a máscara de sub-rede para a mesma que a interface do servidor DHCP está configurada.
 
@@ -224,7 +224,7 @@ Excluir uma instância do Servidor DHCP
 UINT nx_dhcp_server_delete(NX_DHCP_SERVER *dhcp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância do Servidor DHCP previamente criada.
 
@@ -262,7 +262,7 @@ Iniciar o processamento do servidor DHCP
 UINT nx_dhcp_server_start(NX_DHCP_SERVER *dhcp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia o processamento do Servidor DHCP, que inclui a criação de uma tomada UDP de servidor, ligação da porta DHCP e espera receber os pedidos do Cliente DHCP.
 
@@ -305,7 +305,7 @@ Para o processamento do servidor DHCP
 UINT nx_dhcp_server_stop(NX_DHCP_SERVER *dhcp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço impede o processamento do Servidor DHCP, que inclui receber pedidos do Cliente DHCP.
 

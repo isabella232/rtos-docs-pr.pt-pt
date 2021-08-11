@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.date: 03/04/2021
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 486466f41e64adb9e32ebbd21a22629221ffa9c1
-ms.sourcegitcommit: d8edbb3207fe99f8afb431597dac063e73383e68
+ms.openlocfilehash: 1f0d87ec562c7fcfa6af5d2240655ef526f6e0611d509fe60c745436371413d7
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106377628"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798253"
 ---
 # <a name="chapter-1--overview"></a>Visão geral do Capítulo 1
 

@@ -6,12 +6,12 @@ ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: c3cbc945e33b87b6759c56ec1429d6bf57259bd9
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8668f0867e205afdeab112dfedd257998a5f5b7ff256f27298072dde3e9019b0
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104827493"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116803303"
 ---
 # <a name="chapter-7---azure-rtos-filex-trace-events"></a>Capítulo 7 - Azure RTOS FileX trace eventos
 

@@ -6,12 +6,12 @@ ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: ce355d86d7db0b7e259ae58e306d990277b77a8f
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f785b421ffc6d588080eb45a50dad949daf1ca6a9bf36770110f0450cd465bf1
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104828352"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116805296"
 ---
 # <a name="chapter-8---azure-rtos-netx-trace-events"></a>Capítulo 8 - Azure RTOS NetX trace eventos
 
@@ -146,7 +146,7 @@ Segue-se uma lista de eventos NetX apresentados pela TraceX.
 | ![R A R P Informações Obter ícone](./media/user-guide/netx-events/image121.png)    | **RaRP Information Get** *(nx_rarp_info_get)* |
 | ![Ícone inicialize o sistema](./media/user-guide/netx-events/image122.png)    | **Inicialização do Sistema** *(nx_system_initialize)* |
 | ![Ícone de ligação de tomada de cliente T C P](./media/user-guide/netx-events/image123.png)    | **Ficha de tomada de cliente TCP** *(nx_tcp_client_socket_bind)* |
-| ![Ícone de ligação da tomada do cliente T C P](./media/user-guide/netx-events/image124.png)    | **Ligação da tomada de cliente TCP** *(nx_tcp_client_socket_connect)* |
+| ![T C P Tomada de cliente Ligação ícone](./media/user-guide/netx-events/image124.png)    | **Ligação de tomada de clientes TCP** *(nx_tcp_client_socket_connect)* |
 | ![T C P Porta de tomada de cliente Obter ícone](./media/user-guide/netx-events/image125.png)    | **Porta de tomada de cliente TCP** *(nx_tcp_client_socket_port_get)* |
 | ![T C P Tomada de cliente Unbind ícone](./media/user-guide/netx-events/image126.png)    | **Tomada de cliente TCP Unbind** *(nx_tcp_client_socket_unbind)* |
 | ![T C P Ativar ícone](./media/user-guide/netx-events/image127.png)    | **TCP Enable** *(nx_tcp_enable)* |
@@ -2276,7 +2276,7 @@ Este evento representa a ligação de uma tomada de cliente a uma porta através
 - Info Field 3: Porta solicitada
 - Info Field 4: Opção de espera
 
-### <a name="tcp-client-socket-connect"></a>Ligação de tomada de cliente TCP 
+### <a name="tcp-client-socket-connect"></a>tomada de Ligação de tomada de cliente TCP 
 
 #### <a name="nx_tcp_client_socket_connect"></a>nx_tcp_client_socket_connect
 

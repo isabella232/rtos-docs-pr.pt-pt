@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: d5a402790387c2720db304fe93d74252494d7638
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 171f8577d252027548c24ec92f11f03c1fae768f1676f476256c13b8e8dc4175
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826672"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799086"
 ---
 # <a name="chapter-4---description-of-azure-rtos-netx-lwm2m-services"></a>Capítulo 4 - Descrição dos serviços Azure RTOS NetX LWM2M
 
@@ -103,7 +103,7 @@ UINT nx_lwm2m_client_create(NX_LWM2M_CLIENT *client_ptr, NX_IP *ip_ptr,
     const CHAR *msisdn_ptr, UCHAR binding_modes, VOID *stack_ptr, ULONG stack_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância de cliente LWM2M, que funciona no contexto da sua própria linha ThreadX.
 
@@ -137,7 +137,7 @@ Excluir cliente LWM2M
 UINT nx_lwm2m_client_delete(NX_LWM2M_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância de cliente LWM2M anteriormente criada.
 
@@ -166,7 +166,7 @@ UINT nx_lwm2m_client_device_callbacks_set(NX_LWM2M_CLIENT *client_ptr,
     NX_LWM2M_CLIENT_DEVICE_EXECUTE_CALLBACK execute_callback);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço instala as chamadas de aplicação para implementação de operações nos recursos do Objeto de Dispositivo LWM2M que não são tratados pelo Cliente LWM2M.
 
@@ -195,7 +195,7 @@ Adicione código de erro ao objeto do dispositivo
 UINT nx_lwm2m_client_device_error_push(NX_LWM2M_CLIENT *client_ptr, UCHAR code);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma nova instância ao recurso Error Code (11) do Dispositivo Objeto.
 
@@ -220,7 +220,7 @@ Redefinir códigos de erro do objeto do dispositivo
 UINT nx_lwm2m_client_device_error_reset(NX_LWM2M_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina todas as instâncias de código de erro do Objeto do Dispositivo. Isto equivale a executar o código de erro de reposição de recursos (12).
 
@@ -244,7 +244,7 @@ UINT nx_lwm2m_client_device_resource_changed(NX_LWM2M_CLIENT *client_ptr,
                                     const NX_LWM2M_RESOURCE *resource);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço é utilizado pela aplicação para sinalizar ao Cliente LWM2M que um recurso do Dispositivo De Objeto mudou. O Cliente LWM2M enviará uma notificação se o recurso for observado por um Servidor LWM2M.
 
@@ -268,7 +268,7 @@ Cliente Lock LWM2M
 UINT nx_lwm2m_client_lock(NX_LWM2M_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço bloqueia o Cliente LWM2M para evitar o acesso concutivo aos objetos LWM2M dos servidores ou de outro fio de aplicação.
 
@@ -296,7 +296,7 @@ UINT nx_lwm2m_client_object_add(NX_LWM2M_CLIENT *client_ptr,
                                 NX_LWM2M_OBJECT *object_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço adiciona uma nova implementação de Objeto ao Cliente LWM2M.
 
@@ -323,7 +323,7 @@ UINT nx_lwm2m_client_object_create(NX_LWM2M_CLIENT *client_ptr,
             UINT num_values, const NX_LWM2M_RESOURCE *values_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa uma operação 'Criar' num Objeto do Cliente LWM2M para criar uma nova Instância de Objeto.
 
@@ -355,7 +355,7 @@ UINT nx_lwm2m_client_object_delete(NX_LWM2M_CLIENT *client_ptr,
                 NX_LWM2M_ID object_id, NX_LWM2M_ID instance_id);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa uma operação 'Eliminar' numa Instância de Objeto do Cliente LWM2M.
 
@@ -384,7 +384,7 @@ UINT nx_lwm2m_client_object_discover(NX_LWM2M_CLIENT *client_ptr,
         UINT *num_resources_ptr, NX_LWM2M_RESOURCE_INFO *resources_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa uma operação 'Discover' numa Instância de Objeto do Cliente LWM2M, esta devolve a lista de recursos implementados pelo Objeto.
 
@@ -415,7 +415,7 @@ UINT nx_lwm2m_client_object_execute(NX_LWM2M_CLIENT *client_ptr,
     const CHAR *arguments_ptr, UINT arguments_length);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa a operação 'Executar' num recurso de instância de objeto do Cliente LWM2M.
 
@@ -446,7 +446,7 @@ UINT nx_lwm2m_client_object_get_next(NX_LWM2M_CLIENT *client_ptr,
                                     NX_LWM2M_ID *object_id_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o ID do próximo Objeto implementado pelo Cliente LWM2M. Se o ID do objeto atual estiver definido para NX_LWM2M_RESERVED_ID (65535) o primeiro ID do objeto é devolvido.
 
@@ -472,7 +472,7 @@ UINT nx_lwm2m_client_object_instance_get_next(NX_LWM2M_CLIENT *client_ptr,
                     NX_LWM2M_ID object_id, NX_LWM2M_ID *instance_id_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o ID da próxima Instância de Objeto do Objeto dado. Se o ID de instância atual estiver definido para NX_LWM2M_RESERVED_ID (65535) o ID da primeira instância é devolvido.
 
@@ -500,7 +500,7 @@ UINT nx_lwm2m_client_object_read(NX_LWM2M_CLIENT *client_ptr,
         UINT num_values, NX_LWM2M_RESOURCE *values);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa uma operação 'Ler' numa Instância de Objeto do Cliente LWM2M.
 
@@ -531,7 +531,7 @@ UINT nx_lwm2m_client_object_write(NX_LWM2M_CLIENT *client_ptr,
         const NX_LWM2M_RESOURCE *values_ptr, UINT write_op);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa uma operação de 'Write' numa Instância de Objeto do Cliente LWM2M.
 
@@ -578,7 +578,7 @@ UINT nx_lwm2m_client_security_key_callbacks_set(NX_LWM2M_CLIENT *client_ptr,
                 NX_LWM2M_CLIENT_SECURITY_KEY_DELETE_CALLBACK delete_callback);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço instala as chamadas de aplicação para implementação de operações nos recursos do LWM2M Security Object relacionados com as chaves de segurança.
 
@@ -608,7 +608,7 @@ UINT nx_lwm2m_client_session_bootstrap(NX_LWM2M_CLIENT_SESSION
     *session_ptr, NX_LWM2M_ID security_id, ULONG ip_address, UINT port);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma sessão com um Servidor Bootstrap. O servidor deve ter uma instância de segurança correspondente no Objeto de Segurança.
 
@@ -641,7 +641,7 @@ UINT nx_lwm2m_client_session_bootstrap_dtls(NX_LWM2M_CLIENT_SESSION *session_ptr
     *dtls_session_ptr, UINT dtls_local_port);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia uma sessão com um Servidor Bootstrap utilizando uma ligação DTLS segura. O servidor deve ter uma instância de segurança correspondente no Objeto de Segurança.
 
@@ -678,7 +678,7 @@ UINT nx_lwm2m_client_session_create(NX_LWM2M_CLIENT_SESSION *session_ptr,
          NX_LWM2M_CLIENT_SESSION_STATE_CALLBACK state_callback);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma nova Sessão de Cliente LWM2M anexada a um Cliente LWM2M existente. A sessão é utilizada pelo Cliente LWM2M para comunicar com um Servidor Bootstrap ou um Servidor LWM2M.
 
@@ -705,7 +705,7 @@ Eliminar sessão de clientes LWM2M
 UINT nx_lwm2m_client_session_delete(NX_LWM2M_CLIENT_SESSION *session_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma Sessão de Cliente LWM2M.
 
@@ -730,7 +730,7 @@ Termine uma sessão com um Servidor LWM2M
 UINT nx_lwm2m_client_session_deregister(NX_LWM2M_CLIENT_SESSION *session_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa uma operação 'De-Register' para um Servidor LWM2M.
 
@@ -754,7 +754,7 @@ Obtenha o último erro de uma sessão
 UINT nx_lwm2m_client_session_error_get(NX_LWM2M_CLIENT_SESSION *session_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o código de erro da sessão quando a sessão está num estado de erro.
 
@@ -786,7 +786,7 @@ UINT nx_lwm2m_client_session_register(NX_LWM2M_CLIENT_SESSION *session_ptr,
                     NX_LWM2M_ID server_id, ULONG ip_address, UINT port);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa uma operação 'Registar' para um Servidor LWM2M. O servidor deve ter uma instância de servidor correspondente no Objeto do Servidor.
 
@@ -819,7 +819,7 @@ UINT nx_lwm2m_client_session_register_dtls(NX_LWM2M_CLIENT_SESSION *session_ptr,
     *dtls_session_ptr, UINT dtls_local_port);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa uma operação 'Register' para um Servidor LWM2M utilizando uma ligação DTLS segura. O servidor deve ter uma instância de servidor correspondente no Objeto do Servidor.
 
@@ -856,7 +856,7 @@ Atualize uma sessão com um Servidor LWM2M
 UINT nx_lwm2m_client_session_update(NX_LWM2M_CLIENT_SESSION *session_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço executa uma operação 'Update' para um Servidor LWM2M.
 
@@ -880,7 +880,7 @@ Desbloquear Cliente LWM2M
 UINT nx_lwm2m_client_unlock(NX_LWM2M_CLIENT *client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço desbloqueia a previoulsy do Cliente LWM2M bloqueada por uma chamada para nx_lwm2m_client_unlock().
 
@@ -907,7 +907,7 @@ UINT nx_lwm2m_firmware_create(NX_LWM2M_FIRMWARE *firmware_ptr,
     NX_LWM2M_FIRMWARE_UPDATE_CALLBACK update_callback);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa um Objeto de Atualização de Firmware e adiciona o Objeto a um Cliente LWM2M anteriormente criado. O Firmware Update Object implementa os recursos para comunicar com um Servidor LWM2M, mas a aplicação deve fornecer chamadas para implementar as operações reais no firmware (dowloading, armazenamento e atualização do firmware).
 
@@ -940,7 +940,7 @@ UINT nx_lwm2m_firmware_package_info_set(NX_LWM2M_FIRMWARE *firmware_ptr,
                                 const CHAR *name, const CHAR *version);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço altera os valores dos recursos 'PkgName' (6) e 'PkgVersion' (7) do Firmware Update Object.
 
@@ -965,7 +965,7 @@ Definir resultado da atualização do firmware
 UINT nx_lwm2m_firmware_result_set(NX_LWM2M_FIRMWARE *firmware_ptr, UCHAR result);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço altera o valor do recurso 'Resultado de actualização' (5) do Objeto de Atualização de Firmware.
 
@@ -989,7 +989,7 @@ Definir Estado de Atualização de Firmware
 UINT nx_lwm2m_firmware_state_set(NX_LWM2M_FIRMWARE *firmware_ptr, UCHAR state);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço altera o valor do recurso 'Estado' (3) do Objeto de Atualização de Firmware.
 
@@ -1014,7 +1014,7 @@ UINT nx_lwm2m_object_resource_changed(NX_LWM2M_OBJECT *object_ptr,
     NX_LWM2M_OBJECT_INSTANCE *instance_ptr, const NX_LWM2M_RESOURCE *resource);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é utilizado por uma implementação de Objeto para sinalizar o Cliente LWM2M que um dos seus valores de recursos mudou. O Cliente LWM2M enviará uma notificação se o recurso for observado por um Servidor LWM2M.
 
@@ -1040,7 +1040,7 @@ UINT nx_lwm2m_resource_get_boolean(const NX_LWM2M_RESOURCE *value,
                                         NX_LWM2M_BOOL *bool_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de um Recurso Boolean.
 
@@ -1065,7 +1065,7 @@ UINT nx_lwm2m_resource_get_float32(const NX_LWM2M_RESOURCE *value,
                                 NX_LWM2M_FLOAT32 *float32_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de um recurso flutuante de 32 bits.
 
@@ -1090,7 +1090,7 @@ UINT nx_lwm2m_resource_get_float64(const NX_LWM2M_RESOURCE *value,
                                 NX_LWM2M_FLOAT64 *float64_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de um recurso flutuante de 64 bits.
 
@@ -1115,7 +1115,7 @@ UINT nx_lwm2m_resource_get_integer32(const NX_LWM2M_RESOURCE *value,
                                         NX_LWM2M_INT32 *int32_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de um recurso inteiro de 32 bits.
 
@@ -1140,7 +1140,7 @@ UINT nx_lwm2m_resource_get_integer64(const NX_LWM2M_RESOURCE *value,
                                         NX_LWM2M_INT64 *int64_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de um recurso inteiro de 64 bits.
 
@@ -1165,7 +1165,7 @@ UINT nx_lwm2m_resource_get_objlnk(const NX_LWM2M_RESOURCE *value,
                                     NX_LWM2M_OBJLNK *objlnk_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de um recurso de ligação de objetos.
 
@@ -1190,7 +1190,7 @@ UINT nx_lwm2m_resource_get_opaque(const NX_LWM2M_RESOURCE *value,
             const VOID **opaque_ptr_ptr, UINT *opaque_length_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de um Recurso Opaco.
 
@@ -1218,7 +1218,7 @@ UINT nx_lwm2m_resource_get_string(const NX_LWM2M_RESOURCE *value,
             const CHAR **string_ptr_ptr, UINT *string_length_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de um Recurso de Corda.
 
@@ -1244,7 +1244,7 @@ UINT nx_lwm2m_resource_multiple_get_boolean(const NX_LWM2M_RESOURCE *value,
         int index, NX_LWM2M_ID *instance_id_ptr, NX_LWM2M_BOOL *bool_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de uma Instância de Recursos Boolean de um Recurso Múltiplo.
 
@@ -1272,7 +1272,7 @@ UINT nx_lwm2m_resource_multiple_get_float32(const NX_LWM2M_RESOURCE *value,
     int index, NX_LWM2M_ID *instance_id_ptr, NX_LWM2M_FLOAT32 *float32_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de uma instância de recursos flutuantes de 32 bits de um recurso múltiplo.
 
@@ -1300,7 +1300,7 @@ UINT nx_lwm2m_resource_multiple_get_float64(const NX_LWM2M_RESOURCE *value,
     int index, NX_LWM2M_ID *instance_id_ptr, NX_LWM2M_FLOAT64 *float64_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de uma instância de recursos flutuantes de 64 bits de um recurso múltiplo.
 
@@ -1328,7 +1328,7 @@ UINT nx_lwm2m_resource_multiple_get_integer32(const NX_LWM2M_RESOURCE *value,
         int index, NX_LWM2M_ID *instance_id_ptr, NX_LWM2M_INT32 *int32_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de uma instância de recursos inteiros de 32 bits de um recurso múltiplo.
 
@@ -1356,7 +1356,7 @@ UINT nx_lwm2m_resource_multiple_get_integer64(const NX_LWM2M_RESOURCE *value,
         int index, NX_LWM2M_ID *instance_id_ptr, NX_LWM2M_INT64 *int64_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de uma instância de recursos inteiros de 64 bits de um recurso múltiplo.
 
@@ -1384,7 +1384,7 @@ UINT nx_lwm2m_resource_multiple_get_objlnk(const NX_LWM2M_RESOURCE *value,
     int index, NX_LWM2M_ID *instance_id_ptr, NX_LWM2M_OBJLNK *objlnk_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de uma instância de recurso de ligação de objetos a partir de um recurso múltiplo.
 
@@ -1413,7 +1413,7 @@ UINT nx_lwm2m_resource_multiple_get_opaque(const NX_LWM2M_RESOURCE *value,
     UINT *opaque_length_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de uma Instância de Recursos Opacos a partir de um Recurso Múltiplo.
 
@@ -1445,7 +1445,7 @@ UINT nx_lwm2m_resource_multiple_get_string(const NX_LWM2M_RESOURCE *value,
     UINT *string_length_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 O serviço recupera o valor de uma Instância de Recursos de Cadeia de um Recurso Múltiplo.
 

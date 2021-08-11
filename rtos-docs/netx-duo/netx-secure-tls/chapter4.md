@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 80ec22058ab64ed0c6258bb3d9364ec44f9a741b
-ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
+ms.openlocfilehash: b10260778f7f5e1a5bd0a38aded2339008b066cca77f2439a5881d28a0489524
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2021
-ms.locfileid: "110223397"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797760"
 ---
 # <a name="chapter-4---description-of-azure-rtos-netx-secure-services"></a>Capítulo 4 - Descrição dos serviços Azure RTOS NetX Secure
 
@@ -2779,14 +2779,14 @@ UINT  nx_secure_tls_time_function_set(
 
 Esta função configura um ponteiro de função que o TLS invocará quando precisar de obter o tempo atual, que é usado em várias mensagens de aperto de mão TLS e para verificação de certificados.
 
-Espera-se que a função devolva o atual GMT no formato UNIX de 32 bits (segundos desde a meia-noite a partir de 1 de janeiro de 1970, UTC, ignorando os segundos de salto), de acordo com os requisitos do ClientHello no TLS RFC 5246.
+Espera-se que a função devolva o atual GMT em UNIX formato de 32 bits (segundos desde a meia-noite a partir de 1 de janeiro de 1970, UTC, ignorando os segundos de salto), de acordo com os requisitos do ClientHello no TLS RFC 5246.
 
 Se não for atribuída nenhuma função de calibragem de tempo, será utilizado um valor de 0 para o tempo de calibragem no aperto de mão TLS e a verificação de expiração do certificado não funcionará.
 
 ### <a name="parameters"></a>Parâmetros
 
 - **session_ptr** Ponteiro para uma sessão de TLS.
-- **time_func_ptr** Ponteiro para uma função que retorna a hora atual (GMT) no formato UNIX de 32 bits.
+- **time_func_ptr** Ponteiro para uma função que retorna a hora atual (GMT) em UNIX formato de 32 bits.
 
 ### <a name="return-values"></a>Valores de devolução
 

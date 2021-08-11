@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 56f0d8edb991fff6ae30b6411e375ace58c544f7
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: db7b7469bda02597db6428ecbf080b37a095413411eef2abefb1c4804d7bb1d3
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825706"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799068"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-tftp-services"></a>Capítulo 3 - Descrição dos serviços Azure RTOS NetX Duo TFTP
 
@@ -61,7 +61,7 @@ UINT nxd_tftp_client_create(NX_TFTP_CLIENT *tftp_client_ptr,
      CHAR *tftp_client_name, NX_IP *ip_ptr, NX_PACKET_POOL *pool_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância do Cliente TFTP para a instância IP previamente criada.
 
@@ -119,7 +119,7 @@ Eliminar uma instância do cliente TFTP
 UINT nxd_tftp_client_delete(NX_TFTP_CLIENT *tftp_client_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina uma instância do Cliente TFTP previamente criada.
 
@@ -160,7 +160,7 @@ UINT nxd_tftp_client_error_info_get(NX_TFTP_CLIENT *tftp_client_ptr,
                         UINT *error_code, CHAR **error_string);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve o último código de erro recebido e define o ponteiro para a cadeia de erro interna do cliente. Em condições de erro, o utilizador pode visualizar o último erro enviado pelo servidor. Uma cadeia de erro nulo indica que não existe qualquer erro.
 
@@ -205,7 +205,7 @@ UINT nxd_tftp_client_file_close(NX_TFTP_CLIENT *tftp_client_ptr,
                                     UINT ip_type);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço encerra o ficheiro previamente aberto por esta instância do Cliente TFTP. Uma instância do Cliente TFTP é permitida a ter apenas um ficheiro aberto de cada vez.
 
@@ -250,7 +250,7 @@ UINT nx_tftp_client_file_open(NX_TFTP_CLIENT *tftp_client_ptr,
             open_type, ULONG wait_option);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta abrir o ficheiro especificado no Servidor TFTP no endereço IP especificado. O ficheiro será aberto para leitura ou escrita. 
 
@@ -340,7 +340,7 @@ UINT nxd_tftp_client_file_open(NX_TFTP_CLIENT *tftp_client_ptr,
         open_type, ULONG wait_option, UINT ip_type);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço tenta abrir o ficheiro especificado no Servidor TFTP no endereço IPv6 especificado. O ficheiro será aberto para leitura ou escrita.
 
@@ -431,7 +431,7 @@ UINT nxd_tftp_client_file_read(NX_TFTP_CLIENT *tftp_client_ptr,
                         UINT ip_type);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço lê um bloco de 512 bytes do ficheiro do Cliente TFTP previamente aberto. Um bloco contendo menos de 512 bytes sinaliza o fim do ficheiro.
 
@@ -506,7 +506,7 @@ UINT nxd_tftp_client_file_write(NX_TFTP_CLIENT *tftp_client_ptr,
             NX_PACKET *packet_ptr, ULONG wait_option, UINT ip_type);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço escreve um bloco de 512 bytes para o ficheiro do Cliente TFTP previamente aberto. Especificar um bloco que contenha menos de 512 bytes sinaliza o fim do ficheiro.
 
@@ -578,7 +578,7 @@ UINT nxd_tftp_client_packet_allocate(NX_PACKET_POOL *pool_ptr,
                         UINT ip_type);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço atribui um pacote UDP da piscina de pacotes especificado e abre espaço para o cabeçalho TFTP de 4 bytes antes de o pacote ser devolvido ao chamador. O chamador pode então construir um tampão para escrever para um ficheiro de cliente.
 
@@ -634,7 +634,7 @@ UINT nxd_tftp_client_set_interface(NX_TFTP_CLIENT *tftp_client_ptr,
                                     UINT if_index);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço utiliza o índice de interface de entrada para definir a interface física para o Cliente TFTP enviar e receber pacotes TFTP. O valor predefinido é zero, para a interface primária.
 
@@ -683,7 +683,7 @@ UINT nxd_tftp_server_create(NX_TFTP_SERVER *tftp_server_ptr,
             NX_PACKET_POOL *pool_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um Servidor TFTP que responde aos pedidos do Cliente TFTP na porta 69. O Servidor deve ser iniciado por uma chamada subsequente para *nxd_tftp_server_start*.
 
@@ -743,7 +743,7 @@ Excluir o Servidor TFTP
 UINT nxd_tftp_server_delete(NX_TFTP_SERVER *tftp_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina um Servidor TFTP previamente criado.
 
@@ -782,7 +782,7 @@ Iniciar o servidor TFTP
 UINT nxd_tftp_server_start(NX_TFTP_SERVER *tftp_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia o Servidor TFTP anteriormente criado.
 
@@ -819,7 +819,7 @@ Parar o servidor TFTP
 UINT nxd_tftp_server_stop(NX_TFTP_SERVER *tftp_server_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço para o Servidor TFTP anteriormente criado.
 

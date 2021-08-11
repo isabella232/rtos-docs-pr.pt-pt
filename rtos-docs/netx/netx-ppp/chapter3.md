@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: f24d7366d27a8223b069a54ef7b93f6b3e38bf3a
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 980348b5c50acfb82b2d8fda8786a1d48bf59c69e7949b6f62b64515b59bf42d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104826653"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798763"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-point-to-point-protocol-ppp-services"></a>Capítulo 3 - Descrição dos serviços do Protocolo Azure RTOS NetX Ponto-a-Ponto (PPP)
 
@@ -53,7 +53,7 @@ Receba um byte da SÉRIE ISR
 UINT nx_ppp_byte_receive(NX_PPP *ppp_ptr, UCHAR byte);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço é normalmente chamado do controlador em série Interrupt Service Routine (ISR) para transferir um byte recebido para PPP. Quando chamado, esta rotina coloca o byte recebido num tampão de byte circular e notifica o fio de PPP apropriado para o processamento.
 
@@ -92,7 +92,7 @@ Gerar um desafio CHAP
 UINT nx_ppp_chap_challenge(NX_PPP *ppp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia um desafio CHAP depois da ligação PPP já estar em funcionamento. Isto dá à aplicação a capacidade de verificar a autenticidade da ligação numa base periódica. Se o desafio não for bem sucedido, a ligação PPP está fechada.
 
@@ -135,7 +135,7 @@ UINT nx_ppp_chap_enable(NX_PPP *ppp_ptr,
                         UINT (*get_verification_values)(CHAR *system,CHAR *name,CHAR *secret)); 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite o Protocolo de Autenticação Challenge-Handshake (CHAP) para a instância de PPP especificada.
 
@@ -266,7 +266,7 @@ UINT  nx_ppp_create(NX_PPP *ppp_ptr, CHAR *name, NX_IP *ip_ptr,
                     void (*ppp_byte_send)(UCHAR byte));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma instância PPP para a instância IP netx especificada.
 
@@ -282,7 +282,7 @@ Este serviço cria uma instância PPP para a instância IP netx especificada.
 - **stack_size:** Tamanho dos bytes na pilha do fio.
 - **pool_ptr**: Ponteiro para a piscina de pacotes predefinidos.
 - **thread_priority**: Prioridade das linhas internas de PPP (1-31).
-- **ppp_invalid_packet_handler**: Função pointer para o manipulador da aplicação para todos os pacotes não PPP. O NetX PPP normalmente chama esta rotina durante a inicialização. É aqui que a aplicação pode responder aos comandos do modem ou no caso do Windows XP, a aplicação PPP NetX pode iniciar pPP respondendo com" CLIENT SERVER" ao "CLIENTE" inicial enviado pelo Windows XP.
+- **ppp_invalid_packet_handler**: Função pointer para o manipulador da aplicação para todos os pacotes não PPP. O NetX PPP normalmente chama esta rotina durante a inicialização. É aqui que a aplicação pode responder aos comandos de modem ou no caso de Windows XP, a aplicação De PPP NetX pode iniciar PPP respondendo com" CLIENT SERVER" ao "CLIENTE" inicial enviado por Windows XP.
 - **ppp_byte_send**: Funríssem o ponteiro para a rotina de saída de byte de série da aplicação.
 
 
@@ -317,7 +317,7 @@ Eliminar uma instância de PPP
 UINT nx_ppp_delete(NX_PPP *ppp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço elimina a instância PPP anteriormente criada.
 
@@ -354,7 +354,7 @@ Obtenha endereço IP DNS
 UINT nx_ppp_dns_address_get(NX_PPP *ppp_ptr, ULONG *dns_address_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço DNS IP fornecido pelo par. Se nenhum endereço IP foi fornecido pelo par, um endereço IP de 0 é devolvido.
 
@@ -396,7 +396,7 @@ Obtenha o endereço IP do servidor DNS secundário
 UINT nx_ppp_secondary_dns_address_get(NX_PPP *ppp_ptr, ULONG *dns_address_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o endereço IP DNS secundário fornecido pelo par no aperto de mão IPCP. Se nenhum endereço IP foi fornecido pelo par, um endereço IP de 0 é devolvido.
 
@@ -436,7 +436,7 @@ Definir o endereço IP do servidor DE DNS primário
 UINT nx_ppp_dns_address_set(NX_PPP *ppp_ptr, ULONG dns_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o endereço IP do Servidor DNS. Se o par enviar um pedido de opção DNS Server no estado IPCP, este anfitrião fornecerá a informação.
 
@@ -478,7 +478,7 @@ Definir endereço IP do servidor DNS secundário
 UINT nx_ppp_secondary_dns_address_set(NX_PPP *ppp_ptr, ULONG dns_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o endereço IP do servidor DNS secundário. Se o par enviar um pedido de opção dNS Server secundário no estado IPCP, este anfitrião fornecerá as informações.
 
@@ -518,7 +518,7 @@ Obtenha índice de interface IP
 UINT nx_ppp_interface_index_get(NX_PPP *ppp_ptr, UINT *index_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recupera o índice de interface IP associado a esta instância de PPP. Isto só é útil quando a instância PPP não é a interface primária de uma instância IP.
 
@@ -560,7 +560,7 @@ UINT nx_ppp_ip_address_assign(NX_PPP *ppp_ptr, ULONG local_ip_address,
             ULONG peer_ip_address);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço configura os endereços IP locais e pares para utilização no Protocolo de Controlo do Protocolo de Internet (IPCP). O pedido de PPP deve invocar este serviço numa instância PPP com endereços IP válidos para si e para o outro par.  Se não forem registados endereços válidos com uma instância PPP, deve contar com o par de PPP para definir o seu endereço IP.
 
@@ -603,7 +603,7 @@ UINT nx_ppp_link_down_notify(NX_PPP *ppp_ptr,
                              VOID (*link_down_callback)(NX_PPP *ppp_ptr));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista a chamada de notificação de ligação da aplicação com a instância de PPP especificada. Se não for NULO, a função de retorno de ligação da aplicação é chamada sempre que o link se apaga.
 
@@ -649,7 +649,7 @@ Notificar o pedido no link
 UINT nx_ppp_link_up_notify(NX_PPP *ppp_ptr, 
                            VOID (*link_up_callback)(NX_PPP *ppp_ptr));
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista a chamada de notificação de ligação da aplicação com a instância de PPP especificada. Se não for NULO, a função de chamada de ligação da aplicação é chamada sempre que o link aparece.
 
@@ -696,7 +696,7 @@ UINT    nx_ppp_nak_authentication_notify(NX_PPP *ppp_ptr,
                                          void (*nak_authentication_notify)(void));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista a chamada de notificação de autenticação da aplicação com a instância de PPP especificada. Se não for NULO, esta função de retorno é chamada sempre que a instância PPP recebe um NAK durante a authentiaction.
 
@@ -744,7 +744,7 @@ UINT  nx_ppp_pap_enable(NX_PPP *ppp_ptr,
                         UINT (*verify_login)(CHAR *name, CHAR *password));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço permite o Protocolo de Autenticação de Palavras-Passe (PAP) para a instância de PPP especificada. Se o ponteiro de função "***verify_login***" for especificado, o PAP é exigido por esta instância de PPP. Caso contrário, o PAP apenas responde aos requisitos de PAP do par, tal como especificado durante a negociação do LCP.
 
@@ -821,7 +821,7 @@ UINT  nx_ppp_ping_request(NX_PPP *ppp_ptr, CHAR *data,
                           UINT data_size, ULONG wait_opion);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia um pedido de ping LCP e estabelece uma bandeira que o dispositivo PPP está à espera de uma resposta de eco. O serviço regressa assim que o pedido for enviado. Não espera uma resposta. 
 
@@ -877,7 +877,7 @@ Envie uma cadeia ASCII crua
 UINT  nx_ppp_raw_sting_send(NX_PPP *ppp_ptr, CHAR *string_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço envia uma cadeia ASCII não PPP diretamente para fora da interface PPP. É normalmente utilizado após pPP receber um pacote não PPP que contém informações de controlo do modem.
 
@@ -916,7 +916,7 @@ Reiniciar o processamento de PPP
 UINT  nx_ppp_restart(NX_PPP *ppp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço reinicia o processamento de PPP. É normalmente chamado quando o link precisa ser restabelecido a partir de uma chamada de ligação para baixo ou por uma mensagem de modem não PPP indicando que a comunicação foi perdida.
 
@@ -953,7 +953,7 @@ Iniciar o processamento de PPP
 UINT  nx_ppp_start(NX_PPP *ppp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia o processamento de PPP. É normalmente chamado após nx_ppp_stop chamado.
 
@@ -993,7 +993,7 @@ Obtenha o estado atual de PPP
 ```c
 UINT  nx_ppp_status_get(NX_PPP *ppp_ptr, UINT *status_ptr);
 ```
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço obtém o estado atual da instância de PPP especificada.
 
@@ -1046,7 +1046,7 @@ Iniciar o processamento de PPP
 UINT  nx_ppp_stop(NX_PPP *ppp_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço impede o processamento de PPP. O utilizador também pode ligar nx_ppp_start para iniciar o processamento de PPP, se necessário.
 
@@ -1084,7 +1084,7 @@ UINT  nx_ppp_packet_receive(NX_PPP *ppp_ptr, NX_PACKET *packet_ptr);
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço recebe pacote de PPP.
 
@@ -1124,7 +1124,7 @@ UINT  nx_ppp_packet_send_set(NX_PPP *ppp_ptr,
 
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define o pacote de PPP enviar funciton.
 

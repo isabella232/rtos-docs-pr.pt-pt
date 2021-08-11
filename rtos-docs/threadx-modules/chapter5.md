@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: ca0fee443c23fd1bdd34651f4a7b31cf71f886f0
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: e8e4da0f9591fd0b5d6249292f00266d96ccb67923c42632a4cfd8c39fa1f129
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104825484"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799120"
 ---
 # <a name="chapter-5---module-manager-apis"></a>Capítulo 5 - ApIs gestor de módulos
 
@@ -49,7 +49,7 @@ UINT txm_module_manager_external_memory_enable(
      UINT attributes);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria uma entrada na tabela de hardware de gestão de memória para uma região de memória partilhada a que o módulo pode aceder.
 
@@ -106,7 +106,7 @@ UINT txm_module_manager_file_load(
     CHAR *file_name);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço carrega a imagem binária do módulo contido no ficheiro especificado na área de memória do módulo e prepara-o para a execução. Presume-se que os meios de comunicação fornecidos já estão abertos.
 
@@ -174,7 +174,7 @@ UINT txm_module_manager_in_place_load(
     VOID *location);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço carrega a área de dados do módulo apenas na área de memória do módulo e prepara-a para a execução. A execução do código do módulo será no lugar, ou seja, a partir do endereço compensado especificado pelo preâmbulo do módulo no local fornecido.
 
@@ -235,7 +235,7 @@ UINT txm_module_manager_initialize(
     ULONG module_memory_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa os recursos internos do Gestor do Módulo, incluindo a área de memória utilizada para carregar módulos.
 
@@ -277,7 +277,7 @@ Inicialize o hardware de gestão da memória.
 UINT txm_module_manager_initialize_mmu(VOID);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicializa a MMU.
 
@@ -318,7 +318,7 @@ UINT txm_module_manager_maximum_module_priority_set(
          UINT priority);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço define a prioridade máxima de linha permitida num módulo.
 
@@ -361,7 +361,7 @@ UINT txm_module_manager_memory_fault_notify(
      VOID (*notify_function)(TX_THREAD *, MODULE_INSTANCE *));
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço regista a função de chamada de chamada de notificação de falha de memória de aplicação especificada com o Gestor do Módulo. Se ocorrer uma falha de memória, esta função é chamada com um ponteiro para o fio ofensivo e a instância do módulo correspondente ao fio ofensivo. O processamento do Gestor do Módulo termina automaticamente o fio ofensivo, mas deixa quaisquer outros fios no módulo intactos. Cabe à aplicação decidir o que fazer com o módulo associado à falha de memória.
 
@@ -404,7 +404,7 @@ UINT txm_module_manager_memory_load (
     VOID *location);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço carrega o código e a área de dados do módulo na área de memória do módulo configurada por ***txm_module_manager_initialize*** e prepara-o para a execução.
 
@@ -462,7 +462,7 @@ UINT txm_module_manager_object_pool_create(
     ULONG pool_memory_size);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço cria um conjunto de memória de objetos do Gestor de Módulos do qual os módulos podem alocar objetos ThreadX/NetX, mantendo assim o objeto do sistema fora da área de memória do módulo.
 
@@ -510,7 +510,7 @@ UINT txm_module_manager_properties_get(
     ULONG *module_properties_ptr);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço devolve as propriedades (especificadas no preâmbulo) de um módulo.
 
@@ -560,7 +560,7 @@ Inicie a execução do módulo.
 UINT txm_module_manager_start(TXM_MODULE_INSTANCE *module_instance);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço inicia a execução do módulo especificado, já carregado.
 
@@ -612,7 +612,7 @@ Pare a execução do módulo.
 UINT txm_module_manager_stop(TXM_MODULE_INSTANCE *module_instance);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço para um módulo que foi previamente carregado e iniciado. A paragem de um módulo inclui a execução do fio de paragem opcional do módulo, a terminação de todos os fios e a eliminação de todos os recursos associados ao módulo.
 
@@ -664,7 +664,7 @@ Descarregue o módulo.
 UINT txm_module_manager_unload(TXM_MODULE_INSTANCE *module_instance);
 ```
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 Este serviço descarrega o módulo previamente carregado e parado, libertando todos os recursos de memória do módulo associado.
 
