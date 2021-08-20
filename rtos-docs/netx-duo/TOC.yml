@@ -127,6 +127,14 @@
           href: netx-duo-http/chapter2.md
         - name: Capítulo 3 - Descrição dos Serviços NetX HTTP
           href: netx-duo-http/chapter3.md
+    - name: Guia de utilizador NetX Duo Iperf
+      items:
+        - name: Capítulo 1 - Introdução ao NetX Duo Iperf
+          href: netx-duo-iperf/chapter1.md
+        - name: Capítulo 2 - Instalar e utilizar o Azure NetX Duo Iperf
+          href: netx-duo-iperf/chapter2.md
+        - name: Capítulo 3 - Executar a Demonstração
+          href: netx-duo-iperf/chapter3.md
     - name: Guia de utilizador NetX Duo mDNS/DNS-SD
       items:
         - name: Ch. 1 - Introdução ao NetX Duo mDNS/DNS-SD
