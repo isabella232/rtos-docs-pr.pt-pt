@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: a0d18929f33f15a342e8fb8b3d01d4ce934d6ec7dc287707f960adb36fb4f44b
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: 7d30e14ce1865e2fbce4a6e00cff787c859b32be
+ms.sourcegitcommit: 20a136b06a25e31bbde718b4d12a03ddd8db9051
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116788852"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123552420"
 ---
 # <a name="chapter-5---azure-rtos-netx-duo-network-drivers"></a>Capítulo 5 - Azure RTOS NetX Duo Network Drivers
 
@@ -503,3 +503,59 @@ A instância IP transmite pacotes de rede através de um destes comandos:
 No processamento destes comandos, o controlador de rede precisa de preparar o cabeçalho de quadro Ethernet apropriado e, em seguida, enviá-lo para o hardware subjacente para transmissão. Durante o processo de transmissão, o controlador de rede tem a propriedade exclusiva da área tampão do pacote. Assim que os dados estiverem a ser transmitidos (ou uma vez que os dados tenham sido copiados para o tampão de transferência interno do controlador), o controlador de rede é responsável pela libertação do amortecedor de pacotes, movendo primeiro o ponteiro pré-final para além do cabeçalho Ethernet para o cabeçalho IP (e ajuste o comprimento do pacote em conformidade), e, em seguida, chamando o serviço ***de nx_packet_transmit_release()*** para libertar o pacote. Não libertar o pacote após a transmissão de dados fará com que os pacotes vazem.
 
 O controlador do dispositivo de rede é também responsável pelo tratamento dos pacotes de dados recebidos. No exemplo do condutor da RAM, o pacote recebido é processado pela função ***_nx_ram_network_driver_receive()***. Uma vez que o dispositivo recebe uma moldura Ethernet, o controlador é responsável por armazenar os dados na estrutura NX_PACKET. Note que o NetX Duo assume que o cabeçalho IP começa a partir de um endereço alinhado de 4 bytes. Uma vez que o comprimento do cabeçalho Ethernet é de 14bytes, o controlador precisa de armazenar o arranque do cabeçalho Ethernet no endereço alinhado de 2 bytes para garantir que o cabeçalho IP começa com um endereço alinhado de 4 bytes.
+
+## <a name="tcpip-offload-driver-guidance"></a>Orientação do condutor de descarregamento TCP/IP
+Para a função de descarregamento TCP/IP, é necessária uma função do controlador para cada interface IP. Aqui está uma lista de tarefas adicionais para o controlador de rede.
+
+* Para o `NX_LINK_INITIALIZE` comando,
+  * Crie um fio de condutor para lidar com os eventos de receção de descarregamento TCP/IP.
+* Para o `NX_LINK_INTERFACE_ATTACH` comando,
+  * Desa estada a capacidade da interface do condutor. Consulte o código de amostra abaixo.
+``` C
+driver_req_ptr -> nx_ip_driver_interface -> nx_interface_capability_flag = NX_INTERFACE_CAPABILITY_TCPIP_OFFLOAD;
+```
+* Para o `NX_LINK_ENABLE` comando,
+  * Inicie o fio do condutor.
+  * Desa esta quali é a função de retorno TCP/IP para a interface do controlador. Consulte o código de amostra abaixo.
+``` C
+driver_req_ptr -> nx_ip_driver_interface -> nx_interface_tcpip_offload_handler = _nx_driver_tcpip_handler;
+```
+* Para o `NX_LINK_DISABLE` comando,
+  * Pare o fio do condutor
+  * Limpar a função de retorno TCP/IP da interface do controlador.
+* Para o `NX_LINK_UNINITIALIZE` comando,
+  * Apagar o fio do condutor
+
+### <a name="tcpip-offload-driver-thread"></a>Linha do condutor de descarregamento TCP/IP
+O objetivo do fio condutor é receber pacotes TCP ou UDP. No fio do condutor, existe normalmente um ciclo de tempo para verificar se há pacote TCP ou UDP disponível ou conexão estabelecida. Quando os dados estiverem disponíveis, passe o pacote TCP ou UDP para o NetX Duo. A sala entre `nx_packet_data_start` e deve ser suficiente para inserir o `nx_packet_prepend_ptr` cabeçalho TCP/IP. Para a tomada TCP, aloque o pacote com o tipo `NX_TCP_PACKET` . Para tomada UDP, aloque o pacote com o tipo `NX_UDP_PACKET` . Preencha os dados de entrada `nx_packet_append_ptr` de `nx_packet_data_end` . Os dados `nx_packet_append_ptr` devem conter apenas a carga útil TCP ou UDP. O cabeçalho TCP/IP **não deve** ser preenchido em pacote. Ajuste o comprimento do pacote e a interface de receção definida, em seguida, `_nx_tcp_socket_driver_packet_receive` ligue para o pacote TCP e para o pacote `_nx_udp_socket_driver_packet_receive` UDP. Se uma ligação TCP estiver fechada, ligue `_nx_tcp_socket_driver_packet_receive` com o pacote definido para NU. Quando a ligação for estabelecida, ligue `_nx_tcp_socket_driver_establish` .
+
+### <a name="tcpip-offload-driver-handler"></a>Manipulador de condutor de descarregamento TCP/IP
+São necessários os seguintes comandos do controlador para interfaces de rede com os serviços TCP/IP. 
+* Para `NX_TCPIP_OFFLOAD_TCP_CLIENT_SOCKET_CONNECT` operação,
+  * Alocar recursos, se necessário.
+  * Ligue-se à porta TCP local e ligue-se ao servidor.
+  * Retorno sucesso na ligação estabelecida. Quando a ligação estiver em curso, volte `NX_IN_PROGRESS` . Ou então, falha de retorno.
+* Para `NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_LISTEN` operação,
+  * Verifique se o duplicado ouve primeiro. Pode ser chamado várias vezes na mesma porta. Primeira vez de `nx_tcp_server_socket_listen` e `nx_tcp_server_socket_relisten` depois.
+  * Alocar recursos, se necessário.
+  * Ouça o porto local de TCP.
+* Para `NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_ACCEPT` operação,
+  * Alocar recursos, se necessário.
+  * Aceite a ligação.
+* Para `NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_UNLISTEN` operação,
+  * Encontre a tomada TCP a ouvir na porta local.
+  * Feche a tomada de audição se for encontrada.
+* Para `NX_TCPIP_OFFLOAD_TCP_SOCKET_DISCONNECT` operação,
+  * Feche a ligação de descarga TCP/IP.
+  * Porto local de TCP unbind.
+  * Recursos de limpeza criados durante a ligação.
+* Para `NX_TCPIP_OFFLOAD_TCP_SOCKET_SEND` operação,
+  * Envie dados através do descarregamento TCP/IP. Prepare-se para manusear o comprimento do pacote maior do que a situação da MSS ou da cadeia de pacotes.
+* Para `NX_TCPIP_OFFLOAD_UDP_SOCKET_BIND` operação,
+  * Alocar recursos, se necessário.
+  * Liga-te ao porto local da UDP.
+* Para `NX_TCPIP_OFFLOAD_UDP_SOCKET_UNBIND` operação,
+  * Porto local de UDP un-encadernado.
+  * Recursos de limpeza criados durante a ligação.
+* Para `NX_TCPIP_OFFLOAD_UDP_SOCKET_SEND` operação,
+  * Envie dados através do descarregamento TCP/IP. Prepare-se para manusear o comprimento do pacote maior do que a mtu ou a situação da cadeia de pacotes.
