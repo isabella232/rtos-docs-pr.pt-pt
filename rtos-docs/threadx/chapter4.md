@@ -6,16 +6,16 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: dabc1603423d8422ed6f8f540f8a06e80d14ec0098c886ca8731ac8ce981f15d
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: 42ca29b0c3c4e45330b02e0b9eb93de422c8c235
+ms.sourcegitcommit: 74d1e48424370d565617f3a1e868150ab0bdbd88
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116783412"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129319228"
 ---
 # <a name="chapter-4---description-of-azure-rtos-threadx-services"></a>Capítulo 4 - Descrição dos Serviços Azure RTOS ThreadX
 
-Este capítulo contém uma descrição de todos os serviços Azure RTOS ThreadX por ordem alfabética. Os seus nomes são concebidos para que todos os serviços semelhantes sejam agrupados. Na secção "Valores de Retorno" nas seguintes descrições, os valores em **BOLD** não são afetados pela **TX_DISABLE_ERROR_CHECKING** definem utilizados para desativar a verificação de erros da API; enquanto os valores mostrados em nãobold são completamente desativados. Além disso, um "**Sim**" listado sob a rubrica "**Preemption Possible**" indica que ligar para o serviço pode retomar um fio de maior prioridade, antecipando assim o fio de chamada.
+Este capítulo contém uma descrição de todos os serviços Azure RTOS ThreadX por ordem alfabética. Os seus nomes são concebidos para que todos os serviços semelhantes sejam agrupados. Na secção "Valores de Retorno" nas seguintes descrições, os valores em **BOLD** não são afetados pela **TX_DISABLE_ERROR_CHECKING** definem utilizadas para desativar a verificação de erros da API; enquanto os valores mostrados em nãobold são completamente desativados. Além disso, um "**Sim**" listado sob a rubrica "**Preemption Possible**" indica que ligar para o serviço pode retomar um fio de maior prioridade, antecipando assim o fio de chamada.
 
 ## <a name="tx_block_allocate"></a>tx_block_allocate
 
@@ -42,7 +42,7 @@ Este serviço aloca um bloco de memória de tamanho fixo a partir do conjunto de
 - **pool_ptr** <br>Ponteiro para um conjunto de blocos de memória previamente criado.
 - **block_ptr** <br>Ponteiro para um ponteiro de bloco de destino. Na atribuição bem sucedida, o endereço do bloco de memória atribuído é colocado onde este parâmetro aponta.
 - **wait_option** <br>Define como o serviço se comporta se não houver blocos de memória disponíveis. As opções de espera são definidas da seguinte forma:
-  - **TX_NO_WAIT** (0x00000000) - A seleção **TX_NO_WAIT** resulta num retorno imediato deste serviço, independentemente de ter sido bem sucedida ou não. *Esta é a única opção válida se o serviço for chamado de uma não linha; por exemplo, Inicialização, temporizador ou ISR.*
+  - **TX_NO_WAIT** (0x00000000) - A seleção **TX_NO_WAIT** resulta num retorno imediato deste serviço, independentemente de ter sido bem sucedida ou não. *Esta é a única opção válida se o serviço for chamado de um não-thread; por exemplo, Inicialização, temporizador ou ISR*.
   - **TX_WAIT_FOREVER** (0xFFFFFFF) - A seleção **TX_WAIT_FOREVER** faz com que o fio de chamada suspenda indefinidamente até que um bloco de memória esteja disponível.
   - *Valor de tempo limite* (0x00000001 através de 0xFFFFFFFE) - Selecionar um valor numérico (1-0xFFFFFFFE) especifica o número máximo de tempotaques para permanecer suspenso enquanto espera por um bloco de memória.
 
@@ -50,11 +50,11 @@ Este serviço aloca um bloco de memória de tamanho fixo a partir do conjunto de
 
 - **TX_SUCCESS**    (0x00) Alocação de blocos de memória bem sucedidos.
 - **TX_DELETED**    (0x01) O conjunto de blocos de memória foi apagado enquanto o fio foi suspenso.
-- **TX_NO_MEMORY**  (0x10) O Serviço não foi capaz de alocar um bloco de memória dentro do tempo especificado para esperar.
+- **TX_NO_MEMORY**  serviço (0x10) não foi capaz de alocar um bloco de memória dentro do tempo especificado para esperar.
 - **TX_WAIT_ABORTED**   (0x1A) A suspensão foi abortada por outro fio, temporizador ou ISR.
-- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de bloco de memória inválido.
+- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de bloco de memória inválido .
 - **TX_WAIT_ERROR** (0x04) Uma opção de espera que não TX_NO_WAIT foi especificada numa chamada de uma não-leitura.
-- **TX_PTR_ERROR**  (0x03) Ponteiro inválido para ponteiro de destino.
+- **TX_PTR_ERROR**  (0x03) Ponteiro inválido para o ponteiro de destino.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -121,13 +121,13 @@ Este serviço cria uma piscina de blocos de memória de tamanho fixo. A área de
 - **pool_ptr**  Ponteiro para um bloco de controlo de piscina de bloco de memória.
 - **name_ptr**  Ponteiro para o nome do bloco de memória.
 - **block_size**    Número de bytes em cada bloco de memória.
-- **pool_start**    Endereço inicial do bloco de memória. O endereço inicial deve ser alinhado com o tamanho do tipo de dados ULONG.
+- **pool_start**    Endereço inicial do bloco de memória. O endereço inicial deve estar alinhado com o tamanho do tipo de dados ULONG.
 - **pool_size** Número total de bytes disponíveis para o conjunto de blocos de memória.
 
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS**    (0x00) Criação de piscina de blocos de memória bem-sucedido.
-- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de bloco de memória inválido. Ou o ponteiro é NULO ou a piscina já está criada.
+- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de bloco de memória inválido . Ou o ponteiro é NULO ou a piscina já está criada.
 - **TX_PTR_ERROR**  (0x03) Endereço inicial inválido da piscina.
 - **TX_CALLER_ERROR**   (0x13) Inválido deste serviço.
 - **TX_SIZE_ERROR** (0x05) O tamanho da piscina é inválido.
@@ -180,7 +180,7 @@ UINT tx_block_pool_delete(TX_BLOCK_POOL *pool_ptr);
 Este serviço elimina o conjunto de memória de bloco especificado. Todos os fios suspensos à espera de um bloco de memória desta piscina são retomados e dado um **estado de retorno TX_DELETED.**
 
 > [!NOTE]
-> *É da responsabilidade da aplicação gerir a área de memória associada à piscina, que está disponível após a conclusão deste serviço. Além disso, a aplicação deve impedir a utilização de uma piscina eliminada ou dos seus antigos blocos de memória.*
+> *É da responsabilidade da aplicação gerir a área de memória associada à piscina, que está disponível após a conclusão deste serviço. Além disso, a aplicação deve impedir a utilização de um pool apagado ou dos seus antigos blocos de memória.*
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -189,7 +189,7 @@ Este serviço elimina o conjunto de memória de bloco especificado. Todos os fio
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Eliminação bem sucedida do bloco de memória.
-- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de bloco de memória inválido.
+- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de bloco de memória inválido .
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
 
 ### <a name="allowed-from"></a>Permitido a partir de
@@ -225,7 +225,7 @@ status = tx_block_pool_delete(&my_pool);
 
 ## <a name="tx_block_pool_info_get"></a>tx_block_pool_info_get
 
-Recuperar informações sobre a piscina de blocos
+Recuperar informações sobre piscina de blocos
 
 ### <a name="prototype"></a>Prototype
 
@@ -242,7 +242,7 @@ UINT tx_block_pool_info_get(
 
 ### <a name="description"></a>Description
 
-Este serviço obtém informações sobre o conjunto de memórias de bloco especificado.
+Este serviço recupera informações sobre o conjunto de memórias de bloco especificado.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -260,11 +260,15 @@ Este serviço obtém informações sobre o conjunto de memórias de bloco especi
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Recuperar informações de piscina de blocos bem sucedidos.
-- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de bloco de memória inválido.
+- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de bloco de memória inválido .
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -315,7 +319,7 @@ UINT tx_block_pool_performance_info_get(
 
 ### <a name="description"></a>Description
 
-Este serviço obtém informações de desempenho sobre o conjunto de blocos de memória especificados.
+Este serviço recupera informações de desempenho sobre o conjunto de blocos de memória especificados.
 
 > [!IMPORTANT]
 > *A biblioteca e aplicação ThreadX devem ser construídas com* **TX_BLOCK_POOL_ENABLE_PERFORMANCE_INFO** *definidas para este serviço devolver informações de desempenho.*
@@ -324,7 +328,7 @@ Este serviço obtém informações de desempenho sobre o conjunto de blocos de m
 
 - **pool_ptr**  Ponteiro para o bloco de memória previamente criado.
 - **atribui** Ponteiro para destino para o número de pedidos de atribuição realizados nesta piscina.
-- **liberta**  Ponteiro para destino para o número de pedidos de lançamento realizados nesta piscina.
+- **lançamentos**  Ponteiro para destino para o número de pedidos de lançamento realizados nesta piscina.
 - **suspensões**   Ponteiro para o destino para o número de suspensões de atribuição de fios nesta piscina.
 - **intervalos**  Ponteiro para o destino para o número de intervalos de suspensão atribuídos nesta piscina.
 
@@ -333,13 +337,17 @@ Este serviço obtém informações de desempenho sobre o conjunto de blocos de m
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **TX_SUCCESS**    (0x00) Desempenho bem sucedido da piscina de blocos obter.
+- **TX_SUCCESS**    (0x00) Desempenho bem sucedido da piscina do bloco.
 - **TX_PTR_ERROR**  (0x03) Ponteiro de piscina de bloco inválido.
 - **TX_FEATURE_NOT_ENABLED**    (0xFF) O sistema não foi compilado com informações de desempenho ativadas.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -394,9 +402,9 @@ Este serviço obtém informações de desempenho sobre todos os conjuntos de blo
 ### <a name="parameters"></a>Parâmetros
 
 - **atribui** Ponteiro para destino para o número total de pedidos de atribuição realizados em todas as piscinas de blocos.
-- **liberta**  Ponteiro para destino para o número total de pedidos de libertação realizados em todas as piscinas de blocos.
-- **suspensões**   Ponteiro para o destino para o número total de suspensões de atribuição de fios em todas as piscinas de blocos.
-- **intervalos**  Ponteiro para o destino para o número total de intervalos de suspensão atribuídos em todas as piscinas de blocos.
+- **lançamentos**  Ponteiro para destino para o número total de pedidos de libertação realizados em todas as piscinas de blocos.
+- **suspensões**   Ponteiro para destino para o número total de suspensões de atribuição de fios em todas as piscinas de blocos.
+- **intervalos**  Ponteiro para destino para o número total de intervalos de suspensão de atribuição em todas as piscinas de blocos.
 
 > [!NOTE]
 > *O fornecimento de um TX_NULL para qualquer parâmetro indica que o parâmetro não é necessário.*
@@ -409,6 +417,10 @@ Este serviço obtém informações de desempenho sobre todos os conjuntos de blo
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -439,7 +451,7 @@ successfully retrieved. */
 
 ## <a name="tx_block_pool_prioritize"></a>tx_block_pool_prioritize
 
-Priorizar lista de suspensão de piscina de bloco
+Priorize lista de suspensão de piscina de bloco
 
 ### <a name="prototype"></a>Prototype
 
@@ -457,8 +469,8 @@ Este serviço coloca o fio de prioridade mais elevado suspenso por um bloco de m
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **TX_SUCCESS** (0x00) Prioridades de piscina de blocos bem sucedidos.
-- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de bloco de memória inválido.
+- **TX_SUCCESS** (0x00) Prioridades de blocos de sucesso.
+- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de bloco de memória inválido .
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -500,12 +512,15 @@ Liberte o bloco de memória de tamanho fixo
 
 ```c
 UINT tx_block_release(VOID *block_ptr);
-``````
+```
 
 ### <a name="description"></a>Description
 
 Este serviço liberta um bloco previamente atribuído de volta ao seu pool de memória associado. Se houver um ou mais fios suspensos à espera de blocos de memória desta piscina, o primeiro fio suspenso é dado a este bloco de memória e retomado.
 
+>[!NOTE]
+> *A aplicação pode querer limpar o bloco de memória antes de o soltar para evitar fugas de dados.*
+ 
 >[!IMPORTANT]
 >*A aplicação deve evitar a utilização de uma área de bloco de memória depois de ter sido libertada de volta à piscina.*
 
@@ -582,18 +597,18 @@ Este serviço atribui o número especificado de bytes da piscina de bytes de mem
 - **memory_ptr** <br>Ponteiro para um ponteiro de memória de destino. Na atribuição bem sucedida, o endereço da área de memória atribuída é colocado onde este parâmetro aponta.
 - **memory_size** <br>Número de bytes solicitados.
 - **wait_option** <br>Define como o serviço se comporta se não houver memória suficiente disponível. As opções de espera são definidas da seguinte forma:
-  - **TX_NO_WAIT** (0x00000000) - A seleção **TX_NO_WAIT** resulta num retorno imediato deste serviço, independentemente de ter sido ou não bem sucedida. *Esta é a única opção válida se o serviço for chamado de inicialização.*
+  - **TX_NO_WAIT** (0x00000000) - A seleção **TX_NO_WAIT** resulta num retorno imediato deste serviço, independentemente de ter sido ou não bem sucedida. *Esta é a única opção válida se o serviço for chamado da inicialização.*
   - **TX_WAIT_FOREVER** 0xFFFFFFFF) - A seleção **TX_WAIT_FOREVER** faz com que o fio de chamada suspenda indefinidamente até que esteja disponível memória suficiente.
-  - *Valor de tempo limite* (0x00000001 através de 0xFFFFFFFE) - Selecionar um valor numérico (1-0xFFFFFFFE) especifica o número máximo de temporizadores para permanecer suspenso enquanto espera pela memória.
+  - *Valor de tempo limite* (0x00000001 através de 0xFFFFFFFE) - A seleção de um valor numérico (1-0xFFFFFFFE) especifica o número máximo de carraças temporais para permanecer suspensa enquanto se espera pela memória.
 
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Alocação de memória bem sucedida.
 - **TX_DELETED** (0x01) O pool de memória foi apagado enquanto o fio foi suspenso.
-- **TX_NO_MEMORY** serviço (0x10) não foi capaz de alocar a memória dentro do tempo especificado para esperar.
+- **TX_NO_MEMORY** (0x10) O Serviço não foi capaz de alocar a memória dentro do tempo especificado para esperar.
 - **TX_WAIT_ABORTED** (0x1A) A suspensão foi abortada por outro fio, temporizador ou ISR.
-- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de memória inválida.
-- **TX_PTR_ERROR** (0x03) Ponteiro inválido para ponteiro de destino.
+- **TX_POOL_ERROR** (0x02) Ponteiro do piscina de memória inválido.
+- **TX_PTR_ERROR** (0x03) Ponteiro inválido para o ponteiro de destino.
 - **TX_SIZE_ERROR** (0X05) O tamanho solicitado é zero ou maior do que a piscina.
 - **TX_WAIT_ERROR** (0x04) Uma opção de espera que não TX_NO_WAIT foi especificada numa chamada de uma não-leitura.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
@@ -647,19 +662,19 @@ UINT tx_byte_pool_create(
 
 ### <a name="description"></a>Description
 
-Este serviço cria uma piscina de byte de memória na área especificada. Inicialmente, a piscina é composta por basicamente um bloco livre muito grande. No entanto, a piscina é dividida em blocos menores à medida que as dotações são feitas.
+Este serviço cria uma piscina de byte de memória na área especificada. Inicialmente, a piscina é composta por um bloco livre muito grande. No entanto, a piscina é dividida em blocos menores à medida que as dotações são feitas.
 
 ### <a name="parameters"></a>Parâmetros
 
 - **pool_ptr** Ponteiro para um bloco de controlo de piscina de memória.
 - **name_ptr** Ponteiro para o nome do pool de memória.
-- **pool_start** Endereço inicial do pool de memórias. O endereço inicial deve ser alinhado com o tamanho do tipo de dados ULONG.
+- **pool_start** Endereço inicial do pool de memórias. O endereço inicial deve estar alinhado com o tamanho do tipo de dados ULONG.
 - **pool_size** Número total de bytes disponíveis para o pool de memória.
 
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Criação de piscina de memória bem sucedida.
-- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de memória inválida. Ou o ponteiro é NULO ou a piscina já está criada.
+- **TX_POOL_ERROR** (0x02) Ponteiro do piscina de memória inválido. Ou o ponteiro é NULO ou a piscina já está criada.
 - **TX_PTR_ERROR** (0x03) Endereço inicial inválido da piscina.
 - **TX_SIZE_ERROR** (0x05) O tamanho da piscina é inválido.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
@@ -708,19 +723,19 @@ UINT tx_byte_pool_delete(TX_BYTE_POOL *pool_ptr);
 
 ### <a name="description"></a>Description
 
-Este serviço elimina o conjunto de bytes de memória especificado. Todos os fios suspensos à espera de memória desta piscina são retomados e dado um **estado de retorno TX_DELETED.**
+Este serviço elimina o conjunto de bytes de memória especificado. Todos os fios suspensos à espera de memória desta piscina são retomados e dado um **TX_DELETED** estado de retorno.
 
 > [!IMPORTANT]
-> *É da responsabilidade da aplicação gerir a área de memória associada à piscina, que está disponível após a conclusão deste serviço. Além disso, a aplicação deve impedir a utilização de um pool ou memória eliminados previamente atribuídos a partir do mesmo.*
+> *É da responsabilidade da aplicação gerir a área de memória associada à piscina, que está disponível após a conclusão deste serviço. Além disso, a aplicação deve impedir a utilização de um pool ou memória eliminados previamente atribuídos.*
 
 ### <a name="parameters"></a>Parâmetros
 
-- **pool_ptr** Ponteiro para um pool de memória previamente criado.
+- **pool_ptr** Ponteiro para um conjunto de memória previamente criado.
 
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Eliminação bem sucedida do pool de memória.
-- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de memória inválida.
+- **TX_POOL_ERROR** (0x02) Ponteiro do piscina de memória inválido.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
 
 ### <a name="allowed-from"></a>Permitido a partir de
@@ -772,17 +787,17 @@ UINT tx_byte_pool_info_get(
 
 ### <a name="description"></a>Description
 
-Este serviço obtém informações sobre o byte de memória especificado.
+Este serviço obtém informações sobre o conjunto de bytes de memória especificado.
 
 ### <a name="parameters"></a>Parâmetros
 
 - **pool_ptr** Ponteiro para piscina de memória previamente criada.
-- **nome** Ponteiro para o destino para o ponteiro para o nome da piscina byte.
+- **nome** Ponter para o destino para o ponteiro para o nome da piscina byte.
 - **disponível** Ponteiro para o destino para o número de bytes disponíveis na piscina.
 - **fragmentos** Ponteiro para o destino para o número total de fragmentos de memória na piscina byte.
 - **first_suspended** Ponteiro para destino para o ponteiro para o fio que é o primeiro na lista de suspensão desta piscina byte.
 - **suspended_count** Ponteiro para o destino para o número de fios atualmente suspensos nesta piscina byte.
-- **next_pool** Ponteiro para o destino para o ponteiro do próximo byte criado pool.
+- **next_pool** Ponteiro para destino para o ponteiro do próximo byte criado pool.
 
 > [!NOTE]
 > *O fornecimento de um TX_NULL para qualquer parâmetro indica que o parâmetro não é necessário.*
@@ -790,7 +805,7 @@ Este serviço obtém informações sobre o byte de memória especificado.
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Recuperar informações de piscina bem sucedidas.
-- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de memória inválida.
+- **TX_POOL_ERROR** (0x02) Ponteiro do piscina de memória inválido.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -853,7 +868,7 @@ UINT tx_byte_pool_performance_info_get(
 
 ### <a name="description"></a>Description
 
-Este serviço obtém informações de desempenho sobre a piscina de byte de memória especificada.
+Este serviço recupera informações de desempenho sobre o conjunto de bytes de memória especificado.
 
 > [!IMPORTANT]
 > *A biblioteca e aplicação ThreadX devem ser construídas com* **TX_BYTE_POOL_ENABLE_PERFORMANCE_INFO** *definidas para este serviço devolver informações de desempenho.*
@@ -862,7 +877,7 @@ Este serviço obtém informações de desempenho sobre a piscina de byte de mem�
 
 - **pool_ptr** Ponteiro para a piscina byte de memória previamente criada.
 - **atribui** Ponteiro para destino para o número de pedidos de atribuição realizados nesta piscina.
-- **liberta** Ponteiro para destino para o número de pedidos de lançamento realizados nesta piscina.
+- **lançamentos** Ponteiro para destino para o número de pedidos de lançamento realizados nesta piscina.
 - **fragments_searched** Ponteiro para o destino para o número de fragmentos de memória interna pesquisados durante os pedidos de atribuição nesta piscina.
 - **funde** Ponteiro para destino para o número de blocos de memória internos fundidos durante os pedidos de atribuição nesta piscina.
 - **divisões** Ponteiro para o destino para o número de blocos de memória internos divididos (fragmentos) criados durante os pedidos de atribuição nesta piscina.
@@ -881,6 +896,10 @@ Este serviço obtém informações de desempenho sobre a piscina de byte de mem�
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -917,7 +936,7 @@ successfully retrieved. */
 
 ## <a name="tx_byte_pool_performance_system_info_get"></a>tx_byte_pool_performance_system_info_get
 
-Obtenha informações sobre o desempenho do sistema de piscinas byte
+Obtenha informações sobre o desempenho do sistema de piscina byte
 
 ### <a name="prototype"></a>Prototype
 
@@ -941,12 +960,12 @@ Este serviço obtém informações de desempenho sobre todas as piscinas de byte
 ### <a name="parameters"></a>Parâmetros
 
 - **atribui** Ponteiro para destino para o número de pedidos de atribuição realizados nesta piscina.
-- **liberta** Ponteiro para destino para o número de pedidos de lançamento realizados nesta piscina.
-- **fragments_searched** Ponteiro para o destino para o número total de fragmentos de memória interna pesquisados durante os pedidos de atribuição em todas as piscinas byte.
+- **lançamentos** Ponteiro para destino para o número de pedidos de lançamento realizados nesta piscina.
+- **fragments_searched** Ponteiro para destino para o número total de fragmentos de memória interna pesquisados durante os pedidos de atribuição em todas as piscinas byte.
 - **funde** Ponteiro para destino para o número total de blocos de memória internos fundidos durante os pedidos de atribuição em todas as piscinas byte.
 - **divisões** Ponteiro para destino para o número total de blocos de memória internos divididos (fragmentos) criados durante os pedidos de atribuição em todas as piscinas byte.
 - **suspensões** Ponteiro para destino para o número total de suspensões de atribuição de fios em todas as piscinas byte.
-- **intervalos** Ponteiro para o destino para o número total de intervalos de suspensão alocados em todas as piscinas byte.
+- **intervalos** Ponteiro para destino para o número total de intervalos de suspensão alocados em todas as piscinas byte.
 
 > [!NOTE]
 > *O fornecimento de um TX_NULL para qualquer parâmetro indica que o parâmetro não é necessário.*
@@ -959,6 +978,10 @@ Este serviço obtém informações de desempenho sobre todas as piscinas de byte
 ### <a name="allowed-from"></a>Permitido a partir de
 
  Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -1012,7 +1035,7 @@ Este serviço coloca o fio de prioridade mais elevado suspenso para memória nes
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Prioridades de memória bem sucedidas.
-- **TX_POOL_ERROR** (0x02) Ponteiro de piscina de memória inválida.
+- **TX_POOL_ERROR** (0x02) Ponteiro do piscina de memória inválido.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -1060,7 +1083,10 @@ UINT tx_byte_release(VOID *memory_ptr);
 
 ### <a name="description"></a>Description
 
-Este serviço liberta uma área de memória previamente atribuída à sua piscina associada. Se houver um ou mais fios suspensos à espera da memória desta piscina, cada fio suspenso é dado memória e retomado até que a memória esteja esgotada ou até que não haja mais fios suspensos. Este processo de atribuição de memória a fios suspensos começa sempre com o primeiro fio suspenso.
+Este serviço liberta uma área de memória previamente atribuída à sua piscina associada. Se houver um ou mais fios suspensos à espera de memória desta piscina, cada fio suspenso é dado memória e retomado até que a memória esteja esgotada ou até que não haja mais fios suspensos. Este processo de atribuição de memória a fios suspensos começa sempre com o primeiro fio suspenso.
+
+>[!NOTE]
+> *A aplicação pode querer limpar a área da memória antes de a libertar para evitar fugas de dados.*
 
 > [!IMPORTANT]
 > *A aplicação deve evitar a utilização da área de memória após a sua libertação.*
@@ -1126,7 +1152,7 @@ Este serviço cria um grupo de 32 bandeiras de eventos. Todas as 32 bandeiras do
 ### <a name="parameters"></a>Parâmetros
 
 - **group_ptr** Ponteiro para um bloco de controlo de grupo de bandeiras de evento.
-- **name_ptr** Apontando para o nome do grupo de bandeiras do evento.
+- **name_ptr** Ponteiro para o nome do grupo de bandeiras do evento.
 
 ### <a name="return-values"></a>Valores de devolução
 
@@ -1168,7 +1194,7 @@ for get and set services. */
 
 ## <a name="tx_event_flags_delete"></a>tx_event_flags_delete
 
-Apagar grupo de bandeiras de eventos
+Excluir grupo de bandeiras de eventos
 
 ### <a name="prototype"></a>Prototype
 
@@ -1181,7 +1207,7 @@ UINT tx_event_flags_delete(TX_EVENT_FLAGS_GROUP *group_ptr);
 Este serviço elimina o grupo de bandeiras de eventos especificado. Todos os fios suspensos à espera de eventos deste grupo são retomados e dado um TX_DELETED estatuto de devolução.
 
 >[!IMPORTANT]
-> *O pedido deve garantir que um conjunto de chamadas notificantes para este grupo de bandeiras de evento seja concluído (ou desativado) antes de eliminar o grupo de bandeiras do evento. Além disso, a aplicação deve impedir a utilização futura de um grupo de bandeiras de eventos eliminado.*
+> *O pedido deve garantir que um conjunto de chamadas notificadas para este grupo de bandeiras de evento é concluído (ou desativado) antes de eliminar o grupo de bandeiras do evento. Além disso, a aplicação deve impedir a utilização futura de um grupo de bandeiras de eventos eliminado.*
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -1258,11 +1284,11 @@ Este serviço recupera bandeiras de eventos do grupo de bandeiras de eventos esp
 
     A seleção de TX_AND ou TX_AND_CLEAR especifica que todas as bandeiras do evento devem estar presentes no grupo. Selecionar TX_OR ou TX_OR_CLEAR especifica que qualquer bandeira de evento é satisfatória. As bandeiras do evento que satisfaçam o pedido são apuradas (definidas para zero) se forem especificadas TX_AND_CLEAR ou TX_OR_CLEAR.
 
-- **actual_flags_ptr** <br>Ponteiro para o destino de onde são colocadas as bandeiras do evento recuperado. Note-se que as bandeiras obtidas podem conter bandeiras que não foram solicitadas.
+- **actual_flags_ptr** <br>Ponteiro para o destino de onde são colocadas as bandeiras do evento recuperado. Note que as bandeiras obtidas podem conter bandeiras que não foram solicitadas.
 - **wait_option**  <br>Define como o serviço se comporta se as bandeiras de eventos selecionadas não estiverem definidas. As opções de espera são definidas da seguinte forma:
   - **TX_NO_WAIT** (0x00000000) - A seleção TX_NO_WAIT resulta num retorno imediato deste serviço, independentemente de ter sido ou não bem sucedido. Esta é a única opção válida se o serviço for chamado de uma não linha; por exemplo, Inicialização, temporizador ou ISR.
   - **TX_WAIT_FOREVER** valor de tempo limite (0xFFFFFFFF) - A seleção TX_WAIT_FOREVER faz com que o fio de chamada suspenda indefinidamente até que as bandeiras do evento estejam disponíveis.
-  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - A seleção de um valor numérico (1-0xFFFFFFFE) especifica o número máximo de tempotaques para permanecer suspenso enquanto espera pelas bandeiras do evento.
+  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - A seleção de um valor numérico (1-0xFFFFFFFE) especifica o número máximo de temporizadores para permanecer suspenso enquanto espera pelas bandeiras do evento.
 
 ### <a name="return-values"></a>Valores de devolução
 
@@ -1273,7 +1299,7 @@ Este serviço recupera bandeiras de eventos do grupo de bandeiras de eventos esp
 - **TX_GROUP_ERROR** (0x06) Inválido sinaliza o ponteiro do grupo.
 - **TX_PTR_ERROR** (0x03) Ponteiro inválido para bandeiras reais do evento.
 - **TX_WAIT_ERROR** (0x04) Uma opção de espera que não TX_NO_WAIT foi especificada numa chamada de uma não-leitura.
-- **TX_OPTION_ERROR** (0x08) Foi especificada a opção de opção de opção inválida.
+- **TX_OPTION_ERROR** (0x08) Foi especificada a opção de opção de saída inválida.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -1301,7 +1327,7 @@ status = tx_event_flags_get(&my_event_flags_group, 0x111,
 actual events obtained. */
 ```
 
-**Ver Também**
+### <a name="see-also"></a>Consulte também
 
 - tx_event_flags_create
 - tx_event_flags_delete
@@ -1311,11 +1337,11 @@ actual events obtained. */
 - tx_event_flags_set
 - tx_event_flags_set_notify
 
-### <a name="tx_event_flags_info_get"></a>tx_event_flags_info_get
+## <a name="tx_event_flags_info_get"></a>tx_event_flags_info_get
 
 Recuperar informações sobre o grupo de bandeiras de eventos
 
-**Protótipo**
+### <a name="prototype"></a>Prototype
 
 ```c
 UINT tx_event_flags_info_get(
@@ -1326,17 +1352,17 @@ UINT tx_event_flags_info_get(
     TX_EVENT_FLAGS_GROUP **next_group);
 ```
 
-**Descrição**
+### <a name="description"></a>Description
 
 Este serviço obtém informações sobre o grupo de bandeiras de eventos especificado.
 
-**Parâmetros**
+### <a name="parameters"></a>Parâmetros
 
 - **group_ptr** Ponteiro para um bloco de controlo de grupo de bandeiras de evento.
 - **nome** Ponteiro para o destino para o ponteiro para o nome do grupo bandeiras do evento.
 - **current_flags** Ponteiro para destino para as bandeiras do conjunto atual no grupo de bandeiras do evento.
 - **first_suspended** Ponteiro para destino para o ponteiro para o fio que é o primeiro na lista de suspensão deste grupo de bandeiras de evento.
-- **suspended_count** Ponteiro para o destino para o número de fios atualmente suspensos neste grupo de bandeiras de evento.
+- **suspended_count** Ponteiro para destino para o número de fios atualmente suspensos neste grupo de bandeiras de evento.
 - **next_group** Ponteiro para o destino para o ponteiro do próximo grupo de bandeiras de eventos criado.
 
 > [!NOTE]
@@ -1375,7 +1401,7 @@ status = tx_event_flags_info_get(&my_event_group, &name,
 /* If status equals TX_SUCCESS, the information requested is
 valid. */
 ```
-**Ver Também**
+### <a name="see-also"></a>Consulte também
 
 - tx_event_flags_create
 - tx_event_flags_delete
@@ -1401,7 +1427,7 @@ UINT tx_event_flags_performance_info_get(
 
 ### <a name="description"></a>Description
 
-Este serviço obtém informações de desempenho sobre o grupo de bandeiras de eventos especificado.
+Este serviço recupera informações de desempenho sobre o grupo de bandeiras de eventos especificado.
 
 > [!IMPORTANT]
 > *A biblioteca e aplicação ThreadX devem ser construídas com* **TX_EVENT_FLAGS_ENABLE_PERFORMANCE_INFO** *definidas para este serviço devolver informações de desempenho.*
@@ -1426,6 +1452,10 @@ Este serviço obtém informações de desempenho sobre o grupo de bandeiras de e
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -1481,8 +1511,8 @@ Este serviço obtém informações de desempenho sobre todos os grupos de bandei
 
 - **conjuntos** Ponteiro para destino para o número total de bandeiras de eventos definir pedidos realizados em todos os grupos.
 - **recebe** O ponteiro para o destino para o número total de bandeiras de eventos recebe pedidos realizados em todos os grupos.
-- **suspensões** O ponteiro para o destino para o número total de bandeiras de eventos de thread obtém suspensões em todos os grupos.
-- **intervalos** O ponteiro para o destino para o número total de bandeiras de eventos obtém intervalos de suspensão em todos os grupos.
+- **suspensões** O ponteiro para o destino para o número total de bandeiras de eventos de linha obtém suspensões em todos os grupos.
+- **intervalos** O ponteiro para o destino para o número total de bandeiras do evento obtém intervalos de suspensão em todos os grupos.
 
 > [!NOTE]
 > *O fornecimento de um TX_NULL para qualquer parâmetro indica que o parâmetro não é necessário.*
@@ -1491,6 +1521,14 @@ Este serviço obtém informações de desempenho sobre todos os grupos de bandei
 
 - **TX_SUCCESS** (0x00) Desempenho do sistema de bandeiras de eventos bem sucedido.
 - **TX_FEATURE_NOT_ENABLED** (0xFF) O sistema não foi compilado com informações de desempenho ativadas.
+
+### <a name="allowed-from"></a>Permitido a partir de
+
+Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -1534,7 +1572,7 @@ UINT tx_event_flags_set(
 
 ### <a name="description"></a>Description
 
-Este serviço define ou limpa bandeiras de eventos num grupo de bandeiras de eventos, dependendo da opção definida especificada. Todos os fios suspensos cujo pedido de bandeiras de evento é agora preenchido são retomados.
+Este serviço define ou limpa as bandeiras do evento num grupo de bandeiras de eventos, dependendo da opção de set especificada. Todos os fios suspensos cujo pedido de bandeiras de evento é agora preenchido são retomados.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -1544,12 +1582,16 @@ Este serviço define ou limpa bandeiras de eventos num grupo de bandeiras de eve
   - **TX_AND** (0x02)
   - **TX_OR** (0x00)
 
-  A seleção TX_AND especifica que as bandeiras de eventos especificadas são **especadas** nas bandeiras do evento atual no grupo. Esta opção é frequentemente usada para limpar bandeiras de eventos em um grupo. Caso contrário, se TX_OR for especificado, as bandeiras de eventos especificadas são **ORed** com o evento atual no grupo.
+  A seleção TX_AND especifica que as bandeiras de eventos especificadas são **estrupusedas** nas bandeiras do evento atual no grupo. Esta opção é frequentemente usada para limpar bandeiras de eventos em um grupo. Caso contrário, se TX_OR for especificado, as bandeiras de eventos especificadas são **ORed** com o evento atual no grupo.
 
 ### <a name="return-values"></a>Valores de devolução
 - **TX_SUCCESS** (0x00) Conjunto de bandeiras de eventos bem-sucedidas.
 - **TX_GROUP_ERROR** (0x06) Ponteiro inválido para grupo de bandeiras de eventos.
-- **TX_OPTION_ERROR** (0x08) A opção de conjunto inválida especificada.
+- **TX_OPTION_ERROR** (0x08) Opção de set inválida especificada.
+
+### <a name="allowed-from"></a>Permitido a partir de
+
+Inicialização, fios, temporizadores e ISRs
 
 ### <a name="preemption-possible"></a>Preempção Possível
 
@@ -1582,7 +1624,7 @@ has been resumed. */
 
 ## <a name="tx_event_flags_set_notify"></a>tx_event_flags_set_notify
 
-Notifique a aplicação quando as bandeiras do evento forem definidas
+Notifique o pedido quando as bandeiras do evento forem definidas
 
 ### <a name="prototype"></a>Prototype
 
@@ -1594,7 +1636,7 @@ UINT tx_event_flags_set_notify(
 
 ### <a name="description"></a>Description
 
-Este serviço regista uma função de chamada de chamada de notificação que é chamada sempre que uma ou mais bandeiras de eventos são definidas no grupo de bandeiras de eventos especificado. O processamento da chamada de notificação é definido pela
+Este serviço regista uma função de chamada de chamada de notificação que é chamada sempre que uma ou mais bandeiras de eventos são definidas no grupo de bandeiras de eventos especificado. O processamento da chamada de notificação é definido pelo
 
 ### <a name="parameters"></a>Parâmetros
 - **group_ptr** Ponteiro para grupo de bandeiras de eventos previamente criado.
@@ -1605,6 +1647,14 @@ Este serviço regista uma função de chamada de chamada de notificação que é
 - **TX_SUCCESS** (0x00) Registo bem sucedido de bandeiras de eventos definir notificação.
 - **TX_GROUP_ERROR** (0x06) Inválido sinaliza o ponteiro do grupo.
 - **TX_FEATURE_NOT_ENABLED** (0xFF) O sistema foi compilado com capacidades de notificação desativadas.
+
+### <a name="allowed-from"></a>Permitido a partir de
+
+Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -1654,10 +1704,10 @@ Este serviço permite ou desativa as interrupções conforme especificado pelo p
 
 ### <a name="parameters"></a>Parâmetros
 
-- **new_posture** Este parâmetro especifica se as interrupções são desativadas ou ativadas. Os valores legais incluem **TX_INT_DISABLE** e **TX_INT_ENABLE.** Os valores reais para estes parâmetros são específicos do porto. Além disso, algumas arquiteturas de processamento podem suportar posturas adicionais de interrupção de desativação.
+- **new_posture** Este parâmetro especifica se as interrupções são desativadas ou ativadas. Os valores legais incluem **TX_INT_DISABLE** e **TX_INT_ENABLE.** Os valores reais para estes parâmetros são específicos do porto. Além disso, algumas arquiteturas de processamento podem suportar posturas de desativação adicional de interrupção.
 
 ### <a name="return-values"></a>Valores de devolução
-- **postura anterior** Este serviço devolve a postura de interrupção anterior ao chamador. Isto permite que os utilizadores do serviço restaurem a postura anterior após as interrupções serem desativadas.
+- **postura anterior** Este serviço devolve a postura de interrupção anterior ao autor da chamada. Isto permite que os utilizadores do serviço restaurem a postura anterior após interrupções.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -1824,7 +1874,7 @@ UINT tx_mutex_get(
 
 Este serviço tenta obter a propriedade exclusiva do mutex especificado. Se o fio de chamamento já possuir o mutex, um contador interno é incrementado e um estado de sucesso é devolvido.
 
-Se o mutex for propriedade de outro fio e este fio for de maior prioridade e a herança prioritária foi especificada na criação de mutex, a prioridade do fio de menor prioridade será temporariamente elevada à do fio de chamada.
+Se o mutex for propriedade de outro fio e este fio for de maior prioridade e a herança prioritária foi especificada na criação de mutaxos, a prioridade do fio de menor prioridade será temporariamente elevada à do fio de chamada.
 
 > [!NOTE]
 > *A prioridade do fio de menor prioridade que possui um mutex com prioridade nunca deve ser modificada por um fio externo durante a propriedade do mutex.*
@@ -1835,7 +1885,7 @@ Se o mutex for propriedade de outro fio e este fio for de maior prioridade e a h
 - **wait_option** <br>Define como o serviço se comporta se o mutex já é propriedade de outro fio. As opções de espera são definidas da seguinte forma:
   - **TX_NO_WAIT** (0x00000000) - A seleção TX_NO_WAIT resulta num retorno imediato deste serviço, independentemente de ter sido ou não bem sucedido. *Esta é a única opção válida se o serviço for chamado da Initialization.*
   - **TX_WAIT_FOREVER** valor de tempo limite (0xFFFFFFFF) - A seleção **TX_WAIT_FOREVER** faz com que o fio de chamada suspenda indefinidamente até que o mutex esteja disponível.
-  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - Selecionar um valor numérico (1-0xFFFFFFFE) especifica o número máximo de temporizadores para permanecer suspenso enquanto espera pelo mutex.
+  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - A seleção de um valor numérico (1-0xFFFFFFFE) especifica o número máximo de carraças temporais para permanecer suspensa enquanto espera pelo mutex.
 
 ### <a name="return-values"></a>Valores de devolução
 
@@ -1844,7 +1894,7 @@ Se o mutex for propriedade de outro fio e este fio for de maior prioridade e a h
 - **TX_NOT_AVAILABLE** (0x1D) O serviço não conseguiu obter a propriedade do mutex dentro do tempo especificado para esperar.
 - **TX_WAIT_ABORTED** (0x1A) A suspensão foi abortada por outro fio, temporizador ou ISR.
 - **TX_MUTEX_ERROR** (0x1C) Ponteiro mutex inválido.
-- **TX_WAIT_ERROR** (0x04) Uma opção de espera que não TX_NO_WAIT foi especificada numa chamada de um não-fio.
+- **TX_WAIT_ERROR** (0x04) Foi especificada uma opção de espera diferente da TX_NO_WAIT numa chamada de um não-fio.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
 
 ### <a name="allowed-from"></a>Permitido a partir de
@@ -1904,7 +1954,7 @@ Este serviço obtém informações do mutex especificado.
 - **nome** Ponteiro para o destino para o ponteiro para o nome do mutex.
 - **contar** Ponteiro para o destino para a contagem de propriedade do mutex.
 - **proprietário** Ponteiro para destino para o ponteiro do fio próprio.
-- **first_suspended** Ponteiro para o destino para o ponteiro para o fio que é o primeiro na lista de suspensão deste mutex.
+- **first_suspended** Ponteiro para destino para o ponteiro para o fio que é o primeiro na lista de suspensão deste mutex.
 - **suspended_count** Ponteiro para o destino para o número de fios atualmente suspensos neste mutex.
 - **next_mutex** Ponteiro para o destino para o ponteiro do próximo mutex criado.
 
@@ -1924,7 +1974,7 @@ Inicialização, fios, temporizadores e ISRs
 
 No
 
-**Exemplo**
+### <a name="example"></a>Exemplo
 
 ```c
 TX_MUTEX my_mutex;
@@ -1987,7 +2037,7 @@ Este serviço recupera informações de desempenho sobre o mutex especificado.
 - **coloca** Ponteiro para o destino para o número de pedidos de colocação realizados neste mutex.
 - **recebe** Ponteiro para o destino para o número de pedidos de obter realizados neste mutex.
 - **suspensões** Ponteiro para o destino para o número de mutex thread obter suspensões neste mutex.
-- **intervalos** Ponteiro para o destino para o número de mutaxos obter intervalos de suspensão neste mutex.
+- **intervalos** O ponteiro para o destino para o número de mutaxos obtém intervalos de suspensão neste mutex.
 - **inversões** Ponteiro para o destino para o número de inversões prioritárias de linha neste mutex.
 - **heranças** Ponteiro para o destino para o número de operações de herança prioritária de linha neste mutex.
 
@@ -2003,6 +2053,10 @@ Este serviço recupera informações de desempenho sobre o mutex especificado.
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -2036,7 +2090,7 @@ successfully retrieved. */
 
 ## <a name="tx_mutex_performance_system_info_get"></a>tx_mutex_performance_system_info_get
 
-Obtenha informações sobre desempenho do sistema mutex
+Obtenha informações sobre desempenho do sistema de mutex
 
 ### <a name="prototype"></a>Prototype
 
@@ -2052,7 +2106,7 @@ UINT tx_mutex_performance_system_info_get(
 
 ### <a name="description"></a>Description
 
-Este serviço obtém informações de desempenho sobre todos os mutaxos do sistema.
+Este serviço recupera informações de desempenho sobre todos os mutaxos do sistema.
 
 > [!IMPORTANT]
 > *A biblioteca e aplicação ThreadX devem ser construídas com* **TX_MUTEX_ENABLE_PERFORMANCE_INFO** *definidas para este serviço devolver informações de desempenho.*
@@ -2060,9 +2114,9 @@ Este serviço obtém informações de desempenho sobre todos os mutaxos do siste
 ### <a name="parameters"></a>Parâmetros
 
 - **coloca** Ponteiro para destino para o número total de pedidos de colocação realizados em todos os mutaxos.
-- **recebe** Ponteiro para destino para o número total de pedidos de obter realizados em todos os mutaxos.
-- **suspensões** Ponteiro para o destino para o número total de fios mutex obter suspensões em todos os mutais.
-- **intervalos** Ponteiro para o destino para o número total de mutantes obter intervalos de suspensão em todos os mutais.
+- **recebe** Ponteiro para destino para o número total de pedidos de get realizados em todos os mutaxos.
+- **suspensões** Ponteiro para destino para o número total de fios mutex obter suspensões em todos os mutaxos.
+- **intervalos** Ponteiro para destino para o número total de mutaxos obtenha intervalos de suspensão em todos os mutais.
 - **inversões** Ponteiro para o destino para o número total de inversões prioritárias de linha em todos os mutaxos.
 - **heranças** Ponteiro para destino para o número total de operações de herança prioritária de fio em todos os mutaxos.
 
@@ -2077,6 +2131,10 @@ Este serviço obtém informações de desempenho sobre todos os mutaxos do siste
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -2124,7 +2182,7 @@ Este serviço coloca o fio de prioridade mais elevado suspenso para a propriedad
 
 ### <a name="parameters"></a>Parâmetros
 
-- **mutex_ptr** Ponteiro para o mutex anteriormente criado.
+- **mutex_ptr** Ponteiro para o mutex criado anteriormente.
 
 ### <a name="return-values"></a>Valores de devolução
 
@@ -2250,13 +2308,13 @@ Este serviço cria uma fila de mensagens que é normalmente usada para comunica�
 - **queue_ptr** Ponteiro para um bloco de controlo de fila de mensagens.
 - **name_ptr** Ponteiro para o nome da fila da mensagem.
 - **message_size** Especifica o tamanho de cada mensagem na fila. Os tamanhos da mensagem variam de 1 32 bits de palavras a 16 palavras de 32 bits. As opções de tamanho de mensagem válidas são valores numéricos de 1 a 16, inclusive.
-- **queue_start** Endereço inicial da fila da mensagem. O endereço inicial deve ser alinhado com o tamanho do tipo de dados ULONG.
+- **queue_start** Endereço inicial da fila da mensagem. O endereço inicial deve estar alinhado com o tamanho do tipo de dados ULONG.
 - **queue_size** Número total de bytes disponíveis para a fila da mensagem.
 
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Criação de fila de mensagens bem sucedida.
-- **TX_QUEUE_ERROR** (0x09) Ponteiro de fila de mensagens inválidas. Ou o ponteiro é NU OU a fila já está criada.
+- **TX_QUEUE_ERROR** (0x09) Ponteiro da fila de mensagens inválidas. Ou o ponteiro é NULO ou a fila já está criada.
 - **TX_PTR_ERROR** (0x03) Endereço inicial inválido da fila da mensagem.
 - **TX_SIZE_ERROR** (0x05) O tamanho da fila da mensagem é inválido.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
@@ -2301,7 +2359,7 @@ message). */
 
 ## <a name="tx_queue_delete"></a>tx_queue_delete
 
-Apagar fila de mensagens
+Excluir a fila da mensagem
 
 ### <a name="prototype"></a>Prototype
 
@@ -2323,7 +2381,7 @@ Este serviço elimina a fila de mensagens especificada. Todos os fios suspensos 
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Eliminação da fila de mensagens bem sucedida.
-- **TX_QUEUE_ERROR** (0x09) Ponteiro de fila de mensagens inválidas.
+- **TX_QUEUE_ERROR** (0x09) Ponteiro da fila de mensagens inválidas.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
 
 ### <a name="allowed-from"></a>Permitido a partir de
@@ -2385,7 +2443,7 @@ Se a fila estiver cheia, as mensagens de todos os fios suspensos são descartada
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Mensagem de sucesso na fila da fila.
-- **TX_QUEUE_ERROR** (0x09) Ponteiro de fila de mensagens inválidas.
+- **TX_QUEUE_ERROR** (0x09) Ponteiro da fila de mensagens inválidas.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -2447,17 +2505,17 @@ Este serviço envia uma mensagem para a localização frontal da fila de mensage
 - **wait_option**  <br>Define como o serviço se comporta se a fila da mensagem estiver cheia. As opções de espera são definidas da seguinte forma:
   - **TX_NO_WAIT** (0x00000000) - A seleção TX_NO_WAIT resulta num retorno imediato deste serviço, independentemente de ter sido ou não bem sucedido. *Esta é a única opção válida se o serviço for chamado de uma não linha; por exemplo, Inicialização, temporizador ou ISR.*
   - **TX_WAIT_FOREVER** (0xFFFFFFFF) - A seleção TX_WAIT_FOREVER faz com que o fio de chamada suspenda indefinidamente até que haja espaço na fila.
-  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - Selecionar um valor numérico (1-0xFFFFFFFE) especifica o número máximo de tempotaques para permanecer suspenso enquanto espera por espaço na fila.
+  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - A seleção de um valor numérico (1-0xFFFFFFFE) especifica o número máximo de tempotaques para permanecer suspenso enquanto espera por espaço na fila.
 
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Envio bem sucedido de mensagem.
-- **TX_DELETED** (0x01) A fila da mensagem foi apagada enquanto o fio foi suspenso.
+- **TX_DELETED** (0x01) A fila da mensagem foi eliminada enquanto o fio foi suspenso.
 - **TX_QUEUE_FULL** (0x0B) O Serviço não pôde enviar mensagem porque a fila estava cheia durante o tempo especificado para esperar.
 - **TX_WAIT_ABORTED** (0x1A) A suspensão foi abortada por outro fio, temporizador ou ISR.
-- **TX_QUEUE_ERROR** (0x09) Ponteiro de fila de mensagens inválidas.
+- **TX_QUEUE_ERROR** (0x09) Ponteiro da fila de mensagens inválidas.
 - **TX_PTR_ERROR** (0x03) Ponteiro de origem inválido para mensagem.
-- **TX_WAIT_ERROR** (0x04) Uma opção de espera que não TX_NO_WAIT foi especificada numa chamada de um não-fio.
+- **TX_WAIT_ERROR** (0x04) Foi especificada uma opção de espera diferente da TX_NO_WAIT numa chamada de um não-fio.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -2524,10 +2582,10 @@ Este serviço obtém informações sobre a fila de mensagens especificadas.
 - **queue_ptr** Ponteiro para uma fila de mensagens previamente criada.
 - **nome** Ponteiro para o destino para o ponteiro para o nome da fila.
 - **enqueso** Ponteiro para o destino para o número de mensagens atualmente na fila.
-- **available_storage** Ponteiro para destino para o número de mensagens para as recados atualmente tem espaço para.
+- **available_storage** Ponteiro para destino para o número de mensagens para as recados atualmente a fila tem espaço para.
 - **first_suspended** Ponteiro para destino para o ponteiro para o fio que é o primeiro na lista de suspensão desta fila.
 - **suspended_count** Ponteiro para o destino para o número de fios atualmente suspensos nesta fila.
-- **next_queue** Ponteiro para o destino para o ponteiro da próxima fila criada.
+- **next_queue** Ponteiro para destino para o ponteiro da próxima fila criada.
 
 > [!NOTE]
 > *O fornecimento de um TX_NULL para qualquer parâmetro indica que o parâmetro não é necessário.*
@@ -2535,7 +2593,7 @@ Este serviço obtém informações sobre a fila de mensagens especificadas.
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Informações de fila bem sucedidas obtêm.
-- **TX_QUEUE_ERROR** (0x09) Ponteiro de fila de mensagens inválidas.
+- **TX_QUEUE_ERROR** (0x09) Ponteiro da fila de mensagens inválidas.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -2620,13 +2678,17 @@ Este serviço recupera informações de desempenho sobre a fila especificada.
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **TX_SUCCESS** (0x00) Desempenho de fila bem sucedido obtém.
+- **TX_SUCCESS** (0x00) Desempenho de fila bem sucedido.
 - **TX_PTR_ERROR** (0x03) Ponteiro de fila inválido.
 - **TX_FEATURE_NOT_ENABLED** (0xFF) O sistema não foi compilado com informações de desempenho ativadas.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -2680,7 +2742,7 @@ UINT tx_queue_performance_system_info_get(
 
 ### <a name="description"></a>Description
 
-Este serviço obtém informações de desempenho sobre todas as filas do sistema.
+Este serviço recupera informações de desempenho sobre todas as filas do sistema.
 
 > [!IMPORTANT]
 > *A biblioteca e aplicação ThreadX devem ser construídas com*  * **TX_QUEUE_ENABLE_PERFORMANCE_INFO** _ _defined para este serviço devolver informações de desempenho.*
@@ -2689,15 +2751,15 @@ Este serviço obtém informações de desempenho sobre todas as filas do sistema
 
 - **messages_sent** Ponteiro para destino para o número total de pedidos de envio realizados em todas as filas.
 - **messages_received** Ponteiro para destino para o número total de pedidos de receção realizados em todas as filas.
-- **empty_suspensions** Ponteiro para o destino para o número total de suspensões vazias de fila em todas as filas.
+- **empty_suspensions** Ponteiro para o destino para o número total de suspensões vazias em todas as filas.
 - **full_suspensions** Ponteiro para o destino para o número total de suspensões completas da fila em todas as filas.
-- **full_errors** Ponteiro para o destino para o número total de erros completos da fila em todas as filas.
+- **full_errors** Ponteiro para destino para o número total de erros completos da fila em todas as filas.
 - **intervalos** Ponteiro para o destino para o número total de intervalos de suspensão de fio em todas as filas.
 
 > [!NOTE]
 > *O fornecimento de um TX_NULL para qualquer parâmetro indica que o parâmetro não é necessário.*
 
-**Valores de devolução**
+### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Desempenho do sistema de fila bem sucedido obtém.
 - **TX_FEATURE_NOT_ENABLED** (0xFF) O sistema não foi compilado com informações de desempenho ativadas.
@@ -2705,6 +2767,10 @@ Este serviço obtém informações de desempenho sobre todas as filas do sistema
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -2762,7 +2828,7 @@ Todos os outros fios permanecem na mesma ordem FIFO em que foram suspensos.
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Prioridades de fila bem sucedida.
-- **TX_QUEUE_ERROR** (0x09) Ponteiro de fila de mensagens inválidas.
+- **TX_QUEUE_ERROR** (0x09) Ponteiro da fila de mensagens inválidas.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -2819,7 +2885,7 @@ UINT tx_queue_receive(
 Este serviço recupera uma mensagem da fila de mensagens especificada. A mensagem recuperada é **copiada** da fila para a área de memória especificada pelo ponteiro de destino. Essa mensagem é então removida da fila.
 
 > [!IMPORTANT]
-> *A área de memória de destino especificada deve ser suficientemente grande para conter a mensagem; ou seja, o destino da mensagem apontado por*  * **destination_ptr** _ _must ser pelo menos tão grande quanto o tamanho da mensagem para esta fila. Caso contrário, se o destino não for suficientemente grande, a corrupção da memória ocorre na seguinte área de memória.*
+> *A área de memória de destino especificada deve ser suficientemente grande para conter a mensagem; ou seja, o destino da mensagem apontado por*  * **destination_ptr** _ _must ser pelo menos tão grande quanto o tamanho da mensagem para esta fila. Caso contrário, se o destino não for suficientemente grande, a corrupção na memória ocorre na seguinte área de memória.*
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -2827,16 +2893,16 @@ Este serviço recupera uma mensagem da fila de mensagens especificada. A mensage
 - **destination_ptr** <br>Localização de onde copiar a mensagem.
 - **wait_option** <br>Define como o serviço se comporta se a fila da mensagem estiver vazia. As opções de espera são definidas da seguinte forma:
   - **TX_NO_WAIT** (0x00000000) - A seleção TX_NO_WAIT resulta num retorno imediato deste serviço, independentemente de ter sido ou não bem sucedido. Esta é a única opção válida se o serviço for chamado de uma não linha; por exemplo, Inicialização, temporizador ou ISR.
-  - **TX_WAIT_FOREVER** (0xFFFFFFFF) - A seleção de TX_WAIT_FOREVER faz com que o fio de chamada suspenda indefinidamente até que uma mensagem esteja disponível.
-  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - Selecionar um valor numérico (1-0xFFFFFFFE) especifica o número máximo de tempotaques para permanecer suspenso enquanto espera por uma mensagem.
+  - **TX_WAIT_FOREVER** (0xFFFFFFFF) - A seleção TX_WAIT_FOREVER faz com que o fio de chamada suspenda indefinidamente até que uma mensagem esteja disponível.
+  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - A seleção de um valor numérico (1-0xFFFFFFFE) especifica o número máximo de tempotaques para permanecer suspenso enquanto se aguarda uma mensagem.
 
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Recuperação bem sucedida da mensagem.
-- **TX_DELETED** (0x01) A fila da mensagem foi apagada enquanto o fio foi suspenso.
-- **TX_QUEUE_EMPTY** (0x0A) O Serviço não conseguiu recuperar uma mensagem porque a fila estava vazia durante o tempo especificado para esperar.
+- **TX_DELETED** (0x01) A fila da mensagem foi eliminada enquanto o fio foi suspenso.
+- **TX_QUEUE_EMPTY** serviço (0x0A) não conseguiu recuperar uma mensagem porque a fila estava vazia durante o tempo especificado para esperar.
 - **TX_WAIT_ABORTED** (0x1A) A suspensão foi abortada por outro fio, temporizador ou ISR.
-- **TX_QUEUE_ERROR** (0x09) Ponteiro de fila de mensagens inválidas.
+- **TX_QUEUE_ERROR** (0x09) Ponteiro da fila de mensagens inválidas.
 - **TX_PTR_ERROR** (0x03) Ponteiro de destino inválido para mensagem.
 - **TX_WAIT_ERROR** (0x04) Uma opção de espera que não TX_NO_WAIT foi especificada numa chamada de uma não-leitura.
 
@@ -2900,17 +2966,17 @@ Este serviço envia uma mensagem para a fila de mensagens especificada. A mensag
 - **queue_ptr** <br>Ponteiro para uma fila de mensagens previamente criada.
 - **source_ptr** <br>Ponteiro para a mensagem.
 - **wait_option** <br>Define como o serviço se comporta se a fila da mensagem estiver cheia. As opções de espera são definidas da seguinte forma:
-  - **TX_NO_WAIT** (0x00000000) - A seleção TX_NO_WAIT resulta num retorno imediato deste serviço, independentemente de ter sido ou não bem sucedido. *Esta é a única opção válida se o serviço for chamado de uma não linha; por exemplo, Inicialização, temporizador ou ISR.*
+  - **TX_NO_WAIT** (0x00000000) - A seleção TX_NO_WAIT resulta num retorno imediato deste serviço, independentemente de ter sido ou não bem sucedido. *Esta é a única opção válida se o serviço for chamado de um não-thread; por exemplo, Inicialização, temporizador ou ISR*.
   - **TX_WAIT_FOREVER** (0xFFFFFFFF) - A seleção TX_WAIT_FOREVER faz com que o fio de chamada suspenda indefinidamente até que haja espaço na fila.
-  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - Selecionar um valor numérico (1-0xFFFFFFFE) especifica o número máximo de tempotaques para permanecer suspenso enquanto espera por espaço na fila.
+  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - A seleção de um valor numérico (1-0xFFFFFFFE) especifica o número máximo de tempotaques para permanecer suspenso enquanto espera por espaço na fila.
 
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Envio bem sucedido de mensagem.
-- **TX_DELETED** (0x01) A fila da mensagem foi apagada enquanto o fio foi suspenso.
+- **TX_DELETED** (0x01) A fila da mensagem foi eliminada enquanto o fio foi suspenso.
 - **TX_QUEUE_FULL** (0x0B) O Serviço não pôde enviar mensagem porque a fila estava cheia durante o tempo especificado para esperar.
 - **TX_WAIT_ABORTED** (0x1A) A suspensão foi abortada por outro fio, temporizador ou ISR.
-- **TX_QUEUE_ERROR** (0x09) Ponteiro de fila de mensagens inválidas.
+- **TX_QUEUE_ERROR** (0x09) Ponteiro da fila de mensagens inválidas.
 - **TX_PTR_ERROR** (0x03) Ponteiro de origem inválido para mensagem.
 - **TX_WAIT_ERROR** (0x04) Uma opção de espera que não TX_NO_WAIT foi especificada numa chamada de uma não-leitura.
 
@@ -2938,7 +3004,7 @@ status = tx_queue_send(&my_queue, my_message, TX_NO_WAIT);
 queue. */
 ```
 
-**Ver Também**
+### <a name="see-also"></a>Consulte também
 
 - tx_queue_create
 - tx_queue_delete
@@ -2973,7 +3039,7 @@ Este serviço regista uma função de chamada de notificação que é chamada se
 ### <a name="parameters"></a>Parâmetros
 
 - **queue_ptr** Ponteiro para a fila previamente criada.
-- **queue_send_notify** Ponteiro para a função de notificação de envio de fila da aplicação. Se este valor for TX_NULL, a notificação é desativada.
+- **queue_send_notify** Ponteiro para a função de notificação de pedido de candidatura. Se este valor for TX_NULL, a notificação é desativada.
 
 ### <a name="return-values"></a>Valores de devolução
 
@@ -2984,6 +3050,10 @@ Este serviço regista uma função de chamada de notificação que é chamada se
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -3028,7 +3098,7 @@ UINT tx_semaphore_ceiling_put(
 
 ### <a name="description"></a>Description
 
-Este serviço coloca uma instância no semáforo de contagem especificado, que na realidade incrementa o semáforo de contagem por um. Se o valor atual do semáforo de contagem for superior ou igual ao teto especificado, o caso não será colocado e será devolvido um erro de TX_CEILING_EXCEEDED.
+Este serviço coloca uma instância no semáforo de contagem especificado, que na realidade incrementa o semáforo de contagem por um. Se o valor atual do semáforo de contagem for superior ou igual ao limite máximo especificado, o caso não será colocado e será devolvido um erro TX_CEILING_EXCEEDED.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -3045,6 +3115,10 @@ Este serviço coloca uma instância no semáforo de contagem especificado, que n
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+Yes
 
 ### <a name="example"></a>Exemplo
 
@@ -3148,10 +3222,10 @@ UINT tx_semaphore_delete(TX_SEMAPHORE *semaphore_ptr);
 
 ### <a name="description"></a>Description
 
-Este serviço elimina o semáforo de contagem especificado. Todos os fios suspensos à espera de uma instância de semáforo são retomados e dado um estado de retorno TX_DELETED.
+Este serviço elimina o semáforo de contagem especificado. Todos os fios suspensos à espera de uma instância de semáforo são retomados e dado um TX_DELETED estatuto de devolução.
 
 > [!IMPORTANT]
-> *O pedido deve assegurar-se de que uma chamada de notificação colocada para este semáforo seja concluída (ou desativada) antes de eliminar o semáforo. Além disso, o pedido deve impedir qualquer utilização futura de um semáforo eliminado.*
+> *O pedido deve assegurar-se de que uma chamada de notificação colocada para este semáforo seja concluída (ou desativada) antes de eliminar o semáforo. Além disso, o pedido deve impedir a utilização futura de um semáforo eliminado.*
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -3159,7 +3233,7 @@ Este serviço elimina o semáforo de contagem especificado. Todos os fios suspen
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **TX_SUCCESS** (0x00) Eliminação de semaphores de contagem bem sucedida.
+- **TX_SUCCESS** (0x00) Eliminação de semaphore de contagem bem sucedida.
 - **TX_SEMAPHORE_ERROR** (0x0C) Ponteiro semaphore de contagem inválida.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
 
@@ -3185,7 +3259,7 @@ status = tx_semaphore_delete(&my_semaphore);
 deleted. */
 ```
 
-**Ver Também**
+### <a name="see-also"></a>Consulte também
 
 - tx_semaphore_ceiling_put
 - tx_semaphore_create
@@ -3211,15 +3285,15 @@ UINT tx_semaphore_get(
 
 ### <a name="description"></a>Description
 
-Este serviço recupera uma instância (uma contagem única) do semáforo de contagem especificado. Como resultado, a contagem de semáforos especificados é diminuída por um.
+Este serviço recupera uma instância (uma única contagem) do semáforo de contagem especificado. Como resultado, a contagem de semáforos especificados é diminuída por um.
 
 ### <a name="parameters"></a>Parâmetros
 
 - **semaphore_ptr** <br>Ponteiro para um semáforo de contagem previamente criado.
 - **wait_option** <br>Define como o serviço se comporta se não houver casos do semáforo disponível; ou seja, a contagem de semáforos é zero. As opções de espera são definidas da seguinte forma:
   - **TX_NO_WAIT** (0x00000000) - A seleção TX_NO_WAIT resulta num retorno imediato deste serviço, independentemente de ter sido ou não bem sucedido. *Esta é a única opção válida se o serviço for chamado de uma não linha; por exemplo, inicialização, temporizador ou ISR.*
-  - **TX_WAIT_FOREVER** (0xFFFFFFFF) - A seleção de TX_WAIT_FOREVER faz com que o fio de chamada suspenda indefinidamente até que esteja disponível um caso de semáforo.
-  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - Selecionar um valor numérico (1-0xFFFFFFFE) especifica o número máximo de temporizadores para permanecer suspenso enquanto se aguarda por uma instância de semáforo.
+  - **TX_WAIT_FOREVER** (0xFFFFFFFF) - A seleção TX_WAIT_FOREVER faz com que o fio de chamada suspenda indefinidamente até que esteja disponível uma instância de semáforo.
+  - Valor de tempo limite (0x00000001 através de 0xFFFFFFFE) - A seleção de um valor numérico (1-0xFFFFFFFE) especifica o número máximo de tempotaques para permanecer suspenso enquanto se aguarda por uma instância de semáforo.
 
 ### <a name="return-values"></a>Valores de devolução
 
@@ -3228,7 +3302,7 @@ Este serviço recupera uma instância (uma contagem única) do semáforo de cont
 - **TX_NO_INSTANCE** (0x0D) O serviço não conseguiu recuperar um caso do semáforo de contagem (a contagem de semáforos é zero dentro do tempo especificado para esperar).
 - **TX_WAIT_ABORTED** (0x1A) A suspensão foi abortada por outro fio, temporizador ou ISR.
 - **TX_SEMAPHORE_ERROR** (0x0C) Ponteiro semaphore de contagem inválida.
-- **TX_WAIT_ERROR** (0x04) Uma opção de espera que não TX_NO_WAIT foi especificada numa chamada de um não-fio.
+- **TX_WAIT_ERROR** (0x04) Foi especificada uma opção de espera diferente da TX_NO_WAIT numa chamada de um não-fio.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -3283,14 +3357,14 @@ UINT tx_semaphore_info_get(
 
 ### <a name="description"></a>Description
 
-Este serviço obtém informações sobre o semáforo especificado.
+Este serviço recupera informações sobre o semáforo especificado.
 
 ### <a name="parameters"></a>Parâmetros
 
 - **semaphore_ptr** Ponteiro para o bloco de controlo de semáforos.
 - **nome** Ponteiro para o destino para o ponteiro para o nome do semáforo.
 - **current_value** Ponteiro para o destino para a contagem atual do semáforo.
-- **first_suspended** Ponteiro para o destino para o ponteiro para o fio que é o primeiro na lista de suspensão deste semáforo.
+- **first_suspended** Ponteiro para destino para o ponteiro para o fio que é o primeiro na lista de suspensão deste semáforo.
 - **suspended_count** Ponteiro para o destino para o número de fios atualmente suspensos neste semáforo.
 - **next_semaphore** Ponteiro para o destino para o ponteiro do próximo semáforo criado.
 
@@ -3299,7 +3373,7 @@ Este serviço obtém informações sobre o semáforo especificado.
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **TX_SUCCESS** (0x00) recuperação de informações.
+- **TX_SUCCESS** (0x00) recuperação de informação.
 
 - **TX_SEMAPHORE_ERROR** (0x0C) Ponteiro semáforo inválido.
 
@@ -3367,7 +3441,7 @@ Este serviço recupera informações de desempenho sobre o semáforo especificad
 > [!IMPORTANT]
 > *A biblioteca e aplicação ThreadX devem ser construídas com*  * **TX_SEMAPHORE_ENABLE_PERFORMANCE_INFO** _ _defined para este serviço devolver informações de desempenho.*
 
-**Parâmetros**
+### <a name="parameters"></a>Parâmetros
 
 -  **semaphore_ptr** Ponteiro para semáforo criado anteriormente.
 -  **coloca** Ponteiro para destino para o número de pedidos de colocação realizados neste semáforo.
@@ -3387,6 +3461,10 @@ Este serviço recupera informações de desempenho sobre o semáforo especificad
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -3420,7 +3498,7 @@ successfully retrieved. */
 
 ## <a name="tx_semaphore_performance_system_info_get"></a>tx_semaphore_performance_system_info_get
 
-Obtenha informações sobre desempenho do sistema de semáforos
+Obtenha informações de desempenho do sistema semáforo
 
 ### <a name="prototype"></a>Prototype
 
@@ -3434,7 +3512,7 @@ UINT tx_semaphore_performance_system_info_get(
 
 ### <a name="description"></a>Description
 
-Este serviço obtém informações de desempenho sobre todos os semáforos do sistema.
+Este serviço recupera informações de desempenho sobre todos os semáforos do sistema.
 
 > [!IMPORTANT]
 > *A biblioteca e aplicação ThreadX devem ser construídas com*  * **TX_SEMAPHORE_ENABLE_PERFORMANCE_INFO** _ _defined para este serviço devolver informações sobre o desempenho*
@@ -3443,7 +3521,7 @@ Este serviço obtém informações de desempenho sobre todos os semáforos do si
 
 - **coloca** Ponteiro para destino para o número total de pedidos de colocação realizados em todos os semáforos.
 - **recebe** Ponteiro para destino para o número total de pedidos de obter realizados em todos os semáforos.
-- **suspensões** Ponteiro para o destino para o número total de suspensões de fio em todos os semáforos.
+- **suspensões** Ponteiro para o destino para o número total de suspensões de fios em todos os semáforos.
 - **intervalos** Ponteiro para o destino para o número total de intervalos de suspensão de fio em todos os semáforos.
 
 > [!NOTE]
@@ -3457,6 +3535,10 @@ Este serviço obtém informações de desempenho sobre todos os semáforos do si
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -3604,7 +3686,7 @@ it was given the semaphore instance and resumed. */
 
 ## <a name="tx_semaphore_put_notify"></a>tx_semaphore_put_notify
 
-Notificar o pedido quando o semáforo for colocado
+Notifique o pedido quando o semáforo for colocado
 
 ### <a name="prototype"></a>Prototype
 
@@ -3624,7 +3706,7 @@ Este serviço regista uma função de chamada de notificação que é chamada se
 ### <a name="parameters"></a>Parâmetros
 
 - **semaphore_ptr** Ponteiro para semáforo criado anteriormente.
-- **semaphore_put_notify** Ponteiro para o semáforo da aplicação colocar função de notificação. Se este valor for TX_NULL, a notificação é desativada.
+- **semaphore_put_notify** Ponteiro para a função de notificação de semáforo da aplicação. Se este valor for TX_NULL, a notificação é desativada.
 
 ### <a name="return-values"></a>Valores de devolução
 
@@ -3635,6 +3717,10 @@ Este serviço regista uma função de chamada de notificação que é chamada se
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -3689,22 +3775,22 @@ UINT tx_thread_create(
 
 Este serviço cria um fio de aplicação que inicia a execução na função de entrada de tarefa especificada. A pilha, prioridade, limiar de pré-escamação e corte de tempo estão entre os atributos especificados pelos parâmetros de entrada. Além disso, o estado de execução inicial do fio também é especificado.
 
-**Parâmetros**
+### <a name="parameters"></a>Parâmetros
 
 - **thread_ptr** Ponteiro para um bloco de controlo de rosca.
 - **name_ptr** Ponteiro para o nome do fio.
-- **entry_function** Especifica a função C inicial para a execução do fio. Quando um fio regressa desta função de entrada, é colocado num estado *completo* e suspenso indefinidamente.
+- **entry_function** Especifica a função C inicial para a execução do fio. Quando um fio regressa desta função de entrada, é colocado num estado *preenchido* e suspenso indefinidamente.
 - **entry_input** Um valor de 32 bits que é passado para a função de entrada do fio quando executa pela primeira vez. A utilização para esta entrada é determinada exclusivamente pela aplicação.
 - **stack_start** Endereço inicial da área de memória da pilha.
-- **stack_size** Bytes de números na área de memória da pilha. A área da pilha do fio deve ser grande o suficiente para lidar com a sua pior função de nidificação de chamadas e uso variável local.
-- **prioridade** Prioridade numérica do fio. Os valores legais variam entre 0 e TX_MAX_PRIORITES-1, onde o valor de 0 representa a maior prioridade.
-- **preempt_threshold** Nível de prioridade mais elevado (0 a TX_MAX_PRIORITIES-1)) de pré-incapacidade. Apenas prioridades superiores a este nível são permitidas para antecipar este fio. Este valor deve ser inferior ou igual à prioridade especificada. Um valor igual à prioridade do fio desativa o limiar de pré-substituição.
-- **time_slice** O número de carraças-temporizador deste fio é permitido funcionar antes que outros fios prontos da mesma prioridade sejam autorizados a correr. Note que a utilização do limiar de pré-substituição desativa o corte de tempo. Os valores legais de corte de tempo variam de 1 a 0xFFFFFFFF (inclusive). Um valor de **TX_NO_TIME_SLICE** (um valor de 0) desativa o corte de tempo deste fio.
+- **stack_size** Bytes de números na área de memória da pilha. A área da pilha do fio deve ser grande o suficiente para lidar com a sua pior função de nidificação de chamada e uso variável local.
+- **prioridade** Prioridade numérica do fio. Os valores jurídicos variam entre 0 e TX_MAX_PRIORITES-1, onde o valor de 0 representa a maior prioridade.
+- **preempt_threshold** Nível de prioridade mais elevado (0 a TX_MAX_PRIORITIES-1)) de pré-incapacidade para deficientes. Apenas prioridades superiores a este nível são permitidas para antecipar este fio. Este valor deve ser inferior ou igual à prioridade especificada. Um valor igual à prioridade do fio desativa o limiar de pré-substituição.
+- **time_slice** O número de tempotades que este fio é permitido funcionar antes que outros fios prontos da mesma prioridade sejam autorizados a correr. Note que a utilização do limiar de pré-substituição desativa o corte de tempo. Os valores legais de corte de tempo variam de 1 a 0xFFFFFFFF (inclusive). Um valor de **TX_NO_TIME_SLICE** (um valor de 0) desativa o corte de tempo deste fio.
 
   > [!NOTE]
   > *A utilização de corte de tempo resulta numa ligeira quantidade de sobrecarga do sistema.   Uma vez que o corte de tempo só é útil nos casos em que múltiplos fios partilham a mesma prioridade, os fios que têm uma prioridade única não devem ser atribuídos a uma fatia de tempo.*
 
-- **auto_start** Especifica se o fio começa imediatamente ou se é colocado num estado suspenso. As opções legais são **TX_AUTO_START** (0x01) e **TX_DONT_START** (0x00). Se TX_DONT_START for especificado, o pedido deve ligar mais tarde tx_thread_resume para que o fio seja executado.
+- **auto_start** Especifica se o fio começa imediatamente ou se é colocado num estado suspenso. As opções legais são **TX_AUTO_START** (0x01) e **TX_DONT_START** (0x00). Se TX_DONT_START for especificado, o pedido deve ligar mais tarde para tx_thread_resume para que o fio seja executado.
 
 ### <a name="return-values"></a>Valores de devolução
 
@@ -3713,7 +3799,7 @@ Este serviço cria um fio de aplicação que inicia a execução na função de 
 - **TX_PTR_ERROR** (0x03) Endereço inicial inválido do ponto de entrada ou da área da pilha é inválido, normalmente NULO.
 - **TX_SIZE_ERROR** (0x05) O tamanho da área da pilha é inválido. Os fios devem ter pelo menos **TX_MINIMUM_STACK** bytes para executar.
 - **TX_PRIORITY_ERROR** (0x0F) Prioridade do fio inválido, que é um valor fora do intervalo de (0 a TX_MAX_PRIORITIES-1)).
-- **TX_THRESH_ERROR** (0x18) Retenção de preempção inválida especificada. Este valor deve ser uma prioridade válida inferior ou igual à prioridade inicial do fio.
+- **TX_THRESH_ERROR** (0x18) Preemptions inválidos especificados. Este valor deve ser uma prioridade válida inferior ou igual à prioridade inicial do fio.
 - **TX_START_ERROR** (0x10) Seleção de arranque automático inválida.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
 
@@ -3808,7 +3894,7 @@ Este serviço elimina o fio de aplicação especificado. Uma vez que o fio espec
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **TX_SUCCESS** (0x00) Eliminação de rosca bem sucedida.
+- **TX_SUCCESS** (0x00) Eliminação de roscas bem sucedida.
 - **TX_THREAD_ERROR** (0x0E) Ponteiro de linha de aplicação inválido.
 - **TX_DELETE_ERROR** (0x11) O fio especificado não se encontra num estado encerrado ou concluído.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
@@ -3870,7 +3956,7 @@ UINT tx_thread_entry_exit_notify(
 
 ### <a name="description"></a>Description
 
-Este serviço regista uma função de chamada de notificação que é chamada sempre que o fio especificado é introduzido ou sai. O processamento da chamada de notificação é definido pela aplicação.
+Este serviço regista uma função de chamada de chamada de notificação que é chamada sempre que o fio especificado é introduzido ou sai. O processamento da chamada de notificação é definido pela aplicação.
 
 > [!NOTE]
 > A chamada de notificação de entrada/saída da aplicação não está autorizada a ligar para qualquer API ThreadX com uma opção de suspensão.
@@ -3889,6 +3975,10 @@ Este serviço regista uma função de chamada de notificação que é chamada se
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -3946,13 +4036,13 @@ TX_THREAD* tx_thread_identify(VOID);
 Este serviço devolve um ponteiro ao fio atualmente executado. Se não houver fio, este serviço devolve um ponteiro nulo.
 
 > [!NOTE]
-> *Se este serviço for chamado de um ISR, o valor de retorno representa o fio em execução antes do manipulador de interrupção de execução.*
+> *Se este serviço for chamado de um ISR, o valor de devolução representa o fio em execução antes do manipulador de interrupção de execução.*
 
 ### <a name="parameters"></a>Parâmetros
 
 Nenhum
 
-### <a name="retuen-values"></a>Valores retuen
+### <a name="return-values"></a>Valores de devolução
 
 - **ponteiro de fio** Ponteiro para o fio de execução atual. Se não houver fio, o valor de retorno é **TX_NULL**.
 
@@ -3965,9 +4055,6 @@ Fios e ISRs
 No
 
 ### <a name="example"></a>Exemplo
-
-TX_THREAD *my_thread_ptr;
-
 ```c
 TX_THREAD *my_thread_ptr;
 
@@ -4041,12 +4128,11 @@ Este serviço recupera informações sobre o fio especificado.
     - **TX_MUTEX_SUSP** (0x0D)  
 
 - **run_count** Ponteiro para destino para a contagem de corridas do fio.
-- **prioridade** Ponteiro para o destino para a prioridade do fio.
+- **prioridade** Ponteiro para destino para a prioridade do fio.
 - **preemption_threshold** Ponteiro para destino para o limiar de pré-deempação do fio.
-**time_slice** Ponteiro para o destino para a fatia de tempo do fio.
-**next_thread** Ponteiro para destino para o próximo ponteiro de linha criado.
-
-**suspended_thread** Ponteiro para destino para ponteiro para o próximo fio na lista de suspensão.
+- **time_slice** Ponteiro para destino para a fatia de tempo do fio.
+- **next_thread** Ponteiro para destino para o próximo ponteiro de linha criado.
+- **suspended_thread** Ponteiro para destino para ponteiro para o próximo fio na lista de suspensão.
 
 > [!NOTE]
 > *O fornecimento de um TX_NULL para qualquer parâmetro indica que o parâmetro não é necessário.*
@@ -4140,13 +4226,13 @@ Este serviço recupera informações de desempenho sobre o fio especificado.
 
 ### <a name="parameters"></a>Parâmetros
 - **thread_ptr** Ponteiro para fio previamente criado.
-- **retomas** Ponteiro para o destino para o número de recomeços deste fio.
+- **retomas** Ponteiro para o destino para o número de resturações deste fio.
 - **suspensões** Ponteiro para o destino para o número de suspensões deste fio.
-- **solicited_preemptions** Ponteiro para o destino para o número de preventivas como resultado de uma chamada de serviço API threadX feita por este fio.
+- **solicited_preemptions** Ponteiro para destino para o número de pré-medidas como resultado de uma chamada de serviço API threadX feita por este fio.
 - **interrupt_preemptions** Ponteiro para o destino para o número de preemposições deste fio como resultado do processamento de interrupção.
-- **priority_inversions** Ponteiro para o destino para o número de inversões prioritárias deste fio.
+- **priority_inversions** Ponteiro para destino para o número de inversões prioritárias deste fio.
 - **time_slices** Ponteiro para o destino para o número de fatias de tempo deste fio.
-- **renuncia** Ponteiro para destino para o número de renúncias de fio realizadas por este fio.
+- **renuncia** Ponteiro para destino para o número de renúncias de linha realizadas por este fio.
 - **intervalos** Ponteiro para o destino para o número de intervalos de suspensão neste fio.
 - **wait_aborts** Ponteiro para destino para o número de abortos de espera realizados neste fio.
 - **last_preempted_by** Ponteiro para o destino para o ponteiro de linha que por último preemptou este fio.
@@ -4156,13 +4242,17 @@ Este serviço recupera informações de desempenho sobre o fio especificado.
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **TX_SUCCESS** (0x00) Desempenho do fio bem sucedido obtém.
+- **TX_SUCCESS** (0x00) Desempenho de fio bem sucedido obtém.
 - **TX_PTR_ERROR** (0x03) Ponteiro de rosca inválido.
 - **TX_FEATURE_NOT_ENABLED** (0xFF) O sistema não foi compilado com informações de desempenho ativadas.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -4248,12 +4338,12 @@ Este serviço obtém informações de desempenho sobre todos os fios do sistema.
 - **suspensões** Ponteiro para destino para o número total de suspensões de fios.
 - **solicited_preemptions** Ponteiro para destino para o número total de preempções de linha como resultado de um fio chamando um serviço API ThreadX.
 - **interrupt_preemptions** Ponteiro para o destino para o número total de preemposições de rosca como resultado do processamento de interrupção.
-- **priority_inversions** Ponteiro para o destino para o número total de inversões prioritárias de linha.
+- **priority_inversions** Ponteiro para destino para o número total de inversões prioritárias de linha.
 - **time_slices** Ponteiro para o destino para o número total de fatias de tempo de fio.
 - **renuncia** Ponteiro para destino para o número total de renúncias de fio.
 - **intervalos** Ponteiro para o destino para o número total de intervalos de suspensão de fio.
 - **wait_aborts** Ponteiro para destino para o número total de thread wait aborta.
-- **non_idle_returns** Ponteiro para o destino para o número de vezes que um fio retorna ao sistema quando outro fio está pronto para ser executado.
+- **non_idle_returns** Ponteiro para destino para o número de vezes que um fio retorna ao sistema quando outro fio está pronto para ser executado.
 - **idle_returns** Ponteiro para destino para o número de vezes que um fio retorna ao sistema quando nenhum outro fio está pronto para ser executado (sistema inativo).
 
 > [!NOTE]
@@ -4267,6 +4357,10 @@ Este serviço obtém informações de desempenho sobre todos os fios do sistema.
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
@@ -4344,7 +4438,7 @@ Este serviço altera o limiar de pré-substituição do fio especificado. O limi
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **TX_SUCCESS** (0x00) Alteração do limiar de pré-edição bem-sucedido.
+- **TX_SUCCESS** (0x00) Alteração bem sucedida do limiar de pré-edição.
 - **TX_THREAD_ERROR** (0x0E) Ponteiro de linha de aplicação inválido.
 - **TX_THRESH_ERROR** (0x18) O novo limiar de pré-substituição especificado não é uma prioridade de linha válida (um valor diferente (0 a **TX_MAX_PRIORITIES**-1)) ou é maior do que (prioridade inferior) do que a prioridade atual do fio.
 - **TX_PTR_ERROR** (0x03) Ponteiro inválido para o local de armazenamento de retenção preventiva anterior.
@@ -4422,7 +4516,7 @@ Este serviço altera a prioridade do fio especificado. As prioridades válidas v
 
 - **thread_ptr** Ponteiro para um fio de aplicação previamente criado.
 - **new_priority** Novo nível de prioridade do fio (0 a TX_MAX_PRIORITIES-1)).
-- **old_priority** Ponteiro para um local para devolver a prioridade anterior da linha.
+- **old_priority** Ponter para um local para devolver a prioridade anterior do fio.
 
 ### <a name="return-values"></a>Valores de devolução
 
@@ -4509,7 +4603,7 @@ Fios
 
 Yes
 
-### <a name="examples"></a>Exemplos
+### <a name="example"></a>Exemplo
 
 ```c
 ULONG run_counter_1 = 0;
@@ -4601,10 +4695,11 @@ Este serviço reinicia o fio especificado para executar no ponto de entrada defi
 
 Fios
 
+### <a name="preemption-possible"></a>Preempção Possível
+
+Yes
+
 ### <a name="example"></a>Exemplo
-
-TX_THREAD my_thread;
-
 ```c
 TX_THREAD my_thread;
 
@@ -4647,7 +4742,7 @@ UINT tx_thread_resume(TX_THREAD *thread_ptr);
 
 ### <a name="description"></a>Description
 
-Este serviço retoma ou prepara para a execução um fio que foi previamente suspenso por uma ***chamada tx_thread_suspend.*** Além disso, este serviço retoma os fios que foram criados sem um arranque automático.
+Este serviço retoma ou prepara-se para a execução de um fio que foi previamente suspenso por uma ***chamada tx_thread_suspend.*** Além disso, este serviço retoma os fios que foram criados sem um arranque automático.
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -4797,6 +4892,10 @@ Este serviço regista uma função de chamada de notificação para lidar com er
 
 Inicialização, fios, temporizadores e ISRs
 
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
+
 ### <a name="example"></a>Exemplo
 
 ```c
@@ -4854,7 +4953,7 @@ Depois de suspensa, o fio deve ser retomado por ***tx_thread_resume*** para ser 
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **TX_SUCCESS** (0x00) Suspender o fio de sucesso.
+- **TX_SUCCESS** (0x00) Suspensão de fio bem sucedido.
 - **TX_THREAD_ERROR** (0x0E) Ponteiro de linha de aplicação inválido.
 - **TX_SUSPEND_ERROR** (0x14) O fio especificado encontra-se num estado encerrado ou concluído.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
@@ -4914,7 +5013,7 @@ UINT tx_thread_terminate(TX_THREAD *thread_ptr);
 Este serviço termina o fio de aplicação especificado, independentemente de o fio estar suspenso ou não. Um fio pode chamar este serviço para terminar sozinho.
 
 > [!NOTE]
-> *É da responsabilidade da aplicação assegurar que o fio está num estado adequado para a rescisão. Por exemplo, um fio não deve ser terminado durante o processamento crítico da aplicação ou no interior de outros componentes do middleware onde possa deixar esse processamento num estado desconhecido.*
+> *É da responsabilidade da aplicação assegurar que o fio está num estado adequado para a rescisão. Por exemplo, um fio não deve ser terminado durante o processamento crítico da aplicação ou dentro de outros componentes do middleware onde possa deixar esse processamento num estado desconhecido.*
 
 > [!IMPORTANT]
 > *Depois de ter sido encerrado, o fio deve ser reiniciado para que volte a ser executado.*
@@ -4983,7 +5082,7 @@ UINT tx_thread_time_slice_change(
 
 ### <a name="description"></a>Description
 
-Este serviço altera a fatia de tempo do fio de aplicação especificado. Selecionar uma fatia de tempo para um fio assegura que não executará mais do que o número especificado de carraças de temporizador antes que outros fios das mesmas prioridades ou mais altas tenham a oportunidade de executar.
+Este serviço altera a rodela de tempo do fio de aplicação especificado. Selecionar uma fatia de tempo para um fio assegura que não executará mais do que o número especificado de carraças de temporizador antes que outros fios das mesmas prioridades ou mais altas tenham a oportunidade de executar.
 
 > [!NOTE]
 > *A utilização do limiar de pré-substituição desativa o corte de tempo para o fio especificado.*
@@ -4992,13 +5091,13 @@ Este serviço altera a fatia de tempo do fio de aplicação especificado. Seleci
 
 - **thread_ptr** Ponteiro para o fio de aplicação.
 - **new_time_slice** Novo valor de fatia de tempo. Os valores legais incluem valores TX_NO_TIME_SLICE e numéricos de 1 a 0xFFFFFFFF.
-- **old_time_slice** Ponteiro para o local para armazenar o valor dos ísamentos anteriores do fio especificado.
+- **old_time_slice** Ponteiro para a localização para armazenar o valor dos ponteiros do tempo anterior do fio especificado.
 
 ### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Oportunidade de corte de tempo bem sucedida.
 - **TX_THREAD_ERROR** (0x0E) Ponteiro de linha de aplicação inválido.
-- **TX_PTR_ERROR** (0x03) Ponteiro inválido para o local de armazenamento anterior da fatia de tempo.
+- **TX_PTR_ERROR** (0x03) Ponteiro inválido para o local de armazenamento da fatia de tempo anterior.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
 
 ### <a name="allowed-from"></a>Permitido a partir de
@@ -5136,13 +5235,13 @@ Este serviço devolve o conteúdo do relógio interno do sistema. Cada timertick
 > [!NOTE]
 > *O tempo real que cada temporizador representa é específico da aplicação.*
 
-**Parâmetros**
+### <a name="parameters"></a>Parâmetros
 
-Nenhuma
+Nenhum
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **relógio do sistema tiques** Valor do relógio interno, livre, do sistema.
+- **tiques relógio do sistema** Valor do funcionamento interno, livre, relógio do sistema.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
@@ -5235,7 +5334,7 @@ Este serviço ativa o temporizador de aplicação especificado. As rotinas de ex
 
 - **timer_ptr** Ponteiro para um temporizador de aplicação previamente criado.
 
-**Valores de devolução**
+### <a name="return-values"></a>Valores de devolução
 
 - **TX_SUCCESS** (0x00) Ativação do temporizador de aplicação bem sucedida.
 - **TX_TIMER_ERROR** (0x15) Ponteiro do temporizador de aplicação inválido.
@@ -5307,7 +5406,7 @@ Este serviço altera as características de expiração do temporizador de aplic
 
 - **TX_SUCCESS** (0x00) Alteração do temporizador de aplicação bem sucedido.
 - **TX_TIMER_ERROR** (0x15) Ponteiro do temporizador de aplicação inválido.
-- **TX_TICK_ERROR** (0x16) Valor inválido (um zero) fornecido para os tiques iniciais.
+- **TX_TICK_ERROR** (0x16) Valor inválido (a zero) fornecido para os tiques iniciais.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
 
 ### <a name="allowed-from"></a>Permitido a partir de
@@ -5383,9 +5482,9 @@ Este serviço cria um temporizador de aplicação com a função de expiração 
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **TX_SUCCESS** (0x00) Criação de temporizador de aplicação bem sucedido.
+- **TX_SUCCESS** (0x00) Criação de temporizador de aplicação bem sucedida.
 - **TX_TIMER_ERROR** (0x15) Ponteiro do temporizador de aplicação inválido. Ou o ponteiro é NULO ou o temporizador já está criado.
-- **TX_TICK_ERROR** (0x16) Valor inválido (um zero) fornecido para os tiques iniciais.
+- **TX_TICK_ERROR** (0x16) Valor inválido (a zero) fornecido para os tiques iniciais.
 - **TX_ACTIVATE_ERROR** (0x17) Ativação inválida selecionada.
 - **TX_CALLER_ERROR** (0x13) Inválido deste serviço.
 
@@ -5559,15 +5658,15 @@ UINT tx_timer_info_get(
 
 ### <a name="description"></a>Description
 
-Este serviço obtém informações sobre o temporizador de aplicação especificado.
+Este serviço recupera informações sobre o temporizador de aplicação especificado.
 
 ### <a name="parameters"></a>Parâmetros
 
 - **timer_ptr** Ponteiro para um temporizador de aplicação previamente criado.
 - **nome** Ponteiro para o destino para o ponteiro para o nome do temporizador.
-- **ativo** Ponteiro para o destino para a indicação ativa do temporizador. Se o temporizador estiver inativo ou este serviço for chamado do temporizador em si, é devolvido um **valor TX_FALSE.** Caso contrário, se o temporizador estiver ativo, é devolvido um valor **TX_TRUE.**
-- **remaining_ticks** Ponteiro para o destino para o número de carraças de temporizador que sobrou antes do temporizador expirar.
-- **reschedule_ticks** Ponteiro para o destino para o número de carraças tempor que serão usadas para reagendar automaticamente este temporizador. Se o valor for zero, então o temporizador é um tiro e não será reagendado.
+- **ativo** Ponteiro para o destino para a indicação ativa do temporizador. Se o temporizador estiver inativo ou este serviço for chamado do temporizador em si, é devolvido um valor **TX_FALSE.** Caso contrário, se o temporizador estiver ativo, é devolvido um valor **TX_TRUE.**
+- **remaining_ticks** Ponteiro para o destino para o número de carraças do temporizador que sobrou antes do temporizador expirar.
+- **reschedule_ticks** Ponteiro para o destino para o número de carraças tempor que serão usadas para reagendar automaticamente este temporizador. Se o valor for zero, o temporizador é um tiro e não será reagendado.
 - **next_timer** Ponteiro para o destino para o ponteiro do próximo temporizador de aplicação criado.
 
 > [!NOTE]
@@ -5662,6 +5761,10 @@ Este serviço recupera informações de desempenho sobre o temporizador de aplic
 
 Inicialização, fios, temporizadores e ISRs
 
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
+
 ### <a name="example"></a>Exemplo
 
 ```c
@@ -5714,7 +5817,7 @@ Este serviço obtém informações de desempenho sobre todos os temporizadores d
 > [!IMPORTANT]
 > *A biblioteca e aplicação ThreadX devem ser construídas com* **TX_TIMER_ENABLE_PERFORMANCE_INFO** *definidas para este serviço devolver informações de desempenho.*
 
-**Parâmetros**
+### <a name="parameters"></a>Parâmetros
 
 - **ativa** Ponteiro para destino para o número total de pedidos de ativação realizados em todos os temporizadores.
 - **reativa** Ponteiro para destino para o número total de reativação automática realizada em todos os temporizadores periódicos.
@@ -5727,12 +5830,16 @@ Este serviço obtém informações de desempenho sobre todos os temporizadores d
 
 ### <a name="return-values"></a>Valores de devolução
 
-- **TX_SUCCESS** (0x00) Desempenho do sistema temporizador de sucesso obtém.
+- **TX_SUCCESS** (0x00) Desempenho do sistema de temporizador de sucesso obtém.
 - **TX_FEATURE_NOT_ENABLED** (0xFF) O sistema não foi compilado com informações de desempenho ativadas.
 
 ### <a name="allowed-from"></a>Permitido a partir de
 
 Inicialização, fios, temporizadores e ISRs
+
+### <a name="preemption-possible"></a>Preempção Possível
+
+No
 
 ### <a name="example"></a>Exemplo
 
